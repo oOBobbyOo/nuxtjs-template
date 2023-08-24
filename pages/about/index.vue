@@ -3,11 +3,10 @@
 </script>
 
 <template>
-  <div>
-    <h1 text-2xl>About page</h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
+  <div class="w-full flex-center">
+    <h1 text-2xl>
+      About Page
+    </h1>
   </div>
 </template>
 

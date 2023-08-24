@@ -6,11 +6,19 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
     },
-    pageTransition: {
-      name: 'page',
-      mode: 'out-in',
-    }
+    pageTransition: { name: 'page', mode: 'out-in' },
+    layoutTransition: { name: 'layout', mode: 'out-in' },
   },
-  modules: ['@unocss/nuxt'],
-  css: ['@unocss/reset/tailwind.css'],
+  modules: ['@unocss/nuxt', '@nuxtjs/color-mode', 'nuxt-icon'],
+  experimental: {
+    reactivityTransform: true,
+    inlineSSRStyles: false,
+  },
+  css: [
+    '@unocss/reset/tailwind.css',
+    '@/assets/styles/global.scss',
+  ],
+  colorMode: {
+    classSuffix: '',
+  },
 })
