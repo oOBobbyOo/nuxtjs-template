@@ -9,16 +9,29 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
-  modules: ['@unocss/nuxt', '@nuxtjs/color-mode', 'nuxt-icon'],
+  modules: [
+    '@unocss/nuxt',
+    '@nuxtjs/color-mode',
+    'nuxt-icon',
+    '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
+  ],
   experimental: {
     reactivityTransform: true,
     inlineSSRStyles: false,
   },
-  css: [
-    '@unocss/reset/tailwind.css',
-    '@/assets/styles/global.scss',
-  ],
+  css: ['@unocss/reset/tailwind.css', '@/assets/styles/global.scss'],
   colorMode: {
     classSuffix: '',
+  },
+  imports: {
+    dirs: ['./stores', '~/stores'],
+  },
+  pinia: {
+    autoImports: [
+      'defineStore',
+      'storeToRefs',
+      ['defineStore', 'definePiniaStore'],
+    ],
   },
 })
