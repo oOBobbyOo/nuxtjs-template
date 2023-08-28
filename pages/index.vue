@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="w-full flex-center">
+  <div flex-center flex-1>
     <h1 text-2xl>
       Home Page
     </h1>

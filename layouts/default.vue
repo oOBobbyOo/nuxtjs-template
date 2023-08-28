@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen w-full flex flex-col bg-white text-gray-950 dark:bg-black dark:text-white">
+  <div class="min-h-screen w-full flex flex-col bg-white text-gray-700 dark:bg-black dark:text-white">
     <Header />
-    <div class="w-full flex flex-1 pt-[64px]">
+    <main flex flex-1 flex-col>
       <slot />
-    </div>
+    </main>
     <Footer />
   </div>
 </template>

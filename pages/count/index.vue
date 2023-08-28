@@ -6,7 +6,7 @@ const { increment, decrement, reset } = counterStore
 </script>
 
 <template>
-  <div w-full flex-center flex-col>
+  <div flex-center flex-1 flex-col>
     <div i-twemoji:waving-hand mb-3 inline-block animate-shake-x animate-duration-5000 text-4xl />
     <div m="y-3">
       Double: {{ doubleCount }}
