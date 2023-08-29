@@ -36,4 +36,12 @@ export default defineNuxtConfig({
       ['defineStore', 'definePiniaStore'],
     ],
   },
+  content: {
+    markdown: {
+      mdc: true,
+    },
+    highlight: {
+      theme: 'github-dark',
+    },
+  },
 })
