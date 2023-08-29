@@ -24,6 +24,7 @@
     "@nuxt/content": "^2.7.2",
     "@nuxt/devtools": "latest",
     "@nuxtjs/color-mode": "^3.3.0",
+    "@nuxtjs/i18n": "8.0.0-rc.3",
     "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
     "@types/node": "^18.17.3",
     "@unocss/eslint-config": "^0.55.2",

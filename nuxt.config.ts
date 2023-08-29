@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/content',
     '@vueuse/nuxt',
+    '@nuxtjs/i18n',
   ],
   experimental: {
     reactivityTransform: true,
@@ -43,5 +44,29 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark',
     },
+  },
+  i18n: {
+    langDir: 'i18n',
+    lazy: true,
+    defaultLocale: 'en',
+    // 检测浏览器语言
+    // detectBrowserLanguage: false,
+    experimental: {
+      jsTsFormatResource: true,
+    },
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.ts',
+        name: 'English',
+      },
+      {
+        code: 'zh',
+        iso: 'zh-CN',
+        file: 'zh-CN.ts',
+        name: 'Chinese',
+      },
+    ],
   },
 })

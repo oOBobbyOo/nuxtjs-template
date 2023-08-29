@@ -1,4 +1,5 @@
 <script setup lang="ts">
+useHead({ title: 'Count' })
 const router = useRouter()
 const counterStore = useCounterStore()
 const { count, doubleCount } = storeToRefs(counterStore)

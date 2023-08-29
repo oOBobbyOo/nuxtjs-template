@@ -1,0 +1,80 @@
+export default [
+  {
+    code: 'en',
+    iso: 'en-US',
+    file: 'en-US.ts',
+    name: 'English',
+  },
+  {
+    code: 'de',
+    iso: 'de-DE',
+    file: 'de-DE.ts',
+    name: 'German',
+  },
+  {
+    code: 'es',
+    iso: 'es-ES',
+    file: 'es-ES.ts',
+    name: 'Spanish',
+  },
+  {
+    code: 'fr',
+    iso: 'fr-FR',
+    file: 'fr-FR.ts',
+    name: 'French',
+  },
+  {
+    code: 'fa',
+    iso: 'fa-IR',
+    file: 'fa-IR.ts',
+    name: 'Farsi',
+  },
+  {
+    code: 'ja',
+    iso: 'ja-JP',
+    file: 'ja-JP.ts',
+    name: 'Japanese',
+  },
+  {
+    code: 'ko',
+    iso: 'ko-KR',
+    file: 'ko-KR.ts',
+    name: 'Korean',
+  },
+  {
+    code: 'ne',
+    iso: 'ne-NP',
+    file: 'ne-NP.ts',
+    name: 'Nepali',
+  },
+  {
+    code: 'nl',
+    iso: 'nl-BE',
+    file: 'nl-BE.ts',
+    name: 'Dutch',
+  },
+  {
+    code: 'pl',
+    iso: 'pl-PL',
+    file: 'pl-PL.ts',
+    name: 'Polish',
+  },
+  {
+    code: 'ru',
+    iso: 'ru-RU',
+    file: 'ru-RU.ts',
+    name: 'Russian',
+  },
+  {
+    code: 'tr',
+    iso: 'tr-TR',
+    file: 'tr-TR.ts',
+    name: 'Turkish',
+  },
+  {
+    code: 'zh',
+    iso: 'zh-CN',
+    file: 'zh-CN.ts',
+    name: 'Chinese',
+  },
+]
