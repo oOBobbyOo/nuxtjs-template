@@ -4,10 +4,10 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+      viewport: 'width=device-width, initial-scale=1'
     },
     pageTransition: { name: 'page', mode: 'out-in' },
-    layoutTransition: { name: 'layout', mode: 'out-in' },
+    layoutTransition: { name: 'layout', mode: 'out-in' }
   },
   modules: [
     '@unocss/nuxt',
@@ -15,24 +15,24 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
-    '@nuxt/content',
+    '@nuxt/content'
   ],
   experimental: {
     reactivityTransform: true,
-    inlineSSRStyles: false,
+    inlineSSRStyles: false
   },
   css: ['@unocss/reset/tailwind.css', '@/assets/styles/global.scss'],
   colorMode: {
-    classSuffix: '',
+    classSuffix: ''
   },
   imports: {
-    dirs: ['./stores', '~/stores'],
+    dirs: ['./stores', '~/stores']
   },
   pinia: {
     autoImports: [
       'defineStore',
       'storeToRefs',
-      ['defineStore', 'definePiniaStore'],
-    ],
-  },
+      ['defineStore', 'definePiniaStore']
+    ]
+  }
 })

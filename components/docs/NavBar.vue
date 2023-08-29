@@ -15,7 +15,7 @@ const docsQuery = queryContent('docs')
         <ul col-span-4 flex justify-center gap-x-8>
           <template v-for="nav in navigation" :key="nav._path">
             <li v-for="link in nav?.children" :key="link._path">
-              <NuxtLink :to="link._path" font-medium text-gray-500>
+              <NuxtLink :to="link._path" class="u-text-gray-500 font-medium">
                 {{ link.title }}
               </NuxtLink>
             </li>

@@ -1,7 +1,7 @@
 <template>
   <div relative flex-1>
     <DocsNavBar />
-    <section relative px-6 pb-16 lg:pt-8 sm:pb-32>
+    <section relative px-6 pb-16 pt-8 sm:pb-32>
       <div relative grid grid-cols-12 gap-8>
         <DocsSideBar />
         <div relative col-span-10 lg:col-span-8>
