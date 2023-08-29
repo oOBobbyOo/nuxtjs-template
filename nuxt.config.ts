@@ -43,6 +43,11 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
+  runtimeConfig: {
+    public: {
+      baseAPI: process.env.NUXT_PUBLIC_BASE_API,
+    },
+  },
   modules: [
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
