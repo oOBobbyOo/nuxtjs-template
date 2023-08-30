@@ -1,5 +1,6 @@
 <script setup lang="ts">
 useHead({ title: 'Home' })
+const online = useOnline()
 </script>
 
 <template>
@@ -11,6 +12,20 @@ useHead({ title: 'Home' })
       <span class="text from-sky-500 to-indigo-500">NUXT 3</span>
       <span class="text from-violet-500 to-fuchsia-500">STARTER</span>
     </h1>
+
+    <Suspense>
+      <ClientOnly>
+        <PageView v-if="online" />
+        <div v-else text-gray:80>
+          You're offline
+        </div>
+      </ClientOnly>
+      <template #fallback>
+        <div italic op50>
+          <span animate-pulse>Loading...</span>
+        </div>
+      </template>
+    </Suspense>
   </div>
 </template>
 
