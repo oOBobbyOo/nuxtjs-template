@@ -11,14 +11,14 @@ const { example } = toRefs(props)
 <template>
   <div relative border-1 b-gray-200 b-rd-3 border-solid bg-white transition-2 dark:b-gray-800 hover:b-green-400 dark:bg-dark-900>
     <div class="header flex justify-start px-6 pt-5">
-      <img
+      <NuxtImg
         :src="example.img"
         alt="swiper"
         class="h-12 w-auto"
         loading="lazy"
         height="48"
         width="48"
-      >
+      />
     </div>
     <div class="body px-6 py-5">
       <h4 class="u-text-gray-700 truncate text-lg font-semibold">
