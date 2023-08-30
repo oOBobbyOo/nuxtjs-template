@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ExampleProps } from '@/types/index'
+import { formatNumber } from '@/utils'
 
 const props = defineProps<{
   example: ExampleProps
@@ -36,16 +37,16 @@ const { example } = toRefs(props)
         <div flex items-center gap-3>
           <div flex items-center gap-1.5>
             <Icon name="material-symbols:star-outline" />
-            <span text-sm>{{ example.star }}</span>
+            <span text-sm>{{ formatNumber(example.star) }}</span>
           </div>
           <div flex items-center gap-1.5>
             <Icon name="fe:download" />
-            <span text-sm>{{ example.download }}</span>
+            <span text-sm>{{ formatNumber(example.download) }}</span>
           </div>
         </div>
         <div flex items-center gap-1.5>
           <Icon name="uil:users-alt" />
-          <span text-sm>{{ example.fork }}</span>
+          <span text-sm>{{ formatNumber(example.fork) }}</span>
         </div>
       </div>
     </div>
