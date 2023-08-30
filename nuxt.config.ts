@@ -57,6 +57,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/i18n',
+    'nuxt-swiper',
   ],
   experimental: {
     reactivityTransform: true,

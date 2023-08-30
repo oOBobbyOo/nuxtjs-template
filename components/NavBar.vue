@@ -4,6 +4,10 @@
       Docs
     </NuxtLink>
 
+    <NuxtLink to="/examples" class="link u-text-gray-600">
+      Examples
+    </NuxtLink>
+
     <NuxtLink to="/count" class="link u-text-gray-600">
       Count
     </NuxtLink>
