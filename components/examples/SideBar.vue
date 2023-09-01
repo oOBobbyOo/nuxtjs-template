@@ -6,12 +6,7 @@ const props = defineProps<{
 }>()
 const { navigation } = toRefs(props)
 
-const route = useRoute()
-function isRouteActive(path: string) {
-  if (path === route.fullPath)
-    return true
-  return false
-}
+const { isRouteActive } = useRouteActive()
 </script>
 
 <template>

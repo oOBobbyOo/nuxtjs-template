@@ -1,23 +1,19 @@
 <script setup lang="ts">
-const menus = [
-  {
-    key: 'all',
-    title: 'All',
-    path: '/examples',
-  },
-  {
-    key: 'swiper',
-    title: 'Swiper',
-    path: '/examples/swiper',
-  },
-]
+const { data } = await useFetch('/api/examples')
 
-const route = useRoute()
-function isRouteActive(path: string) {
-  if (path === route.fullPath)
-    return true
-  return false
-}
+const menus = computed(() => {
+  const navs = data.value?.examples || []
+  return [
+    {
+      key: 'all',
+      title: 'All',
+      path: '/examples',
+    },
+    ...navs,
+  ]
+})
+
+const { isRouteActive } = useRouteActive()
 </script>
 
 <template>

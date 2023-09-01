@@ -1,12 +1,7 @@
 <script setup lang="ts">
 const showSideBar = ref(true)
 const docsQuery = queryContent('docs')
-const route = useRoute()
-function isRouteActive(path: string) {
-  if (path === route.fullPath)
-    return true
-  return false
-}
+const { isRouteActive } = useRouteActive()
 </script>
 
 <template>
