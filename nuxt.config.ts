@@ -83,7 +83,27 @@ export default defineNuxtConfig({
       mdc: true,
     },
     highlight: {
-      theme: 'github-dark',
+      theme: {
+        // Default theme (same as single string)
+        default: 'github-light', // vitesse-light
+        // Theme used if `html.dark`
+        dark: 'one-dark-pro', // vitesse-dark
+        // Theme used if `html.sepia`
+        sepia: 'monokai',
+      },
+      preload: [
+        'diff',
+        'json',
+        'js',
+        'ts',
+        'css',
+        'shell',
+        'html',
+        'md',
+        'yaml',
+        'bash',
+        'vue',
+      ],
     },
   },
   i18n: {
