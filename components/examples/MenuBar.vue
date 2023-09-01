@@ -1,11 +1,23 @@
 <script setup lang="ts">
 const menus = [
   {
+    key: 'all',
+    title: 'All',
+    path: '/examples',
+  },
+  {
     key: 'swiper',
     title: 'Swiper',
     path: '/examples/swiper',
   },
 ]
+
+const route = useRoute()
+function isRouteActive(path: string) {
+  if (path === route.fullPath)
+    return true
+  return false
+}
 </script>
 
 <template>
@@ -19,7 +31,11 @@ const menus = [
       </div>
       <ul col-span-4 flex justify-center gap-x-8>
         <li v-for="menu in menus" :key="menu.key">
-          <NuxtLink :to="menu.path" class="u-text-gray-500 font-medium">
+          <NuxtLink
+            :to="menu.path" class="u-text-gray-500 hover:u-text-gray-900 focus:u-text-gray-900 font-medium" :class="{
+              'u-text-gray-900': isRouteActive(menu.path),
+            }"
+          >
             {{ menu.title }}
           </NuxtLink>
         </li>

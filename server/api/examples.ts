@@ -3,7 +3,7 @@ export default defineEventHandler(() => ({
     {
       key: 'swiper',
       title: 'Swiper',
-      icon: 'material-symbols:star',
+      icon: 'simple-icons:swiper',
       path: '/examples/swiper',
       img: 'https://api.nuxtjs.org/api/ipx/s_80,f_webp/gh/nuxt/modules/main/icons/swiper.svg',
       description:
@@ -11,6 +11,17 @@ export default defineEventHandler(() => ({
       star: 121,
       download: 44000,
       fork: 6,
+    },
+    {
+      key: 'confetti',
+      title: 'Confetti',
+      icon: 'ph:confetti',
+      path: '/examples/confetti',
+      img: 'https://github.githubassets.com/images/icons/emoji/unicode/1f389.png',
+      description: 'JS Confetti library that supports emojis 🦄 🎉 ⚡️',
+      star: 862,
+      download: 21106,
+      fork: 38,
     },
   ],
 }))

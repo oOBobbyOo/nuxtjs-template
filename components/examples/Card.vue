@@ -28,7 +28,7 @@ const { example } = toRefs(props)
         {{ example.description }}
       </p>
     </div>
-    <NuxtLink to="/examples/swiper">
+    <NuxtLink :to="example.path">
       <span sr-only>{{ `Link to ${example.path}` }}</span>
       <span absolute inset-0 />
     </NuxtLink>
