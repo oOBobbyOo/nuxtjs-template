@@ -10,7 +10,7 @@ function onButtonClick() {
 
 <template>
   <div flex-center flex-col>
-    <button class="absolute top-[50%] z-1 btn" @click="onButtonClick">
+    <button class="center z-1 btn" @click="onButtonClick">
       Click me
     </button>
 
