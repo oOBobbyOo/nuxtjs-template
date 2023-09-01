@@ -46,6 +46,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseAPI: process.env.NUXT_PUBLIC_BASE_API,
+      mdc: {},
     },
   },
   modules: [
