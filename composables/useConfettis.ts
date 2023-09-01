@@ -1,10 +1,11 @@
 import { onMounted } from 'vue'
 import JSConfetti from 'js-confetti'
 import type { Ref } from 'vue'
+import type { IAddConfettiConfig } from '@/types'
 
 export function useConfettis(
   canvas: Ref<HTMLCanvasElement>,
-  options?: {},
+  options?: IAddConfettiConfig,
 ) {
   let confettiInstance: JSConfetti
 

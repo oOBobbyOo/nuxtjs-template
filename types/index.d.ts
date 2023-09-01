@@ -10,3 +10,11 @@ export interface ExampleProps {
   download: number
   fork: number
 }
+
+export interface IAddConfettiConfig {
+  confettiRadius?: number
+  confettiNumber?: number
+  confettiColors?: string[]
+  emojis?: string[]
+  emojiSize?: number
+}
