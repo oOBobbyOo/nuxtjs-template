@@ -23,11 +23,11 @@ const generate = computed(() => props.id && headings?.anchorLinks?.h1)
 <style scoped>
 h1 {
   display: block;
-  font-family: "RoobertPRO", "RoobertPRO override", sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: -0.025rem;
-  line-height: 60px;
-  margin: 0 0 2rem;
+  font-family: var(--typography-font-display);
+  font-size: var(--prose-h1-fontSize);
+  font-weight: var(--prose-h1-fontWeight);
+  letter-spacing: var(--prose-h1-letterSpacing);
+  line-height: var(--prose-h1-lineHeight);
+  margin: var(--prose-h1-margin);
 }
 </style>

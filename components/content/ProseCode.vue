@@ -48,7 +48,10 @@ function onHover(state: boolean) {
   }
 
   pre {
-    padding: 16px;
+    --at-apply: flex flex-1 leading-relaxed overflow-x-auto m-0 p-4;
+    code {
+      --at-apply: pe-[30px]
+    }
   }
 }
 </style>

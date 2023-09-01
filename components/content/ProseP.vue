@@ -4,8 +4,9 @@
 
 <style scoped>
 p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 18px 0;
+  font-family: var(--typography-font-body);
+  font-size: var(--prose-p-fontSize);
+  line-height: var(--prose-p-lineHeight);
+  margin: var(--prose-p-margin);
 }
 </style>
