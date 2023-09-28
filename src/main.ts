@@ -4,5 +4,15 @@ import 'virtual:uno.css'
 import '@/styles/global.css'
 
 import App from './App.vue'
+import { setupStore } from '@/stores'
 
-createApp(App).mount('#app')
+async function bootstrap() {
+  const app = createApp(App)
+
+  // 配置 store
+  setupStore(app)
+
+  app.mount('#app')
+}
+
+bootstrap()
