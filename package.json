@@ -16,7 +16,12 @@
   },
   "dependencies": {
     "@unocss/reset": "^0.56.4",
-    "vue": "^3.3.4"
+    "@vueuse/core": "^10.4.1",
+    "@vueuse/head": "^2.0.0",
+    "pinia": "^2.1.6",
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.4.1",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "1.0.0-beta.13",
@@ -29,7 +34,10 @@
     "simple-git-hooks": "^2.9.0",
     "typescript": "^5.2.2",
     "unocss": "^0.56.4",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.2",
     "vite": "^4.4.9",
+    "vite-plugin-vue-devtools": "1.0.0-rc.5",
     "vue-tsc": "^1.8.15"
   },
   "simple-git-hooks": {
