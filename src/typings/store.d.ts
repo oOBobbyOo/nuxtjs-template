@@ -1,0 +1,10 @@
+import type { RoleEnum } from '@/enums/RoleEnum'
+
+export interface UserInfo {
+  userId: string | number
+  username: string
+  realName: string
+  avatar: string
+  desc?: string
+  roles: RoleEnum[]
+}
