@@ -1,12 +1,11 @@
-import type { RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from '../types'
 
-const Dashboard = () => import('@/views/Dashboard/index.vue')
-
-// 固定路由
-export const constantRoutes: RouteRecordRaw[] = [
-  {
-    path: '/',
-    name: 'dashborad',
-    component: Dashboard,
+// 根路由
+export const RootRoute: RouteRecordRaw = {
+  path: '/',
+  name: 'Root',
+  redirect: '/dashboard',
+  meta: {
+    title: 'Root',
   },
-]
+}
