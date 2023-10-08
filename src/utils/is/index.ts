@@ -1,3 +1,5 @@
+import { isNil } from 'lodash-es'
+
 const toString = Object.prototype.toString
 
 export function is(val: unknown, type: string) {
@@ -14,6 +16,14 @@ export function isUnDef<T = unknown>(val?: T): val is T {
 
 export function isNull(val: unknown): val is null {
   return val === null
+}
+
+export function isNullAndUnDef(val: unknown): val is null | undefined {
+  return isUnDef(val) && isNull(val)
+}
+
+export function isNullOrUnDef(val: unknown): val is null | undefined {
+  return isUnDef(val) || isNull(val)
 }
 
 export function isString(val: unknown): val is string {
@@ -51,6 +61,10 @@ export function isEmpty<T = unknown>(val: T): val is T {
     return Object.keys(val).length === 0
 
   return false
+}
+
+export function isNotEmpty(val: any): boolean {
+  return !isNil(val) && !isEmpty(val)
 }
 
 export function isFunction(val: unknown): val is Function {
