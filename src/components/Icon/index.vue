@@ -38,7 +38,8 @@ const getWrapStyle = computed((): CSSProperties => {
   <span
     v-else
     ref="elRef"
-    class="app-iconify" :class="[getSvgIcon, $attrs.class, spin && 'app-iconify-spin']"
+    class="app-iconify"
+    :class="[getSvgIcon, $attrs.class, spin && 'app-iconify-spin']"
     :style="getWrapStyle"
   />
 </template>
