@@ -3,7 +3,7 @@ import type { LocaleType } from '@/typings/locale'
 
 import { i18n } from '@/locales'
 import { loadLocalePool, setHtmlPageLang } from '@/locales/helper'
-import { useLocaleStore } from '@/stores/modules/locale'
+import { useLocaleStoreWithOut } from '@/stores/modules/locale'
 
 interface LangModule {
   message: Recordable
@@ -12,7 +12,7 @@ interface LangModule {
 }
 
 function setI18nLanguage(locale: LocaleType) {
-  const localeStore = useLocaleStore()
+  const localeStore = useLocaleStoreWithOut()
 
   if (i18n.mode === 'legacy') {
     i18n.global.locale = locale
@@ -25,9 +25,13 @@ function setI18nLanguage(locale: LocaleType) {
 }
 
 export function useLocale() {
-  const localeStore = useLocaleStore()
+  const localeStore = useLocaleStoreWithOut()
   const getLocale = computed(() => localeStore.getLocale)
   const getShowLocalePicker = computed(() => localeStore.getShowPicker)
+
+  const getElLocale = computed((): any => {
+    return (i18n.global.getLocaleMessage(unref(getLocale)) as any)?.elLocale ?? {}
+  })
 
   async function changeLocale(locale: LocaleType) {
     const globalI18n = i18n.global
@@ -39,7 +43,9 @@ export function useLocale() {
       setI18nLanguage(locale)
       return locale
     }
-    const langModule = ((await import(`./lang/${locale}.ts`)) as any).default as LangModule
+
+    const langModule = ((await import(`../../locales/lang/${locale}.ts`)) as any)
+      .default as LangModule
     if (!langModule)
       return
 
@@ -56,5 +62,6 @@ export function useLocale() {
     getLocale,
     getShowLocalePicker,
     changeLocale,
+    getElLocale,
   }
 }

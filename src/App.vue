@@ -1,7 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useLocale } from '@/hooks/web/useLocale'
+
+const { getElLocale } = useLocale()
+</script>
 
 <template>
-  <RouterView />
+  <el-config-provider :locale="getElLocale">
+    <RouterView />
+  </el-config-provider>
 </template>
 
 <style scoped></style>

@@ -2,7 +2,7 @@ import pkg from '../../../package.json'
 
 export function getCommonStoragePrefix() {
   const { VITE_GLOB_APP_TITLE } = getEnv()
-  return `${VITE_GLOB_APP_TITLE.replace(/\s/g, '_')}__${getEnv()}`.toUpperCase()
+  return `${VITE_GLOB_APP_TITLE.replace(/\s/g, '_')}__${getEnvMode()}`.toUpperCase()
 }
 
 // Generate cache key according to version

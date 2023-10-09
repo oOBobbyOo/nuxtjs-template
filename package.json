@@ -12,13 +12,15 @@
     "lint:fix": "eslint . --fix",
     "lint:prettier": "prettier --config .prettierrc --write \"./src/**/*.{ts,tsx,vue}\"",
     "typecheck": "vue-tsc --noEmit",
-    "postinstall": "npx simple-git-hooks"
+    "postinstall": "npx simple-git-hooks",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@unocss/reset": "^0.56.4",
     "@vueuse/core": "^10.4.1",
     "@vueuse/head": "^2.0.0",
     "crypto-js": "^4.1.1",
+    "element-plus": "^2.3.14",
     "lodash-es": "^4.17.21",
     "nprogress": "^0.2.0",
     "pinia": "^2.1.6",
