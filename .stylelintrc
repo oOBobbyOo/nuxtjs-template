@@ -1,0 +1,17 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-standard-vue", "stylelint-config-recess-order",     "stylelint-config-prettier"],
+  "rules": {
+    "property-no-vendor-prefix": null,
+    "no-empty-source": null
+  },
+  "overrides": [
+    {
+      "files": "src/**/*.(css|less|vue)",
+      "customSyntax": "postcss-less"
+    },
+    {
+      "files": "src/**/*.(html|vue)",
+      "customSyntax": "postcss-html"
+    }
+  ]
+}

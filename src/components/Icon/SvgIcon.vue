@@ -30,13 +30,25 @@ const getStyle = computed((): CSSProperties => {
 </script>
 
 <template>
-  <svg :class="[$attrs.class, spin && 'svg-icon-spin']" :style="getStyle" aria-hidden="true">
+  <svg
+    class="svg-icon"
+    :class="[$attrs.class, spin && 'svg-icon-spin']"
+    :style="getStyle"
+    aria-hidden="true"
+  >
     <use :href="symbolId" />
   </svg>
 </template>
 
 <style scoped lang="less">
-.svg-icon-spin {
-  animation: loadingCircle 1s infinite linear;
+.svg-icon {
+  display: inline-block;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+
+  &-spin {
+    animation: loadingCircle 1s infinite linear;
+  }
 }
 </style>

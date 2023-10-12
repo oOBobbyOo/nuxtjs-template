@@ -1,14 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LayoutSidebar from './sidebar/index.vue'
+import LayoutHeader from './header/index.vue'
+import LayoutContent from './content/index.vue'
+import LayoutFooter from './footer/index.vue'
+
+defineOptions({ name: 'DefaultLayout' })
+</script>
 
 <template>
-  <div>
-    default layout
-    <router-view v-slot="{ Component }">
-      <transition name="fade">
-        <component :is="Component" />
-      </transition>
-    </router-view>
+  <div h-screen w-full flex flex-row>
+    <LayoutSidebar />
+    <div flex-auto>
+      <LayoutHeader />
+      <LayoutContent />
+      <LayoutFooter />
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="less"></style>

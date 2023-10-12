@@ -11,6 +11,9 @@ import {
 export default defineConfig({
   shortcuts: {
     'flex-center': 'flex justify-center items-center',
+    'flex-y-center': 'flex items-center',
+    'flex-x-center': 'flex justify-center',
+    'flex-between': 'flex justify-between items-center ',
   },
   presets: [
     presetUno(),

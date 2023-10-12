@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
-import type { ProjectConfig, TransitionSetting } from '@/config/setting/projectSetting'
+import type { MenuSetting, ProjectConfig, TransitionSetting } from '@/config/setting/projectSetting'
 import projectSetting from '@/config/setting/projectSetting'
+import { deepMerge } from '@/utils'
 
 interface AppState {
   pageLoading: boolean
@@ -19,8 +20,16 @@ export const useAppStore = defineStore('app', {
     getProjectConfig(state): ProjectConfig {
       return state.projectConfig || ({} as ProjectConfig)
     },
+    getMenuSetting(): MenuSetting {
+      return this.getProjectConfig.menuSetting
+    },
     getTransitionSetting(): TransitionSetting {
       return this.getProjectConfig.transitionSetting
+    },
+  },
+  actions: {
+    setMenuSetting(setting: Partial<MenuSetting>) {
+      this.projectConfig!.menuSetting = deepMerge(this.projectConfig!.menuSetting, setting)
     },
   },
 })

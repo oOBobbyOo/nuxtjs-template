@@ -1,5 +1,15 @@
-import type { RouteRecordRaw } from 'vue-router'
+import type { RouteMeta, RouteRecordRaw } from 'vue-router'
 
-export { RouteRecordRaw }
+export interface MenuMeta {
+  orderNo?: number // 序号，用于菜单的排序
+  title: string // 标题
+  icon?: string // 图标
+  hide?: boolean // 在侧边栏中隐藏
+}
+
+export type MenuRecordRaw = RouteRecordRaw & {
+  meta: MenuMeta & RouteMeta
+  children?: MenuRecordRaw[]
+}
 
 export type RouteModule = Record<string, { default: RouteRecordRaw }>

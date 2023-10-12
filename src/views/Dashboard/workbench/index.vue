@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineOptions({ name: 'Workbench' })
+</script>
 
 <template>
   <div>workbench</div>

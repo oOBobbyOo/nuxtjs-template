@@ -1,3 +1,9 @@
+export interface MenuSetting {
+  collapsed: boolean
+  menuWidth: number
+  minMenuWidth: number
+}
+
 export interface TransitionSetting {
   enable: boolean
   openPageLoading: boolean
@@ -5,10 +11,16 @@ export interface TransitionSetting {
 }
 
 export interface ProjectConfig {
+  menuSetting: MenuSetting
   transitionSetting: TransitionSetting
 }
 
 const setting: ProjectConfig = {
+  menuSetting: {
+    collapsed: false,
+    menuWidth: 200,
+    minMenuWidth: 64,
+  },
   transitionSetting: {
     enable: true,
     openPageLoading: true,

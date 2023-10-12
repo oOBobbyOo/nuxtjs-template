@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import 'virtual:svg-icons-register'
 import '@unocss/reset/tailwind.css'
 import 'virtual:uno.css'
-import '@/styles/global.css'
+import '@/styles/global.less'
 
 import App from './App.vue'
 import { setupStore } from '@/stores'

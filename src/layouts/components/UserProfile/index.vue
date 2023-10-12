@@ -1,0 +1,84 @@
+<script setup lang="ts">
+import { useI18n } from '@/hooks/web/useI18n'
+import { useUserStore } from '@/stores/modules/user'
+
+defineOptions({ name: 'UserProfile' })
+
+const { getUserInfo } = useUserStore()
+
+const { t } = useI18n()
+
+const userItems = [
+  {
+    key: 'account',
+    label: t('layout.header.userAccount'),
+    icon: 'i-ant-design-idcard-outlined',
+  },
+  {
+    key: 'setting',
+    label: t('layout.header.userSetting'),
+    icon: 'i-ant-design-form-outlined',
+  },
+  {
+    key: 'logout',
+    label: t('layout.header.userLogout'),
+    icon: 'i-ion-md-exit',
+    divided: true,
+  },
+]
+
+const router = useRouter()
+
+function handleLogout() {
+  ElMessageBox.confirm('您是否确认退出登录?', '温馨提示 🧡', {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning',
+  }).then(async () => {
+    try {
+      // 重定向到登录页
+      router.replace('/login')
+    }
+    catch (error) {
+      ElMessage({
+        message: '退出登录失败！',
+        type: 'error',
+      })
+    }
+  })
+}
+
+function hanldeAction(key: string) {
+  if (key === 'logout')
+    handleLogout()
+  else if (key === 'account')
+    router.push('/account/center')
+  else router.push('/account/settings')
+}
+</script>
+
+<template>
+  <div h-full flex-center cursor-pointer px-2>
+    <el-dropdown>
+      <div class="flex-center">
+        <el-avatar :size="24" />
+        <span pl-2 text-3>
+          {{ getUserInfo?.realName || '用户名' }}
+        </span>
+      </div>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item
+            v-for="item in userItems"
+            :key="item.key"
+            :divided="item.divided"
+            @click="hanldeAction(item.key)"
+          >
+            <Icon size="16" :icon="item.icon" />
+            <span ml-2>{{ item.label }}</span>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
+  </div>
+</template>

@@ -2,6 +2,13 @@ export default {
   header: {
     tooltipEntryFull: 'Full Screen',
     tooltipExitFull: 'Exit Full Screen',
+
+    tooltipDark: 'Dark',
+    tooltipLight: 'Light',
+
+    userAccount: 'Account',
+    userSetting: 'Setting',
+    userLogout: 'Logout',
   },
   multipleTab: {
     reload: 'Refresh current',

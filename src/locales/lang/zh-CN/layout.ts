@@ -1,7 +1,16 @@
 export default {
   header: {
+    // tooltip
     tooltipEntryFull: '全屏',
     tooltipExitFull: '退出全屏',
+
+    tooltipDark: '暗色主题',
+    tooltipLight: '亮色主题',
+
+    // user dropdown
+    userAccount: '个人中心',
+    userSetting: '个人设置',
+    userLogout: '退出登录',
   },
   multipleTab: {
     reload: '重新加载',
