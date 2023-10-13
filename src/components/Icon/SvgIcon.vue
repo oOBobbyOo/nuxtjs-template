@@ -43,9 +43,9 @@ const getStyle = computed((): CSSProperties => {
 <style scoped lang="less">
 .svg-icon {
   display: inline-block;
-  vertical-align: -0.15em;
-  fill: currentColor;
   overflow: hidden;
+  vertical-align: -0.15em;
+  fill: currentcolor;
 
   &-spin {
     animation: loadingCircle 1s infinite linear;

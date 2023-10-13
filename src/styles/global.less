@@ -1,9 +1,18 @@
 @import url('./element-plus.less');
+@import url('./transition/index.less');
 
 html,
 body,
 #app {
   height: 100%;
-  padding: 0;
-  margin: 0;
+  overflow: hidden;
+}
+
+a:focus,
+a:active,
+button,
+div,
+svg,
+span {
+  outline: none;
 }

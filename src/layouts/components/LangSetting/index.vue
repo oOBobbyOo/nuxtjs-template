@@ -26,7 +26,7 @@ function handleLang(lang: LocaleType) {
 
 <template>
   <div h-full flex-center cursor-pointer px-2>
-    <el-dropdown trigger="click" @command="handleLang">
+    <el-dropdown trigger="click" class="dark:text-white" @command="handleLang">
       <Icon :size="16" icon="i-cil-language" />
       <template #dropdown>
         <el-dropdown-menu>

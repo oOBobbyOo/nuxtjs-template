@@ -10,7 +10,7 @@ const { getCollapsed, toggleCollapsed } = useMenuSetting()
   <div h-full flex-y-center cursor-pointer @click="toggleCollapsed">
     <Icon
       size="16"
-      :icon="getCollapsed ? 'i-line-md-menu-unfold-left' : 'i-line-md-menu-unfold-right'"
+      :icon="getCollapsed ? 'i-line-md-menu-unfold-right' : 'i-line-md-menu-unfold-left'"
     />
   </div>
 </template>
