@@ -10,7 +10,7 @@ defineOptions({ name: 'DefaultLayout' })
 <template>
   <div h-screen w-full flex flex-row>
     <LayoutSidebar />
-    <div flex-auto>
+    <div flex-auto overflow-hidden>
       <LayoutHeader />
       <LayoutContent />
       <LayoutFooter />

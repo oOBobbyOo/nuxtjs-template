@@ -3,7 +3,9 @@ defineOptions({ name: 'LayoutContent' })
 </script>
 
 <template>
-  <div class="layout-content flex overscroll-auto p-4">
+  <div
+    class="layout-content flex flex-col overflow-x-hidden overflow-y-auto bg-gray-50 p-4 dark:bg-dark-8"
+  >
     <router-view v-slot="{ Component }">
       <transition name="fade-slide" mode="out-in">
         <component :is="Component" class="transition duration-300 ease-in-out" />

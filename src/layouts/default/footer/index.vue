@@ -3,7 +3,7 @@ defineOptions({ name: 'LayoutFooter' })
 </script>
 
 <template>
-  <div class="layout-footer flex-center">
+  <div class="layout-footer">
     Created by Henry Bobby
   </div>
 </template>
@@ -11,5 +11,7 @@ defineOptions({ name: 'LayoutFooter' })
 <style scoped lang="less">
 .layout-footer {
   height: 48px;
+
+  @apply flex-center  bg-white dark:bg-dark dark:text-white;
 }
 </style>

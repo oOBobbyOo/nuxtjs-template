@@ -1,7 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { DevDependency, ProDependency } from './components'
+</script>
 
 <template>
-  <div>about</div>
+  <div class="about space-y-4">
+    <ProDependency />
+    <DevDependency />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="less">
+.about {
+  ::v-deep(.el-descriptions__body) {
+    overflow-x: auto;
+  }
+}
+</style>
