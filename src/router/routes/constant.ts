@@ -1,6 +1,6 @@
-import type { RouteRecordRaw } from '../types'
-import { RootRoute } from '.'
+import type { MenuRecordRaw } from '../types'
+import { LoginRoute, NotFound, RootRoute } from '.'
 
 export const Layout = () => import('@/layouts/default/index.vue')
 
-export const constantRoutes: RouteRecordRaw[] = [RootRoute]
+export const constantRoutes: MenuRecordRaw[] = [RootRoute, LoginRoute, NotFound]
