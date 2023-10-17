@@ -13,11 +13,11 @@ const { t } = useI18n()
       :content="isDark ? t('layout.header.tooltipDark') : t('layout.header.tooltipLight')"
     >
       <Icon
-        :size="16"
+        :size="20"
         :icon="
           isDark
-            ? 'i-line-md-sunny-filled-loop-to-moon-filled-loop-transition'
-            : 'i-line-md-moon-to-sunny-outline-transition'
+            ? 'line-md:sunny-filled-loop-to-moon-filled-loop-transition'
+            : 'line-md:moon-to-sunny-outline-transition'
         "
       />
     </el-tooltip>

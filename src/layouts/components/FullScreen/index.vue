@@ -16,8 +16,8 @@ const { t } = useI18n()
       "
     >
       <Icon
-        :size="16"
-        :icon="isFullscreen ? 'i-gridicons-fullscreen-exit' : 'i-gridicons-fullscreen'"
+        :size="20"
+        :icon="isFullscreen ? 'gridicons:fullscreen-exit' : 'gridicons:fullscreen'"
       />
     </el-tooltip>
   </div>

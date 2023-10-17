@@ -8,7 +8,7 @@ const exception: MenuRecordRaw = {
   redirect: '/exception/403',
   meta: {
     orderNo: 9,
-    icon: 'i-ant-design-exception-outlined',
+    icon: 'ant-design:exception-outlined',
     title: 'routes.exception.exception',
   },
   children: [
@@ -17,7 +17,7 @@ const exception: MenuRecordRaw = {
       name: 'Exception403',
       component: () => import('@/views/exception/403/index.vue'),
       meta: {
-        icon: 'i-ic-baseline-block',
+        icon: 'ic:baseline-block',
         title: 'routes.exception.403',
       },
     },
@@ -26,7 +26,7 @@ const exception: MenuRecordRaw = {
       name: 'Exception404',
       component: () => import('@/views/exception/404/index.vue'),
       meta: {
-        icon: 'i-ic-baseline-web-asset-off',
+        icon: 'ic:baseline-web-asset-off',
         title: 'routes.exception.404',
       },
     },
@@ -35,7 +35,7 @@ const exception: MenuRecordRaw = {
       name: 'Exception500',
       component: () => import('@/views/exception/500/index.vue'),
       meta: {
-        icon: 'i-ic-baseline-wifi-off',
+        icon: 'ic:baseline-wifi-off',
         title: 'routes.exception.500',
       },
     },

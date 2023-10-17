@@ -27,7 +27,7 @@ function handleLang(lang: LocaleType) {
 <template>
   <div h-full flex-center cursor-pointer px-2>
     <el-dropdown trigger="click" class="dark:text-white" @command="handleLang">
-      <Icon :size="16" icon="i-cil-language" />
+      <Icon :size="20" icon="cil:language" />
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item v-for="item in langItems" :key="item.key" :command="item.key">

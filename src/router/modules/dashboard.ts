@@ -8,7 +8,7 @@ const dashboard: MenuRecordRaw = {
   redirect: '/dashboard/analysis',
   meta: {
     orderNo: 1,
-    icon: 'i-mdi-monitor-dashboard',
+    icon: 'mdi:monitor-dashboard',
     title: 'routes.dashboard.dashboard',
   },
   children: [
@@ -17,7 +17,7 @@ const dashboard: MenuRecordRaw = {
       name: 'Analysis',
       component: () => import('@/views/dashboard/analysis/index.vue'),
       meta: {
-        icon: 'i-icon-park-outline-analysis',
+        icon: 'icon-park-outline:analysis',
         title: 'routes.dashboard.analysis',
       },
     },
@@ -26,7 +26,7 @@ const dashboard: MenuRecordRaw = {
       name: 'Workbench',
       component: () => import('@/views/dashboard/workbench/index.vue'),
       meta: {
-        icon: 'i-icon-park-outline:workbench',
+        icon: 'icon-park-outline:workbench',
         title: 'routes.dashboard.workbench',
       },
     },

@@ -8,7 +8,7 @@ const about: MenuRecordRaw = {
   redirect: '/about/index',
   meta: {
     orderNo: 10,
-    icon: 'i-fluent-book-information-24-regular',
+    icon: 'fluent:book-information-24-regular',
     title: 'routes.about.about',
   },
   children: [
@@ -17,7 +17,7 @@ const about: MenuRecordRaw = {
       name: 'AboutPage',
       component: () => import('@/views/about/index.vue'),
       meta: {
-        icon: 'i-fluent-book-information-24-regular',
+        icon: 'fluent:book-information-24-regular',
         title: 'routes.about.about',
       },
     },

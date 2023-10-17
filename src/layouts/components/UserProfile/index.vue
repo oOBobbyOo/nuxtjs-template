@@ -62,7 +62,7 @@ function hanldeAction(key: string) {
     <el-dropdown>
       <div class="flex-center dark:text-white">
         <el-avatar v-if="getUserInfo?.avatar" :size="24" :src="getUserInfo?.avatar" />
-        <Icon v-else :size="20" icon="i-ic-outline-account-circle" />
+        <Icon v-else :size="26" icon="ic:outline-account-circle" />
         <span pl-2 text-3>
           {{ getUserInfo?.realName || '用户名' }}
         </span>

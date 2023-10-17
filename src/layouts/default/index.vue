@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import MultipleTabs from '../components/MultipleTabs/index.vue'
 import LayoutSidebar from './sidebar/index.vue'
 import LayoutHeader from './header/index.vue'
 import LayoutContent from './content/index.vue'
@@ -12,6 +13,7 @@ defineOptions({ name: 'DefaultLayout' })
     <LayoutSidebar />
     <div flex-auto overflow-hidden>
       <LayoutHeader />
+      <MultipleTabs />
       <LayoutContent />
       <LayoutFooter />
     </div>

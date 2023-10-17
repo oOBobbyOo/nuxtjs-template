@@ -1,9 +1,9 @@
-import type { RouteModule, RouteRecordRaw } from '../types'
+import type { MenuRecordRaw, RouteModule } from '../types'
 
 // import.meta.glob() 直接引入所有的模块 Vite 独有的功能
 const modules = import.meta.glob('../modules/**/*.ts', { eager: true }) as RouteModule
 
-const routeModuleList: RouteRecordRaw[] = []
+const routeModuleList: MenuRecordRaw[] = []
 
 // 加入到路由集合中
 Object.keys(modules).forEach((key) => {

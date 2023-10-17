@@ -1,7 +1,7 @@
-import type { RouteRecordRaw } from '../types'
+import type { MenuRecordRaw } from '../types'
 
 // 根路由
-export const RootRoute: RouteRecordRaw = {
+export const RootRoute: MenuRecordRaw = {
   path: '/',
   name: 'Root',
   redirect: '/dashboard',

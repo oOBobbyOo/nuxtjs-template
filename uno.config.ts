@@ -14,6 +14,7 @@ export default defineConfig({
     'flex-y-center': 'flex items-center',
     'flex-x-center': 'flex justify-center',
     'flex-between': 'flex justify-between items-center ',
+    'flex-1-hidden': 'flex-1 overflow-hidden',
   },
   presets: [
     presetUno(),

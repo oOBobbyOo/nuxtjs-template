@@ -16,6 +16,6 @@ defineOptions({ name: 'LayoutContent' })
 
 <style scoped lang="less">
 .layout-content {
-  height: calc(100vh - 112px);
+  height: calc(100vh - 156px);
 }
 </style>

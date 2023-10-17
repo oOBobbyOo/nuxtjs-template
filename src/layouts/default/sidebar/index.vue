@@ -22,7 +22,7 @@ const getSidebarStyle = computed((): CSSProperties => {
 
 <template>
   <div class="layout-sidebar" :style="getSidebarStyle">
-    <Logo :collapsed="false" />
+    <Logo />
     <Menu />
   </div>
 </template>
