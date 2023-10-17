@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# eslint
+.eslintcache
+
+# vite
+.visualizer
+.vite-inspect
+
