@@ -43,7 +43,21 @@ const activeMenu = computed(() => route.path)
   height: calc(100vh - 64px);
 
   .el-menu {
+    padding: 0 8px;
     border-right: none;
+
+    &.el-menu--collapse {
+      padding: 0;
+    }
+  }
+
+  ::v-deep(.el-sub-menu .el-sub-menu__title) {
+    margin-top: 6px;
+    border-radius: var(--el-border-radius);
+  }
+
+  ::v-deep(.el-sub-menu.is-active .el-sub-menu__title) {
+    color: var(--el-menu-active-color);
   }
 }
 </style>

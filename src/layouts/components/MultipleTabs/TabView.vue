@@ -57,14 +57,14 @@ function handleClose() {
   &:hover {
     font-size: 12px;
     color: #fff;
-    background-color: #9ca3af;
+    background-color: var(--hb-icon-close-hover-color);
   }
 }
 
 .tab-active {
   .icon-close {
     &:hover {
-      background-color: #1890ff;
+      background-color: var(--hb-icon-close-active-color);
     }
   }
 }

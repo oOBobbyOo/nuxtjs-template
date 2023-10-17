@@ -36,7 +36,7 @@ defineSlots<Slots>()
     z-index: 9;
 
     .tab-bg {
-      color: #dee1e6;
+      color: var(--hb-tab-hover-bg-color);
     }
 
     .tab-divider {
@@ -46,30 +46,14 @@ defineSlots<Slots>()
 
   &.tab-active {
     z-index: 10;
-    color: #646cff;
+    color: var(--hb-tab-active-color);
 
     .tab-bg {
-      color: #f0f0ff;
+      color: var(--hb-tab-active-bg-color);
     }
 
     .tab-divider {
       opacity: 0;
-    }
-  }
-}
-
-.dark {
-  .tab-button {
-    &:hover {
-      .tab-bg {
-        color: #333;
-      }
-    }
-
-    &.tab-active {
-      .tab-bg {
-        color: #1e204d;
-      }
     }
   }
 }

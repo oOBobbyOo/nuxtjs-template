@@ -31,6 +31,6 @@ const getSidebarStyle = computed((): CSSProperties => {
 .layout-sidebar {
   box-shadow: 2px 0 8px #1d23290d;
 
-  @apply z-9999 bg-white dark:bg-dark b-r-1 b-r-solid b-r-gray-100 dark:b-r-dark-200 box-border dark:text-white;
+  @apply bg-white dark:bg-dark b-r-1 b-r-solid b-r-gray-100 dark:b-r-dark-200 box-border dark:text-white;
 }
 </style>

@@ -33,3 +33,14 @@ function handleClickMenu(item: MenuRecordRaw) {
     </template>
   </el-menu-item>
 </template>
+
+<style scoped label="less">
+.el-menu-item {
+  margin-top: 6px;
+  border-radius: var(--el-border-radius);
+
+  &.is-active {
+    background-color: var(--el-menu-active-bg-color);
+  }
+}
+</style>
