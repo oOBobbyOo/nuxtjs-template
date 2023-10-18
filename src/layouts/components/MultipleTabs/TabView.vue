@@ -8,7 +8,6 @@ defineOptions({
 
 const props = withDefaults(defineProps<TabProps>(), {
   commonClass: 'transition-all-300',
-  activeColor: '#1890ff',
   closable: true,
 })
 
@@ -38,7 +37,7 @@ function handleClose() {
     <slot />
     <template #suffix>
       <slot name="suffix">
-        <Icon v-if="closable" class="icon-close" icon="mdi:close" @click="handleClose" />
+        <Icon v-if="closable" class="icon-close" icon="mdi:close" @click.stop="handleClose" />
       </slot>
     </template>
   </Component>

@@ -1,6 +1,6 @@
 import { intersection } from 'lodash-es'
 import type { UserInfo } from '@/typings/store'
-import type { RoleEnum } from '@/enums/RoleEnum'
+import type { RoleEnum } from '@/enums/roleEnum'
 import { useUserStore } from '@/stores/modules/user'
 import { isArray } from '@/utils/is'
 

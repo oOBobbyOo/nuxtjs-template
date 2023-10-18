@@ -1,4 +1,5 @@
-import type { RoleEnum } from '@/enums/RoleEnum'
+import type { RouteMeta } from 'vue-router'
+import type { RoleEnum } from '@/enums/roleEnum'
 
 export interface UserInfo {
   userId: string | number
@@ -7,4 +8,10 @@ export interface UserInfo {
   avatar: string
   desc?: string
   roles: RoleEnum[]
+}
+
+export interface Tab {
+  name: string
+  fullPath: string
+  meta: RouteMeta
 }

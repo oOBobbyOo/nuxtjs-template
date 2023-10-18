@@ -225,6 +225,7 @@ declare global {
   const useResizeObserver: (typeof import('@vueuse/core'))['useResizeObserver']
   const useRoute: (typeof import('vue-router'))['useRoute']
   const useRouter: (typeof import('vue-router'))['useRouter']
+  const useRouterPush: (typeof import('./composables/router'))['useRouterPush']
   const useScreenOrientation: (typeof import('@vueuse/core'))['useScreenOrientation']
   const useScreenSafeArea: (typeof import('@vueuse/core'))['useScreenSafeArea']
   const useScriptTag: (typeof import('@vueuse/core'))['useScriptTag']
@@ -563,6 +564,7 @@ declare module 'vue' {
     readonly useResizeObserver: UnwrapRef<(typeof import('@vueuse/core'))['useResizeObserver']>
     readonly useRoute: UnwrapRef<(typeof import('vue-router'))['useRoute']>
     readonly useRouter: UnwrapRef<(typeof import('vue-router'))['useRouter']>
+    readonly useRouterPush: UnwrapRef<(typeof import('./composables/router'))['useRouterPush']>
     readonly useScreenOrientation: UnwrapRef<
       (typeof import('@vueuse/core'))['useScreenOrientation']
     >
@@ -888,6 +890,7 @@ declare module '@vue/runtime-core' {
     readonly useResizeObserver: UnwrapRef<(typeof import('@vueuse/core'))['useResizeObserver']>
     readonly useRoute: UnwrapRef<(typeof import('vue-router'))['useRoute']>
     readonly useRouter: UnwrapRef<(typeof import('vue-router'))['useRouter']>
+    readonly useRouterPush: UnwrapRef<(typeof import('./composables/router'))['useRouterPush']>
     readonly useScreenOrientation: UnwrapRef<
       (typeof import('@vueuse/core'))['useScreenOrientation']
     >
