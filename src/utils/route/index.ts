@@ -13,7 +13,10 @@ export function getTabRoute(route: RouteRecordNormalized | RouteLocationNormaliz
   return {
     name: route.name as string,
     fullPath,
-    meta: route.meta,
+    meta: route.meta as {
+      title: string
+      icon: string
+    },
   }
 }
 

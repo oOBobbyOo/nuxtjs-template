@@ -1,4 +1,3 @@
-import type { RouteMeta } from 'vue-router'
 import type { RoleEnum } from '@/enums/roleEnum'
 
 export interface UserInfo {
@@ -13,5 +12,8 @@ export interface UserInfo {
 export interface Tab {
   name: string
   fullPath: string
-  meta: RouteMeta
+  meta: {
+    title: string
+    icon: string
+  }
 }
