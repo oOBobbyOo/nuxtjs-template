@@ -12,17 +12,17 @@ const userItems = [
   {
     key: 'account',
     label: t('layout.header.userAccount'),
-    icon: 'i-ant-design-idcard-outlined',
+    icon: 'ant-design:idcard-outlined',
   },
   {
     key: 'setting',
     label: t('layout.header.userSetting'),
-    icon: 'i-ant-design-form-outlined',
+    icon: 'ant-design:form-outlined',
   },
   {
     key: 'logout',
     label: t('layout.header.userLogout'),
-    icon: 'i-ion-md-exit',
+    icon: 'ion:md-exit',
     divided: true,
   },
 ]
