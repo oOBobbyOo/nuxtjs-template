@@ -1,5 +1,6 @@
 import type { RouteLocationRaw } from 'vue-router'
 import { router as globalRouter } from '@/router'
+import { openWindow } from '@/utils'
 
 /**
  * 路由跳转
@@ -16,7 +17,7 @@ export function useRouterPush(inSetup = true) {
   function routerPush(to: RouteLocationRaw, newTab = false) {
     if (newTab) {
       const { meta } = router.resolve(to)
-      window.open(meta.href as string, '_blank')
+      openWindow(meta.href as string)
       return Promise.resolve()
     }
     return router.push(to)

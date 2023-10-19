@@ -1,5 +1,6 @@
 import { intersectionWith, isEqual, mergeWith, unionWith } from 'lodash-es'
 import { isArray, isObject } from './is'
+import type { TargetContext } from '@/typings'
 
 /**
  * Recursively merge two objects.
@@ -46,4 +47,25 @@ export function deepMerge<T extends object | null | undefined, U extends object 
 
     return undefined
   })
+}
+
+/**
+ * 打开新窗口跳转链接
+ * @param {string} url 跳转链接
+ * @param {object} opt 跳转参数
+ * @param {TargetContext | string} opt.target
+ * @param {boolean} opt.noopener
+ * @param {boolean} opt.noreferrer
+ */
+export function openWindow(
+  url: string,
+  opt?: { target?: TargetContext | string; noopener?: boolean; noreferrer?: boolean },
+) {
+  const { target = '__blank', noopener = true, noreferrer = true } = opt || {}
+  const feature: string[] = []
+
+  noopener && feature.push('noopener=yes')
+  noreferrer && feature.push('noreferrer=yes')
+
+  window.open(url, target, feature.join(','))
 }
