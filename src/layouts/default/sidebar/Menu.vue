@@ -1,30 +1,13 @@
 <script setup lang="ts">
 import MenuItem from './MenuItem.vue'
-import type { MenuRecordRaw } from '@/router/types'
 import { useMenuSetting } from '@/hooks/setting/useMenuSetting'
-import { dynamicRoutes } from '@/router/routes/dynamic'
+import { generateMenus } from '@/utils/route'
 
 defineOptions({ name: 'SidebarMenu' })
 
 const { getCollapsed } = useMenuSetting()
 
-const menus = computed(() => {
-  const list = dynamicRoutes.map((item) => {
-    if (item.children?.length) {
-      return {
-        ...item,
-        children: item.children.map((child: MenuRecordRaw) => ({
-          ...child,
-          path: `${item.path}/${child.path}`,
-        })),
-      }
-    }
-    return item
-  })
-  return list.sort(
-    (a: MenuRecordRaw, b: MenuRecordRaw) => (a.meta?.orderNo || 0) - (b.meta?.orderNo || 0),
-  )
-})
+const menus = computed(() => generateMenus())
 
 const route = useRoute()
 const activeMenu = computed(() => route.path)

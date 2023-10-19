@@ -1,5 +1,8 @@
 export default {
   iframe: 'Iframe',
-  inline: 'IframeInline',
-  blank: 'IframeBlank',
+  inline: 'Inline',
+  blank: 'Blank',
+  vue: 'Vue',
+  vite: 'Vite',
+  pinia: 'Pinia',
 }

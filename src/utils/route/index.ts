@@ -1,5 +1,8 @@
 import type { RouteLocationNormalizedLoaded, RouteRecordNormalized } from 'vue-router'
 import type { Tab } from '@/typings/store'
+import type { MenuRecordRaw } from '@/router/types'
+import { dynamicRoutes } from '@/router/routes/dynamic'
+import { isValidArray } from '@/utils/is'
 
 export function hasFullPath(route: RouteRecordNormalized | RouteLocationNormalizedLoaded) {
   return Boolean((route as RouteLocationNormalizedLoaded).fullPath)
@@ -38,4 +41,39 @@ export function isInActiveTab(activeTab: string, fullPath: string) {
 
 export function filterTabRoutes(tabs: Tab[], fullPath: string) {
   return tabs.filter(tab => tab.fullPath !== fullPath)
+}
+
+export function transformRouteToMenu(
+  routes: MenuRecordRaw[],
+  parentPath?: string,
+): MenuRecordRaw[] {
+  const menus: MenuRecordRaw[] = []
+  routes.forEach((route) => {
+    const path = parentPath ? `${parentPath}/${route.path}` : `${route.path}`
+    if (isValidArray(route.children)) {
+      menus.push({
+        ...route,
+        path,
+        children: transformRouteToMenu(route.children, path),
+      })
+    }
+    else {
+      menus.push({
+        ...route,
+        path,
+      })
+    }
+  })
+  return menus
+}
+
+export function sortMenus(menus: MenuRecordRaw[]) {
+  return menus.sort(
+    (a: MenuRecordRaw, b: MenuRecordRaw) => (a.meta?.orderNo || 0) - (b.meta?.orderNo || 0),
+  )
+}
+
+export function generateMenus() {
+  const menus = transformRouteToMenu(dynamicRoutes)
+  return sortMenus(menus)
 }

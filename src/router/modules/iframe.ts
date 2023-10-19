@@ -14,12 +14,41 @@ const iframe: MenuRecordRaw = {
   children: [
     {
       path: 'inline',
-      name: 'IfameInline',
-      component: () => import('@/views/iframe/inline/index.vue'),
+      name: 'IframeInline',
+      redirect: '/iframe/inline/vue',
       meta: {
         icon: 'material-symbols:note-stack',
         title: 'routes.iframe.inline',
       },
+      children: [
+        {
+          path: 'vue',
+          name: 'IframeInlineVue',
+          component: () => import('@/views/iframe/inline/vue.vue'),
+          meta: {
+            icon: 'logos:vue',
+            title: 'routes.iframe.vue',
+          },
+        },
+        {
+          path: 'vite',
+          name: 'IframeInlineVite',
+          component: () => import('@/views/iframe/inline/vite.vue'),
+          meta: {
+            icon: 'logos:vitejs',
+            title: 'routes.iframe.vite',
+          },
+        },
+        {
+          path: 'pinia',
+          name: 'IframeInlinePina',
+          component: () => import('@/views/iframe/inline/pinia.vue'),
+          meta: {
+            icon: 'logos:pinia',
+            title: 'routes.iframe.pinia',
+          },
+        },
+      ],
     },
     {
       path: 'blank',

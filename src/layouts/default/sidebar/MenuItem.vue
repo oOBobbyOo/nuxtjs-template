@@ -16,8 +16,7 @@ const { routerPush } = useRouterPush(true)
 function handleClickMenu(item: MenuRecordRaw) {
   if (item.name === 'IfameBlank')
     routerPush(item.path, true)
-  else
-    routerPush(item.path, false)
+  else routerPush(item.path, false)
 }
 </script>
 
