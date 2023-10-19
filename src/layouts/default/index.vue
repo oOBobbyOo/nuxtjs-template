@@ -16,6 +16,7 @@ defineOptions({ name: 'DefaultLayout' })
       <MultipleTabs />
       <LayoutContent />
       <LayoutFooter />
+      <BackTop />
     </div>
   </div>
 </template>
