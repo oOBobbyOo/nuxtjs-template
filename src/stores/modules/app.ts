@@ -5,12 +5,14 @@ import { deepMerge } from '@/utils'
 
 interface AppState {
   pageLoading: boolean
+  reloadFlag: boolean
   projectConfig: ProjectConfig | null
 }
 
 export const useAppStore = defineStore('app', {
   state: (): AppState => ({
     pageLoading: false,
+    reloadFlag: true,
     projectConfig: projectSetting,
   }),
   getters: {
@@ -30,6 +32,21 @@ export const useAppStore = defineStore('app', {
   actions: {
     setMenuSetting(setting: Partial<MenuSetting>) {
       this.projectConfig!.menuSetting = deepMerge(this.projectConfig!.menuSetting, setting)
+    },
+    async reloadPage(duration = 0) {
+      this.reloadFlag = false
+      await nextTick()
+      if (duration) {
+        setTimeout(() => {
+          this.reloadFlag = true
+        }, duration)
+      }
+      else {
+        this.reloadFlag = true
+      }
+      setTimeout(() => {
+        document.documentElement.scrollTo({ left: 0, top: 0 })
+      }, 100)
     },
   },
 })

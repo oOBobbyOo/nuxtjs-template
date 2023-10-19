@@ -1,6 +1,6 @@
 export interface TabProps {
+  fullPath: string
   active?: boolean
-  activeColor?: string
   closable?: boolean
 }
 

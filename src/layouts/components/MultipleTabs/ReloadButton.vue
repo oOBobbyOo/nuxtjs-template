@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from '@/hooks/web/useI18n'
 
-defineOptions({
-  name: 'ReloadButton',
-})
+defineOptions({ name: 'ReloadButton' })
 
 const { t } = useI18n()
 </script>

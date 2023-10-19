@@ -31,7 +31,12 @@ const initialTabState: TabState = {
 
 export const useTabStore = defineStore('tab', {
   state: (): TabState => initialTabState,
-  getters: {},
+  getters: {
+    activeTabIndex(state) {
+      const { tabs, activeTab } = state
+      return getIndexInTabRoutes(tabs, activeTab)
+    },
+  },
   actions: {
     iniTabStore(currentRoute: RouteLocationNormalizedLoaded) {
       if (isInActiveTab(this.activeTab, currentRoute.fullPath))
@@ -61,9 +66,7 @@ export const useTabStore = defineStore('tab', {
       const idx = getIndexInTabRoutes(this.tabs, fullPath)
       if (!isActive)
         this.tabs = updateTabs
-
       if (isActive && updateTabs.length && idx > 0) {
-        // const activePath = updateTabs[updateTabs.length - 1].fullPath
         const activePath = updateTabs[idx - 1].fullPath
         const { routerPush } = useRouterPush(false)
         const navigationFailure = await routerPush(activePath)
@@ -72,6 +75,46 @@ export const useTabStore = defineStore('tab', {
           this.setActiveTab(activePath)
         }
       }
+    },
+    async clearTab(excludes: string[] = []) {
+      const homePath = initialTabState.tabs[0].fullPath
+      const remain = [homePath, ...excludes]
+      const hasActive = remain.includes(this.activeTab)
+      const updateTabs = this.tabs.filter(tab => remain.includes(tab.fullPath))
+      if (hasActive)
+        this.tabs = updateTabs
+      if (!hasActive && updateTabs.length) {
+        const activePath = updateTabs[updateTabs.length - 1].fullPath
+        const { routerPush } = useRouterPush(false)
+        const navigationFailure = await routerPush(activePath)
+        if (!navigationFailure) {
+          this.tabs = updateTabs
+          this.setActiveTab(activePath)
+        }
+      }
+    },
+    clearCurrentTab(currentPath: string) {
+      this.removeTab(currentPath)
+    },
+    clearLeftTab(currentPath: string) {
+      const idx = getIndexInTabRoutes(this.tabs, currentPath)
+      if (idx > -1) {
+        const excludes = this.tabs.slice(idx).map(item => item.fullPath)
+        this.clearTab(excludes)
+      }
+    },
+    clearRightTab(currentPath: string) {
+      const idx = getIndexInTabRoutes(this.tabs, currentPath)
+      if (idx > -1) {
+        const excludes = this.tabs.slice(0, idx + 1).map(item => item.fullPath)
+        this.clearTab(excludes)
+      }
+    },
+    clearOtherTab(currentPath: string) {
+      this.clearTab([currentPath])
+    },
+    clearAllTab() {
+      this.clearTab()
     },
     resetTabStore() {
       this.$reset()

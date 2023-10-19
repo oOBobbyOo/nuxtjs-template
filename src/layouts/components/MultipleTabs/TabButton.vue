@@ -2,9 +2,7 @@
 import type { Slots, TabProps } from './types'
 import TabButtonBg from './TabButtonBg.vue'
 
-defineOptions({
-  name: 'TabButton',
-})
+defineOptions({ name: 'TabButton' })
 
 defineProps<TabProps>()
 

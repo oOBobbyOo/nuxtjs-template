@@ -1,46 +1,50 @@
 <script setup lang="ts">
 import type { Slots, TabProps } from './types'
 import TabButton from './TabButton.vue'
+import ContextMenu from './ContextMenu.vue'
 
-defineOptions({
-  name: 'TabView',
-})
+defineOptions({ name: 'TabView' })
 
 const props = withDefaults(defineProps<TabProps>(), {
-  commonClass: 'transition-all-300',
   closable: true,
 })
 
-const emit = defineEmits<Emits>()
+const emits = defineEmits<Emits>()
 
 defineSlots<Slots>()
+
+interface Emits {
+  (e: 'closeTab' | 'clickTab'): void
+}
 
 const bindProps = computed(() => {
   const { ...rest } = props
   return rest
 })
 
-interface Emits {
-  (e: 'close'): void
+function handleCloseTab() {
+  emits('closeTab')
 }
 
-function handleClose() {
-  emit('close')
+function handleClickTab() {
+  emits('clickTab')
 }
 </script>
 
 <template>
-  <Component :is="TabButton" v-bind="bindProps">
-    <template #prefix>
-      <slot name="prefix" />
-    </template>
-    <slot />
-    <template #suffix>
-      <slot name="suffix">
-        <Icon v-if="closable" class="icon-close" icon="mdi:close" @click.stop="handleClose" />
-      </slot>
-    </template>
-  </Component>
+  <ContextMenu :full-path="fullPath" @click-tab="handleClickTab">
+    <Component :is="TabButton" v-bind="bindProps">
+      <template #prefix>
+        <slot name="prefix" />
+      </template>
+      <slot />
+      <template #suffix>
+        <slot name="suffix">
+          <Icon v-if="closable" class="icon-close" icon="mdi:close" @click.stop="handleCloseTab" />
+        </slot>
+      </template>
+    </Component>
+  </ContextMenu>
 </template>
 
 <style scoped lang="less">
