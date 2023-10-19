@@ -11,10 +11,13 @@ const { t } = useI18n()
 
 const { getCollapsed } = useMenuSetting()
 
-const router = useRouter()
+const { routerPush } = useRouterPush(true)
 
 function handleClickMenu(item: MenuRecordRaw) {
-  router.push(item.path)
+  if (item.name === 'IfameBlank')
+    routerPush(item.path, true)
+  else
+    routerPush(item.path, false)
 }
 </script>
 

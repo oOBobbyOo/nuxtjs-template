@@ -28,6 +28,7 @@ const iframe: MenuRecordRaw = {
       meta: {
         icon: 'ph:note-blank-fill',
         title: 'routes.iframe.blank',
+        href: 'https://github.com/vuejs/core',
       },
     },
   ],

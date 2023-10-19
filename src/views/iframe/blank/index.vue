@@ -1,11 +1,9 @@
 <script setup lang="ts">
-
+defineOptions({ name: 'IframeBlank' })
 </script>
 
 <template>
-  <div>
-    blank
-  </div>
+  <div />
 </template>
 
 <style scoped>
