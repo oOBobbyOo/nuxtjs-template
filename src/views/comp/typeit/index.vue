@@ -23,9 +23,9 @@ const strings = [
 </script>
 
 <template>
-  <div>
+  <Card title="打字机">
     <TypeIt :strings="strings" />
-  </div>
+  </Card>
 </template>
 
 <style scoped></style>
