@@ -23,12 +23,7 @@ interface Slots {
       <template #title>
         <div class="mb-2 flex-between">
           {{ title }}
-          <el-tooltip
-            v-if="tooltip"
-            effect="dark"
-            placement="top"
-            :content="tooltip"
-          >
+          <el-tooltip v-if="tooltip" effect="dark" placement="top" :content="tooltip">
             <Icon size="14" icon="ph:warning-circle-bold" />
           </el-tooltip>
         </div>
@@ -41,6 +36,6 @@ interface Slots {
 
 <style scoped lang="less">
 .statistic-card {
-  background-color: var(--el-bg-color-overlay)
+  background-color: var(--el-bg-color-overlay);
 }
 </style>
