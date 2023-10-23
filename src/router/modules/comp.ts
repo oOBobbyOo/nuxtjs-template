@@ -24,7 +24,7 @@ const comp: MenuRecordRaw = {
     {
       path: 'video',
       name: 'Video',
-      redirect: '/comp/video/gplayer',
+      redirect: '/comp/video/xgplayer',
       meta: {
         icon: 'mdi:video',
         title: 'routes.comp.video',

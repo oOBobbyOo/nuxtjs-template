@@ -39,7 +39,7 @@ const activeMenu = computed(() => route.path)
     border-radius: var(--el-border-radius);
   }
 
-  ::v-deep(.el-sub-menu.is-active .el-sub-menu__title) {
+  ::v-deep(.el-sub-menu.is-active > .el-sub-menu__title) {
     color: var(--el-menu-active-color);
   }
 }
