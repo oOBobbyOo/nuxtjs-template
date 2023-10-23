@@ -30,6 +30,7 @@
     "@vueuse/core": "^10.4.1",
     "@vueuse/head": "^2.0.0",
     "crypto-js": "^4.1.1",
+    "dplayer": "^1.27.1",
     "element-plus": "^2.3.14",
     "lodash-es": "^4.17.21",
     "nprogress": "^0.2.0",
@@ -37,12 +38,14 @@
     "typeit": "^8.7.1",
     "vue": "^3.3.4",
     "vue-i18n": "^9.4.1",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "xgplayer": "^3.0.9"
   },
   "devDependencies": {
     "@antfu/eslint-config": "1.0.0-beta.13",
     "@iconify/json": "^2.2.125",
     "@types/crypto-js": "^4.1.2",
+    "@types/dplayer": "^1.25.4",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.7.1",
     "@types/nprogress": "^0.2.1",
