@@ -11,8 +11,7 @@ function renderXgPlayer() {
     return
   const url
     = 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4'
-  const poster
-    = '//lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/byted-player-videos/1.0.0/poster.jpg'
+  const poster = '//lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/byted-player-videos/1.0.0/poster.jpg'
 
   // https://h5player.bytedance.com/config/
   player.value = new Player({

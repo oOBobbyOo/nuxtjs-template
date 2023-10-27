@@ -1,4 +1,8 @@
-import type { RouteLocationNormalizedLoaded, RouteRecordNormalized, RouteRecordRaw } from 'vue-router'
+import type {
+  RouteLocationNormalizedLoaded,
+  RouteRecordNormalized,
+  RouteRecordRaw,
+} from 'vue-router'
 import type { Tab } from '@/typings/store'
 import type { MenuRecordRaw } from '@/router/types'
 import { dynamicRoutes } from '@/router/routes/dynamic'

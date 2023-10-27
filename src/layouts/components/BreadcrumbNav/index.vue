@@ -27,7 +27,7 @@ watch(
 </script>
 
 <template>
-  <el-breadcrumb separator="/" class="px-4">
+  <el-breadcrumb separator="/" class="breadcrumb-nav px-4">
     <template v-for="item in breadcrumbs" :key="item.path">
       <el-breadcrumb-item :to="item.path">
         <el-dropdown v-if="isValidArray(item.children)" trigger="hover" class="dark:text-white">

@@ -5,13 +5,22 @@ const comp: MenuRecordRaw = {
   path: '/comp',
   name: 'Comp',
   component: Layout,
-  redirect: '/comp/typeit',
+  redirect: '/comp/guide',
   meta: {
     orderNo: 6,
     icon: 'icon-park-outline:components',
     title: 'routes.comp.component',
   },
   children: [
+    {
+      path: 'guide',
+      name: 'Guide',
+      component: () => import('@/views/comp/guide/index.vue'),
+      meta: {
+        icon: 'ep:guide',
+        title: 'routes.comp.guide',
+      },
+    },
     {
       path: 'typeit',
       name: 'TypeIt',
