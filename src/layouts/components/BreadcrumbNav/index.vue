@@ -31,8 +31,8 @@ watch(
     <template v-for="item in breadcrumbs" :key="item.path">
       <el-breadcrumb-item :to="item.path">
         <el-dropdown v-if="isValidArray(item.children)" trigger="hover" class="dark:text-white">
-          <div flex-center>
-            <Icon v-if="item.meta.icon" :icon="item.meta.icon" />
+          <div flex-center font-normal>
+            <Icon v-if="item.meta.icon" size="18" :icon="item.meta.icon" />
             <span pl-2>{{ t(item.meta.title) }}</span>
           </div>
           <template #dropdown>
@@ -43,7 +43,7 @@ watch(
                 :command="child.path"
                 @click="hanldeRoute(child.path)"
               >
-                <Icon v-if="child.meta.icon" :icon="child.meta.icon" />
+                <Icon v-if="child.meta.icon" size="18" :icon="child.meta.icon" />
                 <span pl-2>{{ t(child.meta.title) }}</span>
               </el-dropdown-item>
             </el-dropdown-menu>
@@ -51,8 +51,8 @@ watch(
         </el-dropdown>
 
         <template v-else>
-          <div flex-center>
-            <Icon v-if="item.meta.icon" :icon="item.meta.icon" />
+          <div flex-center text-gray>
+            <Icon v-if="item.meta.icon" size="18" :icon="item.meta.icon" />
             <span pl-2>{{ t(item.meta.title) }}</span>
           </div>
         </template>
@@ -61,4 +61,4 @@ watch(
   </el-breadcrumb>
 </template>
 
-<style scoped></style>
+<style scoped lang="less"></style>

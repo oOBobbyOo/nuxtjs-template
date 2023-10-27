@@ -1,4 +1,4 @@
-import type { RouteLocationNormalizedLoaded, RouteRecordNormalized } from 'vue-router'
+import type { RouteLocationNormalizedLoaded, RouteRecordNormalized, RouteRecordRaw } from 'vue-router'
 import type { Tab } from '@/typings/store'
 import type { MenuRecordRaw } from '@/router/types'
 import { dynamicRoutes } from '@/router/routes/dynamic'
@@ -85,16 +85,34 @@ export function flattenMenus(arr: MenuRecordRaw[]): MenuRecordRaw[] {
   }, [] as MenuRecordRaw[])
 }
 
-export function generateBreadcrumbs(route: RouteLocationNormalizedLoaded): MenuRecordRaw[] {
-  const matched = route.matched
-  const breadcrumbs = matched.map((item) => {
+export function transformRouteToBreadcrumbs(
+  matched: RouteRecordRaw[],
+  parentPath?: string,
+): MenuRecordRaw[] {
+  const breadcrumbs: MenuRecordRaw[] = []
+  matched.forEach((route) => {
+    const path = parentPath ? `${parentPath}/${route.path}` : `${route.path}`
     const breadcrumb = {
-      name: item.name,
-      path: item.path,
-      meta: item.meta,
-      children: item.children,
+      name: route.name,
+      path,
+      meta: route.meta,
     } as MenuRecordRaw
-    return breadcrumb
+    if (isValidArray(route.children)) {
+      breadcrumbs.push({
+        ...breadcrumb,
+        children: transformRouteToBreadcrumbs(route.children, route.path),
+      })
+    }
+    else {
+      breadcrumbs.push({
+        ...breadcrumb,
+      })
+    }
   })
   return breadcrumbs
+}
+
+export function generateBreadcrumbs(route: RouteLocationNormalizedLoaded): MenuRecordRaw[] {
+  const matched = route.matched
+  return transformRouteToBreadcrumbs(matched)
 }
