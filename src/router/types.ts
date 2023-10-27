@@ -9,6 +9,8 @@ export interface MenuMeta {
 }
 
 export type MenuRecordRaw = RouteRecordRaw & {
+  name: string
+  path: string
   meta: MenuMeta & RouteMeta
   children?: MenuRecordRaw[]
 }

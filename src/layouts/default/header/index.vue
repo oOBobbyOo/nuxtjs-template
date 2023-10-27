@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SidebarTrigger from '@/layouts/components/SidebarTrigger/index.vue'
+import BreadcrumbNav from '@/layouts/components/BreadcrumbNav/index.vue'
 import FullScreen from '@/layouts/components/FullScreen/index.vue'
 import DarkMode from '@/layouts/components/DarkMode/index.vue'
 import LangSetting from '@/layouts/components/LangSetting/index.vue'
@@ -10,8 +11,9 @@ defineOptions({ name: 'LayoutHeader' })
 
 <template>
   <div class="layout-header">
-    <div class="header-lf h-full flex-1">
+    <div class="header-lf h-full flex-y-center flex-1">
       <SidebarTrigger />
+      <BreadcrumbNav />
     </div>
     <div class="header-ri h-full flex-center">
       <FullScreen />

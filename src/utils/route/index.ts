@@ -77,3 +77,24 @@ export function generateMenus() {
   const menus = transformRouteToMenu(dynamicRoutes)
   return sortMenus(menus)
 }
+
+export function flattenMenus(arr: MenuRecordRaw[]): MenuRecordRaw[] {
+  return arr.reduce((prev, cur) => {
+    prev.push(cur)
+    return prev.concat(Array.isArray(cur.children) ? flattenMenus(cur.children) : [])
+  }, [] as MenuRecordRaw[])
+}
+
+export function generateBreadcrumbs(route: RouteLocationNormalizedLoaded): MenuRecordRaw[] {
+  const matched = route.matched
+  const breadcrumbs = matched.map((item) => {
+    const breadcrumb = {
+      name: item.name,
+      path: item.path,
+      meta: item.meta,
+      children: item.children,
+    } as MenuRecordRaw
+    return breadcrumb
+  })
+  return breadcrumbs
+}
