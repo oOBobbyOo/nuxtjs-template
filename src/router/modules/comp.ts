@@ -22,6 +22,15 @@ const comp: MenuRecordRaw = {
       },
     },
     {
+      path: 'screen-locker',
+      name: 'ScreenLocker',
+      component: () => import('@/views/comp/screen-locker/index.vue'),
+      meta: {
+        icon: 'icon-park-twotone:locking-computer',
+        title: 'routes.comp.screenLocker',
+      },
+    },
+    {
       path: 'typeit',
       name: 'TypeIt',
       component: () => import('@/views/comp/typeit/index.vue'),
