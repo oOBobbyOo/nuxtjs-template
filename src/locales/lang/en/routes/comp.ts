@@ -3,6 +3,7 @@ export default {
   guide: 'Guide',
   screenLocker: 'Screen Locker',
   typeit: 'TypeIt',
+  copy: 'Copy',
   video: 'Video',
   xgplayer: 'XgPlayer',
   dplayer: 'DPlayer',

@@ -40,6 +40,15 @@ const comp: MenuRecordRaw = {
       },
     },
     {
+      path: 'copy',
+      name: 'Copy',
+      component: () => import('@/views/comp/copy/index.vue'),
+      meta: {
+        icon: 'material-symbols:content-copy',
+        title: 'routes.comp.copy',
+      },
+    },
+    {
       path: 'video',
       name: 'Video',
       redirect: '/comp/video/xgplayer',
