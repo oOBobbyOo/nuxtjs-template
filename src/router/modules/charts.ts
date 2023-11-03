@@ -31,6 +31,15 @@ const echarts: MenuRecordRaw = {
           },
         },
         {
+          path: 'bar',
+          name: 'BarChart',
+          component: () => import('@/views/charts/echarts/bar/index.vue'),
+          meta: {
+            icon: 'mdi:chart-bar',
+            title: 'routes.charts.bar',
+          },
+        },
+        {
           path: 'map',
           name: 'ChinaMapChart',
           component: () => import('@/views/charts/echarts/map/index.vue'),
