@@ -30,6 +30,15 @@ const echarts: MenuRecordRaw = {
             title: 'routes.charts.line',
           },
         },
+        {
+          path: 'map',
+          name: 'ChinaMapChart',
+          component: () => import('@/views/charts/echarts/map/index.vue'),
+          meta: {
+            icon: 'majesticons:map-marker-area-line',
+            title: 'routes.charts.map',
+          },
+        },
       ],
     },
   ],

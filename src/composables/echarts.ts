@@ -2,6 +2,7 @@
 import * as echarts from 'echarts/core'
 import 'echarts-liquidfill'
 import type { ComposeOption } from 'echarts/core'
+import { registerMap } from 'echarts'
 
 // 系列类型的定义后缀都为 SeriesOption
 import type {
@@ -53,6 +54,7 @@ import { LabelLayout, UniversalTransition } from 'echarts/features'
 
 // 引入 Canvas 渲染器，注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
 import { CanvasRenderer } from 'echarts/renderers'
+import geoJson from '@/assets/map/china.json'
 
 export type { EChartsOption } from 'echarts'
 
@@ -94,5 +96,10 @@ echarts.use([
   UniversalTransition,
   CanvasRenderer,
 ])
+
+type GeoJsonType = Parameters<typeof registerMap>[1]
+
+// 注册地图
+registerMap('china', geoJson as GeoJsonType)
 
 export default echarts

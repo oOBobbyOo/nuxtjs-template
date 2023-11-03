@@ -2,6 +2,9 @@
 import type { EChartsOption } from '@/composables/echarts'
 
 const options: EChartsOption = {
+  tooltip: {
+    trigger: 'axis',
+  },
   xAxis: {
     type: 'category',
     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
