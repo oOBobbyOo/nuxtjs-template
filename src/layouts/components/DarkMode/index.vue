@@ -7,7 +7,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <div h-full flex-center cursor-pointer px-2 @click="toggleDark()">
+  <div h-full flex-center cursor-pointer px-2 @click="toggleDarkMode">
     <el-tooltip
       placement="bottom"
       :content="isDark ? t('layout.header.tooltipDark') : t('layout.header.tooltipLight')"
