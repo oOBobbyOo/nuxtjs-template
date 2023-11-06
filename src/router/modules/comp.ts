@@ -77,6 +77,26 @@ const comp: MenuRecordRaw = {
         },
       ],
     },
+    {
+      path: 'editor',
+      name: 'Editor',
+      redirect: '/comp/editor/wangeditor',
+      meta: {
+        icon: 'mdi:text-box-edit',
+        title: 'routes.comp.editor',
+      },
+      children: [
+        {
+          path: 'wangeditor',
+          name: 'WangEditor',
+          component: () => import('@/views/comp/editor/wangeditor/index.vue'),
+          meta: {
+            icon: 'mdi:content-save-edit',
+            title: 'routes.comp.wangeditor',
+          },
+        },
+      ],
+    },
   ],
 }
 

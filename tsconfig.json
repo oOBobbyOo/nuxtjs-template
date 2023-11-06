@@ -7,7 +7,7 @@
     "module": "ESNext",
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node", // "bundler"
 
     "baseUrl": ".",
     "paths": {

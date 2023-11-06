@@ -1,0 +1,47 @@
+@border-light-color: #f0f0f0;
+@border-dark-color: #303030;
+
+.wang-editor {
+  border: 1px solid @border-light-color;
+
+  .wg-toolbar {
+    border-bottom: 1px solid @border-light-color;
+  }
+
+  .wg-container {
+    height: 500px !important;
+    overflow-y: hidden;
+  }
+}
+
+.dark {
+  // textarea - css vars
+  --w-e-textarea-bg-color: #141414;
+  --w-e-textarea-color: #fff;
+  --w-e-textarea-border-color: #303030;
+  --w-e-textarea-slight-border-color: #303030;
+  --w-e-textarea-slight-color: #d4d4d4;
+  --w-e-textarea-slight-bg-color: #f5f2f0;
+  --w-e-textarea-selected-border-color: #b4d5ff; // 选中的元素，如选中了分割线
+  --w-e-textarea-handler-bg-color: #4290f7; // 工具，如图片拖拽按钮
+
+  // toolbar - css vars
+  --w-e-toolbar-color: #595959;
+  --w-e-toolbar-bg-color: #141414;
+  --w-e-toolbar-active-color: #333;
+  --w-e-toolbar-active-bg-color: #333;
+  --w-e-toolbar-disabled-color: #999;
+  --w-e-toolbar-border-color: #303030;
+
+  // modal - css vars
+  --w-e-modal-button-bg-color: #303030;
+  --w-e-modal-button-border-color: #d9d9d9;
+
+  .wang-editor {
+    border: 1px solid @border-dark-color;
+
+    .wg-toolbar {
+      border-bottom: 1px solid @border-dark-color;
+    }
+  }
+}

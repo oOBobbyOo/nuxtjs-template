@@ -7,4 +7,6 @@ export default {
   video: 'Video',
   xgplayer: 'XgPlayer',
   dplayer: 'DPlayer',
+  editor: 'Editor',
+  wangeditor: 'WangEditor',
 }

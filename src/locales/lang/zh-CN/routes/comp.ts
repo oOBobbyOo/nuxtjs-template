@@ -7,4 +7,6 @@ export default {
   video: '视频',
   xgplayer: 'XgPlayer',
   dplayer: 'DPlayer',
+  editor: '编辑',
+  wangeditor: 'wangEditor',
 }
