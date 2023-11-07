@@ -35,7 +35,12 @@ function handleCreated(editor: IDomEditor) {
 <template>
   <Card title="wangEditor">
     <div class="wang-editor">
-      <Toolbar class="wg-toolbar" :editor="editorRef" :default-config="toolbarConfig" :mode="mode" />
+      <Toolbar
+        class="wg-toolbar"
+        :editor="editorRef"
+        :default-config="toolbarConfig"
+        :mode="mode"
+      />
       <Editor
         v-model="valueHtml"
         class="wg-container"

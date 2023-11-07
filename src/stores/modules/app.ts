@@ -45,6 +45,9 @@ export const useAppStore = defineStore('app', {
     setMenuSetting(setting: Partial<MenuSetting>) {
       this.projectConfig!.menuSetting = deepMerge(this.projectConfig!.menuSetting, setting)
     },
+    async setPageLoadingAction(loading: boolean) {
+      this.setPageLoading(loading)
+    },
     async reloadPage(duration = 0) {
       this.reloadFlag = false
       await nextTick()
@@ -62,3 +65,7 @@ export const useAppStore = defineStore('app', {
     },
   },
 })
+
+export function useAppStoreWithOut() {
+  return useAppStore(store)
+}

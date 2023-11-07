@@ -1,4 +1,5 @@
 export default {
+  loading: 'Loading...',
   back: 'Back',
   backHome: 'Back Home',
   guide: {

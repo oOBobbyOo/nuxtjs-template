@@ -1,4 +1,5 @@
 export default {
+  loading: '加载中...',
   back: '返回',
   backHome: '返回首页',
   guide: {
