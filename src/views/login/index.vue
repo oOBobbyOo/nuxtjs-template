@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { CodeLogin, LoginBg, PwdLogin, RegisterUser, ResetPwd } from './components'
+import { LoginModuleEnum } from '@/enums/routeEnum'
 import SwitchDarkMode from '@/components/SwitchDarkMode/index.vue'
 
 defineOptions({ name: 'Login' })
@@ -9,7 +10,7 @@ const props = defineProps<Props>()
 const themeColor = '#eee'
 
 interface Props {
-  module: string
+  module: LoginModuleEnum
 }
 
 interface LoginModule {
@@ -19,10 +20,10 @@ interface LoginModule {
 }
 
 const modules: LoginModule[] = [
-  { key: 'pwd-login', label: '密码登录', component: PwdLogin },
-  { key: 'code-login', label: '验证码登录', component: CodeLogin },
-  { key: 'register', label: '注册账号', component: RegisterUser },
-  { key: 'reset-pwd', label: '重置密码', component: ResetPwd },
+  { key: LoginModuleEnum.PWD_LOGIN, label: '密码登录', component: PwdLogin },
+  { key: LoginModuleEnum.CODE_LOGIN, label: '验证码登录', component: CodeLogin },
+  { key: LoginModuleEnum.REGISTER, label: '注册账号', component: RegisterUser },
+  { key: LoginModuleEnum.RESET_PWD, label: '重置密码', component: ResetPwd },
 ]
 
 const activeModule = computed(() => {

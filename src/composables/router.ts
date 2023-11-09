@@ -1,6 +1,7 @@
 import type { RouteLocationRaw } from 'vue-router'
 import { router as globalRouter } from '@/router'
 import { openWindow } from '@/utils'
+import type { LoginModuleEnum } from '@/enums/routeEnum'
 
 /**
  * 路由跳转
@@ -35,7 +36,7 @@ export function useRouterPush(inSetup = true) {
    * 登录页切换其他模块
    * @param module - 切换后的登录模块
    */
-  function toLoginModule(module: string) {
+  function toLoginModule(module: LoginModuleEnum) {
     const { query } = route.value
     routerPush({ name: 'LoginModule', params: { module }, query })
   }

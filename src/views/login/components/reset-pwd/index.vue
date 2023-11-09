@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
+import { LoginModuleEnum } from '@/enums/routeEnum'
 import { formRules } from '@/utils/regexp'
 
 interface FormProps {
@@ -56,12 +57,16 @@ const { toLoginModule } = useRouterPush()
       <el-form-item prop="password">
         <el-input v-model="form.password" placeholder="请输入新密码" type="password" />
       </el-form-item>
-      <el-form-item>
+      <el-form-item class="!mb-0">
         <div class="w-full flex-center flex-col">
           <el-button type="primary" round class="w-full" @click="submitForm(formRef)">
             确定
           </el-button>
-          <el-button round class="mt-4 w-full !ml-0" @click="toLoginModule('pwd-login')">
+          <el-button
+            round
+            class="mt-4 w-full !ml-0"
+            @click="toLoginModule(LoginModuleEnum.PWD_LOGIN)"
+          >
             返回
           </el-button>
         </div>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
 import OtherLogin from '../other-login/index.vue'
+import { LoginModuleEnum } from '@/enums/routeEnum'
 import { formRules } from '@/utils/regexp'
 
 interface FormProps {
@@ -57,7 +58,7 @@ const { toLoginModule } = useRouterPush()
       <el-form-item>
         <div class="w-full flex-y-center justify-between">
           <el-checkbox v-model="remember" label="记住我" />
-          <el-button link @click="toLoginModule('reset-pwd')">
+          <el-button type="primary" link @click="toLoginModule(LoginModuleEnum.RESET_PWD)">
             忘记密码?
           </el-button>
         </div>
@@ -74,10 +75,14 @@ const { toLoginModule } = useRouterPush()
       </el-form-item>
       <el-form-item>
         <div class="w-full flex-center">
-          <el-button class="w-full" size="default" @click="toLoginModule('code-login')">
+          <el-button
+            class="w-full"
+            size="default"
+            @click="toLoginModule(LoginModuleEnum.CODE_LOGIN)"
+          >
             验证码登录
           </el-button>
-          <el-button class="w-full" size="default" @click="toLoginModule('register')">
+          <el-button class="w-full" size="default" @click="toLoginModule(LoginModuleEnum.REGISTER)">
             注册账号
           </el-button>
         </div>

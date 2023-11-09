@@ -1,4 +1,5 @@
 import type { MenuRecordRaw } from '../types'
+import { LoginModuleEnum } from '@/enums/routeEnum'
 
 // 根路由
 export const RootRoute: MenuRecordRaw = {
@@ -16,7 +17,7 @@ export const LoginRoute: MenuRecordRaw = {
   name: 'Login',
   component: () => import('@/views/login/index.vue'),
   props: (route) => {
-    const moduleType = (route.params.module as string) || 'pwd-login'
+    const moduleType = (route.params.module as LoginModuleEnum) || LoginModuleEnum.PWD_LOGIN
     return {
       module: moduleType,
     }
