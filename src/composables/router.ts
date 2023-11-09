@@ -8,6 +8,7 @@ import { openWindow } from '@/utils'
  */
 export function useRouterPush(inSetup = true) {
   const router = inSetup ? useRouter() : globalRouter
+  const route = globalRouter.currentRoute
 
   /**
    * 路由跳转
@@ -30,8 +31,18 @@ export function useRouterPush(inSetup = true) {
     router.go(-1)
   }
 
+  /**
+   * 登录页切换其他模块
+   * @param module - 切换后的登录模块
+   */
+  function toLoginModule(module: string) {
+    const { query } = route.value
+    routerPush({ name: 'LoginModule', params: { module }, query })
+  }
+
   return {
     routerPush,
     routerBack,
+    toLoginModule,
   }
 }

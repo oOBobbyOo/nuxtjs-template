@@ -15,9 +15,25 @@ export const LoginRoute: MenuRecordRaw = {
   path: '/login',
   name: 'Login',
   component: () => import('@/views/login/index.vue'),
+  props: (route) => {
+    const moduleType = (route.params.module as string) || 'pwd-login'
+    return {
+      module: moduleType,
+    }
+  },
   meta: {
     title: 'routes.basic.login',
   },
+  children: [
+    {
+      path: ':module',
+      name: 'LoginModule',
+      component: () => import('@/layouts/blank/index.vue'),
+      meta: {
+        title: 'routes.basic.login',
+      },
+    },
+  ],
 }
 
 // NotFound
