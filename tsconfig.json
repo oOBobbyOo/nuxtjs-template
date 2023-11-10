@@ -18,6 +18,7 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
 
     /* Linting */
     "strict": true,
