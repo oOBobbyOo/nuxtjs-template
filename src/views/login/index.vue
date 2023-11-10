@@ -7,8 +7,6 @@ defineOptions({ name: 'Login' })
 
 const props = defineProps<Props>()
 
-const themeColor = '#eee'
-
 interface Props {
   module: LoginModuleEnum
 }
@@ -38,7 +36,7 @@ const activeModule = computed(() => {
 
 <template>
   <div class="relative wh-full flex-center">
-    <div class="login-content rounded-4 bg-white p-6 dark:bg-gray-2 dark:bg-opacity-4">
+    <div class="login-content rounded-4 bg-white p-6 dark:bg-dark">
       <div class="w-300px sm:w-360px">
         <div class="flex-center flex-col">
           <Logo />
@@ -57,7 +55,7 @@ const activeModule = computed(() => {
       </div>
     </div>
     <SwitchDarkMode />
-    <LoginBg :color="themeColor" />
+    <LoginBg />
   </div>
 </template>
 

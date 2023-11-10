@@ -1,37 +1,15 @@
 <script setup lang="ts">
-import { Lizi } from './lizi.ts'
+import CornerBg from './corner-bg.vue'
+import LiziBg from './lizi-bg.vue'
 
-interface Props {
-  amountX?: number
-  amountY?: number
-  color?: string
-  top?: number
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  amountX: 50,
-  amountY: 50,
-  color: '#097bdb',
-  top: 350,
-})
-
-const elRef = ref<HTMLElement>()
-
-onMounted(() => {
-  if (!elRef.value)
-    return
-
-  const lizi = new Lizi({
-    el: elRef.value,
-    ...props,
-  })
-
-  lizi.animate()
-})
+const themeColor = '#ececec'
 </script>
 
 <template>
-  <div ref="elRef" class="absolute-lt z--1 wh-full" />
+  <div class="absolute-lt z--1 wh-full">
+    <CornerBg />
+    <LiziBg :color="themeColor" />
+  </div>
 </template>
 
 <style scoped></style>
