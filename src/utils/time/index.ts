@@ -4,28 +4,28 @@ const DATE_FORMAT = 'YYYY-MM-DD'
 const DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss'
 
 /**
- * 格式化日期
+ * @description 格式化日期
  * @param {dayjs.ConfigType} date
  * @param {string} format YYYY-MM-DD
- * @returns {string}
  */
 export function formatToDate(date?: dayjs.ConfigType, format: string = DATE_FORMAT): string {
   return dayjs(date).format(format)
 }
 
 /**
- * 格式化时间
+ * @description 格式化时间
  * @param {dayjs.ConfigType} date
  * @param {string} format YYYY-MM-DD HH:mm:ss
- * @returns {string}
  */
-export function formatToDateTime(date?: dayjs.ConfigType, format: string = DATE_TIME_FORMAT): string {
+export function formatToDateTime(
+  date?: dayjs.ConfigType,
+  format: string = DATE_TIME_FORMAT,
+): string {
   return dayjs(date).format(format)
 }
 
 /**
- * 获取当前时间对应的提示语
- * @returns {string}
+ * @description 获取当前时间对应的提示语
  */
 export function getTimeState(): string {
   const timeState = ['凌晨好 🌙', '早上好 ⛅', '上午好 🌤', '中午好 🌞', '下午好 ☀️', '晚上好 🌛']
@@ -43,4 +43,12 @@ export function getTimeState(): string {
   if (hours > 18 && hours <= 24)
     return timeState[5]
   return timeState[1]
+}
+
+/**
+ * @description 补0
+ * @param {number} n
+ */
+export function formatPadZero(n: number): string {
+  return n.toString().padStart(2, '0')
 }

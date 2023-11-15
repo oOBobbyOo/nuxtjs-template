@@ -19,3 +19,41 @@
     transform: scale(0) rotate(-45deg);
   }
 }
+
+.scale-in {
+  &-enter-active,
+  &-leave-active {
+    transition: all .35s ease-in-out;
+  }
+
+  &-enter-from {
+    transform: scale(1.2);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &-leave-to {
+    transform: scale(.55);
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.scale-out {
+  &-enter-active,
+  &-leave-active {
+    transition: all .35s ease-in-out;
+  }
+
+  &-enter-from {
+    transform: scale(1.55);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &-leave-to {
+    transform: scale(1.2);
+    pointer-events: none;
+    opacity: 0;
+  }
+}

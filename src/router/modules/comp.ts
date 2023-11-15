@@ -49,6 +49,15 @@ const comp: MenuRecordRaw = {
       },
     },
     {
+      path: 'music',
+      name: 'Music',
+      component: () => import('@/views/comp/music/index.vue'),
+      meta: {
+        icon: 'material-symbols:library-music',
+        title: 'routes.comp.music',
+      },
+    },
+    {
       path: 'video',
       name: 'Video',
       redirect: '/comp/video/xgplayer',

@@ -4,6 +4,7 @@ export default {
   screenLocker: 'Screen Locker',
   typeit: 'TypeIt',
   copy: 'Copy',
+  music: 'Music',
   video: 'Video',
   xgplayer: 'XgPlayer',
   dplayer: 'DPlayer',
