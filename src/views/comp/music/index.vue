@@ -14,13 +14,14 @@ interface TrackItemProps {
 const transitionName = ref('scale-in')
 
 const audioState = reactive({
-  loading: false,
+  loading: true,
   duration: 0,
   currentTime: 0,
   isPlaying: false,
 })
 
 const audioRef = ref<HTMLAudioElement>()
+const progressRef = ref<HTMLElement>()
 
 const currentTrackIndex = ref(0)
 const currentTrack = ref<TrackItemProps | null>(null)
@@ -125,21 +126,34 @@ const progressWidth = computed(() => {
   return `${width}%`
 })
 
-function onCanPlay() {}
+// 当浏览器可以开始播放音频/视频时触发
+function onCanPlay() {
+  audioState.loading = false
+}
 
+// 当音频/视频的时长已更改时触发
+function onDurationChange(event: any) {
+  audioState.duration = event.target.duration | 0
+}
+
+// 当目前的播放位置已更改时触发
 function onTimeUpdate(event: any) {
-  audioState.duration = event.target.duration | 0
   audioState.currentTime = event.target.currentTime | 0
 }
 
+// 当浏览器已加载音频/视频的元数据时触发
 function onLoadedMetaData(event: any) {
-  audioState.duration = event.target.duration | 0
   audioState.currentTime = event.target.currentTime | 0
 }
 
+// 当用户已移动/跳跃到音频/视频中的新位置时触发
+function onSeeked() {
+  play()
+}
+
+// 当目前的播放已结束时触发
 function onEnded() {
   nextTrack()
-  audioState.isPlaying = true
 }
 
 function generateTime(time: number) {
@@ -150,12 +164,14 @@ function generateTime(time: number) {
   return `${formatPadZero(curmin)}:${formatPadZero(cursec)}`
 }
 
+// 点赞
 function favorite() {
   tracks[currentTrackIndex.value].favorited = !tracks[currentTrackIndex.value].favorited
 }
 
+// 播放
 function play() {
-  if (!audioRef.value)
+  if (!audioRef.value || audioState.loading)
     return
   if (audioRef.value.paused) {
     audioRef.value.play()
@@ -167,7 +183,9 @@ function play() {
   }
 }
 
+// 重置
 function resetPlayer() {
+  audioState.loading = true
   audioState.duration = 0
   audioState.currentTime = 0
   audioState.isPlaying = false
@@ -176,37 +194,67 @@ function resetPlayer() {
     return
   audioRef.value.currentTime = 0
   audioRef.value.src = currentTrack.value?.source || tracks[0].source
+  audioState.isPlaying = true
 
-  setTimeout(() => {
+  nextTick(() => {
     if (audioState.isPlaying)
       audioRef.value?.play()
-    else
-      audioRef.value?.pause()
-  }, 300)
+    else audioRef.value?.pause()
+  })
 }
 
+// 上一首
 function prevTrack() {
   transitionName.value = 'scale-in'
   if (currentTrackIndex.value > 0)
     currentTrackIndex.value--
-  else
-    currentTrackIndex.value = tracks.length - 1
+  else currentTrackIndex.value = tracks.length - 1
 
   currentTrack.value = tracks[currentTrackIndex.value]
   resetPlayer()
 }
 
+// 下一首
 function nextTrack() {
   transitionName.value = 'scale-out'
   if (currentTrackIndex.value < tracks.length - 1)
     currentTrackIndex.value++
-  else
-    currentTrackIndex.value = 0
+  else currentTrackIndex.value = 0
 
   currentTrack.value = tracks[currentTrackIndex.value]
   resetPlayer()
 }
 
+// 更新播放进度
+function updatePregress(x: number) {
+  if (!audioRef.value || !progressRef.value || audioState.loading)
+    return
+
+  audioRef.value.pause()
+  audioState.isPlaying = false
+
+  const progress = progressRef.value
+  const position = x - progress.offsetLeft
+  let percentage = (100 * position) / progress.offsetWidth
+
+  if (percentage > 100)
+    percentage = 100
+
+  if (percentage < 0)
+    percentage = 0
+
+  const duration = audioState.duration
+  const currentTime = (duration * percentage) / 100
+  audioState.currentTime = currentTime
+  audioRef.value.currentTime = currentTime
+}
+
+// 点击进度条触发更新播放进度
+function handleProgress(e: any) {
+  updatePregress(e.pageX)
+}
+
+// 初始化
 function initPlayerTrack() {
   if (!audioRef.value)
     return
@@ -256,11 +304,17 @@ onMounted(() => {
           </div>
           <div class="player-controls-item is-play cursor-pointer" @click="play">
             <Icon
-              v-if="!audioState.isPlaying"
-              size="95"
+              v-if="audioState.loading"
+              class="p-2"
+              size="80"
+              icon="pepicons-pop:music-note-single-circle-off"
+            />
+            <Icon
+              v-else-if="!audioState.isPlaying"
+              size="96"
               icon="material-symbols:play-circle-outline"
             />
-            <Icon v-else size="95" icon="material-symbols:pause-circle-outline" />
+            <Icon v-else size="96" icon="material-symbols:pause-circle-outline" />
           </div>
         </div>
       </div>
@@ -279,7 +333,7 @@ onMounted(() => {
             {{ durationStr }}
           </div>
         </div>
-        <div class="player-progress-bar">
+        <div ref="progressRef" class="player-progress-bar" @click="handleProgress">
           <div class="progress-current" :style="{ width: progressWidth }" />
         </div>
         <div class="player-progress-time">
@@ -292,8 +346,10 @@ onMounted(() => {
       class="hidden"
       preload="auto"
       @canplay="onCanPlay"
-      @timeupdate="onTimeUpdate"
+      @durationchange="onDurationChange"
       @loadedmetadata="onLoadedMetaData"
+      @timeupdate="onTimeUpdate"
+      @seeked="onSeeked"
       @ended="onEnded"
     />
   </div>
