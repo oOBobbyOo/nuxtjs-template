@@ -43,6 +43,6 @@ export const NotFound: MenuRecordRaw = {
   name: 'NotFound',
   component: () => import('@/views/not-found/index.vue'),
   meta: {
-    title: 'routers.basic.notfound',
+    title: 'routes.basic.notfound',
   },
 }
