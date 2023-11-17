@@ -9,5 +9,6 @@ export default {
   xgplayer: 'XgPlayer',
   dplayer: 'DPlayer',
   editor: '编辑',
-  wangeditor: 'wangEditor',
+  wangeditor: 'WangEditor',
+  markdown: 'Markdown',
 }

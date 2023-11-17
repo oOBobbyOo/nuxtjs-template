@@ -104,6 +104,15 @@ const comp: MenuRecordRaw = {
             title: 'routes.comp.wangeditor',
           },
         },
+        {
+          path: 'mardown',
+          name: 'Markdown',
+          component: () => import('@/views/comp/editor/mardown/index.vue'),
+          meta: {
+            icon: 'ri:markdown-fill',
+            title: 'routes.comp.markdown',
+          },
+        },
       ],
     },
   ],

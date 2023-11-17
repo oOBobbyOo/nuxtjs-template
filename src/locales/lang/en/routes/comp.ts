@@ -10,4 +10,5 @@ export default {
   dplayer: 'DPlayer',
   editor: 'Editor',
   wangeditor: 'WangEditor',
+  markdown: 'Markdown',
 }
