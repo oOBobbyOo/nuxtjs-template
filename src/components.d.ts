@@ -29,7 +29,7 @@ declare module 'vue' {
     ElForm: (typeof import('element-plus/es'))['ElForm']
     ElFormItem: (typeof import('element-plus/es'))['ElFormItem']
     ElIcon: (typeof import('element-plus/es'))['ElIcon']
-    ElInput: (typeof import('element-plus/es'))['ElInput']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElLink: (typeof import('element-plus/es'))['ElLink']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']

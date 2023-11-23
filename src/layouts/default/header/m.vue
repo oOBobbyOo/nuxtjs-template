@@ -8,7 +8,7 @@ import { useMenuSetting } from '@/hooks/setting/useMenuSetting'
 
 defineOptions({ name: 'MLayoutHeader' })
 
-const { title } = usePageTitle()
+const title = usePageTitle()
 
 const { getShowSidebar, toggleShowSidebar } = useMenuSetting()
 </script>
