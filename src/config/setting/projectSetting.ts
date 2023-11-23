@@ -1,5 +1,6 @@
 export interface MenuSetting {
   collapsed: boolean
+  showSidebar: boolean
   menuWidth: number
   minMenuWidth: number
 }
@@ -18,6 +19,7 @@ export interface ProjectConfig {
 const setting: ProjectConfig = {
   menuSetting: {
     collapsed: false,
+    showSidebar: false,
     menuWidth: 200,
     minMenuWidth: 64,
   },

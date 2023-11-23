@@ -6,6 +6,8 @@ export function useMenuSetting() {
 
   const getCollapsed = computed(() => appStore.getMenuSetting.collapsed)
 
+  const getShowSidebar = computed(() => appStore.getMenuSetting.showSidebar)
+
   const setMenuSetting = (menuSetting: Partial<MenuSetting>) => {
     appStore.setMenuSetting(menuSetting)
   }
@@ -13,6 +15,12 @@ export function useMenuSetting() {
   const toggleCollapsed = () => {
     setMenuSetting({
       collapsed: !unref(getCollapsed),
+    })
+  }
+
+  const toggleShowSidebar = () => {
+    setMenuSetting({
+      showSidebar: !unref(getShowSidebar),
     })
   }
 
@@ -27,6 +35,8 @@ export function useMenuSetting() {
   return {
     getCollapsed,
     toggleCollapsed,
+    getShowSidebar,
+    toggleShowSidebar,
     getRealWidth,
   }
 }

@@ -1,24 +1,17 @@
 <script setup lang="ts">
-import MultipleTabs from '../components/MultipleTabs/index.vue'
-import LayoutSidebar from './sidebar/index.vue'
-import LayoutHeader from './header/index.vue'
-import LayoutContent from './content/index.vue'
-import LayoutFooter from './footer/index.vue'
+import PcLayout from './PcLayout.vue'
+import MobileLayout from './MobileLayout.vue'
 
 defineOptions({ name: 'DefaultLayout' })
 </script>
 
 <template>
-  <div h-screen w-full flex flex-row>
-    <LayoutSidebar />
-    <div flex-auto overflow-hidden>
-      <LayoutHeader />
-      <MultipleTabs />
-      <LayoutContent />
-      <LayoutFooter />
-      <BackTop />
-    </div>
-  </div>
+  <template v-if="isMobile">
+    <MobileLayout />
+  </template>
+  <template v-else>
+    <PcLayout />
+  </template>
 </template>
 
 <style scoped lang="less"></style>
