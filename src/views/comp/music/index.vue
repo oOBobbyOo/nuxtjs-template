@@ -363,10 +363,20 @@ onMounted(() => {
   background: #eef3f7;
   box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
   border-radius: 15px;
+  @media screen and (max-width: 576px) {
+    width: 95%;
+    min-height: initial;
+    padding: 20px;
+  }
+
   &-top {
     display: flex;
     align-items: flex-start;
     position: relative;
+    @media screen and (max-width: 576px) {
+      flex-wrap: wrap;
+    }
+
     &-cover {
       width: 300px;
       height: 300px;
@@ -376,6 +386,15 @@ onMounted(() => {
       z-index: 2;
       border-radius: 15px;
       background-color: #ccc;
+      @media screen and (max-width: 576px) {
+        width:  95%;
+        height: 220px;
+        margin-top: -40px;
+        margin-bottom: 25px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
       .player-cover-item {
         background-repeat: no-repeat;
         background-position: center;
@@ -434,6 +453,12 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (max-width: 576px) {
+      flex-direction: row;
+      padding-left: 0;
+      width: 100%;
+      flex: unset;
+    }
 
     &-item {
       color: #acb8cc;
@@ -442,6 +467,10 @@ onMounted(() => {
       align-items: center;
       position: relative;
       transition: all 0.3s ease-in-out;
+      @media screen and (max-width: 576px) {
+        margin-right: 10px;
+        margin-bottom: 0;
+      }
 
       &::before {
         content: '';
@@ -476,6 +505,12 @@ onMounted(() => {
         &::before {
           display: none;
         }
+
+        @media screen and (max-width: 576px) {
+          margin-left: auto;
+          margin-right: 0;
+          margin-top: -10px;
+        }
       }
 
       .icon {
@@ -488,6 +523,10 @@ onMounted(() => {
     width: 100%;
     margin-top: -15px;
     user-select: none;
+    @media screen and (max-width: 576px) {
+      margin-top: 0;
+    }
+
     &-top {
       display: flex;
       align-items: flex-end;
