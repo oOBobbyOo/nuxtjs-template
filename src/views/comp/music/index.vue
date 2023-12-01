@@ -387,7 +387,7 @@ onMounted(() => {
       border-radius: 15px;
       background-color: #ccc;
       @media screen and (max-width: 576px) {
-        width:  95%;
+        width: 95%;
         height: 220px;
         margin-top: -40px;
         margin-bottom: 25px;

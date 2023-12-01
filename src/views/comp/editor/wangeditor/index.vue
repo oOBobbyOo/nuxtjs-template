@@ -9,7 +9,7 @@ const editorRef = shallowRef()
 const mode = ref('default')
 
 // 内容 HTML
-const valueHtml = ref('<p>hello</p>')
+const valueHtml = ref('<p>hello wangEditor editor!</p>')
 
 // 工具栏配置 https://www.wangeditor.com/v5/toolbar-config.html
 const toolbarConfig: Partial<IToolbarConfig> = {}
@@ -30,10 +30,26 @@ onBeforeUnmount(() => {
 function handleCreated(editor: IDomEditor) {
   editorRef.value = editor // 记录 editor 实例，重要！
 }
+
+const dialogVisible = ref(false)
+
+function handleDialogOpen() {
+  dialogVisible.value = true
+}
+
+function handleDialogClose() {
+  console.log('>>: clolse callback')
+}
 </script>
 
 <template>
   <Card title="wangEditor">
+    <template #operation>
+      <el-button type="primary" @click="handleDialogOpen">
+        预览
+      </el-button>
+    </template>
+
     <div class="wang-editor">
       <Toolbar
         class="wg-toolbar"
@@ -49,10 +65,12 @@ function handleCreated(editor: IDomEditor) {
         @on-created="handleCreated"
       />
     </div>
-    <div mt-5 break-words>
-      <h1>预览输入内容：</h1>
-      <div>{{ valueHtml }}</div>
-    </div>
+
+    <Dialog v-model:visible="dialogVisible" title="预览内容" @close="handleDialogClose">
+      <div break-words>
+        {{ valueHtml }}
+      </div>
+    </Dialog>
   </Card>
 </template>
 
