@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { IDomEditor, IEditorConfig, IToolbarConfig } from '@wangeditor/editor'
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
+import { useI18n } from '@/hooks/web/useI18n'
+import { useDialog } from '@/hooks/web/useDialog'
+
+const { t } = useI18n()
 
 // 编辑器实例，必须用 shallowRef
 const editorRef = shallowRef()
@@ -31,13 +35,9 @@ function handleCreated(editor: IDomEditor) {
   editorRef.value = editor // 记录 editor 实例，重要！
 }
 
-const dialogVisible = ref(false)
+const { visible: dialogVisible, openDialog: handleOpenDialog } = useDialog()
 
-function handleDialogOpen() {
-  dialogVisible.value = true
-}
-
-function handleDialogClose() {
+function handleCloseDialog() {
   console.log('>>: clolse callback')
 }
 </script>
@@ -45,8 +45,8 @@ function handleDialogClose() {
 <template>
   <Card title="wangEditor">
     <template #operation>
-      <el-button type="primary" @click="handleDialogOpen">
-        预览
+      <el-button type="primary" @click="handleOpenDialog">
+        {{ t('common.preview') }}
       </el-button>
     </template>
 
@@ -66,7 +66,7 @@ function handleDialogClose() {
       />
     </div>
 
-    <Dialog v-model:visible="dialogVisible" title="预览内容" @close="handleDialogClose">
+    <Dialog v-model:visible="dialogVisible" title="预览内容" @close="handleCloseDialog">
       <div break-words>
         {{ valueHtml }}
       </div>

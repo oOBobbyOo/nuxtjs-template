@@ -2,6 +2,7 @@ export default {
   loading: '加载中...',
   back: '返回',
   backHome: '返回首页',
+  preview: '预览',
   guide: {
     nextBtnText: '下一步',
     prevBtnText: '上一步',

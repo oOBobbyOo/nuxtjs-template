@@ -2,6 +2,7 @@ export default {
   loading: 'Loading...',
   back: 'Back',
   backHome: 'Back Home',
+  preview: 'Preview',
   guide: {
     nextBtnText: 'Next',
     prevBtnText: 'Previous',
