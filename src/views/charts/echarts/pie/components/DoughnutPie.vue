@@ -10,10 +10,8 @@ const options: EChartsOption = {
   },
   // 右侧图例
   legend: {
-    orient: 'vertical',
     itemGap: 20,
-    top: '25%',
-    right: '10%',
+    top: '10%',
     icon: 'circle',
     data: ['失败', '成功', '待执行'],
   },
@@ -21,7 +19,7 @@ const options: EChartsOption = {
     {
       name: '任务完成情况',
       type: 'pie',
-      radius: ['40%', '70%'],
+      radius: ['35%', '60%'],
       avoidLabelOverlap: false,
       // 图形样式
       itemStyle: {
