@@ -40,6 +40,15 @@ const echarts: MenuRecordRaw = {
           },
         },
         {
+          path: 'pie',
+          name: 'PieChart',
+          component: () => import('@/views/charts/echarts/pie/index.vue'),
+          meta: {
+            icon: 'mdi:chart-pie',
+            title: 'routes.charts.pie',
+          },
+        },
+        {
           path: 'map',
           name: 'ChinaMapChart',
           component: () => import('@/views/charts/echarts/map/index.vue'),

@@ -3,5 +3,6 @@ export default {
   echarts: 'Echarts',
   line: '折线图',
   bar: '柱状图',
+  pie: '饼图',
   map: '地图',
 }
