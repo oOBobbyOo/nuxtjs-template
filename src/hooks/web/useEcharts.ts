@@ -35,7 +35,7 @@ export function useEcharts(
     cacheOptions.value = options
     nextTick(() => {
       if (!chartInstance) {
-        initCharts(getDarkMode.value as 'default')
+        initCharts(getDarkMode.value)
 
         if (!chartInstance)
           return
