@@ -1,28 +1,42 @@
 <script setup lang="ts">
-import type { EChartsOption } from '@/composables/echarts'
+import BasicLine from './components/BasicLine.vue'
+import StackedLine from './components/StackedLine.vue'
+import GradientLine from './components/GradientLine.vue'
+import MarkLine from './components/MarkLine.vue'
+import StepLine from './components/StepLine.vue'
+import ZoomLine from './components/ZoomLine.vue'
 
-const options: EChartsOption = {
-  tooltip: {
-    trigger: 'axis',
-  },
-  xAxis: {
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-  },
-  yAxis: {
-    type: 'value',
-  },
-  series: [
-    {
-      data: [150, 230, 224, 218, 135, 147, 260],
-      type: 'line',
-    },
-  ],
-}
+const colResponsiveProps = reactive({
+  xs: 24,
+  sm: 12,
+  md: 12,
+  lg: 12,
+  xl: 8,
+  style: { height: '400px' },
+})
 </script>
 
 <template>
-  <Echarts :options="options" />
+  <el-row :gutter="16">
+    <el-col v-bind="colResponsiveProps">
+      <BasicLine />
+    </el-col>
+    <el-col v-bind="colResponsiveProps">
+      <StackedLine />
+    </el-col>
+    <el-col v-bind="colResponsiveProps">
+      <GradientLine />
+    </el-col>
+    <el-col v-bind="colResponsiveProps">
+      <MarkLine />
+    </el-col>
+    <el-col v-bind="colResponsiveProps">
+      <StepLine />
+    </el-col>
+    <el-col v-bind="colResponsiveProps">
+      <ZoomLine />
+    </el-col>
+  </el-row>
 </template>
 
 <style scoped lang="less"></style>
