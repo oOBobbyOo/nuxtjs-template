@@ -2,6 +2,7 @@
 import BasicPie from './components/BasicPie.vue'
 import DoughnutPie from './components/DoughnutPie.vue'
 import MultiDoughnutPie from './components/MultiDoughnutPie.vue'
+import NightingalePie from './components/NightingalePie.vue'
 
 const colResponsiveProps = reactive({
   xs: 24,
@@ -23,6 +24,9 @@ const colResponsiveProps = reactive({
     </el-col>
     <el-col v-bind="colResponsiveProps">
       <MultiDoughnutPie />
+    </el-col>
+    <el-col v-bind="colResponsiveProps">
+      <NightingalePie />
     </el-col>
   </el-row>
 </template>
