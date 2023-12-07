@@ -2,6 +2,7 @@
 import BasicBar from './components/BasicBar.vue'
 import MixLineBar from './components/MixLineBar.vue'
 import ClickableBar from './components/ClickableBar.vue'
+import HorizontalBar from './components/HorizontalBar.vue'
 
 const colResponsiveProps = reactive({
   xs: 24,
@@ -23,6 +24,9 @@ const colResponsiveProps = reactive({
     </el-col>
     <el-col v-bind="colResponsiveProps">
       <MixLineBar />
+    </el-col>
+    <el-col v-bind="colResponsiveProps">
+      <HorizontalBar />
     </el-col>
   </el-row>
 </template>
