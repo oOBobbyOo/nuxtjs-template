@@ -1,5 +1,5 @@
-import type { MenuRecordRaw } from '../types'
 import { LoginRoute, NotFound, RootRoute } from '.'
+import type { MenuRecordRaw } from '@/typings/router'
 
 export const Layout = () => import('@/layouts/default/index.vue')
 

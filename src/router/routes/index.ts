@@ -1,4 +1,4 @@
-import type { MenuRecordRaw } from '../types'
+import type { MenuRecordRaw } from '@/typings/router'
 import { LoginModuleEnum } from '@/enums/routeEnum'
 
 // 根路由

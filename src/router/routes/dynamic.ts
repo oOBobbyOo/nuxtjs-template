@@ -1,4 +1,4 @@
-import type { MenuRecordRaw, RouteModule } from '../types'
+import type { MenuRecordRaw, RouteModule } from '@/typings/router'
 
 // import.meta.glob() 直接引入所有的模块 Vite 独有的功能
 const modules = import.meta.glob('../modules/**/*.ts', { eager: true }) as RouteModule
