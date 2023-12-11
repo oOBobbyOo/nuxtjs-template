@@ -9,6 +9,7 @@ export default antfu(
   {
     rules: {
       'ts/ban-types': 'off',
+      'ts/no-extraneous-class': 'off',
       'import/no-mutable-exports': 'off',
       'node/prefer-global/process': 'off',
       'prefer-spread': 'off',
