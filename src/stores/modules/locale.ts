@@ -5,7 +5,7 @@ import { store } from '@/stores'
 
 import { LOCALE_KEY } from '@/enums/cacheEnum'
 import { createLocalStorage } from '@/utils/cache'
-import { localeSetting } from '@/config/setting/localeSetting'
+import { localeSetting } from '@/setting/localeSetting'
 
 const ls = createLocalStorage()
 

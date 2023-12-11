@@ -1,4 +1,4 @@
-import type { MenuSetting } from '@/config/setting/projectSetting'
+import type { MenuSetting } from '@/setting/projectSetting'
 import { useAppStore } from '@/stores/modules/app'
 
 export function useMenuSetting() {

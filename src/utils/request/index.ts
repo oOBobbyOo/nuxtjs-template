@@ -1,4 +1,5 @@
 import type { AxiosResponse } from 'axios'
+
 import { getToken } from '../auth'
 import Request from './request'
 import type { RequestConfig } from '@/typings/request'

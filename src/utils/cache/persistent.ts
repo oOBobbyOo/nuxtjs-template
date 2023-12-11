@@ -4,7 +4,7 @@ import { omit, pick } from 'lodash-es'
 import { Memory } from './memory'
 import type { Nullable } from '@/typings'
 import type { LockInfo, UserInfo } from '@/typings/store'
-import type { ProjectConfig } from '@/config/setting/projectSetting'
+import type { ProjectConfig } from '@/setting/projectSetting'
 
 import { createLocalStorage, createSessionStorage } from '@/utils/cache'
 import type {
@@ -19,7 +19,7 @@ import {
   TOKEN_KEY,
   USER_INFO_KEY,
 } from '@/enums/cacheEnum'
-import { DEFAULT_CACHE_TIME } from '@/config/setting/encryptionSetting'
+import { DEFAULT_CACHE_TIME } from '@/setting/encryptionSetting'
 
 interface BasicStore {
   [TOKEN_KEY]: string | number | null | undefined

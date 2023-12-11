@@ -1,4 +1,4 @@
-import { cacheCipher } from '@/config/setting/encryptionSetting'
+import { cacheCipher } from '@/setting/encryptionSetting'
 import type { Nullable } from '@/typings'
 import type { EncryptionParams } from '@/utils/cipher'
 import { AesEncryption } from '@/utils/cipher'

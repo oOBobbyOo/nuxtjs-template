@@ -1,7 +1,7 @@
 import type { BasicKeys } from '@/utils/cache/persistent'
 import { Persistent } from '@/utils/cache/persistent'
 import { CacheTypeEnum, TOKEN_KEY } from '@/enums/cacheEnum'
-import projectSetting from '@/config/setting/projectSetting'
+import projectSetting from '@/setting/projectSetting'
 
 const { permissionCacheType } = projectSetting
 const isLocal = permissionCacheType === CacheTypeEnum.LOCAL

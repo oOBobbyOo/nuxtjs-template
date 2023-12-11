@@ -3,7 +3,7 @@ import type { I18nOptions } from 'vue-i18n'
 
 import { createI18n } from 'vue-i18n'
 import { setHtmlPageLang, setLoadLocalePool } from './helper'
-import { localeSetting } from '@/config/setting/localeSetting'
+import { localeSetting } from '@/setting/localeSetting'
 import { useLocaleStoreWithOut } from '@/stores/modules/locale'
 
 const { fallback, availableLocales } = localeSetting
