@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { MenuSetting, ProjectConfig, TransitionSetting } from '@/setting/projectSetting'
+import type { MenuSetting, ProjectConfig, TransitionSetting } from '@/typings/setting'
 import projectSetting from '@/setting/projectSetting'
 import { ThemeEnum } from '@/enums/appEnum'
 import { deepMerge } from '@/utils'

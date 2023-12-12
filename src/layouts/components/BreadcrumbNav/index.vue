@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuRecordRaw } from '@/router/types'
+import type { MenuRecordRaw } from '@/typings/router'
 import { useI18n } from '@/hooks/web/useI18n'
 import { generateBreadcrumbs } from '@/utils/route'
 import { isValidArray } from '@/utils/is'

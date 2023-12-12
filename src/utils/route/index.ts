@@ -4,7 +4,7 @@ import type {
   RouteRecordRaw,
 } from 'vue-router'
 import type { Tab } from '@/typings/store'
-import type { MenuRecordRaw } from '@/router/types'
+import type { MenuRecordRaw } from '@/typings/router'
 import { dynamicRoutes } from '@/router/routes/dynamic'
 import { isValidArray } from '@/utils/is'
 

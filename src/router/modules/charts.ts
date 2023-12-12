@@ -1,5 +1,5 @@
-import type { MenuRecordRaw } from '../types'
 import { Layout } from '../routes/constant'
+import type { MenuRecordRaw } from '@/typings/router'
 
 const echarts: MenuRecordRaw = {
   path: '/charts',
