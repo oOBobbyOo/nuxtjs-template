@@ -79,8 +79,7 @@ class Request {
    * 取消全部请求
    */
   cancelAllRequest() {
-    for (const [, controller] of this.abortControllerMap)
-      controller.abort()
+    for (const [, controller] of this.abortControllerMap) controller.abort()
 
     this.abortControllerMap.clear()
   }

@@ -3,6 +3,9 @@ import type { FormInstance, FormRules } from 'element-plus'
 import OtherLogin from '../other-login/index.vue'
 import { LoginModuleEnum } from '@/enums/routeEnum'
 import { formRules } from '@/utils/regexp'
+import { useRequest } from '@/hooks/web/useRequest'
+import { loginByUser } from '@/api/login'
+import { useUserStore } from '@/stores/modules/user'
 
 interface FormProps {
   username: string
@@ -12,9 +15,20 @@ interface FormProps {
 const formRef = ref<FormInstance>()
 
 const form = reactive<FormProps>({
-  username: 'Henry',
-  password: 'Henry123',
+  username: 'admin',
+  password: '123456',
 })
+
+const userStore = useUserStore()
+const { username, password } = toRefs(form)
+
+// 登录
+const { loading, runAsync } = useRequest(
+  () => loginByUser({ username: unref(username), password: unref(password) }),
+  {
+    manual: true,
+  },
+)
 
 const remember = ref(false)
 
@@ -28,8 +42,15 @@ async function submitForm(formEl: FormInstance | undefined) {
     return
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log('submit!')
-      console.log('>>: form', form)
+      runAsync()
+        .then((data) => {
+          const { token, ...userInfo } = data
+          userStore.setToken(token)
+          userStore.setUserInfo(userInfo)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
     else {
       console.log('error submit!', fields)
@@ -65,7 +86,13 @@ const { toLoginModule } = useRouterPush()
       </el-form-item>
       <el-form-item>
         <div class="w-full flex-center flex-col">
-          <el-button type="primary" round class="w-full" @click="submitForm(formRef)">
+          <el-button
+            type="primary"
+            round
+            class="w-full"
+            :loading="loading"
+            @click="submitForm(formRef)"
+          >
             登录
           </el-button>
           <el-button round class="mt-4 w-full !ml-0" @click="resetForm(formRef)">

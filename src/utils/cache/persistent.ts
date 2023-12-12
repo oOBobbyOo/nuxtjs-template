@@ -7,11 +7,7 @@ import type { LockInfo, UserInfo } from '@/typings/store'
 import type { ProjectConfig } from '@/setting/projectSetting'
 
 import { createLocalStorage, createSessionStorage } from '@/utils/cache'
-import type {
-  MULTIPLE_TABS_KEY,
-  PROJ_CFG_KEY,
-  ROLES_KEY,
-} from '@/enums/cacheEnum'
+import type { MULTIPLE_TABS_KEY, PROJ_CFG_KEY, ROLES_KEY } from '@/enums/cacheEnum'
 import {
   APP_LOCAL_CACHE_KEY,
   APP_SESSION_CACHE_KEY,
