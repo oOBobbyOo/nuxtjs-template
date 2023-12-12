@@ -7,7 +7,7 @@ const system: MenuRecordRaw = {
   component: Layout,
   redirect: '/system/auth',
   meta: {
-    orderNo: 8,
+    orderNo: 7,
     icon: 'carbon:cloud-service-management',
     title: 'routes.system.management',
   },

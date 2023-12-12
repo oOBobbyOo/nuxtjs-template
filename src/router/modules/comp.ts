@@ -7,7 +7,7 @@ const comp: MenuRecordRaw = {
   component: Layout,
   redirect: '/comp/guide',
   meta: {
-    orderNo: 6,
+    orderNo: 5,
     icon: 'icon-park-outline:components',
     title: 'routes.comp.component',
   },
