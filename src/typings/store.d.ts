@@ -9,12 +9,15 @@ export interface LockInfo {
 }
 
 export interface UserInfo {
-  userId: string | number
+  uid: string | number
   username: string
   realName: string
   avatar: string
-  desc?: string
   roles: RoleEnum[]
+  desc?: string
+  email?: string
+  address?: string
+  tags?: string[]
 }
 
 export interface Tab {
