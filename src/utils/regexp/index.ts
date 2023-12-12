@@ -56,7 +56,7 @@ export const formRules = {
   ],
   smsCode: [
     { required: true, message: '请输入验证码', trigger: 'blur' },
-    { pattern: REGEXP_CODE_SIX, message: '验证码不正确', trigger: 'blur' },
+    { pattern: REGEXP_CODE_FOUR, message: '验证码不正确', trigger: 'blur' },
   ],
   code: [
     { required: true, message: '请输入验证码', trigger: 'blur' },

@@ -2,6 +2,10 @@
 import type { FormInstance, FormRules } from 'element-plus'
 import { LoginModuleEnum } from '@/enums/routeEnum'
 import { formRules } from '@/utils/regexp'
+import { getTimeState } from '@/utils/time'
+import { useRequest } from '@/hooks/web/useRequest'
+import { loginByPhone } from '@/api/login'
+import { useUserStore } from '@/stores/modules/user'
 
 interface FormProps {
   phone: string
@@ -15,18 +19,53 @@ const form = reactive<FormProps>({
   smsCode: '',
 })
 
+const userStore = useUserStore()
+const { phone, smsCode } = toRefs(form)
+
+// 手机号登录
+const { loading, runAsync } = useRequest(
+  () => loginByPhone({ phone: unref(phone), captcha: unref(smsCode) }),
+  {
+    manual: true,
+  },
+)
+
 const rules = reactive<FormRules<FormProps>>({
   phone: formRules.phone,
   smsCode: formRules.smsCode,
 })
+
+const { routerPush } = useRouterPush()
+
+function notify() {
+  ElNotification.success({
+    message: getTimeState(),
+    title: '欢迎登录',
+    duration: 1000,
+    onClose: () => {
+      routerPush('/')
+    },
+  })
+}
 
 async function submitForm(formEl: FormInstance | undefined) {
   if (!formEl)
     return
   await formEl.validate((valid, fields) => {
     if (valid) {
-      console.log('submit!')
-      console.log('>>: form', form)
+      runAsync()
+        .then((data) => {
+          const { token, ...userInfo } = data
+          // 存储 token
+          userStore.setToken(token)
+          // 存储 用户信息
+          userStore.setUserInfo(userInfo)
+          // 提示登录成功并跳转首页
+          notify()
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
     else {
       console.log('error submit!', fields)
@@ -53,7 +92,7 @@ const { toLoginModule } = useRouterPush()
       </el-form-item>
       <el-form-item class="!mb-0">
         <div class="w-full flex-center flex-col">
-          <el-button type="primary" round class="w-full" @click="submitForm(formRef)">
+          <el-button type="primary" round class="w-full" :loading="loading" @click="submitForm(formRef)">
             登录
           </el-button>
           <el-button

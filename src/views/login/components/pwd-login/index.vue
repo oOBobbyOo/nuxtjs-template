@@ -59,9 +59,11 @@ async function submitForm(formEl: FormInstance | undefined) {
       runAsync()
         .then((data) => {
           const { token, ...userInfo } = data
+          // 存储 token
           userStore.setToken(token)
+          // 存储 用户信息
           userStore.setUserInfo(userInfo)
-          // 登录成功提示并跳转首页
+          // 提示登录成功并跳转首页
           notify()
         })
         .catch((error) => {
