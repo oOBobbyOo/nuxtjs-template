@@ -3,6 +3,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import OtherLogin from '../other-login/index.vue'
 import { LoginModuleEnum } from '@/enums/routeEnum'
 import { formRules } from '@/utils/regexp'
+import { getTimeState } from '@/utils/time'
 import { useRequest } from '@/hooks/web/useRequest'
 import { loginByUser } from '@/api/login'
 import { useUserStore } from '@/stores/modules/user'
@@ -37,6 +38,19 @@ const rules = reactive<FormRules<FormProps>>({
   password: formRules.password,
 })
 
+const { routerPush } = useRouterPush()
+
+function notify() {
+  ElNotification.success({
+    message: getTimeState(),
+    title: '欢迎登录',
+    duration: 1000,
+    onClose: () => {
+      routerPush('/')
+    },
+  })
+}
+
 async function submitForm(formEl: FormInstance | undefined) {
   if (!formEl)
     return
@@ -47,6 +61,8 @@ async function submitForm(formEl: FormInstance | undefined) {
           const { token, ...userInfo } = data
           userStore.setToken(token)
           userStore.setUserInfo(userInfo)
+          // 登录成功提示并跳转首页
+          notify()
         })
         .catch((error) => {
           console.log(error)
