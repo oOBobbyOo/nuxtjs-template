@@ -6,6 +6,10 @@ export function checkPhone(str: string): boolean {
   return /^1\d{10}$/.test(str)
 }
 
+export function checkEmail(str: string): boolean {
+  return /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(str)
+}
+
 /* 6位数字验证码正则 */
 export const REGEXP_CODE_SIX = /^\d{6}$/
 
@@ -21,6 +25,13 @@ function validateUserName(rule: any, value: any, callback: any) {
 
 function validatePhone(rule: any, value: any, callback: any) {
   if (!value || !checkPhone(value))
+    return callback(new Error(rule.message))
+
+  callback()
+}
+
+function validatorEmail(rule: any, value: any, callback: any) {
+  if (!value || !checkEmail(value))
     return callback(new Error(rule.message))
 
   callback()
@@ -61,5 +72,9 @@ export const formRules = {
   code: [
     { required: true, message: '请输入验证码', trigger: 'blur' },
     { pattern: REGEXP_CODE_FOUR, message: '验证码不正确', trigger: 'blur' },
+  ],
+  email: [
+    { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+    { validator: validatorEmail, message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] },
   ],
 }

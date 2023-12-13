@@ -92,7 +92,13 @@ const { toLoginModule } = useRouterPush()
       </el-form-item>
       <el-form-item class="!mb-0">
         <div class="w-full flex-center flex-col">
-          <el-button type="primary" round class="w-full" :loading="loading" @click="submitForm(formRef)">
+          <el-button
+            type="primary"
+            round
+            class="w-full"
+            :loading="loading"
+            @click="submitForm(formRef)"
+          >
             登录
           </el-button>
           <el-button
