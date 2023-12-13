@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ListView from './ListView.vue'
-import ModifyPwd from './ModifyPwd.vue'
+import ModifyBind from './ModifyBind.vue'
 
 const Binding = [
   {
@@ -9,29 +9,49 @@ const Binding = [
     actions: [
       {
         key: 'ModifyPwd',
-        component: ModifyPwd,
+        component: ModifyBind,
       },
     ],
   },
   {
     title: '密保手机',
     description: '已绑定手机: 138****8293',
-    actions: [],
+    actions: [
+      {
+        key: 'ModifyPhone',
+        component: ModifyBind,
+      },
+    ],
   },
   {
     title: '密保问题',
     description: '未设置密保问题，密保问题可有效保护账户安全',
-    actions: [],
+    actions: [
+      {
+        key: 'ModifyQus',
+        component: ModifyBind,
+      },
+    ],
   },
   {
     title: '备用邮箱',
     description: '已绑定邮箱: test**gamil.com',
-    actions: [],
+    actions: [
+      {
+        key: 'ModifyQus',
+        component: ModifyBind,
+      },
+    ],
   },
   {
     title: 'MFA 设备',
     description: '未绑定 MFA 设备，绑定后，可以进行二次确认',
-    actions: [],
+    actions: [
+      {
+        key: 'ModifyMfa',
+        component: ModifyBind,
+      },
+    ],
   },
 ]
 </script>
