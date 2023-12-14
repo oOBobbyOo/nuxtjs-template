@@ -8,16 +8,21 @@ export interface LockInfo {
   isLock?: boolean
 }
 
+interface Tag {
+  key: string
+  label: string
+}
+
 export interface UserInfo {
   uid: string | number
   username: string
   realName: string
   avatar: string
   roles: RoleEnum[]
-  desc?: string
+  profile?: string
   email?: string
   address?: string
-  tags?: string[]
+  tags?: Tag[]
 }
 
 export interface Tab {

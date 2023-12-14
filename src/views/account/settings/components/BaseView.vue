@@ -9,7 +9,7 @@ const formRef = ref<FormInstance>()
 interface BaseFormProps {
   email: string
   username: string
-  desc: string
+  profile: string
   address: string
   code: string
   phone: string
@@ -18,7 +18,7 @@ interface BaseFormProps {
 const form = reactive<BaseFormProps>({
   email: '',
   username: '',
-  desc: '',
+  profile: '',
   address: '',
   code: '+86',
   phone: '',
@@ -55,10 +55,10 @@ function submitForm(formEl: FormInstance | undefined) {
   formEl.validate((valid) => {
     if (valid) {
       console.log('submit!')
-      const { email, username, desc, address, code, phone } = form
+      const { email, username, profile, address, code, phone } = form
       console.log('>>: email', email)
       console.log('>>: username', username)
-      console.log('>>: desc', desc)
+      console.log('>>: profile', profile)
       console.log('>>: address', address)
       console.log('>>: code', code)
       console.log('>>: phone', phone)
@@ -85,8 +85,8 @@ function resetForm(formEl: FormInstance | undefined) {
     <el-form-item label="用户名" prop="username">
       <el-input v-model="form.username" placeholder="请输入用户名" />
     </el-form-item>
-    <el-form-item label="个人简介" prop="desc">
-      <el-input v-model="form.desc" type="textarea" placeholder="请输入个人简介" />
+    <el-form-item label="个人简介" prop="profile">
+      <el-input v-model="form.profile" type="textarea" placeholder="请输入个人简介" />
     </el-form-item>
     <el-form-item label="详细地址" prop="address">
       <el-input v-model="form.address" type="textarea" placeholder="请输入详细地址" />

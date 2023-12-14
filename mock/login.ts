@@ -31,15 +31,15 @@ const loginData = Mock.mock({
     address: '@county(true)',
     tags: [
       {
-        key: '1',
+        key: '@guid()',
         label: '腹黑',
       },
       {
-        key: '2',
+        key: '@guid()',
         label: '幽默',
       },
       {
-        key: '3',
+        key: '@guid()',
         label: '帅气',
       },
     ],
