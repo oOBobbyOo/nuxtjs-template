@@ -100,7 +100,7 @@ export default defineConfig(({ command, mode }) => {
     // 默认启动的是 esbuild
     esbuild: {
       // pure: ['console.log'], // 删除 console.log
-      drop: ['console', 'debugger'], // 删除 所有的console 和 debugger
+      drop: isDev ? [] : ['console', 'debugger'], // 删除 所有的console 和 debugger
     },
     build: {
       minify: 'terser', // 启用 terser 压缩， 默认为 Esbuild，它比 terser 快 20-40 倍，压缩率只差 1%-2%。
