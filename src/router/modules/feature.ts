@@ -21,6 +21,24 @@ const feature: MenuRecordRaw = {
         title: 'routes.feature.print',
       },
     },
+    {
+      path: 'copy',
+      name: 'Copy',
+      component: () => import('@/views/feature/copy/index.vue'),
+      meta: {
+        icon: 'material-symbols:content-copy',
+        title: 'routes.feature.copy',
+      },
+    },
+    {
+      path: 'guide',
+      name: 'Guide',
+      component: () => import('@/views/feature/guide/index.vue'),
+      meta: {
+        icon: 'ep:guide',
+        title: 'routes.feature.guide',
+      },
+    },
   ],
 }
 

@@ -5,22 +5,13 @@ const comp: MenuRecordRaw = {
   path: '/comp',
   name: 'Comp',
   component: Layout,
-  redirect: '/comp/guide',
+  redirect: '/comp/screen-locker',
   meta: {
     orderNo: 5,
     icon: 'icon-park-outline:components',
     title: 'routes.comp.component',
   },
   children: [
-    {
-      path: 'guide',
-      name: 'Guide',
-      component: () => import('@/views/comp/guide/index.vue'),
-      meta: {
-        icon: 'ep:guide',
-        title: 'routes.comp.guide',
-      },
-    },
     {
       path: 'screen-locker',
       name: 'ScreenLocker',
@@ -37,15 +28,6 @@ const comp: MenuRecordRaw = {
       meta: {
         icon: 'mdi:typewriter',
         title: 'routes.comp.typeit',
-      },
-    },
-    {
-      path: 'copy',
-      name: 'Copy',
-      component: () => import('@/views/comp/copy/index.vue'),
-      meta: {
-        icon: 'material-symbols:content-copy',
-        title: 'routes.comp.copy',
       },
     },
     {
