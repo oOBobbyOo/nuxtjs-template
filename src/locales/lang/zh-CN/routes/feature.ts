@@ -3,4 +3,5 @@ export default {
   print: '打印',
   copy: '剪贴板',
   guide: '引导',
+  draggable: '拖拽',
 }

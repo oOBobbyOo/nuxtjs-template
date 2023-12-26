@@ -3,4 +3,5 @@ export default {
   print: 'Print',
   copy: 'Copy',
   guide: 'Guide',
+  draggable: 'Draggable',
 }

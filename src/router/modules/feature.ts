@@ -39,6 +39,15 @@ const feature: MenuRecordRaw = {
         title: 'routes.feature.guide',
       },
     },
+    {
+      path: 'draggable',
+      name: 'Draggable',
+      component: () => import('@/views/feature/draggable/index.vue'),
+      meta: {
+        icon: 'material-symbols:drag-pan',
+        title: 'routes.feature.draggable',
+      },
+    },
   ],
 }
 
