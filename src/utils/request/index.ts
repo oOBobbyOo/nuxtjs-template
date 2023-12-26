@@ -42,7 +42,7 @@ const request = new Request({
  * @generic D 请求参数
  * @generic T 响应结构
  * @param {MyRequestConfig} config
- * @returns {Promise}
+ * @returns {Promise} 返回响应结果
  */
 async function myRequest<D = any, T = any>(config: MyRequestConfig<D, T>): Promise<any> {
   const { method = 'GET' } = config
