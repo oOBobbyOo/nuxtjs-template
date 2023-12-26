@@ -7,7 +7,7 @@ const dashboard: MenuRecordRaw = {
   component: Layout,
   redirect: '/dashboard/analysis',
   meta: {
-    orderNo: 1,
+    orderNo: 0,
     icon: 'mdi:monitor-dashboard',
     title: 'routes.dashboard.dashboard',
   },
