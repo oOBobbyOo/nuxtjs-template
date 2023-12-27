@@ -7,7 +7,7 @@ const table: MenuRecordRaw = {
   component: Layout,
   redirect: '/table/basicTable',
   meta: {
-    orderNo: 1,
+    orderNo: 2,
     icon: 'mdi:table-large',
     title: 'routes.table.table',
   },

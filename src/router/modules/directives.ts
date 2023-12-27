@@ -7,7 +7,7 @@ const directives: MenuRecordRaw = {
   component: Layout,
   redirect: '/directives/index',
   meta: {
-    orderNo: 3,
+    orderNo: 4,
     icon: 'carbon:stamp',
     title: 'routes.directives.directives',
   },

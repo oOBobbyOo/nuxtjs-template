@@ -7,7 +7,7 @@ const comp: MenuRecordRaw = {
   component: Layout,
   redirect: '/comp/screen-locker',
   meta: {
-    orderNo: 5,
+    orderNo: 6,
     icon: 'icon-park-outline:components',
     title: 'routes.comp.component',
   },

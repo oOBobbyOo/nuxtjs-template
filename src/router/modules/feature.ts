@@ -7,7 +7,7 @@ const feature: MenuRecordRaw = {
   component: Layout,
   redirect: '/feature/print',
   meta: {
-    orderNo: 4,
+    orderNo: 5,
     icon: 'cil:featured-playlist',
     title: 'routes.feature.feature',
   },

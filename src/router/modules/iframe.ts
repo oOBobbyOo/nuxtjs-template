@@ -7,7 +7,7 @@ const iframe: MenuRecordRaw = {
   component: Layout,
   redirect: '/iframe/inline',
   meta: {
-    orderNo: 9,
+    orderNo: 10,
     icon: 'material-symbols:iframe',
     title: 'routes.iframe.iframe',
   },

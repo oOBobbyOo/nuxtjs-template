@@ -7,7 +7,7 @@ const echarts: MenuRecordRaw = {
   component: Layout,
   redirect: '/charts/echarts',
   meta: {
-    orderNo: 2,
+    orderNo: 3,
     icon: 'carbon:chart-multitype',
     title: 'routes.charts.charts',
   },
