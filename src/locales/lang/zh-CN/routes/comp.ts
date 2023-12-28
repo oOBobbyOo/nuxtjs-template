@@ -9,4 +9,7 @@ export default {
   editor: '编辑',
   wangeditor: 'WangEditor',
   markdown: 'Markdown',
+  image: '图片',
+  upload: '上传',
+  cropper: '裁切',
 }

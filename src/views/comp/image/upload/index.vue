@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>BasicTable</div>
+  <div>upload</div>
 </template>
 
 <style scoped></style>

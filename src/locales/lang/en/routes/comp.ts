@@ -9,4 +9,7 @@ export default {
   editor: 'Editor',
   wangeditor: 'WangEditor',
   markdown: 'Markdown',
+  image: 'Image',
+  upload: 'Upload',
+  cropper: 'Cropper',
 }

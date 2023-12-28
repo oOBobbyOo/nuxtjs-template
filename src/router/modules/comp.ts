@@ -97,6 +97,35 @@ const comp: MenuRecordRaw = {
         },
       ],
     },
+    {
+      path: 'image',
+      name: 'Image',
+      redirect: '/comp/image/upload',
+      meta: {
+        icon: 'lets-icons:img-box-fill',
+        title: 'routes.comp.image',
+      },
+      children: [
+        {
+          path: 'upload',
+          name: 'Upload',
+          component: () => import('@/views/comp/image/upload/index.vue'),
+          meta: {
+            icon: 'uil:image-upload',
+            title: 'routes.comp.upload',
+          },
+        },
+        {
+          path: 'cropper',
+          name: 'Cropper',
+          component: () => import('@/views/comp/image/cropper/index.vue'),
+          meta: {
+            icon: 'material-symbols:crop',
+            title: 'routes.comp.cropper',
+          },
+        },
+      ],
+    },
   ],
 }
 
