@@ -27,4 +27,11 @@ interface Props {
   </el-card>
 </template>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+::v-deep(.el-card) {
+  &__body {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+</style>
