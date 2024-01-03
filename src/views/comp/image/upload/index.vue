@@ -16,7 +16,7 @@ const avatar5 = ref('https://i.imgtg.com/2023/01/16/QR57a.jpg')
           </template>
         </UploadImg>
 
-        <UploadImg v-model:image-url="avatar2" border-radius="50%">
+        <UploadImg v-model:image-url="avatar2" :drag="false" border-radius="50%">
           <template #empty>
             <Icon icon="ep:avatar" />
             <span>请上传头像</span>

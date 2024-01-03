@@ -127,7 +127,8 @@ function editImg() {
     <el-upload
       :id="uuid"
       action="#"
-      class="upload" :class="[isDisabled ? 'disabled' : '', drag ? 'no-border' : '']"
+      class="upload"
+      :class="[isDisabled ? 'disabled' : '', drag ? 'no-border' : '']"
       :multiple="false"
       :disabled="isDisabled"
       :drag="drag"
@@ -176,16 +177,14 @@ function editImg() {
   width: v-bind(width);
 
   ::v-deep(.upload) {
-    // &.disabled {
-    //   .el-upload {
-    //     cursor: not-allowed !important;
-    //     background: var(--el-disabled-bg-color);
-    //     border: 1px dashed var(--el-border-color-darker) !important;
-    //     &:hover {
-    //       border: 1px dashed var(--el-border-color-darker) !important;
-    //     }
-    //   }
-    // }
+    &.disabled {
+      .el-upload,
+      .el-upload-dragger {
+        cursor: not-allowed !important;
+        background: var(--el-disabled-bg-color);
+        border: 1px dashed var(--el-border-color-darker) !important;
+      }
+    }
 
     &.no-border {
       .el-upload {
@@ -224,7 +223,7 @@ function editImg() {
       border: 1px dashed var(--el-border-color-darker);
       border-radius: v-bind(borderRadius);
       &:hover {
-        border: 1px dashed var(--el-color-primary-light-9);
+        border: 1px dashed var(--el-color-primary);
       }
     }
     .el-upload-dragger.is-dragover {
@@ -273,6 +272,11 @@ function editImg() {
     }
 
     .upload-empty {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       font-size: 12px;
       line-height: 30px;
       color: var(--el-color-info);
