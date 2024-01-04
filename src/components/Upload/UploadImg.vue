@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { UploadProps, UploadRequestOptions } from 'element-plus'
+import { formContextKey, formItemContextKey } from 'element-plus'
 import { nanoid } from 'nanoid'
 import { uploadImg } from '@/api/upload'
 
@@ -36,9 +37,15 @@ const uuid = ref(`id-${nanoid()}`)
 // 查看图片
 const imgViewVisible = ref(false)
 
+// 获取 el-form 组件上下文
+const formContext = inject(formContextKey)
+
+// 获取 el-form-item 组件上下文
+const formItemContext = inject(formItemContextKey)
+
 // 是否禁用
 const isDisabled = computed(() => {
-  return props.disabled
+  return props.disabled || formContext?.disabled
 })
 
 /**
@@ -78,6 +85,8 @@ async function handleHttpUpload(options: UploadRequestOptions) {
     const api = props.api ?? uploadImg
     const { fileUrl } = await api(formData)
     emit('update:imageUrl', fileUrl)
+    // 调用 el-form 内部的校验方法（可自动校验）
+    formItemContext?.prop && formContext?.validateField([formItemContext.prop as string])
   }
   catch (error) {
     options.onError(error as any)
@@ -157,7 +166,7 @@ function editImg() {
         </div>
       </template>
       <template v-else>
-        <div class="upload-empty flex-center flex-col space-y-2">
+        <div class="upload-empty">
           <slot name="empty">
             <Icon v-if="!isDisabled" icon="material-symbols:add" />
             <Icon v-else icon="mdi:cancel" />

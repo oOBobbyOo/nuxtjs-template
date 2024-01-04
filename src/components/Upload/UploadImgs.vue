@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { UploadFile, UploadProps, UploadRequestOptions, UploadUserFile } from 'element-plus'
+import { formContextKey, formItemContextKey } from 'element-plus'
 import { uploadImg } from '@/api/upload'
 
 interface UploadFileProps {
@@ -31,9 +32,14 @@ const emit = defineEmits<{
   'update:fileList': [value: UploadUserFile[]]
 }>()
 
+// 获取 el-form 组件上下文
+const formContext = inject(formContextKey)
+// 获取 el-form-item 组件上下文
+const formItemContext = inject(formItemContextKey)
+
 // 判断是否禁用上传和删除
 const isDisabled = computed(() => {
-  return props.disabled
+  return props.disabled || formContext?.disabled
 })
 
 const _fileList = ref<UploadUserFile[]>(props.fileList)
@@ -99,6 +105,8 @@ function uploadSuccess(response: { fileUrl: string } | undefined, uploadFile: Up
     return
   uploadFile.url = response.fileUrl
   emit('update:fileList', _fileList.value)
+  // 调用 el-form 内部的校验方法（可自动校验）
+  formItemContext?.prop && formContext?.validateField([formItemContext.prop as string])
   ElNotification({
     title: '温馨提示',
     message: '图片上传成功！',
@@ -153,7 +161,8 @@ function handleRemove(file: UploadFile) {
       v-model:file-list="_fileList"
       action="#"
       list-type="picture-card"
-      class="upload" :class="[isDisabled ? 'disabled' : '', drag ? 'no-border' : '']"
+      class="upload"
+      :class="[isDisabled ? 'disabled' : '', drag ? 'no-border' : '']"
       :multiple="true"
       :disabled="isDisabled"
       :limit="limit"
