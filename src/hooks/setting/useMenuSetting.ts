@@ -1,10 +1,13 @@
-import type { MenuSetting } from '@/setting/projectSetting'
+import type { MenuSetting } from '@/typings/setting'
 import { useAppStore } from '@/stores/modules/app'
 
 export function useMenuSetting() {
   const appStore = useAppStore()
 
-  const getCollapsed = computed(() => appStore.getMenuSetting.collapsed)
+  // const getCollapsed = computed(() => appStore.getMenuSetting.collapsed)
+  const getCollapsed = computed(() => {
+    return isMobile.value ? false : appStore.getMenuSetting.collapsed
+  })
 
   const getShowSidebar = computed(() => appStore.getMenuSetting.showSidebar)
 
