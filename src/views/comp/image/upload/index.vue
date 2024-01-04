@@ -4,6 +4,12 @@ const avatar2 = ref('')
 const avatar3 = ref('')
 const avatar4 = ref('')
 const avatar5 = ref('https://i.imgtg.com/2023/01/16/QR57a.jpg')
+
+const fileList1 = ref([
+  { name: 'jng', url: 'https://i.imgtg.com/2023/01/16/QRqMK.jpg' },
+  { name: 'kds', url: 'https://i.imgtg.com/2023/01/16/QRBHS.jpg' },
+])
+const fileList2 = ref([])
 </script>
 
 <template>
@@ -74,6 +80,44 @@ const avatar5 = ref('https://i.imgtg.com/2023/01/16/QR57a.jpg')
         </el-descriptions-item>
         <el-descriptions-item label="borderRadius">
           组件边框圆角样式，默认为 "8px"
+        </el-descriptions-item>
+      </el-descriptions>
+    </Card>
+
+    <Card title="多图片上传组件">
+      <div class="flex flex-wrap justify-center gap-20 py-4">
+        <UploadImgs v-model:file-list="fileList1" :drag="false" border-radius="50%">
+          <template #empty>
+            <Icon icon="ep:picture" />
+            <span>请上传照片</span>
+          </template>
+          <template #tip>
+            圆形组件，图片最大为 5M（禁止拖拽上传）
+          </template>
+        </UploadImgs>
+
+        <UploadImgs v-model:file-list="fileList2" width="250px">
+          <template #empty>
+            <Icon icon="ep:picture" />
+            <span>请上传照片</span>
+          </template>
+          <template #tip>
+            长方形组件（可拖拽上传）
+          </template>
+        </UploadImgs>
+
+        <UploadImgs v-model:file-list="fileList2" disabled>
+          <template #tip>
+            无图（禁用上传）
+          </template>
+        </UploadImgs>
+      </div>
+      <el-descriptions title="配置项 📚（其它参数和单图上传组件相同）" :column="1" border>
+        <el-descriptions-item label="fileList">
+          双向绑定的 fileList 值，使用示例： v-model:file-list="fileList"
+        </el-descriptions-item>
+        <el-descriptions-item label="limit">
+          最大图片上传数，默认为 5 张
         </el-descriptions-item>
       </el-descriptions>
     </Card>
