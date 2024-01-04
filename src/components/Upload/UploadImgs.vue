@@ -33,9 +33,10 @@ const emit = defineEmits<{
 }>()
 
 // 获取 el-form 组件上下文
-const formContext = inject(formContextKey)
+const formContext = inject(formContextKey, null)
+
 // 获取 el-form-item 组件上下文
-const formItemContext = inject(formItemContextKey)
+const formItemContext = inject(formItemContextKey, null)
 
 // 判断是否禁用上传和删除
 const isDisabled = computed(() => {

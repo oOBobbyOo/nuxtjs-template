@@ -38,10 +38,10 @@ const uuid = ref(`id-${nanoid()}`)
 const imgViewVisible = ref(false)
 
 // 获取 el-form 组件上下文
-const formContext = inject(formContextKey)
+const formContext = inject(formContextKey, null)
 
 // 获取 el-form-item 组件上下文
-const formItemContext = inject(formItemContextKey)
+const formItemContext = inject(formItemContextKey, null)
 
 // 是否禁用
 const isDisabled = computed(() => {
