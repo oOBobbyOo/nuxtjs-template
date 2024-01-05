@@ -11,6 +11,7 @@ declare module 'vue' {
     BetterScroll: typeof import('./components/BetterScroll/index.vue')['default']
     Card: typeof import('./components/Card/index.vue')['default']
     CropperAvatar: typeof import('./components/Cropper/CropperAvatar.vue')['default']
+    CropperImage: typeof import('./components/Cropper/CropperImage.vue')['default']
     Dialog: typeof import('./components/Dialog/index.vue')['default']
     Echarts: typeof import('./components/Echarts/index.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']

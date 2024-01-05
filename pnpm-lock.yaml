@@ -47,6 +47,9 @@ dependencies:
   axios:
     specifier: ^1.6.2
     version: 1.6.2
+  cropperjs:
+    specifier: ^1.6.1
+    version: 1.6.1
   crypto-js:
     specifier: ^4.1.1
     version: 4.1.1
@@ -3258,6 +3261,10 @@ packages:
 
   /crelt@1.0.6:
     resolution: {integrity: sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==}
+    dev: false
+
+  /cropperjs@1.6.1:
+    resolution: {integrity: sha512-F4wsi+XkDHCOMrHMYjrTEE4QBOrsHHN5/2VsVAaRq8P7E5z7xQpT75S+f/9WikmBEailas3+yo+6zPIomW+NOA==}
     dev: false
 
   /cross-spawn@7.0.3:
