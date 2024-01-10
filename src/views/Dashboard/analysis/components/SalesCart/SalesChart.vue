@@ -7,22 +7,22 @@ interface SalesData {
   z: number
 }
 
-interface Props {
-  salesData: SalesData[]
+export interface Props {
+  data: SalesData[]
 }
 
 const props = defineProps<Props>()
 
 const months = computed(() => {
-  return props.salesData.map(item => `${item.x}月`)
+  return props.data.map(item => `${item.x}月`)
 })
 
 const data = computed(() => {
-  return props.salesData.map(item => item.y)
+  return props.data.map(item => item.y)
 })
 
 const fullData = computed(() => {
-  return props.salesData.map(item => item.z)
+  return props.data.map(item => item.z)
 })
 
 const options: EChartsOption = {

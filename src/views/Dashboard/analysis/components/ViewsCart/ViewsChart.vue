@@ -8,22 +8,22 @@ interface ViewsData {
   ip: number
 }
 
-interface Props {
-  viewsData: ViewsData[]
+export interface Props {
+  data: ViewsData[]
 }
 
 const props = defineProps<Props>()
 
 const hours = computed(() => {
-  return props.viewsData.map(item => `${item.x}:00`)
+  return props.data.map(item => `${item.x}:00`)
 })
 
 const pv = computed(() => {
-  return props.viewsData.map(item => item.pv)
+  return props.data.map(item => item.pv)
 })
 
 const uv = computed(() => {
-  return props.viewsData.map(item => item.uv)
+  return props.data.map(item => item.uv)
 })
 
 const options: EChartsOption = {
