@@ -2,12 +2,19 @@ import type { MockMethod } from 'vite-plugin-mock'
 import Mock from 'mockjs'
 import { requestSuccess } from './_util'
 
+const year = new Date().getFullYear()
+
 const salesData = Mock.mock({
-  'data|12': [
+  data: [
     {
-      'x|+1': 1,
-      'y|60-100': 60,
-      'z|100-160': 100,
+      'x': '@range(1, 13)',
+      'y|12': ['@natural(60, 100)'],
+      't': `${year - 2}年销售额`,
+    },
+    {
+      'x': '@range(1, 13)',
+      'y|12': ['@natural(100, 160)'],
+      't': `${year - 1}年销售额`,
     },
   ],
 })

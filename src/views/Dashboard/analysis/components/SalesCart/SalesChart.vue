@@ -2,9 +2,9 @@
 import type { EChartsOption } from '@/composables/echarts'
 
 interface SalesData {
-  x: string | number
-  y: number
-  z: number
+  x: string[] | number[]
+  y: number[]
+  t: string
 }
 
 export interface Props {
@@ -14,15 +14,11 @@ export interface Props {
 const props = defineProps<Props>()
 
 const months = computed(() => {
-  return props.data.map(item => `${item.x}月`)
+  return props.data[0].x.map(item => `${item}月`)
 })
 
-const data = computed(() => {
-  return props.data.map(item => item.y)
-})
-
-const fullData = computed(() => {
-  return props.data.map(item => item.z)
+const legends = computed(() => {
+  return props.data.map(item => `${item.t}`)
 })
 
 const options: EChartsOption = {
@@ -37,7 +33,7 @@ const options: EChartsOption = {
     containLabel: true,
   },
   legend: {
-    data: ['2023半年销售额', '2023全年销售额'],
+    data: unref(legends),
   },
   xAxis: {
     type: 'category',
@@ -49,8 +45,8 @@ const options: EChartsOption = {
   series: [
     {
       type: 'bar',
-      name: '2023半年销售额',
-      data: unref(data),
+      name: props.data[0].t,
+      data: props.data[0].y,
       label: {
         show: true,
         formatter(val: any) {
@@ -67,9 +63,9 @@ const options: EChartsOption = {
     },
     {
       type: 'line',
-      name: '2023全年销售额',
+      name: props.data[1].t,
       stack: '总量',
-      data: unref(fullData),
+      data: props.data[1].y,
       label: {
         show: true,
         formatter(val: any) {
