@@ -4,8 +4,12 @@ defineOptions({ name: 'StatisticCard' })
 defineProps<Props>()
 
 interface Props {
-  value: number
   title?: string
+  value: number
+  decimalPlaces?: number
+  prefix?: string
+  suffix?: string
+  color?: string
   icon?: string
   tooltip?: string
 }
@@ -21,7 +25,7 @@ interface Props {
         </el-tooltip>
       </div>
       <div class="text-3xl">
-        {{ value }}
+        <CountTo :prefix="prefix" :suffix="suffix" :color="color" :decimal-places="decimalPlaces" :end-val="value" />
       </div>
     </div>
 
