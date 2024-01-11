@@ -1,9 +1,11 @@
 <script setup lang="ts">
-defineOptions({ name: 'Workbench' })
+import WorkbenchHeader from './components/WorkbenchHeader/index.vue'
 </script>
 
 <template>
-  <div>workbench</div>
+  <Card>
+    <WorkbenchHeader />
+  </Card>
 </template>
 
 <style scoped></style>
