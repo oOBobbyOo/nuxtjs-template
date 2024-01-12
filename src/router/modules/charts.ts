@@ -59,6 +59,26 @@ const echarts: MenuRecordRaw = {
         },
       ],
     },
+    {
+      path: 'antv',
+      name: 'Antv',
+      redirect: '/charts/antv/g2',
+      meta: {
+        icon: 'simple-icons:antdesign',
+        title: 'routes.charts.antv',
+      },
+      children: [
+        {
+          path: 'g2',
+          name: 'G2Chart',
+          component: () => import('@/views/charts/antv/g2/index.vue'),
+          meta: {
+            icon: 'simple-icons:g2',
+            title: 'routes.charts.g2',
+          },
+        },
+      ],
+    },
   ],
 }
 

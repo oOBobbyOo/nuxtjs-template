@@ -25,7 +25,13 @@ interface Props {
         </el-tooltip>
       </div>
       <div class="text-3xl">
-        <CountTo :prefix="prefix" :suffix="suffix" :color="color" :decimal-places="decimalPlaces" :end-val="value" />
+        <CountTo
+          :prefix="prefix"
+          :suffix="suffix"
+          :color="color"
+          :decimal-places="decimalPlaces"
+          :end-val="value"
+        />
       </div>
     </div>
 
