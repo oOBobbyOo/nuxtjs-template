@@ -15,10 +15,12 @@ const props = withDefaults(defineProps<Porps>(), {
   prefix: '',
   suffix: '',
   useEasing: true,
-  easingFn: 'liear',
+  easingFn: 'linear',
 })
 
 const emit = defineEmits(['onStarted', 'onFinished'])
+
+type TransitionKey = keyof typeof TransitionPresets
 
 interface Porps {
   startVal?: number // 开始值
@@ -26,19 +28,18 @@ interface Porps {
   duration?: number // 动画持续时间（以秒为单位）
   autoplay?: boolean // 自动播放
   decimalPlaces?: number // 小数位数 (0)
-  decimal?: string // 小数 ('.')
+  decimal?: string // 小数点 ('.')
   separator?: string // 分隔符（','）
   prefix?: string // 前缀
   suffix?: string // 后缀
   color?: string // 颜色
   useEasing?: boolean // 是否开启缓动动画
-  easingFn?: string // 缓动动画函数
+  easingFn?: TransitionKey // 缓动动画函数
 }
 
 const source = ref(props.startVal)
 const disabled = ref(false)
 let outputValue = useTransition(source)
-
 const value = computed(() => formatNumber(unref(outputValue)))
 
 watchEffect(() => {
