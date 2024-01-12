@@ -14,11 +14,11 @@ interface Props {
 
 const typeitRef = ref()
 
-onMounted(() => {
+function initTypeIt() {
   if (!typeitRef.value)
     return
 
-  new TypeIt(typeitRef.value, {
+  const typeIt = new (TypeIt as any)(typeitRef.value, {
     strings: props.strings,
     speed: 100, // 打字速度
     lifeLike: true, // 使打字速度不规则
@@ -27,7 +27,13 @@ onMounted(() => {
     breakLines: true, // 控制是将多个字符串打印在彼此之上 ，还是删除这些字符串并相互替换
     loop: true, // 是否循环
     ...props.options,
-  }).go()
+  })
+
+  typeIt.go()
+}
+
+onMounted(() => {
+  initTypeIt()
 })
 </script>
 
