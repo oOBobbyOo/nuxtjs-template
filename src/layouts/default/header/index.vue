@@ -5,6 +5,7 @@ import FullScreen from '@/layouts/components/FullScreen/index.vue'
 import DarkMode from '@/layouts/components/DarkMode/index.vue'
 import LangSetting from '@/layouts/components/LangSetting/index.vue'
 import UserProfile from '@/layouts/components/UserProfile/index.vue'
+import SettingDarwer from '@/layouts/components/SettingDarwer/index.vue'
 
 defineOptions({ name: 'LayoutHeader' })
 </script>
@@ -20,6 +21,7 @@ defineOptions({ name: 'LayoutHeader' })
       <DarkMode />
       <LangSetting />
       <UserProfile />
+      <SettingDarwer />
     </div>
   </div>
 </template>
