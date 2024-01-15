@@ -1,33 +1,33 @@
 <script setup lang="ts">
-// import type { DrawerProps } from 'element-plus'
 defineOptions({ name: 'Drawer' })
 
 withDefaults(defineProps<Props>(), {
-  visible: false,
+  modelValue: false,
   direction: 'rtl',
 })
 
 const emit = defineEmits<{
-  'update:visible': [visible: boolean]
+  'update:modelValue': [visible: boolean]
   beforeClose: [done: (cancel?: boolean) => void]
 }>()
 
 interface Props {
-  visible?: boolean
+  modelValue?: boolean
   title?: string
-  direction?: 'rtl' | 'ltr' | 'ttb' | 'btt' | 'rtl'
+  direction?: 'rtl' | 'ltr' | 'ttb' | 'btt'
 }
 
 function close() {
-  emit('update:visible', false)
+  emit('update:modelValue', false)
 }
 </script>
 
 <template>
   <el-drawer
-    :model-value="visible"
+    :model-value="modelValue"
     :title="title"
-    :direction="direction"
+    close-on-click-modal
+    close-on-press-escape
     @close="close"
   >
     <template #header>
