@@ -5,6 +5,9 @@ import GroupLine from './components/Line/GroupLine.vue'
 import BasicBar from './components/Bar/BasicBar.vue'
 import StackBar from './components/Bar/StackBar.vue'
 
+import BasicPie from './components/Pie/BasicPie.vue'
+import DoughnutPie from './components/Pie/DoughnutPie.vue'
+
 const colResponsiveProps = reactive({
   xs: 24,
   sm: 12,
@@ -34,6 +37,16 @@ const colResponsiveProps = reactive({
         </el-col>
         <el-col v-bind="colResponsiveProps">
           <StackBar />
+        </el-col>
+      </el-row>
+    </Card>
+    <Card title="饼图">
+      <el-row :gutter="16">
+        <el-col v-bind="colResponsiveProps">
+          <BasicPie />
+        </el-col>
+        <el-col v-bind="colResponsiveProps">
+          <DoughnutPie />
         </el-col>
       </el-row>
     </Card>
