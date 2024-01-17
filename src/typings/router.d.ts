@@ -5,6 +5,7 @@ export interface MenuMeta {
   title: string // 标题
   icon?: string // 图标
   hide?: boolean // 在侧边栏中隐藏
+  hideInMenu?: boolean // 在菜单中隐藏
   href?: string // 外链
 }
 

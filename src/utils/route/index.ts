@@ -53,13 +53,27 @@ export function transformRouteToMenu(
 ): MenuRecordRaw[] {
   const menus: MenuRecordRaw[] = []
   routes.forEach((route) => {
+    if (route.meta?.hide)
+      return
     const path = parentPath ? `${parentPath}/${route.path}` : `${route.path}`
     if (isValidArray(route.children)) {
-      menus.push({
-        ...route,
-        path,
-        children: transformRouteToMenu(route.children, path),
-      })
+      if (route.children.length === 1 && route.meta?.hideInMenu) {
+        const child = transformRouteToMenu(route.children, path)[0]
+        menus.push({
+          ...child,
+          meta: {
+            orderNo: route.meta?.orderNo,
+            ...child.meta,
+          },
+        })
+      }
+      else {
+        menus.push({
+          ...route,
+          path,
+          children: transformRouteToMenu(route.children, path),
+        })
+      }
     }
     else {
       menus.push({

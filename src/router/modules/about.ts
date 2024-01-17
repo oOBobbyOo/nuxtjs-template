@@ -10,6 +10,7 @@ const about: MenuRecordRaw = {
     orderNo: 11,
     icon: 'fluent:book-information-24-regular',
     title: 'routes.about.about',
+    hideInMenu: true,
   },
   children: [
     {
