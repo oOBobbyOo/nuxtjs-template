@@ -2,6 +2,10 @@ export function checkUserName(str: string): boolean {
   return /^[a-zA-Z0-9_-]{4,16}$/.test(str)
 }
 
+export function checkRealName(str: string): boolean {
+  return /^(?:[\u4E00-\u9FA5]{2,4})$/.test(str)
+}
+
 export function checkPhone(str: string): boolean {
   return /^1\d{10}$/.test(str)
 }
@@ -18,6 +22,13 @@ export const REGEXP_CODE_FOUR = /^\d{4}$/
 
 function validateUserName(rule: any, value: any, callback: any) {
   if (!value || !checkUserName(value))
+    return callback(new Error(rule.message))
+
+  callback()
+}
+
+function validateRealName(rule: any, value: any, callback: any) {
+  if (!value || !checkRealName(value))
     return callback(new Error(rule.message))
 
   callback()
@@ -41,6 +52,10 @@ export const formRules = {
   username: [
     { required: true, message: '请输入用户名', trigger: 'blur' },
     { validator: validateUserName, message: '用户名为4-16位字符/数字的组合', trigger: 'blur' },
+  ],
+  realName: [
+    { required: true, message: '请输入真实名字', trigger: 'blur' },
+    { validator: validateRealName, message: '用户名为2-4位中文字符', trigger: 'blur' },
   ],
   password: [
     { required: true, message: '请输入密码', trigger: 'blur' },
