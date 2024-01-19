@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import DarkMode from './components/DarkMode.vue'
-import ColorTheme from './components/ColorTheme.vue'
+import ThemeColor from './components/ThemeColor.vue'
 import PageFunc from './components/PageFunc.vue'
 import PageConfig from './components/PageConfig.vue'
 import { useDrawer } from '@/hooks/web/useDrawer'
@@ -18,7 +18,7 @@ const { visible, openDrawer } = useDrawer()
         <el-divider>主题模式</el-divider>
         <DarkMode />
         <el-divider>系统主题</el-divider>
-        <ColorTheme />
+        <ThemeColor />
         <el-divider>界面功能</el-divider>
         <PageFunc />
       </template>

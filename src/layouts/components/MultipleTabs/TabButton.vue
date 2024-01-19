@@ -44,7 +44,8 @@ defineSlots<Slots>()
 
   &.tab-active {
     z-index: 10;
-    color: var(--hb-tab-active-color);
+    // color: var(--hb-tab-active-color);
+    color: var(--el-color-primary);
 
     .tab-bg {
       color: var(--hb-tab-active-bg-color);

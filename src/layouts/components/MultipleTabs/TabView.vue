@@ -67,7 +67,8 @@ function handleClickTab() {
 .tab-active {
   .icon-close {
     &:hover {
-      background-color: var(--hb-icon-close-active-color);
+      // background-color: var(--hb-icon-close-active-color);
+      background-color: var(--el-color-primary);
     }
   }
 }
