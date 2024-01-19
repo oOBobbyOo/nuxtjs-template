@@ -30,7 +30,7 @@ interface Props {
 <style scoped lang="less">
 ::v-deep(.el-card) {
   &__body {
-    height: 100%;
+    height: calc(100% - 61px);
     overflow-y: auto;
   }
 }
