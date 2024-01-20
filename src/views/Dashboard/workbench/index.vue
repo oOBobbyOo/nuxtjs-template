@@ -3,9 +3,9 @@ import WorkbenchHeader from './components/WorkbenchHeader/index.vue'
 </script>
 
 <template>
-  <Card>
+  <PageCard>
     <WorkbenchHeader />
-  </Card>
+  </PageCard>
 </template>
 
 <style scoped></style>
