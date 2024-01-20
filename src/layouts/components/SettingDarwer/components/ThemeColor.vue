@@ -52,7 +52,7 @@ function handleChangeColor(value: string | null) {
 
 <template>
   <div class="space-y-4">
-    <div class="grid grid-cols-8 gap-4">
+    <div class="grid grid-cols-8 gap-5">
       <div
         v-for="palette in palettes"
         :key="palette"

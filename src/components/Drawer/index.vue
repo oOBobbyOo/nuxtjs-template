@@ -28,6 +28,7 @@ function close() {
     :title="title"
     close-on-click-modal
     close-on-press-escape
+    v-bind="$attrs"
     @close="close"
   >
     <template #header>

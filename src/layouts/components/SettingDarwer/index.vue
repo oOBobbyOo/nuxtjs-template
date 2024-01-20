@@ -14,7 +14,7 @@ const { visible, openDrawer } = useDrawer()
 <template>
   <div h-full flex-center cursor-pointer pl-2 @click="openDrawer">
     <Icon icon="ion:settings-outline" />
-    <Drawer v-model:model-value="visible" title="主题配置">
+    <Drawer v-model:model-value="visible" title="主题配置" :size="368">
       <template #default>
         <el-divider>主题模式</el-divider>
         <DarkMode />
