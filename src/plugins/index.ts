@@ -1,1 +1,1 @@
-export function setupGlobPlugins() {}
+export * from './piniaReset'

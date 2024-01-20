@@ -39,10 +39,9 @@ function mix(color1: string, color2: string, weight: number) {
  * @param color 颜色
  */
 function changeTheme(color?: string | null) {
-  if (!color) {
-    console.warn('未获取到颜色的值')
+  if (!color)
     return
-  }
+
   // 设置主要颜色变量 --el-color-primary
   html.style.setProperty(PRE, color)
   // 循环设置色阶颜色

@@ -6,7 +6,7 @@ defineOptions({ name: 'PageFunc' })
 
 const { getCollapsed, toggleCollapsed } = useMenuSetting()
 
-const collasped = ref(!getCollapsed.value)
+const collasped = computed(() => !getCollapsed.value)
 </script>
 
 <template>

@@ -5,6 +5,10 @@ export const isDark = useDark()
 export const toggleDark = useToggle(isDark)
 export const preferredDark = usePreferredDark()
 
+export function resetDark() {
+  isDark.value = false
+}
+
 export function updateDarkMode() {
   const { setDarkMode } = useAppSetting()
   const darkMode = isDark.value ? ThemeEnum.DARK : ThemeEnum.LIGHT

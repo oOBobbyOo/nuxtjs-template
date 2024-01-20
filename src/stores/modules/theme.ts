@@ -10,5 +10,8 @@ export const useThemeStore = defineStore('theme', {
     setThemeColor(color: string) {
       this.themeColor = color
     },
+    async resetStore() {
+      this.$reset()
+    },
   },
 })

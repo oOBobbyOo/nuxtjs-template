@@ -63,6 +63,9 @@ export const useAppStore = defineStore('app', {
         document.documentElement.scrollTo({ left: 0, top: 0 })
       }, 100)
     },
+    async resetStore() {
+      this.$reset()
+    },
   },
 })
 
