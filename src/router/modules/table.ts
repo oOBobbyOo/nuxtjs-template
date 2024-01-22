@@ -21,6 +21,15 @@ const table: MenuRecordRaw = {
         title: 'routes.table.basicTable',
       },
     },
+    {
+      path: 'advancedTable',
+      name: 'AdvancedTable',
+      component: () => import('@/views/table/advancedTable/index.vue'),
+      meta: {
+        icon: 'material-symbols:table-view',
+        title: 'routes.table.advancedTable',
+      },
+    },
   ],
 }
 

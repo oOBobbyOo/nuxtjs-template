@@ -23,23 +23,22 @@ const basicTableData = Mock.mock({
 
 const statusMap = {
   0: {
-    color: 'blue',
     name: '进行中',
   },
   1: {
-    color: 'green',
+    type: 'success',
     name: '已完成',
   },
   2: {
-    color: 'volcano',
+    type: 'warning',
     name: '警告',
   },
   3: {
-    color: 'red',
+    type: 'danger',
     name: '失败',
   },
   4: {
-    color: '',
+    type: 'info',
     name: '未完成',
   },
 }

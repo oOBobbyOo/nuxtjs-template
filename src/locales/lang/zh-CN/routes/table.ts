@@ -1,4 +1,5 @@
 export default {
   table: '表格',
   basicTable: '基础表格',
+  advancedTable: '高级表格',
 }
