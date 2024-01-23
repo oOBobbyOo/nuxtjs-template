@@ -44,7 +44,7 @@ const statusMap = {
 }
 
 const anvancedTableData = Mock.mock({
-  'data|50': [
+  'data|500': [
     {
       'id': '@id()',
       'title': '@ctitle()',
@@ -69,7 +69,16 @@ export default [
     response: () => {
       return requestSuccess({
         basicTable: basicTableData.data,
-        anvancedTable: anvancedTableData.data,
+      })
+    },
+  },
+  {
+    url: '/api/getTableList',
+    method: 'get',
+    response: () => {
+      return requestSuccess({
+        list: anvancedTableData.data,
+        total: 500,
       })
     },
   },

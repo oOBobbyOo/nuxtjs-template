@@ -1,8 +1,17 @@
 <script setup lang="ts">
-import { getTableData } from '@/api/table'
-import { useRequest } from '@/hooks/web/useRequest'
+import { getTableList } from '@/api/table'
+import { useTable } from '@/hooks/web/useTable'
 
-const { loading, data } = useRequest(getTableData)
+const { loading, tableData, pagination, handleSizeChange, handleCurrentChange }
+  = useTable(getTableList, {
+    pageSize: 15,
+  })
+
+// watchEffect(() => {
+//   console.log(loading.value)
+//   console.log(tableData.value)
+//   console.log(pagination)
+// })
 
 const columns = [
   {
@@ -41,22 +50,25 @@ const columns = [
   },
 ]
 
-const anvancedTable = computed(() => {
-  return unref(data)?.anvancedTable
-})
-
-async function handleEdit(scope) {
+async function handleEdit(scope: any) {
   console.log('>>: scope', scope)
 }
 
-async function handleDelete(scope) {
+async function handleDelete(scope: any) {
   console.log('>>: scope', scope)
 }
 </script>
 
 <template>
-  <Card title="高级表格">
-    <Table :loading="loading" :data="anvancedTable" :columns="columns">
+  <PageWrap>
+    <Table
+      :loading="loading"
+      :data="tableData"
+      :columns="columns"
+      :pagination="pagination"
+      :size-change="handleSizeChange"
+      :current-change="handleCurrentChange"
+    >
       <template #progress="scope">
         <el-progress :percentage="scope.row.progress" />
       </template>
@@ -71,7 +83,7 @@ async function handleDelete(scope) {
         </el-button>
       </template>
     </Table>
-  </Card>
+  </PageWrap>
 </template>
 
 <style scoped></style>
