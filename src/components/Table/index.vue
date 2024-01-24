@@ -71,12 +71,12 @@ const columnTypes: TypeProps[] = ['selection', 'index', 'expand', 'tag', 'image'
             <template v-if="column.type === 'image'">
               <slot :name="column.type" v-bind="scope">
                 <el-image
-
                   :hide-on-click-modal="true"
                   :preview-src-list="[scope.row[column.prop!]]"
                   :src="scope.row[column.prop!]"
                   fit="cover"
-                  lazy preview-teleported
+                  lazy
+                  preview-teleported
                   style="width: 100px; height: 100px"
                 />
               </slot>
@@ -143,4 +143,10 @@ const columnTypes: TypeProps[] = ['selection', 'index', 'expand', 'tag', 'image'
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="less">
+.table-card {
+  ::v-deep(.el-table .cell) {
+    white-space: nowrap;
+  }
+}
+</style>

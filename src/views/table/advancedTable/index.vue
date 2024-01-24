@@ -27,20 +27,33 @@ const columns: ColumnProps[] = [
     type: 'image',
     prop: 'image',
     label: '图片',
+    minWidth: 140,
   },
   {
     prop: 'state',
     label: '状态',
+    formatter: (row): string => {
+      const stateMap = {
+        close: '关闭',
+        running: '进行中',
+        online: '已上线',
+        error: '异常',
+      }
+      const key = row.state as keyof typeof stateMap
+      return stateMap[key]
+    },
   },
   {
     prop: 'progress',
     label: '执行进度',
     isSlot: true,
+    minWidth: 160,
   },
   {
     type: 'tag',
     prop: 'labels',
     label: '标签',
+    minWidth: 100,
   },
   {
     prop: 'created_at',
