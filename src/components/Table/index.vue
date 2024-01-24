@@ -7,20 +7,24 @@ const props = withDefaults(defineProps<TableProps>(), {
   loading: false,
   rowKey: 'id',
   border: true,
+  columns: () => [],
 })
 
-interface RenderScope<T> {
+export interface Scope<T> {
   row: T
   $index: number
   column: TableColumnCtx<T>
   [key: string]: any
 }
 
-interface ColumnProps<T = any> extends Partial<TableColumnCtx<T>> {
-  type?: 'selection' | 'index' | 'expand' | 'tag' | 'operation'
-  tagType?: 'success' | 'info' | 'warning' | 'danger'
+type TypeProps = 'selection' | 'index' | 'expand' | 'tag' | 'image'
+
+export interface ColumnProps<T = any> extends Partial<Omit<TableColumnCtx<T>, 'type'>> {
+  type?: TypeProps // 列类型
+  tagType?: 'success' | 'info' | 'warning' | 'danger' // 标签类型
   hidden?: boolean // 是否隐藏列
-  render?: (scope: RenderScope<T>) => VNode | string // 自定义单元格内容渲染（tsx语法）
+  isSlot?: boolean // 是否自定义
+  render?: (scope: Scope<T>) => VNode | string // 自定义单元格内容渲染（tsx语法）
 }
 
 interface PaginationProps {
@@ -41,7 +45,11 @@ interface TableProps {
   currentChange?: (value: number) => void
 }
 
+// 过滤隐藏列
 const tableColumns = computed(() => props.columns.filter(col => !col.hidden))
+
+// column 列类型
+const columnTypes: TypeProps[] = ['selection', 'index', 'expand', 'tag', 'image']
 </script>
 
 <template>
@@ -53,12 +61,27 @@ const tableColumns = computed(() => props.columns.filter(col => !col.hidden))
 
       <template v-for="column in tableColumns" :key="column.prop">
         <el-table-column
-          v-if="column.type"
+          v-if="column.type && columnTypes.includes(column.type)"
           v-bind="column"
           :align="column.align || 'center'"
           :reserve-selection="column.type === 'selection'"
         >
           <template #default="scope">
+            <!-- image -->
+            <template v-if="column.type === 'image'">
+              <slot :name="column.type" v-bind="scope">
+                <el-image
+
+                  :hide-on-click-modal="true"
+                  :preview-src-list="[scope.row[column.prop!]]"
+                  :src="scope.row[column.prop!]"
+                  fit="cover"
+                  lazy preview-teleported
+                  style="width: 100px; height: 100px"
+                />
+              </slot>
+            </template>
+
             <!-- tag -->
             <template v-if="column.type === 'tag'">
               <slot :name="column.type" v-bind="scope">
@@ -86,7 +109,7 @@ const tableColumns = computed(() => props.columns.filter(col => !col.hidden))
           v-bind="column"
           :align="column.align || 'center'"
         >
-          <template #default="scope">
+          <template v-if="column.isSlot" #default="scope">
             <slot :name="column.prop" v-bind="scope" />
           </template>
         </el-table-column>

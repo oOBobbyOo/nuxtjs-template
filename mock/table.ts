@@ -48,6 +48,10 @@ const anvancedTableData = Mock.mock({
     {
       'id': '@id()',
       'title': '@ctitle()',
+      'image': () => {
+        const id = Math.floor(Math.random() * 500)
+        return `https://picsum.photos/id/${id}/600/600`
+      },
       'state|1': ['close', 'running', 'online', 'error'],
       'progress|0-100': 100,
       'labels|1-1': () => {

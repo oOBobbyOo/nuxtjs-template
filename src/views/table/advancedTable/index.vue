@@ -1,21 +1,19 @@
 <script setup lang="ts">
 import { getTableList } from '@/api/table'
+import type { ColumnProps, Scope } from '@/components/Table/index.vue'
 import { useTable } from '@/hooks/web/useTable'
 
-const { loading, tableData, pagination, handleSizeChange, handleCurrentChange }
-  = useTable(getTableList, {
-    pageSize: 15,
-  })
+const { loading, tableData, pagination, handleSizeChange, handleCurrentChange } = useTable(
+  getTableList,
+  {
+    pageSize: 5,
+  },
+)
 
-// watchEffect(() => {
-//   console.log(loading.value)
-//   console.log(tableData.value)
-//   console.log(pagination)
-// })
-
-const columns = [
+const columns: ColumnProps[] = [
   {
     type: 'selection',
+    label: '',
   },
   {
     type: 'index',
@@ -26,12 +24,18 @@ const columns = [
     label: '标题',
   },
   {
+    type: 'image',
+    prop: 'image',
+    label: '图片',
+  },
+  {
     prop: 'state',
     label: '状态',
   },
   {
     prop: 'progress',
     label: '执行进度',
+    isSlot: true,
   },
   {
     type: 'tag',
@@ -47,14 +51,15 @@ const columns = [
     label: '操作',
     fixed: 'right',
     width: 140,
+    isSlot: true,
   },
 ]
 
-async function handleEdit(scope: any) {
+async function handleEdit(scope: Scope<any>) {
   console.log('>>: scope', scope)
 }
 
-async function handleDelete(scope: any) {
+async function handleDelete(scope: Scope<any>) {
   console.log('>>: scope', scope)
 }
 </script>
