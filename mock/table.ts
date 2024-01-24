@@ -86,4 +86,16 @@ export default [
       })
     },
   },
+  {
+    url: '/api/delTableItem',
+    method: 'post',
+    response: ({ body }) => {
+      const { id } = body
+      const list = anvancedTableData.data.filter(item => item.id !== id)
+      return requestSuccess({
+        list,
+        total: 500,
+      })
+    },
+  },
 ] as MockMethod[]

@@ -12,3 +12,11 @@ export function getTableList(params: any) {
     data: params,
   })
 }
+
+export function delTableItem(params: any) {
+  return request({
+    url: '/api/delTableItem',
+    method: 'POST',
+    data: params,
+  })
+}

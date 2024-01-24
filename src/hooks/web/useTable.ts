@@ -121,6 +121,7 @@ export function useTable<T = any[]>(api?: Api<T>, options?: Options<T>) {
     tableData,
     pagination,
     pageParams,
+    getTableData,
     handleSizeChange,
     handleCurrentChange,
     handleSearch,

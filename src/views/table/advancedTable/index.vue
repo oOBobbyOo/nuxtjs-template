@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { getTableList } from '@/api/table'
 import type { ColumnProps, Scope } from '@/components/Table/index.vue'
+import { useOperationTable } from '@/hooks/web/useOperationTable'
 import { useTable } from '@/hooks/web/useTable'
+import { delTableItem, getTableList } from '@/api/table'
 
-const { loading, tableData, pagination, handleSizeChange, handleCurrentChange } = useTable(
+const { loading, tableData, pagination, getTableData, handleSizeChange, handleCurrentChange } = useTable(
   getTableList,
   {
     pageSize: 5,
@@ -74,6 +75,9 @@ async function handleEdit(scope: Scope<any>) {
 
 async function handleDelete(scope: Scope<any>) {
   console.log('>>: scope', scope)
+  const id = scope.row.id
+  await useOperationTable(delTableItem, { id }, '删除信息')
+  await getTableData()
 }
 </script>
 
