@@ -21,7 +21,7 @@ export interface PageParams {
 // 表格分页数据格式
 interface TableRes<T> {
   list: T
-  total: number
+  total?: number
 }
 
 type Api<T> = (params: any) => Promise<TableRes<T[]>>
@@ -68,7 +68,8 @@ export function useTable<T = any[]>(api?: Api<T>, options?: Options<T>) {
       loading.value = true
       const res = await api({ ...searchParams, ...pageParams.value })
       dataSource.value = formatResult ? formatResult(res?.list) : res?.list
-      setTotal(res?.total)
+      const total = res?.total || dataSource.value.length
+      setTotal(total)
       onSuccess && onSuccess()
     }
     catch (error) {

@@ -30,3 +30,11 @@ export function delTableItem(params: Params) {
     data: params,
   })
 }
+
+export function delTableItems(params: Params) {
+  return request({
+    url: '/api/delTableItems',
+    method: 'POST',
+    data: params,
+  })
+}

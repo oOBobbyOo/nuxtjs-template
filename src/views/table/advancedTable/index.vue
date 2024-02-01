@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ColumnProps, Scope } from '@/components/Table/index.vue'
-import { useOperationTable } from '@/hooks/web/useOperationTable'
+import { useTableOperation } from '@/hooks/web/useTableOperation'
 import { useTable } from '@/hooks/web/useTable'
 import { delTableItem, getAdvancedTable } from '@/api/table'
 
@@ -86,7 +86,7 @@ async function handleEdit(scope: Scope<any>) {
 async function handleDelete(scope: Scope<any>) {
   console.log('>>: scope', scope)
   const id = scope.row.id
-  await useOperationTable(delTableItem, { id }, '删除信息')
+  await useTableOperation(delTableItem, { id }, '删除信息')
   await getTableData()
 }
 </script>
@@ -101,6 +101,7 @@ async function handleDelete(scope: Scope<any>) {
     :size-change="handleSizeChange"
     :current-change="handleCurrentChange"
   >
+    <!-- 自定义 slot -->
     <template #progress="scope">
       <el-progress :percentage="scope.row.progress" />
     </template>

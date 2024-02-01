@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { TableInstance } from 'element-plus/es/components/table'
 import type { UserList } from '@/typings/api'
 import type { ColumnProps, Scope } from '@/components/Table/index.vue'
-import { useOperationTable } from '@/hooks/web/useOperationTable'
+
+import { useTableOperation } from '@/hooks/web/useTableOperation'
 import { useTable } from '@/hooks/web/useTable'
 import { delTableItem, getComplexTable } from '@/api/table'
 
@@ -89,21 +91,33 @@ const columns = reactive<ColumnProps<UserList>[]>([
   },
 ])
 
+// 编辑
 async function handleEdit(scope: Scope<any>) {
   console.log('>>: scope', scope)
 }
 
+// 删除
 async function handleDelete(scope: Scope<any>) {
   console.log('>>: scope', scope)
   const id = scope.row.id
-  await useOperationTable(delTableItem, { id }, '删除信息')
+  await useTableOperation(delTableItem, { id }, '删除信息')
   await getTableData()
 }
+
+// 批量删除
+async function handleBatchDelete(ids: string[]) {
+  console.log('>>: ids', ids)
+  await useTableOperation(delTableItem, { ids }, '批量删除信息')
+  await getTableData()
+}
+
+// Table 实例
+const tableInstance = ref<TableInstance>()
 </script>
 
 <template>
   <Table
-    title="复杂表格"
+    ref="tableInstance"
     :loading="loading"
     :data="tableData"
     :columns="columns"
@@ -115,6 +129,22 @@ async function handleDelete(scope: Scope<any>) {
     @search="handleSearch"
     @reset="handleReset"
   >
+    <!-- 表格 header 按钮 -->
+    <template #header="scope">
+      <el-button type="primary" @click="tableInstance?.toggleAllSelection">
+        全选 / 全不选
+      </el-button>
+      <el-button
+        type="danger"
+        plain
+        :disabled="!scope.isSelected"
+        @click="handleBatchDelete(scope.selectedListIds)"
+      >
+        批量删除用户
+      </el-button>
+    </template>
+
+    <!-- 自定义 slot -->
     <template #progress="scope">
       <el-progress :percentage="scope.row.progress" />
     </template>

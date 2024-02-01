@@ -111,4 +111,16 @@ export default [
       })
     },
   },
+  {
+    url: '/api/delTableItems',
+    method: 'post',
+    response: ({ body }) => {
+      const { ids } = body
+      const list = anvancedTableData.data.filter(item => !ids.includes(item.id))
+      return requestSuccess({
+        list,
+        total: 500,
+      })
+    },
+  },
 ] as MockMethod[]

@@ -1,6 +1,6 @@
 type MessageType = 'success' | 'info' | 'warning' | 'error'
 
-export function useOperationTable(
+export function useTableOperation(
   api: (params: any) => Promise<any>,
   params: any = {},
   message: string,

@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { TableInstance } from 'element-plus'
 import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
 import TableSearch, { type SearchProps } from './TableSearch.vue'
+import { useTableSelection } from '@/hooks/web/useTableSelection'
 
 defineOptions({ name: 'ETable' })
 
@@ -75,6 +77,17 @@ interface TableProps {
   currentChange?: (value: number) => void
 }
 
+// table 实例
+const tableRef = ref<TableInstance>()
+
+// 表格多选 Hooks
+const { selectionChange, selectAll, selectedList, selectedListIds, isSelected } = useTableSelection(props.rowKey)
+
+// 清空选中
+const clearSelection = () => tableRef.value!.clearSelection()
+// 全选/全不选
+const toggleAllSelection = () => tableRef.value!.toggleAllSelection()
+
 // column 列类型
 const columnTypes: TypeProps[] = ['selection', 'index', 'expand', 'tag', 'image']
 
@@ -146,6 +159,13 @@ function handleSearch() {
 function handleReset() {
   emit('reset')
 }
+
+// 暴露给父组件的参数和方法 (外部需要什么，都可以从这里暴露出去)
+defineExpose({
+  el: tableRef,
+  clearSelection,
+  toggleAllSelection,
+})
 </script>
 
 <template>
@@ -160,14 +180,29 @@ function handleReset() {
     </div>
 
     <div class="table-content">
-      <div class="table-tool">
-        <div v-if="title" class="table-title">
-          {{ title }}
+      <div class="table-header items-center; flex justify-between">
+        <div class="flex items-center space-x-2">
+          <div v-if="title" class="table-title">
+            {{ title }}
+          </div>
+          <div class="table-selection">
+            <slot name="header" :selected-list="selectedList" :selected-list-ids="selectedListIds" :is-selected="isSelected" />
+          </div>
         </div>
+        <div class="table-tool" />
       </div>
 
       <!-- 表格 -->
-      <el-table v-loading="loading" :data="data" :border="border" :row-key="rowKey" v-bind="$attrs">
+      <el-table
+        ref="tableRef"
+        v-bind="$attrs"
+        v-loading="loading"
+        :data="data"
+        :border="border"
+        :row-key="rowKey"
+        @selection-change="selectionChange"
+        @select-all="selectAll"
+      >
         <!-- 默认插槽 -->
         <slot />
 
