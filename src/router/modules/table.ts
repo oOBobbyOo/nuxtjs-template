@@ -17,7 +17,7 @@ const table: MenuRecordRaw = {
       name: 'BasicTable',
       component: () => import('@/views/table/basicTable/index.vue'),
       meta: {
-        icon: 'material-symbols:table',
+        icon: 'mdi:table',
         title: 'routes.table.basicTable',
       },
     },
@@ -26,8 +26,17 @@ const table: MenuRecordRaw = {
       name: 'AdvancedTable',
       component: () => import('@/views/table/advancedTable/index.vue'),
       meta: {
-        icon: 'material-symbols:table-view',
+        icon: 'material-symbols:table',
         title: 'routes.table.advancedTable',
+      },
+    },
+    {
+      path: 'complexTable',
+      name: 'ComplexTable',
+      component: () => import('@/views/table/complexTable/index.vue'),
+      meta: {
+        icon: 'material-symbols:table-view',
+        title: 'routes.table.complexTable',
       },
     },
   ],

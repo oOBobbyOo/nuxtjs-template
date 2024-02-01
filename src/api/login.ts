@@ -1,6 +1,7 @@
+import type { LoginByPhone, LoginByUser } from '@/typings/api'
 import request from '@/utils/request'
 
-export function loginByUser({ username, password }: { username: string; password: string }) {
+export function loginByUser({ username, password }: LoginByUser) {
   return request({
     url: '/api/loginByUser',
     method: 'POST',
@@ -11,7 +12,7 @@ export function loginByUser({ username, password }: { username: string; password
   })
 }
 
-export function loginByPhone({ phone, captcha }: { phone: string; captcha: string }) {
+export function loginByPhone({ phone, captcha }: LoginByPhone) {
   return request({
     url: '/api/loginByPhone',
     method: 'POST',

@@ -28,9 +28,9 @@ function mix(color1: string, color2: string, weight: number) {
   const r = Math.round(r1 * (1 - weight) + r2 * weight)
   const g = Math.round(g1 * (1 - weight) + g2 * weight)
   const b = Math.round(b1 * (1 - weight) + b2 * weight)
-  const _r = (`0${(r || 0).toString(16)}`).slice(-2)
-  const _g = (`0${(g || 0).toString(16)}`).slice(-2)
-  const _b = (`0${(b || 0).toString(16)}`).slice(-2)
+  const _r = `0${(r || 0).toString(16)}`.slice(-2)
+  const _g = `0${(g || 0).toString(16)}`.slice(-2)
+  const _b = `0${(b || 0).toString(16)}`.slice(-2)
   return `#${_r}${_g}${_b}`
 }
 

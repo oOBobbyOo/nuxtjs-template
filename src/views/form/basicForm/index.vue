@@ -50,8 +50,7 @@ async function submitForm(formEl: FormInstance | undefined) {
   await formEl.validate((valid, fields) => {
     if (valid)
       console.log('submit!', toRefs(form))
-    else
-      console.log('error submit!', fields)
+    else console.log('error submit!', fields)
   })
 }
 

@@ -1,13 +1,20 @@
 <script setup lang="ts">
-import { getTableData } from '@/api/table'
+import { getBasicTable } from '@/api/table'
 import { useRequest } from '@/hooks/web/useRequest'
 
-const { loading, data } = useRequest(getTableData)
+const { loading, data } = useRequest(getBasicTable)
 
 const columns = [
   {
     prop: 'name',
     label: '姓名',
+  },
+  {
+    prop: 'gender',
+    label: '性别',
+    formatter: (row: { gender: number }): string => {
+      return row.gender ? '男' : '女'
+    },
   },
   {
     prop: 'age',
@@ -28,14 +35,12 @@ const columns = [
 ]
 
 const basicTable = computed(() => {
-  return unref(data)?.basicTable
+  return unref(data)?.list
 })
 </script>
 
 <template>
-  <Card title="基础表格">
-    <Table :loading="loading" :data="basicTable" :columns="columns" />
-  </Card>
+  <Table title="基础表格" :loading="loading" :data="basicTable" :columns="columns" />
 </template>
 
 <style scoped></style>

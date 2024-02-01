@@ -3,13 +3,15 @@ import Mock from 'mockjs'
 import { requestSuccess } from './_util'
 
 const basicTableData = Mock.mock({
-  'data|50': [
+  'data|250': [
     {
       'id': '@id()',
       'name': '@cname()',
+      'gender|1-2': true,
       'age': '@natural(10, 100)',
       'email': '@email()',
       'address': '@city(true)',
+      'status|1-2': true,
       'tags|1-3': [
         {
           name: '@cword(2,3)',
@@ -68,20 +70,31 @@ const anvancedTableData = Mock.mock({
 
 export default [
   {
-    url: '/api/getTableData',
+    url: '/api/getBasicTable',
     method: 'get',
     response: () => {
       return requestSuccess({
-        basicTable: basicTableData.data,
+        list: basicTableData.data,
+        total: 250,
       })
     },
   },
   {
-    url: '/api/getTableList',
+    url: '/api/getAdvancedTable',
     method: 'get',
     response: () => {
       return requestSuccess({
         list: anvancedTableData.data,
+        total: 500,
+      })
+    },
+  },
+  {
+    url: '/api/getComplexTable',
+    method: 'post',
+    response: () => {
+      return requestSuccess({
+        list: basicTableData.data,
         total: 500,
       })
     },

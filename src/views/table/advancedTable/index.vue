@@ -2,14 +2,12 @@
 import type { ColumnProps, Scope } from '@/components/Table/index.vue'
 import { useOperationTable } from '@/hooks/web/useOperationTable'
 import { useTable } from '@/hooks/web/useTable'
-import { delTableItem, getTableList } from '@/api/table'
+import { delTableItem, getAdvancedTable } from '@/api/table'
 
-const { loading, tableData, pagination, getTableData, handleSizeChange, handleCurrentChange } = useTable(
-  getTableList,
-  {
+const { loading, tableData, pagination, getTableData, handleSizeChange, handleCurrentChange }
+  = useTable(getAdvancedTable, {
     pageSize: 5,
-  },
-)
+  })
 
 const columns: ColumnProps[] = [
   {
@@ -59,6 +57,18 @@ const columns: ColumnProps[] = [
   {
     prop: 'created_at',
     label: '创建时间',
+    minWidth: 120,
+  },
+  {
+    prop: 'updated_at',
+    label: '更新时间',
+    minWidth: 120,
+  },
+  {
+    prop: 'closed_at',
+    label: '关闭时间',
+    minWidth: 120,
+    isHidden: true,
   },
   {
     prop: 'operation',
@@ -82,30 +92,29 @@ async function handleDelete(scope: Scope<any>) {
 </script>
 
 <template>
-  <PageWrap>
-    <Table
-      :loading="loading"
-      :data="tableData"
-      :columns="columns"
-      :pagination="pagination"
-      :size-change="handleSizeChange"
-      :current-change="handleCurrentChange"
-    >
-      <template #progress="scope">
-        <el-progress :percentage="scope.row.progress" />
-      </template>
+  <Table
+    title="高级表格"
+    :loading="loading"
+    :data="tableData"
+    :columns="columns"
+    :pagination="pagination"
+    :size-change="handleSizeChange"
+    :current-change="handleCurrentChange"
+  >
+    <template #progress="scope">
+      <el-progress :percentage="scope.row.progress" />
+    </template>
 
-      <!-- 表格操作 -->
-      <template #operation="scope">
-        <el-button type="primary" size="small" @click="handleEdit(scope)">
-          编辑
-        </el-button>
-        <el-button type="danger" size="small" @click="handleDelete(scope)">
-          删除
-        </el-button>
-      </template>
-    </Table>
-  </PageWrap>
+    <!-- 表格操作 -->
+    <template #operation="scope">
+      <el-button type="primary" size="small" @click="handleEdit(scope)">
+        编辑
+      </el-button>
+      <el-button type="danger" size="small" @click="handleDelete(scope)">
+        删除
+      </el-button>
+    </template>
+  </Table>
 </template>
 
 <style scoped></style>
