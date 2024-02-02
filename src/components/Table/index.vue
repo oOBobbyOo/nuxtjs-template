@@ -17,6 +17,7 @@ const props = withDefaults(defineProps<TableProps>(), {
 const emit = defineEmits<{
   search: []
   reset: []
+  refresh: []
 }>()
 
 type TypeProps = 'selection' | 'index' | 'expand' | 'tag' | 'image'
@@ -81,7 +82,9 @@ interface TableProps {
 const tableRef = ref<TableInstance>()
 
 // 表格多选 Hooks
-const { selectionChange, selectAll, selectedList, selectedListIds, isSelected } = useTableSelection(props.rowKey)
+const { selectionChange, selectAll, selectedList, selectedListIds, isSelected } = useTableSelection(
+  props.rowKey,
+)
 
 // 清空选中
 const clearSelection = () => tableRef.value!.clearSelection()
@@ -160,6 +163,14 @@ function handleReset() {
   emit('reset')
 }
 
+// 刷新
+function handleRefresh() {
+  emit('refresh')
+}
+
+// 下载
+function handleDownload() {}
+
 // 暴露给父组件的参数和方法 (外部需要什么，都可以从这里暴露出去)
 defineExpose({
   el: tableRef,
@@ -186,10 +197,24 @@ defineExpose({
             {{ title }}
           </div>
           <div class="table-selection">
-            <slot name="header" :selected-list="selectedList" :selected-list-ids="selectedListIds" :is-selected="isSelected" />
+            <slot
+              name="header"
+              :selected-list="selectedList"
+              :selected-list-ids="selectedListIds"
+              :is-selected="isSelected"
+            />
           </div>
         </div>
-        <div class="table-tool" />
+        <div class="table-tool">
+          <slot name="tool">
+            <el-button circle @click="handleRefresh">
+              <Icon icon="tabler:reload" />
+            </el-button>
+            <el-button circle @click="handleDownload">
+              <Icon icon="tabler:download" />
+            </el-button>
+          </slot>
+        </div>
       </div>
 
       <!-- 表格 -->

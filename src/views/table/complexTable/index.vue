@@ -128,6 +128,7 @@ const tableInstance = ref<TableInstance>()
     :search-params="searchParams"
     @search="handleSearch"
     @reset="handleReset"
+    @refresh="getTableData"
   >
     <!-- 表格 header 按钮 -->
     <template #header="scope">
