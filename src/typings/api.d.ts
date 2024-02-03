@@ -1,4 +1,6 @@
-export interface Params { [key: string]: any }
+export interface Params {
+  [key: string]: any
+}
 
 export interface LoginByUser {
   username: string

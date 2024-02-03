@@ -93,14 +93,14 @@ const placeholder = computed(() => {
 const clearable = computed(() => {
   const search = props.column.search
   return (
-    search?.props?.clearable ?? (search?.defaultValue === null || search?.defaultValue === undefined)
+    search?.props?.clearable
+    ?? (search?.defaultValue === null || search?.defaultValue === undefined)
   )
 })
 
 /**
  * @description 处理 prop，当 prop 为多级嵌套时 ==> 返回最后一级 prop
  * @param {string} prop 当前 prop
- * @returns {string}
  */
 function handleProp(prop: string): string {
   const propArr = prop.split('.')
