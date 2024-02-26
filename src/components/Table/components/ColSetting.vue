@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { ColumnProps } from '../index.vue'
+
 defineProps<{ colSetting: ColumnProps[] }>()
 
 const drawerVisible = ref<boolean>(false)
