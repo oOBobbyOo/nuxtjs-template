@@ -100,6 +100,7 @@ async function handleDelete(scope: Scope<any>) {
     :pagination="pagination"
     :size-change="handleSizeChange"
     :current-change="handleCurrentChange"
+    @refresh="getTableData"
   >
     <!-- 自定义 slot -->
     <template #progress="scope">

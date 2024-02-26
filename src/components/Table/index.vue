@@ -3,6 +3,7 @@ import type { TableInstance } from 'element-plus'
 import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
 import TableSearch, { type SearchProps } from './TableSearch.vue'
 import { useTableSelection } from '@/hooks/web/useTableSelection'
+import { isArray } from '@/utils/is'
 
 defineOptions({ name: 'ETable' })
 
@@ -11,6 +12,7 @@ const props = withDefaults(defineProps<TableProps>(), {
   rowKey: 'id',
   border: true,
   isShowSearch: false,
+  toolButton: true,
   columns: () => [],
 })
 
@@ -72,6 +74,7 @@ interface TableProps {
   columns: ColumnProps[] // 列配置项  ==> 必传
   border?: boolean // 是否带有纵向边框 ==> 非必传（默认为true）
   isShowSearch?: boolean // 是否显示搜索查询
+  toolButton?: ('refresh' | 'download' | 'size')[] | boolean // 是否显示表格功能按钮 ==> 非必传（默认为true）
   searchParams?: { [key: string]: any } // 搜索参数
   pagination?: PaginationProps
   sizeChange?: (value: number) => void
@@ -80,6 +83,11 @@ interface TableProps {
 
 // table 实例
 const tableRef = ref<TableInstance>()
+
+// 控制 ToolButton 显示
+function showToolButton(key: 'refresh' | 'download' | 'size') {
+  return isArray(props.toolButton) ? props.toolButton.includes(key) : props.toolButton
+}
 
 // 表格多选 Hooks
 const { selectionChange, selectAll, selectedList, selectedListIds, isSelected } = useTableSelection(
@@ -171,6 +179,27 @@ function handleRefresh() {
 // 下载
 function handleDownload() {}
 
+// 表格尺寸
+const size = ref<'default' | 'large' | 'small'>('default')
+const sizeItems = [
+  {
+    key: 'default',
+    label: '默认',
+  },
+  {
+    key: 'large',
+    label: '大型',
+  },
+  {
+    key: 'small',
+    label: '紧凑',
+  },
+]
+
+function handleSize(key: string) {
+  size.value = key as 'default' | 'large' | 'small'
+}
+
 // 暴露给父组件的参数和方法 (外部需要什么，都可以从这里暴露出去)
 defineExpose({
   el: tableRef,
@@ -205,14 +234,26 @@ defineExpose({
             />
           </div>
         </div>
-        <div class="table-tool">
-          <slot name="tool">
-            <el-button circle @click="handleRefresh">
+        <div v-if="toolButton" class="table-tool">
+          <slot name="toolButton">
+            <el-button v-if="showToolButton('refresh')" circle @click="handleRefresh">
               <Icon icon="tabler:reload" />
             </el-button>
-            <el-button circle @click="handleDownload">
+            <el-button v-if="showToolButton('download')" circle @click="handleDownload">
               <Icon icon="tabler:download" />
             </el-button>
+            <el-dropdown v-if="showToolButton('size')" trigger="click" class="ml-3">
+              <el-button circle>
+                <Icon icon="ion:resize" />
+              </el-button>
+              <template #dropdown>
+                <el-dropdown-menu>
+                  <el-dropdown-item v-for="item in sizeItems" :key="item.key" :command="item.key" @click="handleSize(item.key)">
+                    {{ item.label }}
+                  </el-dropdown-item>
+                </el-dropdown-menu>
+              </template>
+            </el-dropdown>
           </slot>
         </div>
       </div>
@@ -225,6 +266,7 @@ defineExpose({
         :data="data"
         :border="border"
         :row-key="rowKey"
+        :size="size"
         @selection-change="selectionChange"
         @select-all="selectAll"
       >
