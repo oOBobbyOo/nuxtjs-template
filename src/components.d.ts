@@ -10,6 +10,7 @@ declare module 'vue' {
     BackTop: typeof import('./components/BackTop/index.vue')['default']
     BetterScroll: typeof import('./components/BetterScroll/index.vue')['default']
     Card: typeof import('./components/Card/index.vue')['default']
+    ColSetting: typeof import('./components/Table/components/ColSetting.vue')['default']
     CountTo: typeof import('./components/CountTo/index.vue')['default']
     CropperAvatar: typeof import('./components/Cropper/CropperAvatar.vue')['default']
     CropperImage: typeof import('./components/Cropper/CropperImage.vue')['default']

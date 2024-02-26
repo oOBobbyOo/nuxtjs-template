@@ -74,7 +74,7 @@ interface TableProps {
   columns: ColumnProps[] // 列配置项  ==> 必传
   border?: boolean // 是否带有纵向边框 ==> 非必传（默认为true）
   isShowSearch?: boolean // 是否显示搜索查询
-  toolButton?: ('refresh' | 'download' | 'size')[] | boolean // 是否显示表格功能按钮 ==> 非必传（默认为true）
+  toolButton?: ('refresh' | 'download' | 'setting' | 'size')[] | boolean // 是否显示表格功能按钮 ==> 非必传（默认为true）
   searchParams?: { [key: string]: any } // 搜索参数
   pagination?: PaginationProps
   sizeChange?: (value: number) => void
@@ -85,7 +85,7 @@ interface TableProps {
 const tableRef = ref<TableInstance>()
 
 // 控制 ToolButton 显示
-function showToolButton(key: 'refresh' | 'download' | 'size') {
+function showToolButton(key: 'refresh' | 'download' | 'setting' | 'size') {
   return isArray(props.toolButton) ? props.toolButton.includes(key) : props.toolButton
 }
 
@@ -160,6 +160,17 @@ function flatColumnsFunc(columns: ColumnProps[], flatArr: ColumnProps[] = []) {
   })
   return flatArr.filter(item => !item._children?.length)
 }
+
+// 列设置 ==> 需要过滤掉不需要设置的列
+const colRef = ref()
+
+const colSetting = tableColumns!.filter((item) => {
+  const { type, prop, isHidden } = item
+  return !columnTypes.includes(type!) && prop !== 'operation' && !isHidden
+})
+
+// 显示列设置
+const openColSetting = () => colRef.value.openColSetting()
 
 // 搜索
 function handleSearch() {
@@ -242,13 +253,25 @@ defineExpose({
             <el-button v-if="showToolButton('download')" circle @click="handleDownload">
               <Icon icon="tabler:download" />
             </el-button>
+            <el-button
+              v-if="showToolButton('setting') && columns.length"
+              circle
+              @click="openColSetting"
+            >
+              <Icon icon="ep:operation" />
+            </el-button>
             <el-dropdown v-if="showToolButton('size')" trigger="click" class="ml-3">
               <el-button circle>
                 <Icon icon="ion:resize" />
               </el-button>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item v-for="item in sizeItems" :key="item.key" :command="item.key" @click="handleSize(item.key)">
+                  <el-dropdown-item
+                    v-for="item in sizeItems"
+                    :key="item.key"
+                    :command="item.key"
+                    @click="handleSize(item.key)"
+                  >
                     {{ item.label }}
                   </el-dropdown-item>
                 </el-dropdown-menu>
@@ -356,6 +379,9 @@ defineExpose({
         />
       </slot>
     </div>
+
+    <!-- 列设置 -->
+    <ColSetting v-if="toolButton" ref="colRef" v-model:col-setting="colSetting" />
   </div>
 </template>
 
