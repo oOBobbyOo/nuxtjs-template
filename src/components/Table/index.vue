@@ -105,6 +105,9 @@ const toggleAllSelection = () => tableRef.value!.toggleAllSelection()
 // column 列类型
 const columnTypes: TypeProps[] = ['selection', 'index', 'expand', 'tag', 'image']
 
+// 过滤下载及列设置中的列
+const filterColumnTypes = ['selection', 'index', 'expand']
+
 // 接收 columns 过滤隐藏列，并设置为响应式
 const tableColumns = reactive<ColumnProps[]>(props.columns.filter(col => !col.isHidden))
 
@@ -170,7 +173,7 @@ const colRef = ref()
 
 const colSetting = tableColumns!.filter((item) => {
   const { type, prop, isHidden } = item
-  return !columnTypes.includes(type!) && prop !== 'operation' && !isHidden
+  return !filterColumnTypes.includes(type!) && prop !== 'operation' && !isHidden
 })
 
 // 显示列设置
@@ -195,13 +198,14 @@ function handleRefresh() {
 function handleDownload() {
   const columns = tableColumns
     .filter((col: ColumnProps) => {
-      const { type, prop, isHidden } = col
-      return !columnTypes.includes(type!) && prop !== 'operation' && !isHidden && col.excel
+      const { type, prop, isHidden, excel } = col
+      return !filterColumnTypes.includes(type!) && prop !== 'operation' && !isHidden && excel
     })
     .map((col: ColumnProps) => {
       return {
         header: col.label,
         key: col.prop,
+        width: col.width,
         excel: col.excel,
       }
     })
