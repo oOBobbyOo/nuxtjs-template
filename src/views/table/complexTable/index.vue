@@ -5,6 +5,7 @@ import type { ColumnProps, Scope } from '@/components/Table/index.vue'
 
 import { useTableOperation } from '@/hooks/web/useTableOperation'
 import { useTable } from '@/hooks/web/useTable'
+import { type Column, useDownload } from '@/hooks/web/useDownload'
 import { delTableItem, getComplexTable } from '@/api/table'
 
 // 默认查询参数
@@ -48,6 +49,7 @@ const columns = reactive<ColumnProps<UserList>[]>([
     prop: 'gender',
     label: '性别',
     render: scope => (scope.row.gender ? '男' : '女'),
+    excel: (record: UserList) => (record.gender ? '男' : '女'),
     search: {
       el: 'select',
       props: { placeholder: '请选择性别' },
@@ -111,6 +113,10 @@ async function handleBatchDelete(ids: string[]) {
   await getTableData()
 }
 
+async function handleDownload(columns: Column[]) {
+  useDownload({ api: getComplexTable, params: searchParams, columns })
+}
+
 // Table 实例
 const tableInstance = ref<TableInstance>()
 </script>
@@ -129,6 +135,7 @@ const tableInstance = ref<TableInstance>()
     @search="handleSearch"
     @reset="handleReset"
     @refresh="getTableData"
+    @download="handleDownload"
   >
     <!-- 表格 header 按钮 -->
     <template #header="scope">

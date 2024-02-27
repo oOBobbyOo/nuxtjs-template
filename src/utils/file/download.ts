@@ -1,4 +1,5 @@
 import { openWindow } from '..'
+import { formatToDate } from '../time'
 import { dataURLtoBlob, urlToBase64 } from './base64Conver'
 import type { TargetContext } from '@/typings'
 
@@ -34,7 +35,7 @@ export function downloadByBase64(buf: string, filename: string, mime?: string, b
  * @param {string} mime
  * @param {BlobPart} bom
  */
-export function downloadByData(data: BlobPart, filename: string, mime?: string, bom?: BlobPart) {
+export function downloadByData(data: BlobPart, filename?: string, mime?: string, bom?: BlobPart) {
   const blobData = typeof bom !== 'undefined' ? [bom, data] : [data]
   const blob = new Blob(blobData, { type: mime || 'application/octet-stream' })
 
@@ -42,7 +43,10 @@ export function downloadByData(data: BlobPart, filename: string, mime?: string, 
   const tempLink = document.createElement('a')
   tempLink.style.display = 'none'
   tempLink.href = blobURL
-  tempLink.setAttribute('download', filename)
+  tempLink.setAttribute(
+    'download',
+    filename || `${formatToDate(new Date(), 'YYYY-MM-DD__HH-mm-ss')}.xlsx`,
+  )
   if (typeof tempLink.download === 'undefined')
     tempLink.setAttribute('target', '_blank')
 

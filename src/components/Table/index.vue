@@ -4,6 +4,7 @@ import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-
 import TableSearch, { type SearchProps } from './TableSearch.vue'
 import { useTableSelection } from '@/hooks/web/useTableSelection'
 import { isArray } from '@/utils/is'
+import type { Column } from '@/hooks/web/useDownload'
 
 defineOptions({ name: 'ETable' })
 
@@ -20,6 +21,7 @@ const emit = defineEmits<{
   search: []
   reset: []
   refresh: []
+  download: [columns: Column[]]
 }>()
 
 type TypeProps = 'selection' | 'index' | 'expand' | 'tag' | 'image'
@@ -56,6 +58,7 @@ export interface ColumnProps<T = any> extends Partial<Omit<TableColumnCtx<T>, 't
   isHidden?: boolean // 是否隐藏列
   isSlot?: boolean // 是否自定义
   render?: (scope: Scope<T>) => VNode | string // 自定义单元格内容渲染（tsx语法）
+  excel?: boolean | Function // 是否下载或者自定义导出数据
   _children?: ColumnProps<T>[] // 多级表头
 }
 
@@ -151,9 +154,10 @@ function flatColumnsFunc(columns: ColumnProps[], flatArr: ColumnProps[] = []) {
       flatArr.push(...flatColumnsFunc(col._children))
     flatArr.push(col)
 
-    // column 添加默认 isHidden && isFilterEnum 属性值
+    // column 添加默认 isHidden && isFilterEnum && excel 属性值
     col.isHidden = col.isHidden ?? false
     col.isFilterEnum = col.isFilterEnum ?? true
+    col.excel = col.excel ?? true
 
     // 设置 enumMap
     await setEnumMap(col)
@@ -188,7 +192,21 @@ function handleRefresh() {
 }
 
 // 下载
-function handleDownload() {}
+function handleDownload() {
+  const columns = tableColumns
+    .filter((col: ColumnProps) => {
+      const { type, prop, isHidden } = col
+      return !columnTypes.includes(type!) && prop !== 'operation' && !isHidden && col.excel
+    })
+    .map((col: ColumnProps) => {
+      return {
+        header: col.label,
+        key: col.prop,
+        excel: col.excel,
+      }
+    })
+  emit('download', columns)
+}
 
 // 表格尺寸
 const size = ref<'default' | 'large' | 'small'>('default')
