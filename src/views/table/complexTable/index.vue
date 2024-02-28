@@ -8,6 +8,7 @@ import { useTableOperation } from '@/hooks/web/useTableOperation'
 import { useTable } from '@/hooks/web/useTable'
 import { type Column, useDownload } from '@/hooks/web/useDownload'
 import { delTableItem, getComplexTable } from '@/api/table'
+import { addUser, editUser } from '@/api/user'
 
 // 默认查询参数
 const defaultParams = {
@@ -106,6 +107,8 @@ async function handleAdd() {
     title: '新增',
     isView: false,
     row: {},
+    api: addUser,
+    refresh: getTableData,
   }
   drawerRef.value?.acceptParams(params)
 }
@@ -128,6 +131,8 @@ async function handleEdit(scope: Scope<any>) {
     title: '编辑',
     isView: false,
     row: { ...scope.row },
+    api: editUser,
+    refresh: getTableData,
   }
   drawerRef.value?.acceptParams(params)
 }
@@ -143,10 +148,11 @@ async function handleDelete(scope: Scope<any>) {
 // 批量删除
 async function handleBatchDelete(ids: string[]) {
   console.log('>>: ids', ids)
-  await useTableOperation(delTableItem, { ids }, '批量删除信息')
+  await useTableOperation(delTableItem, { ids }, '批量删除所选信息')
   await getTableData()
 }
 
+// 下载
 async function handleDownload(columns: Column[]) {
   useDownload({ api: getComplexTable, params: searchParams, columns })
 }

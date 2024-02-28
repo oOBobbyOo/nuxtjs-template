@@ -7,6 +7,8 @@ interface DrawerProps {
   title: string
   isView: boolean
   row: any
+  api?: (params: any) => Promise<any>
+  refresh?: () => void
 }
 
 const drawerProps = ref<DrawerProps>({
@@ -36,7 +38,22 @@ function acceptParams(params: DrawerProps) {
 const formRef = ref<FormInstance>()
 
 // 提交数据（新增/编辑）
-function handleSubmit() {}
+function handleSubmit() {
+  formRef.value!.validate(async (valid) => {
+    if (!valid)
+      return
+    try {
+      await drawerProps.value.api!(drawerProps.value.row)
+      ElMessage.success({ message: `${drawerProps.value.title}用户成功！` })
+      // 刷新数据并关闭
+      drawerProps.value.refresh!()
+      closeDrawer()
+    }
+    catch (error) {
+      console.log(error)
+    }
+  })
+}
 
 defineExpose({
   acceptParams,
@@ -56,11 +73,7 @@ defineExpose({
         :hide-required-asterisk="drawerProps.isView"
       >
         <el-form-item label="用户名" prop="username">
-          <el-input
-            v-model="drawerProps.row!.username"
-            placeholder="请填写用户姓名"
-            clearable
-          />
+          <el-input v-model="drawerProps.row!.username" placeholder="请填写用户姓名" clearable />
         </el-form-item>
 
         <el-form-item label="性别" prop="gender">
@@ -80,11 +93,7 @@ defineExpose({
         </el-form-item>
 
         <el-form-item label="年龄" prop="age">
-          <el-input-number
-            v-model="drawerProps.row!.age"
-            placeholder="年龄"
-            clearable
-          />
+          <el-input-number v-model="drawerProps.row!.age" placeholder="年龄" clearable />
         </el-form-item>
 
         <el-form-item label="邮箱" prop="email">
@@ -92,11 +101,7 @@ defineExpose({
         </el-form-item>
 
         <el-form-item label="居住地址" prop="address">
-          <el-input
-            v-model="drawerProps.row!.address"
-            placeholder="请填写居住地址"
-            clearable
-          />
+          <el-input v-model="drawerProps.row!.address" placeholder="请填写居住地址" clearable />
         </el-form-item>
 
         <el-form-item label="用户状态" prop="status">
