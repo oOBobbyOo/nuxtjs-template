@@ -6,14 +6,14 @@ const { loading, data } = useRequest(getBasicTable)
 
 const columns = [
   {
-    prop: 'name',
+    prop: 'username',
     label: '姓名',
   },
   {
     prop: 'gender',
     label: '性别',
     formatter: (row: { gender: number }): string => {
-      return row.gender ? '男' : '女'
+      return row.gender === 1 ? '男' : '女'
     },
   },
   {

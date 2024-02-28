@@ -3,12 +3,12 @@ import Mock from 'mockjs'
 import { requestSuccess } from './_util'
 
 const basicTableData = Mock.mock({
-  'data|250': [
+  'data|500': [
     {
       'id': '@id()',
-      'name': '@cname()',
-      'gender|1-2': true,
-      'age': '@natural(10, 100)',
+      'username': '@cname()',
+      'gender|1-2': 2,
+      'age': '@natural(1, 100)',
       'email': '@email()',
       'address': '@city(true)',
       'status|1-2': true,
