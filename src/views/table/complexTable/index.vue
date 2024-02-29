@@ -1,14 +1,16 @@
-<script setup lang="ts">
+<script setup lang="tsx">
 import type { TableInstance } from 'element-plus/es/components/table'
 import UserDrawer from '../components/UserDrawer/index.vue'
+import type { ColumnProps, Scope } from '@/typings/table'
 import type { UserList } from '@/typings/api'
-import type { ColumnProps, Scope } from '@/components/Table/index.vue'
 
-import { useTableOperation } from '@/hooks/web/useTableOperation'
 import { useTable } from '@/hooks/web/useTable'
-import { type Column, useDownload } from '@/hooks/web/useDownload'
+import { useTableOperation } from '@/hooks/web/useTableOperation'
+import { type DownloadColumn, useDownload } from '@/hooks/web/useDownload'
+
 import { delTableItem, getComplexTable } from '@/api/table'
 import { addUser, editUser } from '@/api/user'
+import { genderType, userStatus } from '@/config'
 
 // 默认查询参数
 const defaultParams = {
@@ -28,7 +30,7 @@ const {
   handleCurrentChange,
 } = useTable(getComplexTable, {
   defaultParams,
-  pageSize: 15,
+  pageSize: 10,
 })
 
 const columns = reactive<ColumnProps<UserList>[]>([
@@ -54,21 +56,26 @@ const columns = reactive<ColumnProps<UserList>[]>([
     excel: (record: UserList) => (record.gender === 1 ? '男' : '女'),
     search: {
       el: 'select',
-      props: { placeholder: '请选择性别' },
+      props: { filterable: true, placeholder: '请选择性别' },
       defaultValue: defaultParams.gender,
     },
-    fieldNames: {
-      label: 'genderLabel',
-      value: 'genderValue',
-    },
-    enum: [
-      { genderLabel: '男', genderValue: 1 },
-      { genderLabel: '女', genderValue: 2 },
-    ],
+    enum: genderType,
   },
   {
     prop: 'age',
     label: '年龄',
+    search: {
+      // 自定义 search 显示内容
+      render: ({ searchParams }) => {
+        return (
+          <div class="flex-center">
+            <el-input vModel_trim={searchParams.minAge} placeholder="最小年龄" />
+            <span class="mx-2">-</span>
+            <el-input vModel_trim={searchParams.maxAge} placeholder="最大年龄" />
+          </div>
+        )
+      },
+    },
   },
   {
     prop: 'email',
@@ -81,10 +88,25 @@ const columns = reactive<ColumnProps<UserList>[]>([
   {
     prop: 'status',
     label: '用户状态',
+    search: {
+      el: 'select',
+      props: { placeholder: '请选择用户状态' },
+    },
+    fieldNames: {
+      label: 'userLabel',
+      value: 'userValue',
+    },
+    enum: userStatus,
   },
   {
     prop: 'ctime',
     label: '创建时间',
+    search: {
+      el: 'date-picker',
+      span: 2,
+      props: { type: 'datetimerange', valueFormat: 'YYYY-MM-DD HH:mm:ss' },
+      defaultValue: ['2022-11-12 00:00:00', '2022-12-12 00:00:00'],
+    },
   },
   {
     prop: 'operation',
@@ -153,7 +175,7 @@ async function handleBatchDelete(ids: string[]) {
 }
 
 // 下载
-async function handleDownload(columns: Column[]) {
+async function handleDownload(columns: DownloadColumn[]) {
   useDownload({ api: getComplexTable, params: searchParams, columns })
 }
 </script>

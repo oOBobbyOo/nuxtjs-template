@@ -2,7 +2,7 @@ import type { Params } from '@/typings/api'
 import exportExcel from '@/utils/file/excel'
 import { isValidArray } from '@/utils/is'
 
-export interface Column {
+export interface DownloadColumn {
   key?: string // 字段 key
   header?: string // 字段 标题
   excel?: boolean | Function // 允许导出 Excel 的， 如果有特定的 Excel 导出规则， 则需要自定义
@@ -11,7 +11,7 @@ export interface Column {
 interface DownloadProps {
   api: (params: Params) => Promise<any>
   params?: Params
-  columns: Column[]
+  columns: DownloadColumn[]
   title?: string
   isNotify?: boolean
 }

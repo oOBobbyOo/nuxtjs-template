@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ColumnProps } from '../index.vue'
+import type { ColumnProps } from '@/typings/table'
 
 defineProps<{ colSetting: ColumnProps[] }>()
 

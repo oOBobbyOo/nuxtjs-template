@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import type { ColumnProps, Scope } from '@/components/Table/index.vue'
-import { useTableOperation } from '@/hooks/web/useTableOperation'
+import type { ColumnProps, Scope } from '@/typings/table'
+import type { DownloadColumn } from '@/hooks/web/useDownload'
+
 import { useTable } from '@/hooks/web/useTable'
-import { delTableItem, getAdvancedTable } from '@/api/table'
-import type { Column } from '@/hooks/web/useDownload'
+import { useTableOperation } from '@/hooks/web/useTableOperation'
 import { useDownload } from '@/hooks/web/useDownload'
+
+import { delTableItem, getAdvancedTable } from '@/api/table'
 
 const {
   loading,
@@ -115,7 +117,7 @@ async function handleDelete(scope: Scope<any>) {
   await getTableData()
 }
 
-async function handleDownload(columns: Column[]) {
+async function handleDownload(columns: DownloadColumn[]) {
   useDownload({ api: getAdvancedTable, params: searchParams, columns })
 }
 </script>

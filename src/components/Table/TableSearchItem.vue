@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ElCheckbox, ElDatePicker, ElInput, ElOption, ElSelect } from 'element-plus'
-import type { ColumnProps } from './index.vue'
+import type { ColumnProps } from '@/typings/table'
 
 defineOptions({ name: 'TableSearchItem' })
 
@@ -131,7 +131,6 @@ function handleProp(prop: string): string {
         :value="col[fieldNames.value]"
       />
     </template>
+    <slot v-else />
   </component>
 </template>
-
-<style scoped></style>

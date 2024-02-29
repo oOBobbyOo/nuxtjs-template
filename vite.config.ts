@@ -2,6 +2,8 @@ import { resolve } from 'node:path'
 import { defineConfig, loadEnv } from 'vite'
 import UnoCSS from 'unocss/vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import ElementPlus from 'unplugin-element-plus/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -35,6 +37,11 @@ export default defineConfig(({ command, mode }) => {
       UnoCSS(),
 
       vue(),
+      // vue 可以使用 jsx/tsx 语法
+      vueJsx(),
+
+      // 自动导入样式
+      ElementPlus({}),
 
       // https://github.com/antfu/unplugin-auto-import
       AutoImport({

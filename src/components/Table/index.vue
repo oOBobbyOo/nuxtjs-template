@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import type { TableInstance } from 'element-plus'
-import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
-import TableSearch, { type SearchProps } from './TableSearch.vue'
+import TableSearch from './TableSearch.vue'
+import type { ColumnProps, TableProps, TypeProps } from '@/typings/table'
+import type { DownloadColumn } from '@/hooks/web/useDownload'
+
 import { useTableSelection } from '@/hooks/web/useTableSelection'
 import { isArray } from '@/utils/is'
-import type { Column } from '@/hooks/web/useDownload'
 
-defineOptions({ name: 'ETable' })
+defineOptions({ name: 'ProTable' })
 
 const props = withDefaults(defineProps<TableProps>(), {
   loading: false,
@@ -15,74 +16,15 @@ const props = withDefaults(defineProps<TableProps>(), {
   isShowSearch: false,
   toolButton: true,
   columns: () => [],
+  searchCol: () => ({ xs: 1, sm: 2, md: 2, lg: 3, xl: 3, xxl: 4 }),
 })
 
 const emit = defineEmits<{
   search: []
   reset: []
   refresh: []
-  download: [columns: Column[]]
+  download: [columns: DownloadColumn[]]
 }>()
-
-type TypeProps = 'selection' | 'index' | 'expand' | 'tag' | 'image'
-
-export interface Scope<T> {
-  row: T
-  $index: number
-  column: TableColumnCtx<T>
-  [key: string]: any
-}
-
-export interface EnumProps {
-  label?: string // 选项框显示的文字
-  value?: string | number | boolean | any[] // 选项框值
-  disabled?: boolean // 是否禁用此选项
-  tagType?: string // 当 tag 为 true 时，此选择会指定 tag 显示类型
-  children?: EnumProps[] // 为树形选择时，可以通过 children 属性指定子选项
-  [key: string]: any
-}
-
-export interface FieldNamesProps {
-  label: string
-  value: string
-  children?: string
-}
-
-export interface ColumnProps<T = any> extends Partial<Omit<TableColumnCtx<T>, 'type'>> {
-  type?: TypeProps // 列类型
-  tagType?: 'success' | 'info' | 'warning' | 'danger' // 标签类型
-  search?: SearchProps | undefined // 搜索项配置
-  enum?: EnumProps[] | Ref<EnumProps[]> | ((params?: any) => Promise<any>) // 枚举字典
-  isFilterEnum?: boolean | Ref<boolean> // 当前单元格值是否根据 enum 格式化（示例：enum 只作为搜索项数据）
-  fieldNames?: FieldNamesProps // 指定 label && value && children 的 key 值
-  isHidden?: boolean // 是否隐藏列
-  isSlot?: boolean // 是否自定义
-  render?: (scope: Scope<T>) => VNode | string // 自定义单元格内容渲染（tsx语法）
-  excel?: boolean | Function // 是否下载或者自定义导出数据
-  _children?: ColumnProps<T>[] // 多级表头
-}
-
-export interface PaginationProps {
-  pageiable?: boolean // 否显示分页
-  currentPage?: number // 当前页
-  pageSize?: number // 每页显示条数
-  total?: number // 总条数
-}
-
-interface TableProps {
-  title?: string // 表格标题 ==> 非必传
-  loading?: boolean
-  rowKey?: string // 行数据的 Key，用来优化 Table 的渲染，当表格数据多选时，所指定的 id ==> 非必传（默认为 id）
-  data?: any[] // 表格数据
-  columns: ColumnProps[] // 列配置项  ==> 必传
-  border?: boolean // 是否带有纵向边框 ==> 非必传（默认为true）
-  isShowSearch?: boolean // 是否显示搜索查询
-  toolButton?: ('refresh' | 'download' | 'setting' | 'size')[] | boolean // 是否显示表格功能按钮 ==> 非必传（默认为true）
-  searchParams?: { [key: string]: any } // 搜索参数
-  pagination?: PaginationProps
-  sizeChange?: (value: number) => void
-  currentChange?: (value: number) => void
-}
 
 // table 实例
 const tableRef = ref<TableInstance>()
@@ -243,15 +185,18 @@ defineExpose({
 
 <template>
   <div class="table-card">
+    <!-- 表格搜索 -->
     <div v-if="isShowSearch" class="table-search">
       <TableSearch
         :search-columns="searchColumns"
         :search-params="searchParams"
+        :search-col="searchCol"
         :search="handleSearch"
         :reset="handleReset"
       />
     </div>
 
+    <!-- 表格主体 -->
     <div class="table-content">
       <div class="table-header items-center; flex justify-between">
         <div class="flex items-center space-x-2">
