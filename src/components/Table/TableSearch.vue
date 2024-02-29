@@ -40,7 +40,7 @@ const gridRef = ref()
 const breakPoint = computed<BreakPoint>(() => gridRef.value?.breakPoint)
 
 // 表单域标签的位置
-const labelPosition = computed(() => breakPoint.value === 'xs' ? 'top' : 'right')
+const labelPosition = computed(() => breakPoint.value === 'xs' || breakPoint.value === 'sm' ? 'top' : 'right')
 
 // 判断是否显示 展开/合并 按钮
 const showCollapse = computed(() => {

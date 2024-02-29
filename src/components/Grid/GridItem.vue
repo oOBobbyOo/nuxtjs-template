@@ -10,6 +10,7 @@ interface Props {
   md?: Responsive
   lg?: Responsive
   xl?: Responsive
+  xxl?: Responsive
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -21,6 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
   md: undefined,
   lg: undefined,
   xl: undefined,
+  xxl: undefined,
 })
 
 const attrs = useAttrs() as { index: string }
