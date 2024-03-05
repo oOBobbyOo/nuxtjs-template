@@ -69,3 +69,14 @@ export function openWindow(
 
   window.open(url, target, feature.join(','))
 }
+
+/**
+ * @description 处理 prop，当 prop 为多级嵌套时 ==> 返回最后一级 prop
+ * @param {string} prop 当前 prop
+ */
+export function handleProp(prop: string): string {
+  const propArr = prop.split('.')
+  if (propArr.length === 1)
+    return prop
+  return propArr[propArr.length - 1]
+}

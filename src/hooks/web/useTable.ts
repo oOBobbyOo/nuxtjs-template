@@ -46,7 +46,14 @@ export function useTable<T = any[]>(api?: Api<T>, options?: Options<T>) {
     pageSize,
   })
 
-  const searchParams = reactive({ ...defaultParams })
+  const state = reactive({
+    // 查询参数(只包括查询)
+    searchParams: {
+      ...defaultParams,
+    },
+    // 总参数(包含分页和查询参数)
+    totalParams: {},
+  })
 
   // 分页请求参数
   const pageParams: Ref<PageParams> = computed(() => {
@@ -58,15 +65,34 @@ export function useTable<T = any[]>(api?: Api<T>, options?: Options<T>) {
       : {}
   })
 
-  // 总参数 (包含搜索和分页参数)
-  // const updatedTotalParams = () => { }
+  // 更新查询参数
+  const updatedTotalParams = () => {
+    state.totalParams = {}
+    const newSearchParams: any = {}
+    for (const key in state.searchParams) {
+      // 某些情况下参数为 false/0 也应该携带参数
+      if (
+        state.searchParams[key]
+        || state.searchParams[key] === false
+        || state.searchParams[key] === 0
+      )
+        newSearchParams[key] = state.searchParams[key]
+    }
+    Object.assign(state.totalParams, newSearchParams, pageParams.value)
+  }
 
   const getTableData = async () => {
     if (!api)
       return
     try {
       loading.value = true
-      const res = await api({ ...searchParams, ...pageParams.value })
+
+      // 先把初始化参数和分页参数放到总参数里面
+      state.totalParams = {
+        ...state.searchParams,
+        ...pageParams.value,
+      }
+      const res = await api({ ...state.totalParams })
       dataSource.value = formatResult ? formatResult(res?.list) : res?.list
       const total = res?.total || dataSource.value.length
       setTotal(total)
@@ -99,6 +125,7 @@ export function useTable<T = any[]>(api?: Api<T>, options?: Options<T>) {
   // 搜索
   const handleSearch = () => {
     setCurrentPage(1)
+    updatedTotalParams()
     getTableData()
   }
 
@@ -107,6 +134,8 @@ export function useTable<T = any[]>(api?: Api<T>, options?: Options<T>) {
     setCurrentPage(1)
     setPageSize(pageSize)
     // 重置搜索请求参数
+    Object.assign(state.searchParams, defaultParams)
+    updatedTotalParams()
     getTableData()
   }
 
@@ -124,10 +153,10 @@ export function useTable<T = any[]>(api?: Api<T>, options?: Options<T>) {
   }
 
   return {
+    ...toRefs(state),
     loading,
     tableData,
     pagination,
-    searchParams,
     getTableData,
     handleSearch,
     handleReset,
