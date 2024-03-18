@@ -126,6 +126,35 @@ const comp: MenuRecordRaw = {
         },
       ],
     },
+    {
+      path: 'banner',
+      name: 'Banner',
+      redirect: '/comp/banner/carousel',
+      meta: {
+        icon: 'material-symbols:view-carousel',
+        title: 'routes.comp.banner',
+      },
+      children: [
+        {
+          path: 'carousel',
+          name: 'Carousel',
+          component: () => import('@/views/comp/banner/carousel/index.vue'),
+          meta: {
+            icon: 'ic:sharp-view-carousel',
+            title: 'routes.comp.carousel',
+          },
+        },
+        {
+          path: 'swiper',
+          name: 'Swiper',
+          component: () => import('@/views/comp/banner/swiper/index.vue'),
+          meta: {
+            icon: 'simple-icons:swiper',
+            title: 'routes.comp.swiper',
+          },
+        },
+      ],
+    },
   ],
 }
 

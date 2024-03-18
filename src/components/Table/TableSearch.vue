@@ -40,7 +40,8 @@ const gridRef = ref()
 const breakPoint = computed<BreakPoint>(() => gridRef.value?.breakPoint)
 
 // 表单域标签的位置
-const labelPosition = computed(() => breakPoint.value === 'xs' || breakPoint.value === 'sm' ? 'top' : 'right')
+const labelPosition = computed(() =>
+  breakPoint.value === 'xs' || breakPoint.value === 'sm' ? 'top' : 'right')
 
 // 判断是否显示 展开/合并 按钮
 const showCollapse = computed(() => {
@@ -100,12 +101,7 @@ const showCollapse = computed(() => {
             <Icon icon="material-symbols:delete-forever" size="18" mr-1 />
             重置
           </el-button>
-          <el-button
-            v-if="showCollapse"
-            class="search-isOpen"
-            link
-            @click="collapsed = !collapsed"
-          >
+          <el-button v-if="showCollapse" class="search-isOpen" link @click="collapsed = !collapsed">
             {{ collapsed ? '展开' : '收起' }}
             <Icon
               :icon="collapsed ? 'ant-design:down-outlined' : 'ant-design:up-outlined'"

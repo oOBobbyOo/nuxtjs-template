@@ -40,7 +40,13 @@ const basicTable = computed(() => {
 </script>
 
 <template>
-  <Table title="基础表格" :loading="loading" :data="basicTable" :columns="columns" :tool-button="false" />
+  <Table
+    title="基础表格"
+    :loading="loading"
+    :data="basicTable"
+    :columns="columns"
+    :tool-button="false"
+  />
 </template>
 
 <style scoped></style>

@@ -12,4 +12,7 @@ export default {
   image: '图片',
   upload: '上传',
   cropper: '裁切',
+  banner: '轮播',
+  carousel: 'Carousel',
+  swiper: 'Swiper',
 }

@@ -43,8 +43,7 @@ function calcRow(record: any, columns: any[]) {
   for (const { key, excel } of columns) {
     if (typeof excel === 'function')
       row[key] = excel(record)
-    else
-      row[key] = record[key.slice(prefix.length)] // 转换为原始的 key
+    else row[key] = record[key.slice(prefix.length)] // 转换为原始的 key
   }
   return row
 }

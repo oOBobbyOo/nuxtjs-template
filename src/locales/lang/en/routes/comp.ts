@@ -12,4 +12,7 @@ export default {
   image: 'Image',
   upload: 'Upload',
   cropper: 'Cropper',
+  banner: 'Banner',
+  carousel: 'Carousel',
+  swiper: 'Swiper',
 }
