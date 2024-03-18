@@ -10,6 +10,8 @@ withDefaults(defineProps<CarouselProps>(), {
   direction: 'horizontal',
 })
 
+const emit = defineEmits(['change'])
+
 interface CarouselProps {
   list?: any[]
   height?: string
@@ -23,6 +25,10 @@ interface CarouselProps {
 }
 
 const attrs = useAttrs()
+
+function handleChange(index: number) {
+  emit('change', index)
+}
 </script>
 
 <template>
@@ -36,6 +42,7 @@ const attrs = useAttrs()
     :loop="loop"
     :direction="direction"
     v-bind="attrs"
+    @change="handleChange"
   >
     <el-carousel-item v-for="item in list" :key="item.id">
       <slot name="carousel" v-bind="item" />
