@@ -92,6 +92,7 @@ declare module 'vue' {
     Statistic: (typeof import('./components/Statistic/index.vue'))['default']
     StatisticCard: typeof import('./components/StatisticCard/index.vue')['default']
     SvgIcon: typeof import('./components/Icon/SvgIcon.vue')['default']
+    Swiper: typeof import('./components/Swiper/index.vue')['default']
     SwitchDarkMode: typeof import('./components/SwitchDarkMode/index.vue')['default']
     TabCard: typeof import('./components/TabCard/index.vue')['default']
     Table: typeof import('./components/Table/index.vue')['default']
