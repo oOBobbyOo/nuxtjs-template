@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const img = ref('http://placekitten.com/g/600/600')
+import img from '@/assets/yuanshen.jpg'
 
 const cropperImg = ref('')
 const cropperInfo = ref('')
