@@ -1,18 +1,20 @@
 <script setup lang="ts">
+import type { CropendResult } from '@/typings/cropper'
 import img from '@/assets/yuanshen.jpg'
+import { uploadAvatar } from '@/api/upload'
 
 const cropperImg = ref('')
-const cropperInfo = ref('')
+const cropperInfo = ref()
 
 const circleImg = ref('')
-const circleInfo = ref('')
+const circleInfo = ref()
 
-function handleCropend({ imgBase64, imgInfo }: { imgBase64: string; imgInfo: string }) {
+function handleCropend({ imgBase64, imgInfo }: CropendResult) {
   cropperInfo.value = imgInfo
   cropperImg.value = imgBase64
 }
 
-function handleCircleCropend({ imgBase64, imgInfo }: { imgBase64: string; imgInfo: string }) {
+function handleCircleCropend({ imgBase64, imgInfo }: CropendResult) {
   circleInfo.value = imgInfo
   circleImg.value = imgBase64
 }
@@ -20,6 +22,12 @@ function handleCircleCropend({ imgBase64, imgInfo }: { imgBase64: string; imgInf
 
 <template>
   <div>
+    <Card title="图像裁剪" class="mb-4">
+      <div class="flex flex-wrap items-center">
+        <CropperAvatar :upload-api="uploadAvatar" />
+      </div>
+    </Card>
+
     <Card title="矩形裁剪" class="mb-4">
       <div class="flex flex-wrap items-center">
         <div class="mb-4 mr-10 w-[40vw]">

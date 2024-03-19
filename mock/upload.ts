@@ -1,4 +1,5 @@
 import type { MockMethod } from 'vite-plugin-mock'
+import { nanoid } from 'nanoid'
 import { requestSuccess } from './_util'
 
 const imgURL = [
@@ -16,6 +17,16 @@ export default [
       const idx = Math.floor(Math.random() * 4)
       return requestSuccess({
         fileUrl: imgURL[idx],
+      })
+    },
+  },
+  {
+    url: '/api/file/upload/avatar',
+    method: 'post',
+    response: ({ body }) => {
+      return requestSuccess({
+        ...body,
+        url: `https://api.multiavatar.com/${nanoid(8)}.png`,
       })
     },
   },

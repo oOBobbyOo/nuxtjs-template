@@ -7,3 +7,11 @@ export function uploadImg(params: FormData) {
     data: params,
   })
 }
+
+export function uploadAvatar(params: any) {
+  return request({
+    url: '/api/file/upload/avatar',
+    method: 'POST',
+    data: params,
+  })
+}
