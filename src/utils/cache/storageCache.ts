@@ -1,8 +1,8 @@
-import { cacheCipher } from '@/setting/encryptionSetting'
 import type { Nullable } from '@/typings'
 import type { EncryptionParams } from '@/utils/cipher'
 import { AesEncryption } from '@/utils/cipher'
 import { isNullOrUnDef } from '@/utils/is'
+import { cacheCipher } from '@/setting/encryptionSetting'
 
 export interface CreateStorageParams extends EncryptionParams {
   prefixKey: string

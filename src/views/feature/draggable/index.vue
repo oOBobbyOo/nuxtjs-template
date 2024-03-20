@@ -2,21 +2,26 @@
 import { ref } from 'vue'
 import { isClient } from '@vueuse/shared'
 import { useDraggable } from '@vueuse/core'
-import { UseDraggable } from '@vueuse/components'
+import { UseDraggable as Draggable } from '@vueuse/components'
 
 const el = ref<HTMLElement | null>(null)
 const handle = ref<HTMLElement | null>(null)
 
 const innerWidth = isClient ? window.innerWidth : 200
 
+const disabled = ref(false)
 const { x, y, style } = useDraggable(el, {
   initialValue: { x: innerWidth / 4.2, y: 150 },
   preventDefault: true,
+  disabled,
 })
 </script>
 
 <template>
   <div>
+    <div class="text-center text-xs">
+      <el-checkbox v-model="disabled" label="Disabled drag and drop" />
+    </div>
     <p class="text-center italic op50">
       Check the floating boxes
     </p>
@@ -35,8 +40,8 @@ const { x, y, style } = useDraggable(el, {
       </div>
     </div>
 
-    <UseDraggable
-      v-slot="{ x, y }"
+    <Draggable
+      v-slot="{ x: left, y: top }"
       p="x-4 y-2"
       border="~ gray-400/30 rounded"
       shadow="~ hover:lg"
@@ -45,18 +50,19 @@ const { x, y, style } = useDraggable(el, {
       :prevent-default="true"
       storage-key="vueuse-draggable-pos"
       storage-type="session"
+      :disabled="disabled"
     >
       Renderless component
       <div class="text-xs opacity-50">
         Position persisted in sessionStorage
       </div>
       <div class="text-sm opacity-50">
-        {{ Math.round(x) }}, {{ Math.round(y) }}
+        {{ Math.round(left) }}, {{ Math.round(top) }}
       </div>
-    </UseDraggable>
+    </Draggable>
 
-    <UseDraggable
-      v-slot="{ x, y }"
+    <Draggable
+      v-slot="{ x: left, y: top }"
       p="x-4 y-2"
       border="~ gray-400/30 rounded"
       shadow="~ hover:lg"
@@ -64,6 +70,7 @@ const { x, y, style } = useDraggable(el, {
       :initial-value="{ x: innerWidth / 3.6, y: 350 }"
       :prevent-default="true"
       :handle="handle"
+      :disabled="disabled"
     >
       <div ref="handle" class="cursor-move">
         👋 Drag here!
@@ -72,8 +79,8 @@ const { x, y, style } = useDraggable(el, {
         Handle that triggers the drag event
       </div>
       <div class="text-sm opacity-50">
-        I am at {{ Math.round(x) }}, {{ Math.round(y) }}
+        I am at {{ Math.round(left) }}, {{ Math.round(top) }}
       </div>
-    </UseDraggable>
+    </Draggable>
   </div>
 </template>

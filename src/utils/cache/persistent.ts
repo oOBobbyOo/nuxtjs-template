@@ -4,7 +4,7 @@ import { omit, pick } from 'lodash-es'
 import { Memory } from './memory'
 import type { Nullable } from '@/typings'
 import type { LockInfo, UserInfo } from '@/typings/store'
-import type { ProjectConfig } from '@/setting/projectSetting'
+import type { ProjectConfig } from '@/typings/setting'
 
 import { createLocalStorage, createSessionStorage } from '@/utils/cache'
 import type { MULTIPLE_TABS_KEY, PROJ_CFG_KEY, ROLES_KEY } from '@/enums/cacheEnum'
