@@ -27,6 +27,8 @@ const src = ref(props.src || '')
 const previewSource = ref('')
 const cropper = ref<Cropper>()
 const loading = ref(false)
+let scaleX = 1
+let scaleY = 1
 
 function handleCropend({ imgBase64 }: CropendResult) {
   previewSource.value = imgBase64
@@ -80,6 +82,17 @@ async function handleComfirm() {
   }
 }
 
+function handlerToolbar(event: keyof Cropper, arg?: any) {
+  if (event === 'scaleX')
+    scaleX = arg = scaleX === -1 ? 1 : -1
+
+  if (event === 'scaleY')
+    scaleY = arg = scaleY === -1 ? 1 : -1
+
+  // @ts-expect-error 忽略ts错误
+  cropper?.value?.[event]?.(arg)
+}
+
 defineExpose({ openDialog, closeDialog })
 </script>
 
@@ -99,7 +112,7 @@ defineExpose({ openDialog, closeDialog })
         </div>
         <div class="cropper-dialog-toolbar">
           <el-upload action="#" accept="image/*" :before-upload="handleBeforeUpload">
-            <el-tooltip content="上传图片" placement="top-start">
+            <el-tooltip content="上传图片" placement="bottom">
               <el-button type="primary" size="small">
                 <template #icon>
                   <Icon icon="uil:image-upload" size="18" />
@@ -107,6 +120,99 @@ defineExpose({ openDialog, closeDialog })
               </el-button>
             </el-tooltip>
           </el-upload>
+
+          <el-space class="mb-1">
+            <el-tooltip content="重置" placement="bottom">
+              <el-button
+                type="primary"
+                size="small"
+                :disabled="!src"
+                @click="handlerToolbar('reset')"
+              >
+                <template #icon>
+                  <Icon icon="ant-design:reload-outlined" size="18" />
+                </template>
+              </el-button>
+            </el-tooltip>
+
+            <el-tooltip content="逆时针旋转" placement="bottom">
+              <el-button
+                type="primary"
+                size="small"
+                :disabled="!src"
+                @click="handlerToolbar('rotate', -45)"
+              >
+                <template #icon>
+                  <Icon icon="ant-design:rotate-left-outlined" size="18" />
+                </template>
+              </el-button>
+            </el-tooltip>
+
+            <el-tooltip content="顺时针旋转" placement="bottom">
+              <el-button
+                type="primary"
+                size="small"
+                :disabled="!src"
+                @click="handlerToolbar('rotate', 45)"
+              >
+                <template #icon>
+                  <Icon icon="ant-design:rotate-right-outlined" size="18" />
+                </template>
+              </el-button>
+            </el-tooltip>
+
+            <el-tooltip content="水平翻转" placement="bottom">
+              <el-button
+                type="primary"
+                size="small"
+                :disabled="!src"
+                @click="handlerToolbar('scaleX')"
+              >
+                <template #icon>
+                  <Icon icon="vaadin:arrows-long-h" size="18" />
+                </template>
+              </el-button>
+            </el-tooltip>
+
+            <el-tooltip content="垂直翻转" placement="bottom">
+              <el-button
+                type="primary"
+                size="small"
+                :disabled="!src"
+                @click="handlerToolbar('scaleY')"
+              >
+                <template #icon>
+                  <Icon icon="vaadin:arrows-long-v" size="18" />
+                </template>
+              </el-button>
+            </el-tooltip>
+
+            <el-tooltip content="放大" placement="bottom">
+              <el-button
+                type="primary"
+                size="small"
+                :disabled="!src"
+                @click="handlerToolbar('zoom', -0.1)"
+              >
+                <template #icon>
+                  <Icon icon="ant-design:zoom-out-outlined" size="18" />
+                </template>
+              </el-button>
+            </el-tooltip>
+
+            <el-tooltip content="缩小" placement="bottom">
+              <el-button
+                type="primary"
+                size="small"
+                :disabled="!src"
+                @click="handlerToolbar('zoom', 0.1)"
+              >
+                <template #icon>
+                  <Icon icon="ant-design:zoom-in-outlined" size="18" />
+                </template>
+              </el-button>
+            </el-tooltip>
+          </el-space>
         </div>
       </div>
       <div class="cropper-dialog-right">
