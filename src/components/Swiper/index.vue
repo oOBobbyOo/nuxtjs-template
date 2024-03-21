@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// @see https://swiperjs.com/vue
+// @see https://swiperjs.com/vue  https://swiperjs.com/demos
 import type { SwiperOptions } from 'swiper/types'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import {

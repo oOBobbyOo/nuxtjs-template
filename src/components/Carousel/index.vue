@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @see https://element-plus.org/zh-CN/component/carousel.html
 defineOptions({ name: 'Carousel' })
 
 withDefaults(defineProps<CarouselProps>(), {
