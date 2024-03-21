@@ -78,6 +78,7 @@ const imgs = ref([
       </h2>
       <div class="h-[200px]">
         <Swiper
+          class="swiper-custom"
           :list="list"
           :autoplay="{
             delay: 1000,
@@ -99,7 +100,7 @@ const imgs = ref([
         Slides per view
       </h2>
       <div class="h-[200px]">
-        <Swiper :list="list" :slides-per-view="3" :space-between="30">
+        <Swiper class="swiper-custom" :list="list" :slides-per-view="3" :space-between="30">
           <template #default="{ content }">
             {{ content }}
           </template>
@@ -112,7 +113,7 @@ const imgs = ref([
         Effect fade
       </h2>
       <div class="h-[200px]">
-        <Swiper :list="list" effect="fade">
+        <Swiper class="swiper-custom" :list="list" effect="fade">
           <template #default="{ content }">
             {{ content }}
           </template>
@@ -124,7 +125,7 @@ const imgs = ref([
       <h2 mb-2 text-xl>
         Effect flip
       </h2>
-      <Swiper :list="imgs" effect="flip" class="swiper-flip">
+      <Swiper :list="imgs" effect="flip" class="swiper-custom swiper-flip">
         <template #default="{ url }">
           <img :src="url">
         </template>
@@ -151,6 +152,43 @@ const imgs = ref([
 </template>
 
 <style scoped lang="less">
+.swiper-custom {
+  ::v-deep(.swiper-button-prev),
+  ::v-deep(.swiper-button-next) {
+    width: 36px;
+    height: 36px;
+    background: rgb(31 45 61 / 11%);
+    border-radius: 50%;
+  }
+
+  ::v-deep(.swiper-button-prev:hover),
+  ::v-deep(.swiper-button-prev:focus),
+  ::v-deep(.swiper-button-next:hover),
+  ::v-deep(.swiper-button-next:focus) {
+    background: rgb(31 45 61 / 23%);
+  }
+
+  ::v-deep(.swiper-button-prev::after),
+  ::v-deep(.swiper-button-next::after) {
+    font-size: inherit;
+    color: #fff;
+  }
+
+  ::v-deep(.swiper-pagination) {
+    &-bullet {
+      width: 16px;
+      height: 3px;
+      background: rgb(0 0 0 / 48%);
+      border-radius: 0;
+
+      &-active {
+        width: 24px;
+        background: rgb(100 108 255 / 88%);
+      }
+    }
+  }
+}
+
 .swiper-flip {
   width: 300px;
   height: 300px;

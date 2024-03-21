@@ -2,7 +2,14 @@
 // @see https://swiperjs.com/vue
 import type { SwiperOptions } from 'swiper/types'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { EffectCards, EffectFade, EffectFlip, Navigation, Pagination } from 'swiper/modules'
+import {
+  Autoplay,
+  EffectCards,
+  EffectFade,
+  EffectFlip,
+  Navigation,
+  Pagination,
+} from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/effect-cards'
@@ -29,7 +36,7 @@ interface SwiperProps extends SwiperOptions {
   list: any[]
 }
 
-const modules = [EffectCards, EffectFade, EffectFlip, Navigation, Pagination]
+const modules = [Autoplay, EffectCards, EffectFade, EffectFlip, Navigation, Pagination]
 
 const attrs = useAttrs()
 </script>
