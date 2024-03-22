@@ -8,7 +8,7 @@ const docsQuery = queryContent('docs')
       <ContentNavigation v-slot="{ navigation }" :query="docsQuery">
         <div flex items-center justify-start>
           <Icon name="logos:nuxt-icon" mr-3 h-6 w-auto cursor-pointer transition-all />
-          <p font-medium text-gray-900 opacity-100 dark:text-gray-100>
+          <p text-gray-900 font-medium opacity-100 dark:text-gray-100>
             Docs
           </p>
         </div>

@@ -15,6 +15,9 @@ const swiper = useSwiper()
 
 <style scope lang="scss">
   .btn-control {
-   --at-apply: absolute top-[50%] translate-y-[-50%] z-10 px-2 py-3 rounded inline-block bg-gray-600/[0.3] text-white cursor-pointer hover:bg-gray-600/[0.6] disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50
-  }
+  --at-apply: absolute top-[50%] translate-y-[-50%] z-10 px-2 py-3 rounded
+    inline-block bg-gray-600/[0.3] text-white cursor-pointer hover:
+    bg-gray-600/[0.6] disabled: cursor-default disabled: bg-gray-600 disabled:
+    opacity-50;
+}
 </style>

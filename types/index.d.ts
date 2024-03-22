@@ -1,4 +1,3 @@
-
 export interface ExampleProps {
   key: string
   title: string

@@ -1,6 +1,6 @@
 :root {
   --pinceau-mq: initial;
-  --transition-background: background-color .2s ease-in-out;
+  --transition-background: background-color 0.2s ease-in-out;
   --button-fontSize-xl: 1rem;
   --button-fontSize-lg: 1rem;
   --button-fontSize-md: 0.875rem;
@@ -58,8 +58,8 @@
   --typography-color-primary-200: #83ffcc;
   --typography-color-primary-100: #acffdd;
   --typography-color-primary-50: #d6ffee;
-  --typography-font-body: "RoobertPRO", "RoobertPRO override", sans-serif;
-  --typography-font-display: "RoobertPRO", "RoobertPRO override", sans-serif;
+  --typography-font-body: 'RoobertPRO', 'RoobertPRO override', sans-serif;
+  --typography-font-display: 'RoobertPRO', 'RoobertPRO override', sans-serif;
   --typography-lead-loose: 2;
   --typography-lead-relaxed: 1.625;
   --typography-lead-normal: 1.5;
@@ -73,9 +73,9 @@
   --typography-lead-6: 1.5rem;
   --typography-lead-5: 1.25rem;
   --typography-lead-4: 1rem;
-  --typography-lead-3: .75rem;
-  --typography-lead-2: .5rem;
-  --typography-lead-1: .025rem;
+  --typography-lead-3: 0.75rem;
+  --typography-lead-2: 0.5rem;
+  --typography-lead-1: 0.025rem;
   --typography-fontWeight-black: 900;
   --typography-fontWeight-extrabold: 800;
   --typography-fontWeight-bold: 700;
@@ -115,9 +115,9 @@
   --lead-6: 1.5rem;
   --lead-5: 1.25rem;
   --lead-4: 1rem;
-  --lead-3: .75rem;
-  --lead-2: .5rem;
-  --lead-1: .025rem;
+  --lead-3: 0.75rem;
+  --lead-2: 0.5rem;
+  --lead-1: 0.025rem;
   --letterSpacing-widest: 0.1em;
   --letterSpacing-wider: 0.05em;
   --letterSpacing-wide: 0.025em;
@@ -146,9 +146,12 @@
   --fontWeight-light: 300;
   --fontWeight-extralight: 200;
   --fontWeight-thin: 100;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
   --font-serif: ui-serif, Georgia, Cambria, Times New Roman, Times, serif;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --opacity-total: 1;
   --opacity-high: 0.8;
   --opacity-medium: 0.5;
@@ -248,8 +251,10 @@
   --shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-none: 0px 0px 0px 0px transparent;
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  --shadow-xl: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-xs: 0px 1px 2px 0px #000000;
@@ -397,16 +402,16 @@
   --color-green-200: #83ffcc;
   --color-green-100: #acffdd;
   --color-green-50: #d6ffee;
-  --color-gray-900: #18181B;
-  --color-gray-800: #27272A;
-  --color-gray-700: #3F3F46;
-  --color-gray-600: #52525B;
-  --color-gray-500: #71717A;
-  --color-gray-400: #A1A1AA;
-  --color-gray-300: #D4D4D8;
-  --color-gray-200: #E4E4E7;
-  --color-gray-100: #F4F4F5;
-  --color-gray-50: #FAFAFA;
+  --color-gray-900: #18181b;
+  --color-gray-800: #27272a;
+  --color-gray-700: #3f3f46;
+  --color-gray-600: #52525b;
+  --color-gray-500: #71717a;
+  --color-gray-400: #a1a1aa;
+  --color-gray-300: #d4d4d8;
+  --color-gray-200: #e4e4e7;
+  --color-gray-100: #f4f4f5;
+  --color-gray-50: #fafafa;
   --color-black: #0c0c0d;
   --color-white: #fff;
   --media-portrait: only screen and (orientation: portrait);
@@ -429,7 +434,8 @@
   --prose-tbody-code-inline-fontSize: var(--typography-fontSize-sm);
   --prose-tbody-td-padding: var(--typography-verticalMargin-sm);
   --prose-th-fontWeight: var(--typography-fontWeight-semibold);
-  --prose-th-padding: 0 var(--typography-verticalMargin-sm) var(--typography-verticalMargin-sm) var(--typography-verticalMargin-sm);
+  --prose-th-padding: 0 var(--typography-verticalMargin-sm)
+    var(--typography-verticalMargin-sm) var(--typography-verticalMargin-sm);
   --prose-table-lineHeight: var(--typography-lead-6);
   --prose-table-fontSize: var(--typography-fontSize-sm);
   --prose-table-margin: var(--typography-verticalMargin-base) 0;

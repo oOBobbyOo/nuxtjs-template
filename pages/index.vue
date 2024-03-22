@@ -31,6 +31,7 @@ const online = useOnline()
 
 <style scoped lang="scss">
 .text {
-  --at-apply: my-2 text-6xl block font-black uppercase drop-shadow-xl bg-gradient-to-r bg-clip-text text-transparent;
+  --at-apply: my-2 text-6xl block font-black uppercase drop-shadow-xl
+    bg-gradient-to-r bg-clip-text text-transparent;
 }
 </style>

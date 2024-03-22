@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import process from 'node:process'
 import { defineNuxtConfig } from 'nuxt/config'
 
 const siteTitle = 'Nuxt3 starter template'
@@ -24,7 +25,7 @@ export default defineNuxtConfig({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: siteDescription
+          content: siteDescription,
         },
         { hid: 'og:image', property: 'og:image', content: shareImg },
         { property: 'og:image:width', content: '1200' },
@@ -37,19 +38,19 @@ export default defineNuxtConfig({
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: siteDescription
+          content: siteDescription,
         },
-        { hid: 'twitter:image', name: 'twitter:image', content: shareImg }
-      ]
+        { hid: 'twitter:image', name: 'twitter:image', content: shareImg },
+      ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
-    layoutTransition: { name: 'layout', mode: 'out-in' }
+    layoutTransition: { name: 'layout', mode: 'out-in' },
   },
   runtimeConfig: {
     public: {
       baseAPI: process.env.NUXT_PUBLIC_BASE_API,
-      mdc: {}
-    }
+      mdc: {},
+    },
   },
   modules: [
     '@unocss/nuxt',
@@ -61,29 +62,30 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/i18n',
     'nuxt-swiper',
-    '@nuxt/image'
+    '@nuxt/image',
   ],
   experimental: {
     reactivityTransform: true,
-    inlineSSRStyles: false
+    inlineSSRStyles: false,
   },
   css: ['@unocss/reset/tailwind.css', '@/assets/styles/global.scss'],
   colorMode: {
-    classSuffix: ''
+    classSuffix: '',
   },
   imports: {
-    dirs: ['./stores', '~/stores']
+    dirs: ['./stores', '~/stores'],
   },
   pinia: {
     autoImports: [
       'defineStore',
       'storeToRefs',
-      ['defineStore', 'definePiniaStore']
-    ]
+      ['defineStore', 'definePiniaStore'],
+    ],
   },
+  image: {},
   content: {
     markdown: {
-      mdc: true
+      mdc: true,
     },
     highlight: {
       theme: {
@@ -92,7 +94,7 @@ export default defineNuxtConfig({
         // Theme used if `html.dark`
         dark: 'one-dark-pro', // vitesse-dark
         // Theme used if `html.sepia`
-        sepia: 'monokai'
+        sepia: 'monokai',
       },
       preload: [
         'diff',
@@ -105,9 +107,9 @@ export default defineNuxtConfig({
         'md',
         'yaml',
         'bash',
-        'vue'
-      ]
-    }
+        'vue',
+      ],
+    },
   },
   i18n: {
     langDir: 'i18n',
@@ -116,21 +118,21 @@ export default defineNuxtConfig({
     // 检测浏览器语言
     // detectBrowserLanguage: false,
     experimental: {
-      jsTsFormatResource: true
+      jsTsFormatResource: true,
     },
     locales: [
       {
         code: 'en',
         iso: 'en-US',
         file: 'en-US.ts',
-        name: 'English'
+        name: 'English',
       },
       {
         code: 'zh',
         iso: 'zh-CN',
         file: 'zh-CN.ts',
-        name: 'Chinese'
-      }
-    ]
-  }
+        name: 'Chinese',
+      },
+    ],
+  },
 })

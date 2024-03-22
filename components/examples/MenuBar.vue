@@ -21,7 +21,7 @@ const { isRouteActive } = useRouteActive()
     <nav relative grid grid-cols-2 h-16 items-center justify-between gap3 sm:grid-cols-6>
       <div flex items-center justify-start>
         <Icon name="logos:nuxt-icon" mr-3 h-6 w-auto cursor-pointer transition-all />
-        <p font-medium text-gray-900 opacity-100 dark:text-gray-100>
+        <p text-gray-900 font-medium opacity-100 dark:text-gray-100>
           Examples
         </p>
       </div>
