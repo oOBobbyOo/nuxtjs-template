@@ -72,6 +72,7 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
+  // @see https://nuxt.com/docs/guide/concepts/auto-imports
   imports: {
     dirs: ['./stores', '~/stores'],
   },
@@ -82,7 +83,9 @@ export default defineNuxtConfig({
       ['defineStore', 'definePiniaStore'],
     ],
   },
+  // @see https://image.nuxt.com/get-started/installation
   image: {},
+  // @see https://content.nuxt.com/get-started/installation
   content: {
     markdown: {
       mdc: true,
@@ -111,6 +114,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+  // @see https://i18n.nuxtjs.org/docs/getting-started
   i18n: {
     langDir: 'i18n',
     lazy: true,
