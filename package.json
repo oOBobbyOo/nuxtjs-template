@@ -12,6 +12,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@nuxt-themes/docus": "^1.15.0",
     "@nuxt/image": "1.0.0-rc.1",
     "@pinia/nuxt": "^0.4.11",
     "@vueuse/components": "^10.4.1",
