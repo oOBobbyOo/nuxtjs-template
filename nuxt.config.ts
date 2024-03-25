@@ -90,12 +90,13 @@ export default defineNuxtConfig({
     markdown: {
       mdc: true,
     },
+    // @see https://content.nuxt.com/get-started/configuration#highlight
     highlight: {
       theme: {
         // Default theme (same as single string)
-        default: 'github-light', // vitesse-light
+        default: 'material-theme-lighter', // github-light vitesse-light
         // Theme used if `html.dark`
-        dark: 'one-dark-pro', // vitesse-dark
+        dark: 'material-theme-palenight', // github-dark vitesse-dark
         // Theme used if `html.sepia`
         sepia: 'monokai',
       },
