@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { useI18n } from '@/hooks/web/useI18n'
+import { useThemeStore } from '@/stores/modules/theme'
 
 defineOptions({ name: 'Loading' })
 
 const { t } = useI18n()
+
+const themeStore = useThemeStore()
+const themeColor = themeStore.themeColor
 
 const loadingClasses = [
   'left-0 top-0',
@@ -20,13 +24,20 @@ const loadingClasses = [
         <div
           v-for="(item, index) in loadingClasses"
           :key="index"
-          class="absolute h-16px w-16px animate-pulse rounded-8px bg-violet-5"
+          class="bg-color absolute h-16px w-16px animate-pulse rounded-8px"
           :class="item"
         />
       </div>
     </div>
-    <span class="text-14px font-500 text-violet-5">{{ t('common.loading') }}</span>
+    <span class="text-color text-14px font-500">{{ t('common.loading') }}</span>
   </div>
 </template>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.bg-color {
+  background-color: v-bind(themeColor);
+}
+.text-color {
+  color: v-bind(themeColor);
+}
+</style>
