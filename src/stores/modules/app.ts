@@ -46,7 +46,18 @@ export const useAppStore = defineStore('app', {
       this.projectConfig!.menuSetting = deepMerge(this.projectConfig!.menuSetting, setting)
     },
     async setPageLoadingAction(loading: boolean) {
-      this.setPageLoading(loading)
+      let timeId
+      if (loading) {
+        clearTimeout(timeId)
+        // Prevent flicker
+        timeId = setTimeout(() => {
+          this.setPageLoading(loading)
+        }, 50)
+      }
+      else {
+        this.setPageLoading(loading)
+        clearTimeout(timeId)
+      }
     },
     async reloadPage(duration = 0) {
       this.reloadFlag = false
