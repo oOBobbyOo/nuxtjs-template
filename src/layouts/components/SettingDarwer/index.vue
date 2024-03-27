@@ -20,11 +20,10 @@ const { visible, openDrawer } = useDrawer()
         <DarkMode />
         <el-divider>系统主题</el-divider>
         <ThemeColor :palettes="PALETTLES" />
-        <el-divider>界面功能</el-divider>
+        <el-divider>页面功能</el-divider>
         <PageFunc />
       </template>
       <template #footer>
-        <el-divider>页面配置 </el-divider>
         <PageConfig />
       </template>
     </Drawer>

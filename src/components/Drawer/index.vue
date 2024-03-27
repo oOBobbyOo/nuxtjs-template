@@ -23,26 +23,27 @@ function close() {
 </script>
 
 <template>
-  <el-drawer
-    :model-value="modelValue"
-    :title="title"
-    close-on-click-modal
-    close-on-press-escape
-    v-bind="$attrs"
-    @close="close"
-  >
-    <template #header>
-      <slot name="header" />
-    </template>
+  <Teleport to="body">
+    <el-drawer
+      :model-value="modelValue"
+      :title="title"
+      close-on-click-modal
+      close-on-press-escape
+      v-bind="$attrs"
+      class="drawer-modal"
+      @close="close"
+    >
+      <template #header>
+        <slot name="header" />
+      </template>
 
-    <template #default>
-      <slot />
-    </template>
+      <template #default>
+        <slot />
+      </template>
 
-    <template #footer>
-      <slot name="footer" />
-    </template>
-  </el-drawer>
+      <template #footer>
+        <slot name="footer" />
+      </template>
+    </el-drawer>
+  </Teleport>
 </template>
-
-<style scoped></style>

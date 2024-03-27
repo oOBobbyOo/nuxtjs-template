@@ -5,10 +5,23 @@
   --el-border-radius: 3px;
   --el-menu-item-height: 46px !important;
   --el-menu-hover-bg-color: #f3f3f5 !important;
-  --el-menu-active-bg-color:#eee !important;
+  --el-menu-active-bg-color: #eee !important;
 }
 
 html.dark {
   --el-menu-hover-bg-color: #3c3c3c !important;
   --el-menu-active-bg-color: #333 !important;
+}
+
+// 自定义 Drawer 样式
+.drawer-modal {
+  .el-drawer__header {
+    margin-bottom: 0;
+    padding-bottom: var(--el-drawer-padding-primary);
+    border-bottom: 1px var(--el-border-style) var(--el-border-color);
+  }
+  .el-drawer__footer {
+    padding-top: var(--el-drawer-padding-primary);
+    border-top: 1px var(--el-border-style) var(--el-border-color);
+  }
 }
