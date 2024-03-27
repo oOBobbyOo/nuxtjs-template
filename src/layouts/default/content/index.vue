@@ -13,8 +13,8 @@ const { getPageLoading } = useAppSetting()
   <div
     class="layout-content relative flex flex-col overflow-x-hidden overflow-y-auto bg-gray-50 p-4 dark:bg-dark-8"
   >
-    <Loading v-if="getOpenPageLoading && getPageLoading" />
-    <LayoutPage v-else />
+    <Loading v-show="getOpenPageLoading && getPageLoading" />
+    <LayoutPage />
   </div>
 </template>
 
