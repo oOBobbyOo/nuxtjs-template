@@ -3,7 +3,9 @@ defineOptions({ name: 'NotFound' })
 </script>
 
 <template>
-  <div>NotFound</div>
+  <div wh-full flex-center>
+    <ExceptionBase status="404" />
+  </div>
 </template>
 
 <style scoped></style>

@@ -6,7 +6,7 @@ defineOptions({ name: 'ExceptionBase' })
 const props = defineProps<Props>()
 
 interface Props {
-  status: string
+  status: '403' | '404' | '500'
   title?: string
   subTitle?: string
 }
