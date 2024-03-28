@@ -7,11 +7,12 @@ const app = useAppStore()
 </script>
 
 <template>
-  <router-view v-slot="{ Component }">
+  <router-view v-slot="{ Component, route }">
     <transition name="fade-slide" mode="out-in" :appear="true">
       <component
         :is="Component"
         v-if="app.reloadFlag"
+        :key="route.path"
         class="transition duration-300 ease-in-out"
       />
     </transition>

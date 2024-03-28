@@ -27,7 +27,8 @@ const userItems = [
   },
 ]
 
-const router = useRouter()
+// const router = useRouter()
+const { routerPush } = useRouterPush()
 
 function handleLogout() {
   ElMessageBox.confirm('您是否确认退出登录?', '温馨提示 🧡', {
@@ -37,7 +38,7 @@ function handleLogout() {
   }).then(async () => {
     try {
       // 重定向到登录页
-      router.replace('/login')
+      routerPush('/login')
     }
     catch (error) {
       ElMessage({
@@ -52,8 +53,8 @@ function hanldeAction(key: string) {
   if (key === 'logout')
     handleLogout()
   else if (key === 'account')
-    router.push('/account/center')
-  else router.push('/account/settings')
+    routerPush('/account/center')
+  else routerPush('/account/settings')
 }
 </script>
 
