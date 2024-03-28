@@ -7,7 +7,7 @@ defineOptions({ name: 'Loading' })
 const { t } = useI18n()
 
 const themeStore = useThemeStore()
-const themeColor = themeStore.themeColor
+const themeColor = computed(() => themeStore.themeColor)
 
 const loadingClasses = [
   'left-0 top-0',

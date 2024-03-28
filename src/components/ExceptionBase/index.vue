@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from '@/hooks/web/useI18n'
+import { useThemeStore } from '@/stores/modules/theme'
 
 defineOptions({ name: 'ExceptionBase' })
 
@@ -21,6 +22,9 @@ const icon = computed(() => {
 
 const { t } = useI18n()
 
+const themeStore = useThemeStore()
+const themeColor = computed(() => themeStore.themeColor)
+
 const router = useRouter()
 
 function backHome() {
@@ -32,7 +36,7 @@ function backHome() {
   <div flex-center flex-1 flex-col>
     <el-result :title="title" :sub-title="subTitle">
       <template #icon>
-        <Icon class="text-blue" size="400" :icon="icon" />
+        <Icon class="text-color" size="400" :icon="icon" />
       </template>
       <template #extra>
         <el-button type="primary" @click="backHome">
@@ -43,4 +47,8 @@ function backHome() {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="less">
+.text-color {
+  color: v-bind(themeColor);
+}
+</style>
