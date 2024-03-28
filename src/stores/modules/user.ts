@@ -37,6 +37,13 @@ export const useUserStore = defineStore('user', {
       this.token = token || ''
       setAuthCache(TOKEN_KEY, token)
     },
+    async resetStore() {
+      setAuthCache(USER_INFO_KEY, null)
+      setAuthCache(TOKEN_KEY, undefined)
+      this.setUserInfo(null)
+      this.setToken(undefined)
+      this.$reset()
+    },
   },
 })
 

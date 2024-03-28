@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { useI18n } from '@/hooks/web/useI18n'
 import { useUserStore } from '@/stores/modules/user'
+import { usePermissionStore } from '@/stores/modules/permission'
+import { logout } from '@/api/login'
 
 defineOptions({ name: 'UserProfile' })
 
-const { getUserInfo } = useUserStore()
+const { getUserInfo, resetStore: userResetStore } = useUserStore()
+const { resetStore: permissionResetStore } = usePermissionStore()
 
 const { t } = useI18n()
 
@@ -27,7 +30,6 @@ const userItems = [
   },
 ]
 
-// const router = useRouter()
 const { routerPush } = useRouterPush()
 
 function handleLogout() {
@@ -37,6 +39,12 @@ function handleLogout() {
     type: 'warning',
   }).then(async () => {
     try {
+      await logout()
+
+      // 重置信息
+      await userResetStore()
+      await permissionResetStore()
+
       // 重定向到登录页
       routerPush('/login')
     }

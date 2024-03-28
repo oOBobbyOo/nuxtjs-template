@@ -24,6 +24,9 @@ export const usePermissionStore = defineStore('permission', {
       const routes = [...dynamicRoutes]
       return routes
     },
+    async resetStore() {
+      this.$reset()
+    },
   },
 })
 
