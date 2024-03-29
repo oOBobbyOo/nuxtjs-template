@@ -15,7 +15,7 @@ export function createPermissionGuard(router: Router) {
 
   router.beforeEach(async (to, from, next) => {
     // 判断是访问登录页，有 Token 就在当前页面，没有 Token 重置路由到登录页
-    if (to.path === LOGIN_PATH) {
+    if (['Login', 'LoginModule'].includes(to.name as string)) {
       if (userStore.getToken)
         return next(from.fullPath)
       resetRouter()
