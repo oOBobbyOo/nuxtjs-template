@@ -22,10 +22,10 @@ defineProps<Props>()
             <Icon :icon="item.avatar" />
           </div>
           <div class="list-item-meta-content">
-            <h4 class="list-item-meta-title">
+            <h4 class="list-item-meta-title dark:!text-white">
               {{ item.title }}
             </h4>
-            <div class="list-item-meta-description">
+            <div class="list-item-meta-description dark:!text-gray-5">
               {{ item.description }}
             </div>
           </div>
