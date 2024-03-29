@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router
 
 import { constantRoutes } from './routes/constant'
 import { createRouterGuard } from './guard'
+import { isValidArray } from '@/utils/is'
 
 const { VITE_HASH_ROUTE = 'N', VITE_BASE_URL } = import.meta.env
 
@@ -14,7 +15,19 @@ export const router = createRouter({
 })
 
 // 白名单应该包含基本静态路由
-const WHITE_NAME_LIST: string[] = ['Root', 'Login', 'LoginModule', 'NotFound']
+const WHITE_NAME_LIST: string[] = [] // ['Root', 'Login', 'LoginModule', 'NotFound']
+
+function getWhiteNameList() {
+  constantRoutes.forEach((route) => {
+    if (isValidArray(route?.children)) {
+      route.children.forEach((child) => {
+        WHITE_NAME_LIST.push(child.name as string)
+      })
+    }
+    WHITE_NAME_LIST.push(route.name as string)
+  })
+}
+getWhiteNameList()
 
 // 重置路由
 export function resetRouter() {
