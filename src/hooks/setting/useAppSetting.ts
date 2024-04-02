@@ -1,5 +1,6 @@
-import { useAppStore } from '@/stores/modules/app'
 import type { ThemeEnum } from '@/enums/appEnum'
+import type { ProjectConfig } from '@/typings/setting'
+import { useAppStore } from '@/stores/modules/app'
 
 export function useAppSetting() {
   const appStore = useAppStore()
@@ -14,10 +15,22 @@ export function useAppSetting() {
 
   const getOpenKeepAlive = computed(() => appStore.getProjectConfig.openKeepAlive)
 
+  const setAppSetting = (setting: Partial<ProjectConfig>) => {
+    appStore.setProjectConfig(setting)
+  }
+
+  const toggleOpenKeepAlive = () => {
+    setAppSetting({
+      openKeepAlive: !unref(getOpenKeepAlive),
+    })
+  }
+
   return {
     getDarkMode,
     setDarkMode,
     getPageLoading,
     getOpenKeepAlive,
+    toggleOpenKeepAlive,
+    setAppSetting,
   }
 }

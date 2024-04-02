@@ -20,7 +20,7 @@ const getCaches = computed((): string[] => {
 <template>
   <router-view v-slot="{ Component, route }">
     <transition name="fade-slide" mode="out-in" :appear="true">
-      <keep-alive :include="getCaches">
+      <keep-alive v-if="getOpenKeepAlive" :include="getCaches">
         <component
           :is="Component"
           v-if="app.reloadFlag"
@@ -28,6 +28,14 @@ const getCaches = computed((): string[] => {
           class="transition duration-300 ease-in-out"
         />
       </keep-alive>
+      <template v-else>
+        <component
+          :is="Component"
+          v-if="app.reloadFlag"
+          :key="route.path"
+          class="transition duration-300 ease-in-out"
+        />
+      </template>
     </transition>
   </router-view>
 </template>
