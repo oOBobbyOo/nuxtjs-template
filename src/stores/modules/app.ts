@@ -45,6 +45,15 @@ export const useAppStore = defineStore('app', {
     setMenuSetting(setting: Partial<MenuSetting>) {
       this.projectConfig!.menuSetting = deepMerge(this.projectConfig!.menuSetting, setting)
     },
+    setTransitionSetting(setting: Partial<TransitionSetting>) {
+      this.projectConfig!.transitionSetting = deepMerge(
+        this.projectConfig!.transitionSetting,
+        setting,
+      )
+    },
+    setProjectConfig(config: Partial<ProjectConfig>) {
+      this.projectConfig = deepMerge(this.projectConfig || {}, config) as ProjectConfig
+    },
     async setPageLoadingAction(loading: boolean) {
       let timeId
       if (loading) {

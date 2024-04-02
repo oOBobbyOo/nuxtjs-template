@@ -1,3 +1,4 @@
+import type { TransitionSetting } from '@/typings/setting'
 import { useAppStore } from '@/stores/modules/app'
 
 export function useTransitionSetting() {
@@ -9,8 +10,20 @@ export function useTransitionSetting() {
     return !!appStore.getTransitionSetting?.openPageLoading
   })
 
+  const setTransitionSetting = (transitionSetting: Partial<TransitionSetting>) => {
+    appStore.setTransitionSetting(transitionSetting)
+  }
+
+  const toggleOpenNProgress = () => {
+    setTransitionSetting({
+      openNProgress: !unref(getOpenNProgress),
+    })
+  }
+
   return {
     getOpenNProgress,
+    toggleOpenNProgress,
     getOpenPageLoading,
+    setTransitionSetting,
   }
 }

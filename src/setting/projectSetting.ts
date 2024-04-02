@@ -17,7 +17,7 @@ const setting: ProjectConfig = {
   transitionSetting: {
     enable: true,
     openPageLoading: true,
-    openNProgress: false,
+    openNProgress: true,
   },
 
   // keep-alive Setting
