@@ -10,6 +10,7 @@ const dashboard: MenuRecordRaw = {
     orderNo: 0,
     icon: 'mdi:monitor-dashboard',
     title: 'routes.dashboard.dashboard',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const dashboard: MenuRecordRaw = {
       meta: {
         icon: 'icon-park-outline:analysis',
         title: 'routes.dashboard.analysis',
+        isKeepAlive: true,
       },
     },
     {
@@ -28,6 +30,7 @@ const dashboard: MenuRecordRaw = {
       meta: {
         icon: 'icon-park-outline:workbench',
         title: 'routes.dashboard.workbench',
+        isKeepAlive: true,
       },
     },
   ],

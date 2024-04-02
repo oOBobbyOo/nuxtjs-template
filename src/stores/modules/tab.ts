@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { RouteLocationNormalizedLoaded, RouteRecordNormalized } from 'vue-router'
 import type { Tab } from '@/typings/store'
+import { RouteEnum } from '@/enums/routeEnum'
 
 import {
   filterTabRoutes,
@@ -13,6 +14,7 @@ import {
 interface TabState {
   activeTab: string
   tabs: Tab[]
+  cacheTabs: string[]
 }
 
 const initialTabState: TabState = {
@@ -24,9 +26,11 @@ const initialTabState: TabState = {
       meta: {
         icon: 'mdi:monitor-dashboard',
         title: 'routes.dashboard.analysis',
+        isKeepAlive: true,
       },
     },
   ],
+  cacheTabs: [],
 }
 
 export const useTabStore = defineStore('tab', {
@@ -36,20 +40,28 @@ export const useTabStore = defineStore('tab', {
       const { tabs, activeTab } = state
       return getIndexInTabRoutes(tabs, activeTab)
     },
+    getCacheTabs(state): string[] {
+      return state.cacheTabs
+    },
   },
   actions: {
     iniTabStore(currentRoute: RouteLocationNormalizedLoaded) {
+      const tab = getTabRoute(currentRoute)
+      if (RouteEnum.HOME_PATH === currentRoute.fullPath)
+        this.updateCacheTab(tab)
+
       if (isInActiveTab(this.activeTab, currentRoute.fullPath))
         return
-      const tab = getTabRoute(currentRoute)
       this.tabs.push(tab)
       this.setActiveTab(currentRoute.fullPath)
+      this.updateCacheTab(tab)
     },
     addTab(route: RouteRecordNormalized | RouteLocationNormalizedLoaded) {
       const tab = getTabRoute(route)
       if (isInTabRoutes(this.tabs, tab.fullPath))
         return
       this.tabs.push(tab)
+      this.updateCacheTab(tab)
     },
     setActiveTab(fullPath: string) {
       this.activeTab = fullPath
@@ -115,6 +127,12 @@ export const useTabStore = defineStore('tab', {
     },
     clearAllTab() {
       this.clearTab()
+    },
+    updateCacheTab(tab: Tab) {
+      const isKeepAlive = tab.meta?.isKeepAlive
+      if (this.cacheTabs.includes(tab.name))
+        this.cacheTabs.splice(this.cacheTabs.indexOf(tab.name), 1)
+      isKeepAlive && this.cacheTabs.unshift(tab.name)
     },
     resetTabStore() {
       this.$reset()

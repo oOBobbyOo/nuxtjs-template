@@ -10,6 +10,7 @@ const comp: MenuRecordRaw = {
     orderNo: 6,
     icon: 'icon-park-outline:components',
     title: 'routes.comp.component',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const comp: MenuRecordRaw = {
       meta: {
         icon: 'icon-park-twotone:locking-computer',
         title: 'routes.comp.screenLocker',
+        isKeepAlive: true,
       },
     },
     {
@@ -28,6 +30,7 @@ const comp: MenuRecordRaw = {
       meta: {
         icon: 'mdi:typewriter',
         title: 'routes.comp.typeit',
+        isKeepAlive: true,
       },
     },
     {
@@ -37,6 +40,7 @@ const comp: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:library-music',
         title: 'routes.comp.music',
+        isKeepAlive: true,
       },
     },
     {
@@ -46,6 +50,7 @@ const comp: MenuRecordRaw = {
       meta: {
         icon: 'mdi:video',
         title: 'routes.comp.video',
+        isKeepAlive: true,
       },
       children: [
         {
@@ -55,6 +60,7 @@ const comp: MenuRecordRaw = {
           meta: {
             icon: 'mdi:video-wireless',
             title: 'routes.comp.xgplayer',
+            isKeepAlive: true,
           },
         },
         {
@@ -64,6 +70,7 @@ const comp: MenuRecordRaw = {
           meta: {
             icon: 'mdi:video-vintage',
             title: 'routes.comp.dplayer',
+            isKeepAlive: true,
           },
         },
       ],
@@ -75,6 +82,7 @@ const comp: MenuRecordRaw = {
       meta: {
         icon: 'mdi:text-box-edit',
         title: 'routes.comp.editor',
+        isKeepAlive: true,
       },
       children: [
         {
@@ -84,6 +92,7 @@ const comp: MenuRecordRaw = {
           meta: {
             icon: 'mdi:content-save-edit',
             title: 'routes.comp.wangeditor',
+            isKeepAlive: true,
           },
         },
         {
@@ -93,6 +102,7 @@ const comp: MenuRecordRaw = {
           meta: {
             icon: 'ri:markdown-fill',
             title: 'routes.comp.markdown',
+            isKeepAlive: true,
           },
         },
       ],
@@ -104,6 +114,7 @@ const comp: MenuRecordRaw = {
       meta: {
         icon: 'lets-icons:img-box-fill',
         title: 'routes.comp.image',
+        isKeepAlive: true,
       },
       children: [
         {
@@ -113,6 +124,7 @@ const comp: MenuRecordRaw = {
           meta: {
             icon: 'uil:image-upload',
             title: 'routes.comp.upload',
+            isKeepAlive: true,
           },
         },
         {
@@ -122,6 +134,7 @@ const comp: MenuRecordRaw = {
           meta: {
             icon: 'material-symbols:crop',
             title: 'routes.comp.cropper',
+            isKeepAlive: true,
           },
         },
       ],
@@ -133,6 +146,7 @@ const comp: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:view-carousel',
         title: 'routes.comp.banner',
+        isKeepAlive: true,
       },
       children: [
         {
@@ -142,6 +156,7 @@ const comp: MenuRecordRaw = {
           meta: {
             icon: 'ic:sharp-view-carousel',
             title: 'routes.comp.carousel',
+            isKeepAlive: true,
           },
         },
         {
@@ -151,6 +166,7 @@ const comp: MenuRecordRaw = {
           meta: {
             icon: 'simple-icons:swiper',
             title: 'routes.comp.swiper',
+            isKeepAlive: true,
           },
         },
       ],

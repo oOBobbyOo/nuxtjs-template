@@ -10,6 +10,7 @@ const exception: MenuRecordRaw = {
     orderNo: 9,
     icon: 'ant-design:exception-outlined',
     title: 'routes.exception.exception',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const exception: MenuRecordRaw = {
       meta: {
         icon: 'ic:baseline-block',
         title: 'routes.exception.403',
+        isKeepAlive: true,
       },
     },
     {
@@ -28,6 +30,7 @@ const exception: MenuRecordRaw = {
       meta: {
         icon: 'ic:baseline-web-asset-off',
         title: 'routes.exception.404',
+        isKeepAlive: true,
       },
     },
     {
@@ -37,6 +40,7 @@ const exception: MenuRecordRaw = {
       meta: {
         icon: 'ic:baseline-wifi-off',
         title: 'routes.exception.500',
+        isKeepAlive: true,
       },
     },
   ],

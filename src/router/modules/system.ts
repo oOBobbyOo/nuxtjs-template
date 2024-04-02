@@ -10,6 +10,7 @@ const system: MenuRecordRaw = {
     orderNo: 7,
     icon: 'carbon:cloud-service-management',
     title: 'routes.system.management',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const system: MenuRecordRaw = {
       meta: {
         icon: 'ic:baseline-security',
         title: 'routes.system.auth',
+        isKeepAlive: true,
       },
     },
     {
@@ -28,6 +30,7 @@ const system: MenuRecordRaw = {
       meta: {
         icon: 'carbon:user-role',
         title: 'routes.system.role',
+        isKeepAlive: true,
       },
     },
     {
@@ -37,6 +40,7 @@ const system: MenuRecordRaw = {
       meta: {
         icon: 'ic:round-manage-accounts',
         title: 'routes.system.user',
+        isKeepAlive: true,
       },
     },
     {
@@ -46,6 +50,7 @@ const system: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:route',
         title: 'routes.system.menu',
+        isKeepAlive: true,
       },
     },
   ],

@@ -1,4 +1,5 @@
 import type { RoleEnum } from '@/enums/roleEnum'
+import type { MenuMeta } from '@/typings/router'
 
 // Lock screen information
 export interface LockInfo {
@@ -28,8 +29,5 @@ export interface UserInfo {
 export interface Tab {
   name: string
   fullPath: string
-  meta: {
-    title: string
-    icon: string
-  }
+  meta: MenuMeta
 }

@@ -10,6 +10,7 @@ const account: MenuRecordRaw = {
     orderNo: 8,
     icon: 'material-symbols:account-circle',
     title: 'routes.account.account',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const account: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:user-attributes',
         title: 'routes.account.center',
+        isKeepAlive: true,
       },
     },
     {
@@ -28,6 +30,7 @@ const account: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:manage-accounts',
         title: 'routes.account.settings',
+        isKeepAlive: true,
       },
     },
   ],

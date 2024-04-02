@@ -10,6 +10,7 @@ const about: MenuRecordRaw = {
     orderNo: 1,
     icon: 'material-symbols:edit-square-outline',
     title: 'routes.form.form',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const about: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:edit-note',
         title: 'routes.form.basicForm',
+        isKeepAlive: true,
       },
     },
   ],

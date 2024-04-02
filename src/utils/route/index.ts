@@ -4,7 +4,7 @@ import type {
   RouteRecordRaw,
 } from 'vue-router'
 import type { Tab } from '@/typings/store'
-import type { MenuRecordRaw } from '@/typings/router'
+import type { MenuMeta, MenuRecordRaw } from '@/typings/router'
 import { dynamicRoutes } from '@/router/routes/dynamic'
 import { isValidArray } from '@/utils/is'
 
@@ -20,10 +20,7 @@ export function getTabRoute(route: RouteRecordNormalized | RouteLocationNormaliz
   return {
     name: route.name as string,
     fullPath,
-    meta: route.meta as {
-      title: string
-      icon: string
-    },
+    meta: route.meta as MenuMeta,
   }
 }
 

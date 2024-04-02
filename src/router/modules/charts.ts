@@ -10,6 +10,7 @@ const echarts: MenuRecordRaw = {
     orderNo: 3,
     icon: 'carbon:chart-multitype',
     title: 'routes.charts.charts',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const echarts: MenuRecordRaw = {
       meta: {
         icon: 'simple-icons:apacheecharts',
         title: 'routes.charts.echarts',
+        isKeepAlive: true,
       },
       children: [
         {
@@ -28,6 +30,7 @@ const echarts: MenuRecordRaw = {
           meta: {
             icon: 'mdi:chart-line',
             title: 'routes.charts.line',
+            isKeepAlive: true,
           },
         },
         {
@@ -37,6 +40,7 @@ const echarts: MenuRecordRaw = {
           meta: {
             icon: 'mdi:chart-bar',
             title: 'routes.charts.bar',
+            isKeepAlive: true,
           },
         },
         {
@@ -46,6 +50,7 @@ const echarts: MenuRecordRaw = {
           meta: {
             icon: 'mdi:chart-pie',
             title: 'routes.charts.pie',
+            isKeepAlive: true,
           },
         },
         {
@@ -55,6 +60,7 @@ const echarts: MenuRecordRaw = {
           meta: {
             icon: 'majesticons:map-marker-area-line',
             title: 'routes.charts.map',
+            isKeepAlive: true,
           },
         },
       ],
@@ -66,6 +72,7 @@ const echarts: MenuRecordRaw = {
       meta: {
         icon: 'simple-icons:antdesign',
         title: 'routes.charts.antv',
+        isKeepAlive: true,
       },
       children: [
         {
@@ -75,6 +82,7 @@ const echarts: MenuRecordRaw = {
           meta: {
             icon: 'simple-icons:g2',
             title: 'routes.charts.g2',
+            isKeepAlive: true,
           },
         },
       ],

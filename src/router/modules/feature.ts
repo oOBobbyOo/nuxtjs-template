@@ -10,6 +10,7 @@ const feature: MenuRecordRaw = {
     orderNo: 5,
     icon: 'cil:featured-playlist',
     title: 'routes.feature.feature',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const feature: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:print',
         title: 'routes.feature.print',
+        isKeepAlive: true,
       },
     },
     {
@@ -28,6 +30,7 @@ const feature: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:content-copy',
         title: 'routes.feature.copy',
+        isKeepAlive: true,
       },
     },
     {
@@ -37,6 +40,7 @@ const feature: MenuRecordRaw = {
       meta: {
         icon: 'ep:guide',
         title: 'routes.feature.guide',
+        isKeepAlive: true,
       },
     },
     {
@@ -46,6 +50,7 @@ const feature: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:drag-pan',
         title: 'routes.feature.draggable',
+        isKeepAlive: true,
       },
     },
   ],

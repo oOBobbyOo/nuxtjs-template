@@ -19,6 +19,9 @@ const setting: ProjectConfig = {
     openPageLoading: true,
     openNProgress: false,
   },
+
+  // keep-alive Setting
+  openKeepAlive: true,
 }
 
 export default setting

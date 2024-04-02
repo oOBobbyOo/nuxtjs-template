@@ -1,7 +1,7 @@
 export enum RouteEnum {
   ROOT_PATH = '/',
   LOGIN_PATH = '/login',
-  HOME_PATH = '/dashboard',
+  HOME_PATH = '/dashboard/analysis',
 }
 
 export enum LoginModuleEnum {

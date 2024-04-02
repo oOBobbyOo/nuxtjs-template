@@ -15,4 +15,5 @@ export interface ProjectConfig {
   permissionCacheType: CacheTypeEnum
   menuSetting: MenuSetting
   transitionSetting: TransitionSetting
+  openKeepAlive: boolean
 }

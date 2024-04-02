@@ -1,11 +1,11 @@
 import type { MenuRecordRaw } from '@/typings/router'
-import { LoginModuleEnum, RouteEnum } from '@/enums/routeEnum'
+import { LoginModuleEnum } from '@/enums/routeEnum'
 
 // 根路由
 export const RootRoute: MenuRecordRaw = {
   path: '/',
   name: 'Root',
-  redirect: RouteEnum.HOME_PATH,
+  redirect: '/dashboard',
   meta: {
     title: 'Root',
   },

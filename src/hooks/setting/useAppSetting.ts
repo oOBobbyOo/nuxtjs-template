@@ -12,9 +12,12 @@ export function useAppSetting() {
 
   const getPageLoading = computed(() => appStore.getPageLoading)
 
+  const getOpenKeepAlive = computed(() => appStore.getProjectConfig.openKeepAlive)
+
   return {
     getDarkMode,
     setDarkMode,
     getPageLoading,
+    getOpenKeepAlive,
   }
 }

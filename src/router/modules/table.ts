@@ -10,6 +10,7 @@ const table: MenuRecordRaw = {
     orderNo: 2,
     icon: 'mdi:table-large',
     title: 'routes.table.table',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const table: MenuRecordRaw = {
       meta: {
         icon: 'mdi:table',
         title: 'routes.table.basicTable',
+        isKeepAlive: true,
       },
     },
     {
@@ -28,6 +30,7 @@ const table: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:table',
         title: 'routes.table.advancedTable',
+        isKeepAlive: true,
       },
     },
     {
@@ -37,6 +40,7 @@ const table: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:table-view',
         title: 'routes.table.complexTable',
+        isKeepAlive: true,
       },
     },
   ],

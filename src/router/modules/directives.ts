@@ -10,6 +10,7 @@ const directives: MenuRecordRaw = {
     orderNo: 4,
     icon: 'carbon:stamp',
     title: 'routes.directives.directives',
+    isKeepAlive: true,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const directives: MenuRecordRaw = {
       meta: {
         icon: 'mdi:stamper',
         title: 'routes.directives.directive',
+        isKeepAlive: true,
       },
     },
   ],

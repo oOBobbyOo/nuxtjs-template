@@ -10,6 +10,7 @@ const iframe: MenuRecordRaw = {
     orderNo: 10,
     icon: 'material-symbols:iframe',
     title: 'routes.iframe.iframe',
+    isKeepAlive: false,
   },
   children: [
     {
@@ -19,6 +20,7 @@ const iframe: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:note-stack',
         title: 'routes.iframe.inline',
+        isKeepAlive: false,
       },
       children: [
         {
@@ -28,6 +30,7 @@ const iframe: MenuRecordRaw = {
           meta: {
             icon: 'logos:vue',
             title: 'routes.iframe.vue',
+            isKeepAlive: false,
           },
         },
         {
@@ -37,6 +40,7 @@ const iframe: MenuRecordRaw = {
           meta: {
             icon: 'logos:vitejs',
             title: 'routes.iframe.vite',
+            isKeepAlive: false,
           },
         },
         {
@@ -46,6 +50,7 @@ const iframe: MenuRecordRaw = {
           meta: {
             icon: 'logos:pinia',
             title: 'routes.iframe.pinia',
+            isKeepAlive: false,
           },
         },
       ],
@@ -58,6 +63,7 @@ const iframe: MenuRecordRaw = {
         icon: 'ph:note-blank-fill',
         title: 'routes.iframe.blank',
         href: 'https://github.com/vuejs/core',
+        isKeepAlive: false,
       },
     },
   ],

@@ -11,6 +11,7 @@ const about: MenuRecordRaw = {
     icon: 'fluent:book-information-24-regular',
     title: 'routes.about.about',
     hideInMenu: true,
+    isKeepAlive: true,
   },
   children: [
     {
@@ -20,6 +21,7 @@ const about: MenuRecordRaw = {
       meta: {
         icon: 'fluent:book-information-24-regular',
         title: 'routes.about.about',
+        isKeepAlive: true,
       },
     },
   ],
