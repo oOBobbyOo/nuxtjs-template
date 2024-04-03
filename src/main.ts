@@ -5,7 +5,7 @@ import 'virtual:uno.css'
 import '@/styles/global.less'
 
 import App from './App.vue'
-import { setupLoading } from '@/plugins'
+import { setupDayjs, setupLoading } from '@/plugins'
 import { setupStore } from '@/stores'
 import { setupI18n } from '@/locales'
 import { setupRouter } from '@/router'
@@ -14,6 +14,8 @@ import { setupGlobDirectives } from '@/directives'
 async function bootstrap() {
   // 加载全局 loading
   setupLoading()
+
+  setupDayjs()
 
   const app = createApp(App)
 

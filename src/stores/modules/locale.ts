@@ -7,7 +7,7 @@ import { LOCALE_KEY } from '@/enums/cacheEnum'
 import { createLocalStorage } from '@/utils/cache'
 import { localeSetting } from '@/setting/localeSetting'
 
-const ls = createLocalStorage()
+export const ls = createLocalStorage()
 
 const lsLocaleSetting = (ls.get(LOCALE_KEY) || localeSetting) as LocaleSetting
 
