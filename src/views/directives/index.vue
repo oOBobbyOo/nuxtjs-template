@@ -72,7 +72,7 @@ function debounceFn() {
         }"
         type="primary"
       >
-        节流按钮 (每隔1S秒后执行)
+        防抖按钮 (每隔1S秒后执行)
       </el-button>
     </div>
 
