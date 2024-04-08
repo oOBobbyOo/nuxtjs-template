@@ -107,6 +107,12 @@ dependencies:
   typeit:
     specifier: ^8.7.1
     version: 8.7.1
+  v-viewer:
+    specifier: ^3.0.11
+    version: 3.0.11(vue@3.3.4)
+  viewerjs:
+    specifier: ^1.11.6
+    version: 1.11.6
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -9528,6 +9534,16 @@ packages:
     hasBin: true
     dev: false
 
+  /v-viewer@3.0.11(vue@3.3.4):
+    resolution: {integrity: sha512-E8LOdAxhzuktt4HB3PswVCccQ1Q1sYHYnLsS6zaJISpb5EvmAFs5sYNfXnDLFxVb5DQ82v4ZlGxkYlseXwWRJw==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      lodash: 4.17.21
+      viewerjs: 1.11.6
+      vue: 3.3.4
+    dev: false
+
   /validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
     dependencies:
@@ -9539,6 +9555,10 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
     dev: true
+
+  /viewerjs@1.11.6:
+    resolution: {integrity: sha512-TlhdSp2oEOLFXvEp4psKaeTjR5zBjTRcM/sHUN8PkV1UWuY8HKC8n7GaVdW5Xqnwdr/F1OmzLik1QwDjI4w/nw==}
+    dev: false
 
   /vite-hot-client@0.2.2(vite@4.4.9):
     resolution: {integrity: sha512-iLBQWEJqcEvK1tx2glmQH1tq91zyN9eYC6Sfk+7aRM2he31W/UE4X5yOL4lP/cVQPPparg0ggjHcoNx4x/NNxQ==}

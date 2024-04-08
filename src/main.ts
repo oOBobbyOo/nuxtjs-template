@@ -5,7 +5,7 @@ import 'virtual:uno.css'
 import '@/styles/global.less'
 
 import App from './App.vue'
-import { setupDayjs, setupLoading } from '@/plugins'
+import { setupDayjs, setupLoading, setupViewer } from '@/plugins'
 import { setupStore } from '@/stores'
 import { setupI18n } from '@/locales'
 import { setupRouter } from '@/router'
@@ -18,6 +18,9 @@ async function bootstrap() {
   setupDayjs()
 
   const app = createApp(App)
+
+  // 配置 viewer
+  setupViewer(app)
 
   // 配置 store
   setupStore(app)
