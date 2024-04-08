@@ -89,7 +89,9 @@ const imgs = ref([
           }"
         >
           <template #default="{ content }">
-            {{ content }}
+            <p class="text-dark">
+              {{ content }}
+            </p>
           </template>
         </Swiper>
       </div>
@@ -102,7 +104,9 @@ const imgs = ref([
       <div class="h-[200px]">
         <Swiper class="swiper-custom" :list="list" :slides-per-view="3" :space-between="30">
           <template #default="{ content }">
-            {{ content }}
+            <p class="text-dark">
+              {{ content }}
+            </p>
           </template>
         </Swiper>
       </div>
@@ -115,7 +119,9 @@ const imgs = ref([
       <div class="h-[200px]">
         <Swiper class="swiper-custom" :list="list" effect="fade">
           <template #default="{ content }">
-            {{ content }}
+            <p class="text-dark">
+              {{ content }}
+            </p>
           </template>
         </Swiper>
       </div>
