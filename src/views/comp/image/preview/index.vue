@@ -171,7 +171,7 @@ function reset() {
       </div>
     </div>
 
-    <div class="pb-10">
+    <div>
       <h2 mb-2 text-xl>
         Component
       </h2>
@@ -231,11 +231,11 @@ function reset() {
       </div>
 
       <div flex>
-        <div class="mr-4 w-[20%] flex flex-col b-1">
+        <div class="mr-4 w-[20%] flex flex-col b-1 dark:b-dark-200">
           <p p-4>
             Options
           </p>
-          <div v-for="item in state.toggleOptions" :key="item" class="b-t-1 px-4 py-1">
+          <div v-for="item in state.toggleOptions" :key="item" class="b-t-1 px-4 py-1 dark:b-dark-200">
             <el-checkbox v-model="state.options[item]" :label="item" />
           </div>
         </div>
@@ -257,7 +257,9 @@ function reset() {
                   <img class="image" :src="thumbnail" :data-source="source" :alt="title">
                 </div>
               </figure>
-              <p><strong>Options: </strong>{{ scope.options }}</p>
+              <p pb-4 pt-2>
+                <strong>Options: </strong>{{ scope.options }}
+              </p>
             </template>
           </viewer>
         </div>
