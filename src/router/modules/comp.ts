@@ -118,6 +118,16 @@ const comp: MenuRecordRaw = {
       },
       children: [
         {
+          path: 'preview',
+          name: 'Preview',
+          component: () => import('@/views/comp/image/preview/index.vue'),
+          meta: {
+            icon: 'material-symbols:preview',
+            title: 'routes.comp.preview',
+            isKeepAlive: true,
+          },
+        },
+        {
           path: 'upload',
           name: 'Upload',
           component: () => import('@/views/comp/image/upload/index.vue'),

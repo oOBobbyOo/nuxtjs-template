@@ -10,6 +10,7 @@ export default {
   wangeditor: 'WangEditor',
   markdown: 'Markdown',
   image: 'Image',
+  preview: 'Preview',
   upload: 'Upload',
   cropper: 'Cropper',
   banner: 'Banner',

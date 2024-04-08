@@ -10,6 +10,7 @@ export default {
   wangeditor: 'WangEditor',
   markdown: 'Markdown',
   image: '图片',
+  preview: '预览',
   upload: '上传',
   cropper: '裁切',
   banner: '轮播',
