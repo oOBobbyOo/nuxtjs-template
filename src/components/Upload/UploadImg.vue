@@ -212,8 +212,10 @@ function editImg() {
       border: 1px dashed var(--el-border-color-darker);
       border-radius: v-bind(borderRadius);
       transition: var(--el-transition-duration-fast);
+
       &:hover {
         border-color: var(--el-color-primary);
+
         .upload-handle {
           opacity: 1;
         }
@@ -231,10 +233,12 @@ function editImg() {
       background-color: transparent;
       border: 1px dashed var(--el-border-color-darker);
       border-radius: v-bind(borderRadius);
+
       &:hover {
         border: 1px dashed var(--el-color-primary);
       }
     }
+
     .el-upload-dragger.is-dragover {
       background-color: var(--el-color-primary-light-9);
       border: 2px dashed var(--el-color-primary) !important;
@@ -268,11 +272,13 @@ function editImg() {
         justify-content: center;
         padding: 0 6%;
         color: aliceblue;
+
         .app-iconify {
           margin-bottom: 40%;
           font-size: 130%;
           line-height: 130%;
         }
+
         span {
           font-size: 85%;
           line-height: 85%;
@@ -289,6 +295,7 @@ function editImg() {
       font-size: 12px;
       line-height: 30px;
       color: var(--el-color-info);
+
       .app-iconify {
         font-size: 28px;
         color: var(--el-text-color-secondary);
@@ -297,10 +304,10 @@ function editImg() {
   }
 
   .upload-tip {
+    padding: 8px 0;
     font-size: 12px;
     line-height: 18px;
     text-align: center;
-    padding: 8px 0;
   }
 }
 </style>

@@ -361,133 +361,134 @@ onMounted(() => {
   min-height: 480px;
   padding: 30px;
   background: #eef3f7;
-  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
   border-radius: 15px;
-  @media screen and (max-width: 576px) {
+  box-shadow: 0 15px 35px -5px rgb(50 88 130 / 32%);
+  @media screen and (width <= 576px) {
     width: 95%;
     min-height: initial;
     padding: 20px;
   }
 
   &-top {
+    position: relative;
     display: flex;
     align-items: flex-start;
-    position: relative;
-    @media screen and (max-width: 576px) {
+    @media screen and (width <= 576px) {
       flex-wrap: wrap;
     }
 
     &-cover {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
       width: 300px;
       height: 300px;
       margin-left: -70px;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 2;
-      border-radius: 15px;
       background-color: #ccc;
-      @media screen and (max-width: 576px) {
+      border-radius: 15px;
+      @media screen and (width <= 576px) {
         width: 95%;
         height: 220px;
-        margin-top: -40px;
-        margin-bottom: 25px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: -40px auto 25px;
       }
 
       .player-cover-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        width: 100%;
-        height: 100%;
         border-radius: 15px;
-        position: absolute;
-        left: 0;
-        top: 0;
+
         img {
+          position: absolute;
+          top: 0;
+          left: 0;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          border-radius: 15px;
-          box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
-          user-select: none;
           pointer-events: none;
-          position: absolute;
-          left: 0;
-          top: 0;
+          user-select: none;
+          border-radius: 15px;
+          box-shadow: 0 10px 40px 0 rgb(76 70 124 / 50%);
+          object-fit: cover;
         }
 
         &::before {
-          content: '';
-          background: inherit;
-          width: 100%;
-          height: 100%;
-          box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
-          display: block;
-          z-index: 1;
           position: absolute;
           top: 30px;
-          transform: scale(0.9);
-          filter: blur(10px);
-          opacity: 0.9;
-          border-radius: 15px;
-        }
-        &::after {
-          content: '';
-          background: inherit;
+          z-index: 1;
+          display: block;
           width: 100%;
           height: 100%;
-          box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
-          display: block;
-          z-index: 2;
-          position: absolute;
+          content: '';
+          background: inherit;
+          filter: blur(10px);
           border-radius: 15px;
+          box-shadow: 0 10px 40px 0 rgb(76 70 124 / 50%);
+          opacity: 0.9;
+          transform: scale(0.9);
+        }
+
+        &::after {
+          position: absolute;
+          z-index: 2;
+          display: block;
+          width: 100%;
+          height: 100%;
+          content: '';
+          background: inherit;
+          border-radius: 15px;
+          box-shadow: 0 10px 40px 0 rgb(76 70 124 / 50%);
         }
       }
     }
   }
+
   &-controls {
-    flex: 1;
-    padding-left: 20px;
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
-    @media screen and (max-width: 576px) {
-      flex-direction: row;
-      padding-left: 0;
-      width: 100%;
+    padding-left: 20px;
+    @media screen and (width <= 576px) {
       flex: unset;
+      flex-direction: row;
+      width: 100%;
+      padding-left: 0;
     }
 
     &-item {
-      color: #acb8cc;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
       position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #acb8cc;
       transition: all 0.3s ease-in-out;
-      @media screen and (max-width: 576px) {
+      @media screen and (width <= 576px) {
         margin-right: 10px;
         margin-bottom: 0;
       }
 
       &::before {
-        content: '';
         position: absolute;
         z-index: 1;
         width: 100%;
         height: 100%;
-        border-radius: 50%;
+        content: '';
         background: #fff;
-        transform: scale(0.5);
+        border-radius: 50%;
+        box-shadow: 0 5px 10px 0 rgb(76 70 124 / 20%);
         opacity: 0;
-        box-shadow: 0px 5px 10px 0px rgba(76, 70, 124, 0.2);
         transition: all 0.4s cubic-bezier(0.35, 0.57, 0.13, 0.88);
+        transform: scale(0.5);
       }
 
       &:hover {
         color: #532ab9;
+
         &::before {
           opacity: 1;
           transform: scale(1.3);
@@ -500,16 +501,16 @@ onMounted(() => {
 
       &.is-play {
         color: #fff;
-        filter: drop-shadow(0 11px 6px rgba(172, 184, 204, 0.45));
+        filter: drop-shadow(0 11px 6px rgb(172 184 204 / 45%));
 
         &::before {
           display: none;
         }
 
-        @media screen and (max-width: 576px) {
-          margin-left: auto;
-          margin-right: 0;
+        @media screen and (width <= 576px) {
           margin-top: -10px;
+          margin-right: 0;
+          margin-left: auto;
         }
       }
 
@@ -519,11 +520,12 @@ onMounted(() => {
       }
     }
   }
+
   &-progress {
     width: 100%;
     margin-top: -15px;
     user-select: none;
-    @media screen and (max-width: 576px) {
+    @media screen and (width <= 576px) {
       margin-top: 0;
     }
 
@@ -531,32 +533,37 @@ onMounted(() => {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
+
       .album-info {
-        color: #71829e;
         flex: 1;
         padding-right: 60px;
+        color: #71829e;
         user-select: none;
+
         &-name {
+          margin-bottom: 12px;
           font-size: 20px;
           font-weight: bold;
-          margin-bottom: 12px;
           line-height: 1.3em;
         }
+
         &_track {
-          font-weight: 400;
-          font-size: 20px;
-          opacity: 0.7;
-          line-height: 1.3em;
           min-height: 52px;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 1.3em;
+          opacity: 0.7;
         }
       }
+
       .player-duration {
-        color: #71829e;
-        font-weight: 700;
         font-size: 20px;
+        font-weight: 700;
+        color: #71829e;
         opacity: 0.5;
       }
     }
+
     &-bar {
       display: inline-block;
       width: 100%;
@@ -564,6 +571,7 @@ onMounted(() => {
       cursor: pointer;
       background-color: #d0d8e6;
       border-radius: 10px;
+
       .progress-current {
         width: 0%;
         height: inherit;
@@ -571,11 +579,12 @@ onMounted(() => {
         border-radius: 10px;
       }
     }
+
     &-time {
       margin-top: 2px;
-      color: #71829e;
-      font-weight: 700;
       font-size: 16px;
+      font-weight: 700;
+      color: #71829e;
       opacity: 0.7;
     }
   }

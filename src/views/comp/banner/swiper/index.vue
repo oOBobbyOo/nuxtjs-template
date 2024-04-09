@@ -209,43 +209,43 @@ const imgs = ref([
   }
 
   ::v-deep(.swiper-slide:nth-child(1n)) {
-    background-color: rgb(206, 17, 17);
+    background-color: rgb(206 17 17);
   }
 
   ::v-deep(.swiper-slide:nth-child(2n)) {
-    background-color: rgb(0, 140, 255);
+    background-color: rgb(0 140 255);
   }
 
   ::v-deep(.swiper-slide:nth-child(3n)) {
-    background-color: rgb(10, 184, 111);
+    background-color: rgb(10 184 111);
   }
 
   ::v-deep(.swiper-slide:nth-child(4n)) {
-    background-color: rgb(211, 122, 7);
+    background-color: rgb(211 122 7);
   }
 
   ::v-deep(.swiper-slide:nth-child(5n)) {
-    background-color: rgb(118, 163, 12);
+    background-color: rgb(118 163 12);
   }
 
   ::v-deep(.swiper-slide:nth-child(6n)) {
-    background-color: rgb(180, 10, 47);
+    background-color: rgb(180 10 47);
   }
 
   ::v-deep(.swiper-slide:nth-child(7n)) {
-    background-color: rgb(35, 99, 19);
+    background-color: rgb(35 99 19);
   }
 
   ::v-deep(.swiper-slide:nth-child(8n)) {
-    background-color: rgb(0, 68, 255);
+    background-color: rgb(0 68 255);
   }
 
   ::v-deep(.swiper-slide:nth-child(9n)) {
-    background-color: rgb(218, 12, 218);
+    background-color: rgb(218 12 218);
   }
 
   ::v-deep(.swiper-slide:nth-child(10n)) {
-    background-color: rgb(54, 94, 77);
+    background-color: rgb(54 94 77);
   }
 }
 </style>

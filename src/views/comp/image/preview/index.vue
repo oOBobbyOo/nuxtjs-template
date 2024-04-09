@@ -231,11 +231,11 @@ function reset() {
       </div>
 
       <div flex>
-        <div class="mr-4 w-[20%] flex flex-col b-1 dark:b-dark-200">
+        <div class="mr-4 w-[20%] flex flex-col b-1 b-rd-1 dark:b-dark-50">
           <p p-4>
             Options
           </p>
-          <div v-for="item in state.toggleOptions" :key="item" class="b-t-1 px-4 py-1 dark:b-dark-200">
+          <div v-for="item in state.toggleOptions" :key="item" class="b-t-1 px-4 py-1 dark:b-dark-50">
             <el-checkbox v-model="state.options[item]" :label="item" />
           </div>
         </div>
@@ -277,7 +277,8 @@ function reset() {
 .image-wrapper {
   display: inline-block;
   width: calc(33% - 100px);
-  margin: 10px 10px 0 10px;
+  margin: 10px 10px 0;
+
   .image {
     width: 100%;
     height: 200px;
@@ -285,9 +286,9 @@ function reset() {
 }
 
 .image {
-  width: calc(20% - 10px);
-  cursor: pointer;
-  margin: 5px;
   display: inline-block;
+  width: calc(20% - 10px);
+  margin: 5px;
+  cursor: pointer;
 }
 </style>

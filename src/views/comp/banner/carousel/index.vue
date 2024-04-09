@@ -78,11 +78,11 @@ function change(index: number) {
 <style scoped lang="less">
 .carousel-card {
   h3 {
-    color: #475669;
-    opacity: 0.75;
-    line-height: 200px;
     margin: 0;
+    line-height: 200px;
+    color: #475669;
     text-align: center;
+    opacity: 0.75;
   }
 
   ::v-deep(.el-carousel__item:nth-child(2n)) {

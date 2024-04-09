@@ -78,6 +78,7 @@ function handleCircleCropend({ imgBase64, imgInfo }: CropendResult) {
     max-width: 100%;
   }
 }
+
 .preview-lg {
   width: 16rem;
 }

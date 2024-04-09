@@ -43,7 +43,7 @@ watch(
 
 <template>
   <div
-    class="multiple-tabs sticky top-0 z-998 box-border w-full flex-y-center bg-white pl-16px transition-all dark:b-b-1 dark:b-b-dark-200 dark:bg-dark dark:text-white dark:text-opacity-82"
+    class="multiple-tabs sticky top-0 z-8 box-border w-full flex-y-center bg-white pl-16px transition-all dark:b-b-1 dark:b-b-dark-200 dark:bg-dark dark:text-white dark:text-opacity-82"
   >
     <div ref="bsWrapper" class="h-full flex-1-hidden">
       <better-scroll ref="bsScroll" :options="{ scrollX: true, scrollY: false }">
@@ -57,6 +57,6 @@ watch(
 <style scoped lang="less">
 .multiple-tabs {
   height: 44px;
-  box-shadow: 0 1px 2px #00152914;
+  box-shadow: 0 1px 12px rgb(0 0 0 / 12%);
 }
 </style>

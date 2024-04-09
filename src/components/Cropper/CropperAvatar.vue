@@ -100,17 +100,19 @@ function handleUploadSuccess({ source, url }: any) {
   &-wrapper {
     position: relative;
     overflow: hidden;
+    cursor: pointer;
     border: 1px solid var(--el-border-color);
     border-radius: 50%;
-    cursor: pointer;
+
     img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
       object-fit: cover;
     }
+
     ::v-deep(svg) {
       margin: auto;
     }
@@ -120,12 +122,12 @@ function handleUploadSuccess({ source, url }: any) {
     position: absolute;
     width: inherit;
     height: inherit;
-    transition: opacity 0.4s;
+    cursor: pointer;
+    background: rgb(0 0 0 / 40%);
     border: inherit;
     border-radius: inherit;
     opacity: 0;
-    background: rgb(0 0 0 / 40%);
-    cursor: pointer;
+    transition: opacity 0.4s;
 
     &:hover {
       opacity: 40;

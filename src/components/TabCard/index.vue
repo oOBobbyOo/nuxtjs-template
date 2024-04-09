@@ -41,10 +41,10 @@ function handleTabClick(tab: TabsPaneContext, event: Event) {
 <style scoped lang="less">
 .tab-card {
   ::v-deep(.el-tabs__header) {
-    padding: 0 var(--el-card-padding);
-    border-bottom: 1px solid var(--el-card-border-color);
     box-sizing: border-box;
+    padding: 0 var(--el-card-padding);
     margin: 0;
+    border-bottom: 1px solid var(--el-card-border-color);
   }
 
   ::v-deep(.el-tabs__nav) {
@@ -61,8 +61,8 @@ function handleTabClick(tab: TabsPaneContext, event: Event) {
   }
 
   ::v-deep(.el-tabs__content) {
-    padding: var(--el-card-padding);
     height: 100%;
+    padding: var(--el-card-padding);
     overflow-y: auto;
   }
 }

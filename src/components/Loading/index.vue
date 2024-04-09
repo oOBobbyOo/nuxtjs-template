@@ -37,6 +37,7 @@ const loadingClasses = [
 .bg-color {
   background-color: v-bind(themeColor);
 }
+
 .text-color {
   color: v-bind(themeColor);
 }

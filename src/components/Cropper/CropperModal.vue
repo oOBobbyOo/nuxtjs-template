@@ -306,8 +306,8 @@ defineExpose({ openDialog, closeDialog })
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top: 8px;
     padding-top: 8px;
+    margin-top: 8px;
     border-top: 1px solid var(--el-border-color);
   }
 }

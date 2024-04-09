@@ -65,13 +65,15 @@ const attrs = useAttrs()
 .swiper {
   width: 100%;
   height: 100%;
+
   .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    text-align: center;
+    background: #fff;
+
     img {
       display: block;
       width: 100%;

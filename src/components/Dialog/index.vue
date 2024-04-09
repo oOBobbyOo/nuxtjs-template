@@ -105,8 +105,8 @@ watch(
 <style lang="less">
 .el-overlay-dialog {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .el-dialog {

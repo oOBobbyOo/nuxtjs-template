@@ -49,8 +49,8 @@ defineProps<Props>()
     padding: 12px 0;
 
     &-meta {
-      flex: 1;
       display: flex;
+      flex: 1;
       align-items: flex-start;
 
       &-content {
@@ -62,13 +62,14 @@ defineProps<Props>()
       }
 
       &-title {
-        margin: 0 0 4px 0;
-        color: rgba(0, 0, 0, 0.88);
+        margin: 0 0 4px;
         font-size: 14px;
+        color: rgb(0 0 0 / 88%);
       }
+
       &-description {
-        color: rgba(0, 0, 0, 0.45);
         font-size: 14px;
+        color: rgb(0 0 0 / 45%);
       }
     }
 

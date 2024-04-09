@@ -29,9 +29,8 @@ defineOptions({ name: 'LayoutHeader' })
 <style scoped lang="less">
 .layout-header {
   height: 64px;
-  box-shadow: 0 1px 2px #00152914;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
 
-  @apply flex-between px-4 bg-white dark:bg-dark sticky top-0 z-999 dark:b-b-1 dark:b-b-dark-200 box-border
-   dark:text-white;
+  @apply flex-between px-4 bg-white dark:bg-dark dark:text-white sticky top-0 z-9 box-border dark:b-b-1 dark:b-b-dark-200;
 }
 </style>

@@ -356,6 +356,7 @@ defineExpose({
 .table-card {
   .table-search {
     @apply bg-white dark:bg-dark p-6 b-rd-1 mb-3;
+
     box-shadow:
       0 1px 2px 0 rgb(0 0 0 / 3%),
       0 1px 6px -1px rgb(0 0 0 / 2%),

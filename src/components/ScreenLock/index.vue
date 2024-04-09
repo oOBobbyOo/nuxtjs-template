@@ -108,55 +108,55 @@ watch(
 <style scoped lang="less">
 .screen-lock {
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 999999;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px 5px #0000000f;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px 5px #0000000f;
 
   &-slider {
+    position: relative;
     width: 300px;
     height: 60px;
-    border-radius: 100px;
     background-image: linear-gradient(
       to right,
       rgb(72 168 237 / 25%),
-      rgba(255, 255, 255, 0.4),
+      rgb(255 255 255 / 40%),
       rgb(72 168 237 / 25%)
     );
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.15);
+
     /* 背景渐变色大小 */
     background-size: 200%;
-    position: relative;
+    border-radius: 100px;
+    box-shadow: 0 0 20px 2px rgb(0 0 0 / 15%);
     animation: sun 7s infinite;
+
     &::before {
-      content: '';
       position: absolute;
-      top: -6px;
-      bottom: -6px;
-      left: -6px;
-      right: -6px;
-      border-radius: 60px;
+      inset: -6px;
+
+      /* 元素的位置 底层或者顶层  -值表示底层 + 值表示顶层 */
+      z-index: -1;
+      content: '';
+
       /* 背景渐变色 */
       background-image: linear-gradient(
         to right,
         rgb(72 168 237 / 25%),
-        rgba(255, 255, 255, 0.4),
+        rgb(255 255 255 / 40%),
         rgb(72 168 237 / 25%)
       );
-      /* 背景渐变色大小 */
-      background-size: 200%;
-      /* 元素的位置 底层或者顶层  -值表示底层 + 值表示顶层 */
-      z-index: -1;
+
       /* 设置模糊度 显示发光效果 */
       filter: blur(10px);
+
+      /* 背景渐变色大小 */
+      background-size: 200%;
+      border-radius: 60px;
       opacity: 0.5;
       animation: sun 7s infinite;
     }
@@ -164,25 +164,25 @@ watch(
 
   &-placeholder {
     position: absolute;
-    left: 50%;
     top: 50%;
-    transform: translate3d(-50%, -50%, 0);
+    left: 50%;
     pointer-events: none;
     user-select: none;
     opacity: 0.5;
+    transform: translate3d(-50%, -50%, 0);
   }
 
   &-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50px;
     height: 50px;
     margin: 5px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    box-shadow: 0 0 5px 2px rgb(0 0 0 / 15%);
   }
 }
 
@@ -198,15 +198,19 @@ watch(
   0% {
     transform: translate3d(0, -100%, 0);
   }
+
   60% {
     transform: translate3d(0, 25px, 0);
   }
+
   75% {
-    transform: translate3d(0px, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
+
   90% {
-    transform: translate3d(0px, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
+
   100% {
     transform: none;
   }
@@ -214,14 +218,16 @@ watch(
 
 @keyframes lock-up {
   0% {
-    transform: translate3d(0, 0px, 0);
+    transform: translate3d(0, 0, 0);
   }
+
   90% {
-    transform: translate3d(0px, -100%, 0);
+    transform: translate3d(0, -100%, 0);
   }
+
   100% {
-    transform: none;
     opacity: 0;
+    transform: none;
   }
 }
 

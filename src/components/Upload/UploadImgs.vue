@@ -215,9 +215,9 @@ function handleRemove(file: UploadFile) {
 .upload-box {
   ::v-deep(.upload) {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
     &.disabled {
       .el-upload--picture-card,
@@ -225,6 +225,7 @@ function handleRemove(file: UploadFile) {
         cursor: not-allowed;
         background: var(--el-disabled-bg-color) !important;
         border: 1px dashed var(--el-border-color-darker);
+
         &:hover {
           border-color: var(--el-border-color-darker) !important;
         }
@@ -247,10 +248,12 @@ function handleRemove(file: UploadFile) {
       overflow: hidden;
       border: 1px dashed var(--el-border-color-darker);
       border-radius: v-bind(borderRadius);
+
       &:hover {
         border: 1px dashed var(--el-color-primary);
       }
     }
+
     .el-upload-dragger.is-dragover {
       background-color: var(--el-color-primary-light-9);
       border: 2px dashed var(--el-color-primary) !important;
@@ -292,6 +295,7 @@ function handleRemove(file: UploadFile) {
       background: rgb(0 0 0 / 60%);
       opacity: 0;
       transition: var(--el-transition-duration-fast);
+
       .handle-icon {
         display: flex;
         flex-direction: column;
@@ -299,11 +303,13 @@ function handleRemove(file: UploadFile) {
         justify-content: center;
         padding: 0 6%;
         color: aliceblue;
+
         .app-iconify {
           margin-bottom: 40%;
           font-size: 130%;
           line-height: 130%;
         }
+
         span {
           font-size: 85%;
           line-height: 85%;
@@ -319,17 +325,19 @@ function handleRemove(file: UploadFile) {
       font-size: 12px;
       line-height: 30px;
       color: var(--el-color-info);
+
       .app-iconify {
         font-size: 28px;
         color: var(--el-text-color-secondary);
       }
     }
   }
+
   .upload-tip {
+    padding: 8px 0;
     font-size: 12px;
     line-height: 18px;
     text-align: center;
-    padding: 8px 0;
   }
 }
 </style>

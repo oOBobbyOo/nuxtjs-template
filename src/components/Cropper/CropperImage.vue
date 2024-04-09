@@ -178,6 +178,7 @@ function getRoundedCanvas() {
     ::v-deep(.cropper-view-box) {
       border-radius: 50%;
     }
+
     ::v-deep(.cropper-face) {
       border-radius: 50%;
     }
