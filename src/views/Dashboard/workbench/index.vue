@@ -15,7 +15,7 @@ import MessageInfo from './components/MessageInfo/index.vue'
       </el-col>
       <el-col :xl="8" :lg="8" :md="24" :sm="24" :xs="24" class="mb-4">
         <DynamicInfo class="mb-4" />
-        <MessageInfo />
+        <MessageInfo class="mb-4" />
       </el-col>
     </el-row>
   </div>

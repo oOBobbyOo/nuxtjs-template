@@ -32,20 +32,22 @@ const activities = [
 
 <template>
   <Card title="最新动态">
-    <el-timeline>
-      <el-timeline-item
-        v-for="(activity, index) in activities"
-        :key="index"
-        :icon="activity.icon"
-        :type="activity.type"
-        :color="activity.color"
-        :size="activity.size"
-        :hollow="activity.hollow"
-        :timestamp="activity.timestamp"
-      >
-        {{ activity.content }}
-      </el-timeline-item>
-    </el-timeline>
+    <el-scrollbar height="200px">
+      <el-timeline class="px-2">
+        <el-timeline-item
+          v-for="(activity, index) in activities"
+          :key="index"
+          :icon="activity.icon"
+          :type="activity.type"
+          :color="activity.color"
+          :size="activity.size"
+          :hollow="activity.hollow"
+          :timestamp="activity.timestamp"
+        >
+          {{ activity.content }}
+        </el-timeline-item>
+      </el-timeline>
+    </el-scrollbar>
   </Card>
 </template>
 
