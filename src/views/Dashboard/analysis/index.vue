@@ -20,9 +20,9 @@ const topColResponsiveProps = {
 
 <template>
   <div>
-    <div v-if="loading">
-      loading
-    </div>
+    <template v-if="loading">
+      <Loading />
+    </template>
 
     <div v-else>
       <el-row :gutter="16">
