@@ -16,7 +16,7 @@ const about: MenuRecordRaw = {
   children: [
     {
       path: 'index',
-      name: 'AboutPage',
+      name: 'AboutIndex',
       component: () => import('@/views/about/index.vue'),
       meta: {
         icon: 'fluent:book-information-24-regular',

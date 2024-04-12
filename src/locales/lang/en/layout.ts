@@ -3,6 +3,8 @@ export default {
     tooltipEntryFull: 'Full Screen',
     tooltipExitFull: 'Exit Full Screen',
 
+    datascreen: 'Data Screen',
+
     tooltipDark: 'Dark',
     tooltipLight: 'Light',
 

@@ -4,6 +4,8 @@ export default {
     tooltipEntryFull: '全屏',
     tooltipExitFull: '退出全屏',
 
+    datascreen: '数据大屏',
+
     tooltipDark: '暗色主题',
     tooltipLight: '亮色主题',
 

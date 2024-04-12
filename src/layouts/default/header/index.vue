@@ -2,6 +2,7 @@
 import SidebarTrigger from '@/layouts/components/SidebarTrigger/index.vue'
 import BreadcrumbNav from '@/layouts/components/BreadcrumbNav/index.vue'
 import FullScreen from '@/layouts/components/FullScreen/index.vue'
+import DataScreen from '@/layouts/components/DataScreen/index.vue'
 import DarkMode from '@/layouts/components/DarkMode/index.vue'
 import LangSetting from '@/layouts/components/LangSetting/index.vue'
 import UserProfile from '@/layouts/components/UserProfile/index.vue'
@@ -18,6 +19,7 @@ defineOptions({ name: 'LayoutHeader' })
     </div>
     <div class="header-ri h-full flex-center">
       <FullScreen />
+      <DataScreen />
       <DarkMode />
       <LangSetting />
       <UserProfile />
