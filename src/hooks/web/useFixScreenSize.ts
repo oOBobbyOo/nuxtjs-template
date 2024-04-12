@@ -1,4 +1,4 @@
-export function useFixScreenSize({ width = 1920, height = 1080, wait = 300 }) {
+export function useFixScreenSize({ width = 1920, height = 1080, wait = 300 } = {}) {
   const dataScreenRef = ref<HTMLElement | null>(null)
 
   // 根据浏览器大小推断缩放比例
@@ -11,7 +11,7 @@ export function useFixScreenSize({ width = 1920, height = 1080, wait = 300 }) {
   const debouncedFn = useDebounceFn(() => {
     if (dataScreenRef?.value) {
       dataScreenRef.value.style.transform = `scale(${getScale()}) translate(-50%, -50%)`
-      dataScreenRef.value.style.transformOrigin = '50% center'
+      dataScreenRef.value.style.transformOrigin = 'left top'
       dataScreenRef.value.style.width = `${width}px`
       dataScreenRef.value.style.height = `${height}px`
     }
@@ -25,4 +25,6 @@ export function useFixScreenSize({ width = 1920, height = 1080, wait = 300 }) {
   onBeforeUnmount(() => {
     window.removeEventListener('resize', debouncedFn, false)
   })
+
+  return [dataScreenRef]
 }
