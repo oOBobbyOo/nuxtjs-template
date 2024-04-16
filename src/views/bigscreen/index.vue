@@ -9,24 +9,24 @@ const [dataScreenRef] = useFixScreenSize()
     <div ref="dataScreenRef" class="big-screen-data">
       <!-- header -->
       <div class="big-screen-header">
-        <div class="header-lt">
+        <div class="header-lc">
           <div class="top" />
         </div>
-        <div class="header-ct">
+        <div class="header-mc">
           <div class="title">
             智慧可视化大数据展示平台
           </div>
           <div class="light" />
         </div>
-        <div class="header-rt">
+        <div class="header-rc">
           <div class="top" />
         </div>
       </div>
       <!-- main -->
       <div class="big-screen-main">
-        <div class="main-lt" />
-        <div class="main-ct" />
-        <div class="main-rt" />
+        <div class="main-lc" />
+        <div class="main-mc" />
+        <div class="main-rc" />
       </div>
     </div>
   </div>
@@ -60,7 +60,7 @@ const [dataScreenRef] = useFixScreenSize()
     flex-direction: row;
     position: relative;
 
-    .header-ct {
+    .header-mc {
       flex: 1;
       display: flex;
       justify-content: center;
@@ -85,8 +85,8 @@ const [dataScreenRef] = useFixScreenSize()
       }
     }
 
-    .header-lt,
-    .header-rt {
+    .header-lc,
+    .header-rc {
       width: 540px;
       position: relative;
       .top {
@@ -100,7 +100,7 @@ const [dataScreenRef] = useFixScreenSize()
         transform: translateX(-50%);
       }
     }
-    .header-rt {
+    .header-rc {
       .top {
         background: url('@/assets/big-screen/header-r.png') no-repeat center;
         background-size: cover;
@@ -112,12 +112,12 @@ const [dataScreenRef] = useFixScreenSize()
     flex: 1;
     display: flex;
 
-    .main-ct {
+    .main-mc {
       flex: 1;
     }
 
-    .main-lt,
-    .main-rt {
+    .main-lc,
+    .main-rc {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
