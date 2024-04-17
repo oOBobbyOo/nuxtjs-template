@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ConversionRateChart from './components/ConversionRateChart/index.vue'
+import PaymentRateChart from './components/PaymentRateChart/index.vue'
 import { useCurrentTime } from '@/hooks/web/useCurrentTime'
 import { useFixScreenSize } from '@/hooks/web/useFixScreenSize'
 
@@ -38,7 +39,13 @@ const { time, weekDay } = useCurrentTime()
           <div class="bottom" />
         </div>
         <div class="main-mc" />
-        <div class="main-rc" />
+        <div class="main-rc">
+          <div class="top">
+            <PaymentRateChart />
+          </div>
+          <div class="middle" />
+          <div class="bottom" />
+        </div>
       </div>
     </div>
   </div>
