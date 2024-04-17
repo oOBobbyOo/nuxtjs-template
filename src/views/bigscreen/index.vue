@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ConversionRateChart from './components/ConversionRateChart/index.vue'
 import { useCurrentTime } from '@/hooks/web/useCurrentTime'
 import { useFixScreenSize } from '@/hooks/web/useFixScreenSize'
 
@@ -29,7 +30,13 @@ const { time, weekDay } = useCurrentTime()
       </div>
       <!-- main -->
       <div class="big-screen-main">
-        <div class="main-lc" />
+        <div class="main-lc">
+          <div class="top">
+            <ConversionRateChart />
+          </div>
+          <div class="middle" />
+          <div class="bottom" />
+        </div>
         <div class="main-mc" />
         <div class="main-rc" />
       </div>
@@ -139,6 +146,17 @@ const { time, weekDay } = useCurrentTime()
       justify-content: space-around;
       position: relative;
       width: 540px;
+
+      .top {
+        height: 32%;
+      }
+      .middle {
+        height: 30%;
+      }
+      .bottom {
+        height: 38%;
+      }
+
     }
   }
 }
