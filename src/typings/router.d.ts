@@ -8,6 +8,7 @@ export interface MenuMeta extends RouteMeta {
   hideInMenu?: boolean // 在菜单中隐藏
   href?: string // 外链
   isKeepAlive?: boolean // 是否缓存
+  transition?: string // 页面切换动画
 }
 
 export type MenuRecordRaw = RouteRecordRaw & {
