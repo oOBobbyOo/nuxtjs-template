@@ -4,6 +4,7 @@ import {
   presetIcons,
   presetTypography,
   presetUno,
+  presetWebFonts,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
@@ -27,6 +28,12 @@ export default defineConfig({
       warn: true,
     }),
     presetTypography(),
+    presetWebFonts({
+      provider: 'google',
+      fonts: {
+        lobster: 'Lobster',
+      },
+    }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
 })

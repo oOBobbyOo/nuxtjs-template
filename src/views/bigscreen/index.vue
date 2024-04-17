@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useCurrentTime } from '@/hooks/web/useCurrentTime'
 import { useFixScreenSize } from '@/hooks/web/useFixScreenSize'
 
 const [dataScreenRef] = useFixScreenSize()
+const { time, weekDay } = useCurrentTime()
 </script>
 
 <template>
@@ -20,6 +22,9 @@ const [dataScreenRef] = useFixScreenSize()
         </div>
         <div class="header-rc">
           <div class="top" />
+          <div class="time">
+            {{ time }} {{ weekDay }}
+          </div>
         </div>
       </div>
       <!-- main -->
@@ -44,6 +49,7 @@ const [dataScreenRef] = useFixScreenSize()
     top: 50%;
     left: 50%;
     z-index: 999;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -104,6 +110,16 @@ const [dataScreenRef] = useFixScreenSize()
       .top {
         background: url('@/assets/big-screen/header-r.png') no-repeat center;
         background-size: cover;
+      }
+      .time {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-family: 'Lobster';
+        font-size: 28px;
+        font-weight: 400;
+        color: #05e8fe;
+        white-space: nowrap;
       }
     }
   }
