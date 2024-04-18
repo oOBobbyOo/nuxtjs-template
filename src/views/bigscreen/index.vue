@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ConversionRateChart from './components/ConversionRateChart/index.vue'
+import LoginTrendsChart from './components/LoginTrendsChart/index.vue'
 import PaymentRateChart from './components/PaymentRateChart/index.vue'
+
 import { useCurrentTime } from '@/hooks/web/useCurrentTime'
 import { useFixScreenSize } from '@/hooks/web/useFixScreenSize'
 
@@ -35,7 +37,9 @@ const { time, weekDay } = useCurrentTime()
           <div class="top">
             <ConversionRateChart />
           </div>
-          <div class="middle" />
+          <div class="middle">
+            <LoginTrendsChart />
+          </div>
           <div class="bottom" />
         </div>
         <div class="main-mc" />
