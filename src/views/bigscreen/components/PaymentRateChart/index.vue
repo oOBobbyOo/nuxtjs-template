@@ -2,23 +2,37 @@
 import type { EChartsOption } from '@/composables/echarts'
 import echarts from '@/composables/echarts'
 
+const payment = {
+  rate: 36,
+  payData: [
+    { value: 640, name: '活跃人数' },
+    { value: 310, name: '付费人数' },
+  ],
+}
+
 const options: EChartsOption = {
   title: {
     text: '付费率',
     left: 'center',
     top: 'center',
-    subtext: '32%',
+    subtext: `${payment.rate}%`,
     textStyle: {
       fontSize: 32,
       color: '#fff',
     },
     subtextStyle: {
       fontSize: 28,
-      color: '#468EFD',
+      color: '#00E884',
     },
   },
   tooltip: {
     trigger: 'item',
+    backgroundColor: 'transparent',
+    borderColor: '#00E884',
+    textStyle: {
+      color: '#00E884',
+      fontSize: 14,
+    },
     formatter: '{b}: {c}',
   },
   series: [
@@ -27,10 +41,11 @@ const options: EChartsOption = {
       type: 'pie',
       radius: ['50%', '80%'],
       padAngle: 5,
-      data: [
-        { value: 640, name: '活跃人数' },
-        { value: 310, name: '付费人数' },
-      ],
+      data: payment.payData,
+      label: {
+        color: '#fff',
+        fontSize: 14,
+      },
       itemStyle: {
         borderRadius: 10,
         borderWidth: 2,
