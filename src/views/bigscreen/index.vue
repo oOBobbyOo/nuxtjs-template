@@ -3,6 +3,7 @@ import ConversionRateChart from './components/ConversionRateChart/index.vue'
 import LoginTrendsChart from './components/LoginTrendsChart/index.vue'
 import NewlyUsersChart from './components/NewlyUsersChart/index.vue'
 import PaymentRateChart from './components/PaymentRateChart/index.vue'
+import PaymentRankChart from './components/PaymentRankChart/index.vue'
 import NewlyPaymentChart from './components/NewlyPaymentChart/index.vue'
 
 import { useCurrentTime } from '@/hooks/web/useCurrentTime'
@@ -51,7 +52,9 @@ const { time, weekDay } = useCurrentTime()
           <div class="top">
             <PaymentRateChart />
           </div>
-          <div class="middle" />
+          <div class="middle">
+            <PaymentRankChart />
+          </div>
           <div class="bottom">
             <NewlyPaymentChart />
           </div>
