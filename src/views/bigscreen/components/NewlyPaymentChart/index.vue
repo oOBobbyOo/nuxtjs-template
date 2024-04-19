@@ -11,6 +11,7 @@ const options: EChartsOption = {
   tooltip: {
     trigger: 'axis',
     backgroundColor: 'transparent',
+    borderColor: '#00E884',
     textStyle: {
       color: '#00E884',
       fontSize: 14,
@@ -31,12 +32,12 @@ const options: EChartsOption = {
     axisLine: {
       show: true,
       lineStyle: {
-        color: '#3eb2e8',
+        color: '#00FFE3',
       },
     },
     axisLabel: {
       show: true,
-      color: '#7ec7ff',
+      color: '#00FFCD',
       fontSize: 12,
     },
     axisTick: {
@@ -49,7 +50,7 @@ const options: EChartsOption = {
     splitLine: {
       show: true,
       lineStyle: {
-        color: '#0c3b71',
+        color: '#115e59',
       },
     },
     axisLine: {
@@ -57,7 +58,7 @@ const options: EChartsOption = {
     },
     axisLabel: {
       show: true,
-      color: '#7ec7ff',
+      color: '#00FFCD',
       fontSize: 12,
     },
     axisTick: {
