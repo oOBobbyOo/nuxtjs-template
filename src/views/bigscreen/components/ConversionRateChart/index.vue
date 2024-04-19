@@ -1,9 +1,22 @@
 <script setup lang="ts">
 import type { EChartsOption } from '@/composables/echarts'
 
+const conversionRate = [
+  {
+    name: '转化率',
+    value: 44,
+  },
+]
+
 const options: EChartsOption = {
   tooltip: {
-    formatter: '{a} <br/>{b} : {c}%',
+    backgroundColor: 'transparent',
+    borderColor: '#468EFD',
+    textStyle: {
+      color: '#468EFD',
+      fontSize: 14,
+    },
+    formatter: '{b}: {c}%',
   },
   series: [
     {
@@ -40,16 +53,11 @@ const options: EChartsOption = {
       title: {
         show: true,
         offsetCenter: [0, '50%'],
-        color: '#fff',
-        fontSize: 24,
+        color: '#0286ff',
+        fontSize: 16,
         fontWeight: 400,
       },
-      data: [
-        {
-          name: '转化率',
-          value: 44,
-        },
-      ],
+      data: conversionRate,
       pointer: {
         show: true,
         length: '75%',
