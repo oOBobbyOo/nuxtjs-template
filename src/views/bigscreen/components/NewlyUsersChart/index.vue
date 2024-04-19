@@ -2,15 +2,16 @@
 import type { EChartsOption } from '@/composables/echarts'
 import echarts from '@/composables/echarts'
 
-const loginTrends = {
+const newlyUsers = {
   xData: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-  newlyData: [69, 38, 185, 331, 189, 224, 87],
+  usersData: [69, 38, 185, 331, 189, 224, 87],
 }
 
 const options: EChartsOption = {
   tooltip: {
     trigger: 'axis',
     backgroundColor: 'transparent',
+    borderColor: '#00feff',
     textStyle: {
       color: '#00feff',
       fontSize: 14,
@@ -31,7 +32,7 @@ const options: EChartsOption = {
     axisLine: {
       show: true,
       lineStyle: {
-        color: '#233653',
+        color: '#3eb2e8',
       },
     },
     axisLabel: {
@@ -42,18 +43,18 @@ const options: EChartsOption = {
     axisTick: {
       show: false,
     },
-    data: loginTrends.xData,
+    data: newlyUsers.xData,
   },
   yAxis: {
     type: 'value',
     splitLine: {
-      show: false,
-    },
-    axisLine: {
       show: true,
       lineStyle: {
         color: '#0c3b71',
       },
+    },
+    axisLine: {
+      show: false,
     },
     axisLabel: {
       show: true,
@@ -86,7 +87,7 @@ const options: EChartsOption = {
         ]),
         borderRadius: [15, 15, 0, 0],
       },
-      data: loginTrends.newlyData,
+      data: newlyUsers.usersData,
     },
   ],
 }

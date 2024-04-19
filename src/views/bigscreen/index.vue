@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ConversionRateChart from './components/ConversionRateChart/index.vue'
 import LoginTrendsChart from './components/LoginTrendsChart/index.vue'
-import NewlyTrendsChart from './components/NewlyTrendsChart/index.vue'
+import NewlyUsersChart from './components/NewlyUsersChart/index.vue'
 import PaymentRateChart from './components/PaymentRateChart/index.vue'
 import NewlyPaymentChart from './components/NewlyPaymentChart/index.vue'
 
@@ -43,7 +43,7 @@ const { time, weekDay } = useCurrentTime()
             <LoginTrendsChart />
           </div>
           <div class="bottom">
-            <NewlyTrendsChart />
+            <NewlyUsersChart />
           </div>
         </div>
         <div class="main-mc" />
