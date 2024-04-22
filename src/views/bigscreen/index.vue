@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { BorderBox13 as DvBorderBox13 } from '@kjgl77/datav-vue3'
-
+import ChartBox from './components/ChartBox/index.vue'
 import ConversionRateChart from './components/ConversionRateChart/index.vue'
 import LoginTrendsChart from './components/LoginTrendsChart/index.vue'
 import NewlyUsersChart from './components/NewlyUsersChart/index.vue'
@@ -40,55 +39,37 @@ const { time, weekDay } = useCurrentTime()
       <div class="big-screen-main">
         <div class="main-lc">
           <div class="top">
-            <DvBorderBox13>
-              <div class="title">
-                转化率
-              </div>
+            <ChartBox title="转化率">
               <ConversionRateChart />
-            </DvBorderBox13>
+            </ChartBox>
           </div>
           <div class="middle">
-            <DvBorderBox13>
-              <div class="title">
-                登录趋势
-              </div>
+            <ChartBox title="登录趋势">
               <LoginTrendsChart />
-            </DvBorderBox13>
+            </ChartBox>
           </div>
           <div class="bottom">
-            <DvBorderBox13>
-              <div class="title">
-                新增用户
-              </div>
+            <ChartBox title="新增用户">
               <NewlyUsersChart />
-            </DvBorderBox13>
+            </ChartBox>
           </div>
         </div>
         <div class="main-mc" />
         <div class="main-rc">
           <div class="top">
-            <DvBorderBox13>
-              <div class="title">
-                付费率
-              </div>
+            <ChartBox title="付费率">
               <PaymentRateChart />
-            </DvBorderBox13>
+            </ChartBox>
           </div>
           <div class="middle">
-            <DvBorderBox13>
-              <div class="title">
-                付费排名
-              </div>
+            <ChartBox title="付费排名">
               <PaymentRankChart />
-            </DvBorderBox13>
+            </ChartBox>
           </div>
           <div class="bottom">
-            <DvBorderBox13>
-              <div class="title">
-                新增付费
-              </div>
+            <ChartBox title="新增付费">
               <NewlyPaymentChart />
-            </DvBorderBox13>
+            </ChartBox>
           </div>
         </div>
       </div>
@@ -199,20 +180,6 @@ const { time, weekDay } = useCurrentTime()
       justify-content: space-around;
       position: relative;
       width: 540px;
-
-      .title {
-        font-size: 18px;
-        font-weight: 900;
-        letter-spacing: 2px;
-        background: linear-gradient(92deg, #0072ff, #00eaff 48%, #01aaff);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        position: absolute;
-        top: 6%;
-        left: 3%;
-      }
 
       .top {
         width: 100%;
