@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import ChartBox from './components/ChartBox/index.vue'
+
 import ConversionRateChart from './components/ConversionRateChart/index.vue'
 import LoginTrendsChart from './components/LoginTrendsChart/index.vue'
 import NewlyUsersChart from './components/NewlyUsersChart/index.vue'
+
+import RealtimePayment from './components/RealtimePaymentChart/index.vue'
+
 import PaymentRateChart from './components/PaymentRateChart/index.vue'
 import PaymentRankChart from './components/PaymentRankChart/index.vue'
 import NewlyPaymentChart from './components/NewlyPaymentChart/index.vue'
@@ -54,7 +58,14 @@ const { time, weekDay } = useCurrentTime()
             </ChartBox>
           </div>
         </div>
-        <div class="main-mc" />
+        <div class="main-mc">
+          <div class="center" />
+          <div class="bottom">
+            <ChartBox title="实时付费">
+              <RealtimePayment />
+            </ChartBox>
+          </div>
+        </div>
         <div class="main-rc">
           <div class="top">
             <ChartBox title="付费率">
@@ -167,10 +178,24 @@ const { time, weekDay } = useCurrentTime()
   &-main {
     flex: 1;
     display: flex;
+    justify-content: space-between;
     padding: 10px 20px;
 
     .main-mc {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      .center {
+        width: 740px;
+        height: 660px;
+      }
+      .bottom {
+        width: 740px;
+        height: 320px;
+      }
     }
 
     .main-lc,
@@ -178,19 +203,18 @@ const { time, weekDay } = useCurrentTime()
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      position: relative;
       width: 540px;
 
       .top {
-        width: 100%;
+        width: 540px;
         height: 320px;
       }
       .middle {
-        width: 100%;
+        width: 540px;
         height: 330px;
       }
       .bottom {
-        width: 100%;
+        width: 540px;
         height: 320px;
       }
     }
