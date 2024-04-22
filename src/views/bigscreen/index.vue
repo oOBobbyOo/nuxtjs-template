@@ -5,7 +5,7 @@ import ConversionRateChart from './components/ConversionRateChart/index.vue'
 import LoginTrendsChart from './components/LoginTrendsChart/index.vue'
 import NewlyUsersChart from './components/NewlyUsersChart/index.vue'
 
-import RealtimePayment from './components/RealtimePaymentChart/index.vue'
+import RealtimePaymentChart from './components/RealtimePaymentChart/index.vue'
 
 import PaymentRateChart from './components/PaymentRateChart/index.vue'
 import PaymentRankChart from './components/PaymentRankChart/index.vue'
@@ -62,7 +62,7 @@ const { time, weekDay } = useCurrentTime()
           <div class="center" />
           <div class="bottom">
             <ChartBox title="实时付费">
-              <RealtimePayment />
+              <RealtimePaymentChart />
             </ChartBox>
           </div>
         </div>
