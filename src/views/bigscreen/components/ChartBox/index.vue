@@ -2,14 +2,16 @@
 import { BorderBox13 as DvBorderBox13 } from '@kjgl77/datav-vue3'
 
 defineProps<{
-  title: string
+  title?: string
 }>()
 </script>
 
 <template>
   <DvBorderBox13>
     <div v-if="title" class="title">
-      {{ title }}
+      <div class="icon left-icon" />
+      <span px-2>{{ title }}</span>
+      <div class="icon right-icon" />
     </div>
     <slot />
   </DvBorderBox13>
@@ -17,6 +19,9 @@ defineProps<{
 
 <style scoped lang="less">
 .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 18px;
   font-weight: 900;
   letter-spacing: 2px;
@@ -26,6 +31,19 @@ defineProps<{
   -webkit-text-fill-color: transparent;
   position: absolute;
   top: 6%;
-  left: 3%;
+  left: 1%;
+
+  .icon {
+    width: 58px;
+    height: 14px;
+    &.left-icon {
+      background: url('@/assets/big-screen/title-r.png') no-repeat;
+      background-size: 100% 100%;
+    }
+    &.right-icon {
+      background: url('@/assets/big-screen/title-l.png') no-repeat;
+      background-size: 100% 100%;
+    }
+  }
 }
 </style>
