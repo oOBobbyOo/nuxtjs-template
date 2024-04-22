@@ -22,7 +22,7 @@ const options: EChartsOption = {
     {
       name: '内部进度条',
       type: 'gauge',
-      radius: '66%',
+      radius: '50%',
       splitNumber: 10,
       axisLine: {
         lineStyle: {
@@ -43,7 +43,7 @@ const options: EChartsOption = {
         show: false,
       },
       detail: {
-        offsetCenter: [0, 88],
+        offsetCenter: [0, 90],
         padding: [0, 0, 0, 0],
         fontSize: 28,
         fontWeight: 700,
@@ -52,7 +52,7 @@ const options: EChartsOption = {
       },
       title: {
         show: true,
-        offsetCenter: [0, '50%'],
+        offsetCenter: [0, '60%'],
         color: '#0286ff',
         fontSize: 16,
         fontWeight: 400,
@@ -68,7 +68,7 @@ const options: EChartsOption = {
     {
       name: '外部刻度',
       type: 'gauge',
-      radius: '96%',
+      radius: '72%',
       min: 0, // 最小刻度
       max: 100, // 最大刻度
       splitNumber: 10, // 刻度数量

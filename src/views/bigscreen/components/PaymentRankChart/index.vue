@@ -70,10 +70,10 @@ const color = ['#FC619D', '#FF904D', '#48BFE3']
 
 const options: EChartsOption = {
   grid: {
-    top: '5%',
-    left: '2%',
-    right: '10%',
-    bottom: '2%',
+    top: '20%',
+    left: '-2%',
+    right: '5%',
+    bottom: '0',
     containLabel: true,
   },
   xAxis: {
@@ -103,8 +103,7 @@ const options: EChartsOption = {
         formatter(value: string, index: number) {
           if (index < 3)
             return `{idx${index}|${index + 1}} {title|${value}}`
-          else
-            return `{idx|${index + 1}} {title|${value}}`
+          else return `{idx|${index + 1}} {title|${value}}`
         },
         rich: {
           idx0: {
@@ -174,8 +173,7 @@ const options: EChartsOption = {
         color: (val) => {
           if (val.dataIndex < 3)
             return color[val.dataIndex]
-          else
-            return '#00F5C2'
+          else return '#00F5C2'
         },
         borderRadius: 10,
       },

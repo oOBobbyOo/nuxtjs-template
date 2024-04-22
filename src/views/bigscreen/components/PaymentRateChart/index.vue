@@ -39,7 +39,7 @@ const options: EChartsOption = {
     {
       name: '付费率',
       type: 'pie',
-      radius: ['50%', '80%'],
+      radius: ['50%', '72%'],
       padAngle: 5,
       data: payment.payData,
       label: {

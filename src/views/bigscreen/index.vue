@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { BorderBox13 as DvBorderBox13 } from '@kjgl77/datav-vue3'
+
 import ConversionRateChart from './components/ConversionRateChart/index.vue'
 import LoginTrendsChart from './components/LoginTrendsChart/index.vue'
 import NewlyUsersChart from './components/NewlyUsersChart/index.vue'
@@ -38,25 +40,55 @@ const { time, weekDay } = useCurrentTime()
       <div class="big-screen-main">
         <div class="main-lc">
           <div class="top">
-            <ConversionRateChart />
+            <DvBorderBox13>
+              <div class="title">
+                转化率
+              </div>
+              <ConversionRateChart />
+            </DvBorderBox13>
           </div>
           <div class="middle">
-            <LoginTrendsChart />
+            <DvBorderBox13>
+              <div class="title">
+                登录趋势
+              </div>
+              <LoginTrendsChart />
+            </DvBorderBox13>
           </div>
           <div class="bottom">
-            <NewlyUsersChart />
+            <DvBorderBox13>
+              <div class="title">
+                新增用户
+              </div>
+              <NewlyUsersChart />
+            </DvBorderBox13>
           </div>
         </div>
         <div class="main-mc" />
         <div class="main-rc">
           <div class="top">
-            <PaymentRateChart />
+            <DvBorderBox13>
+              <div class="title">
+                付费率
+              </div>
+              <PaymentRateChart />
+            </DvBorderBox13>
           </div>
           <div class="middle">
-            <PaymentRankChart />
+            <DvBorderBox13>
+              <div class="title">
+                付费排名
+              </div>
+              <PaymentRankChart />
+            </DvBorderBox13>
           </div>
           <div class="bottom">
-            <NewlyPaymentChart />
+            <DvBorderBox13>
+              <div class="title">
+                新增付费
+              </div>
+              <NewlyPaymentChart />
+            </DvBorderBox13>
           </div>
         </div>
       </div>
@@ -142,7 +174,7 @@ const { time, weekDay } = useCurrentTime()
         position: absolute;
         top: 20px;
         right: 20px;
-        font-family: 'Lobster';
+        font-family: 'lobster';
         font-size: 28px;
         font-weight: 400;
         color: #05e8fe;
@@ -154,6 +186,7 @@ const { time, weekDay } = useCurrentTime()
   &-main {
     flex: 1;
     display: flex;
+    padding: 10px 20px;
 
     .main-mc {
       flex: 1;
@@ -167,14 +200,31 @@ const { time, weekDay } = useCurrentTime()
       position: relative;
       width: 540px;
 
+      .title {
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        background: linear-gradient(92deg, #0072ff, #00eaff 48%, #01aaff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        position: absolute;
+        top: 6%;
+        left: 3%;
+      }
+
       .top {
-        height: 32%;
+        width: 100%;
+        height: 320px;
       }
       .middle {
-        height: 36%;
+        width: 100%;
+        height: 330px;
       }
       .bottom {
-        height: 32%;
+        width: 100%;
+        height: 320px;
       }
     }
   }

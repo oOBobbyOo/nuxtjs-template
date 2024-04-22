@@ -18,10 +18,10 @@ const options: EChartsOption = {
     },
   },
   grid: {
-    top: '10%',
-    left: '10%',
-    right: '10%',
-    bottom: '10%',
+    top: '20%',
+    left: '5%',
+    right: '5%',
+    bottom: '5%',
     containLabel: true,
   },
   xAxis: {

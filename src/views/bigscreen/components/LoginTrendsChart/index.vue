@@ -58,21 +58,22 @@ const options: EChartsOption = {
   },
   legend: {
     type: 'plain',
-    right: '10%',
-    itemGap: 22,
-    itemWidth: 22,
+    top: '10%',
+    right: '5%',
+    itemGap: 20,
+    itemWidth: 20,
     textStyle: {
       color: '#7ec7ff',
-      fontSize: 16,
+      fontSize: 14,
     },
     icon: 'rect',
     data: loginTrends.typeData,
   },
   grid: {
-    top: '15%',
-    left: '10%',
-    right: '10%',
-    bottom: '15%',
+    top: '20%',
+    left: '5%',
+    right: '5%',
+    bottom: '8%',
     containLabel: true,
   },
   xAxis: {
@@ -86,7 +87,7 @@ const options: EChartsOption = {
     },
     axisLabel: {
       color: '#7ec7ff',
-      padding: 16,
+      padding: 6,
       fontSize: 14,
     },
     splitLine: {
@@ -101,12 +102,7 @@ const options: EChartsOption = {
     data: loginTrends.xData,
   },
   yAxis: {
-    name: '人数',
-    nameTextStyle: {
-      color: '#7ec7ff',
-      fontSize: 16,
-      padding: 10,
-    },
+    type: 'value',
     min: 0,
     splitLine: {
       show: true,
@@ -123,7 +119,6 @@ const options: EChartsOption = {
     axisLabel: {
       show: true,
       color: '#7ec7ff',
-      padding: 16,
     },
     axisTick: {
       show: false,
