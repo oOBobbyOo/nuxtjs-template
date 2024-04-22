@@ -9,47 +9,47 @@ interface PaymentRank {
 
 const paymentRank: PaymentRank[] = [
   {
-    name: '姓名1',
+    name: '张三',
     value: Math.random() * 10,
     sum: 10,
   },
   {
-    name: '姓名2',
+    name: '李四',
     value: Math.random() * 10,
     sum: 10,
   },
   {
-    name: '姓名3',
+    name: '王五',
     value: Math.random() * 10,
     sum: 10,
   },
   {
-    name: '姓名4',
+    name: '赵六',
     value: Math.random() * 10,
     sum: 10,
   },
   {
-    name: '姓名5',
+    name: '钱七',
     value: Math.random() * 10,
     sum: 10,
   },
   {
-    name: '姓名6',
+    name: '孙八',
     value: Math.random() * 10,
     sum: 10,
   },
   {
-    name: '姓名7',
+    name: '周九',
     value: Math.random() * 10,
     sum: 10,
   },
   {
-    name: '姓名8',
+    name: '吴十',
     value: Math.random() * 10,
     sum: 10,
   },
   {
-    name: '姓名9',
+    name: '郑十一',
     value: Math.random() * 10,
     sum: 10,
   },
