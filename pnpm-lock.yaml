@@ -141,6 +141,9 @@ importers:
       '@iconify/json':
         specifier: ^2.2.125
         version: 2.2.125
+      '@plugin-web-update-notification/vite':
+        specifier: ^1.7.1
+        version: 1.7.1(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
       '@types/crypto-js':
         specifier: ^4.1.2
         version: 4.1.2
@@ -188,7 +191,7 @@ importers:
         version: 1.5.0
       postcss-less:
         specifier: ^6.0.0
-        version: 6.0.0(postcss@5.2.18)
+        version: 6.0.0(postcss@8.4.30)
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
@@ -221,7 +224,7 @@ importers:
         version: 5.2.2
       unocss:
         specifier: ^0.56.4
-        version: 0.56.4(postcss@5.2.18)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
+        version: 0.56.4(postcss@8.4.30)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
       unplugin-auto-import:
         specifier: ^0.16.6
         version: 0.16.6(@vueuse/core@10.9.0(vue@3.3.4))(rollup@3.29.4)
@@ -1028,6 +1031,14 @@ packages:
   '@pkgr/utils@2.4.2':
     resolution: {integrity: sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
+  '@plugin-web-update-notification/core@1.7.1':
+    resolution: {integrity: sha512-G5xbuFE4B3TGxM9FxYwUlbGleuWNUzdbw3ZNcht1WDn85Qbhgzk7lQwuXVilxZII6LhsghJ4Zdapw0jgzuCJQw==}
+
+  '@plugin-web-update-notification/vite@1.7.1':
+    resolution: {integrity: sha512-qIP2JBt19gZGWjagZOGc0qatoLGa2h4GnrHjF1ETzVgHUuJMgBeZpqMjzO81MwbmOUQdWbvwlF3ZZhXopeXB/w==}
+    peerDependencies:
+      vite: ^5.0.0 || >4.0.0 || ^3.0.0
 
   '@polka/url@1.0.0-next.23':
     resolution: {integrity: sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==}
@@ -6509,6 +6520,13 @@ snapshots:
       picocolors: 1.0.0
       tslib: 2.6.2
 
+  '@plugin-web-update-notification/core@1.7.1': {}
+
+  '@plugin-web-update-notification/vite@1.7.1(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))':
+    dependencies:
+      '@plugin-web-update-notification/core': 1.7.1
+      vite: 4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0)
+
   '@polka/url@1.0.0-next.23': {}
 
   '@rollup/pluginutils@5.0.4(rollup@3.29.4)':
@@ -6801,7 +6819,7 @@ snapshots:
       gzip-size: 6.0.0
       sirv: 2.0.3
 
-  '@unocss/postcss@0.56.4(postcss@5.2.18)':
+  '@unocss/postcss@0.56.4(postcss@8.4.30)':
     dependencies:
       '@unocss/config': 0.56.4
       '@unocss/core': 0.56.4
@@ -6809,7 +6827,7 @@ snapshots:
       css-tree: 2.3.1
       fast-glob: 3.3.1
       magic-string: 0.30.3
-      postcss: 5.2.18
+      postcss: 8.4.30
 
   '@unocss/preset-attributify@0.56.4':
     dependencies:
@@ -10006,9 +10024,9 @@ snapshots:
       postcss: 8.4.30
       postcss-safe-parser: 6.0.0(postcss@8.4.30)
 
-  postcss-less@6.0.0(postcss@5.2.18):
+  postcss-less@6.0.0(postcss@8.4.30):
     dependencies:
-      postcss: 5.2.18
+      postcss: 8.4.30
 
   postcss-prefix-selector@1.16.0(postcss@5.2.18):
     dependencies:
@@ -11007,13 +11025,13 @@ snapshots:
 
   universalify@2.0.0: {}
 
-  unocss@0.56.4(postcss@5.2.18)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0)):
+  unocss@0.56.4(postcss@8.4.30)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0)):
     dependencies:
       '@unocss/astro': 0.56.4(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
       '@unocss/cli': 0.56.4(rollup@3.29.4)
       '@unocss/core': 0.56.4
       '@unocss/extractor-arbitrary-variants': 0.56.4
-      '@unocss/postcss': 0.56.4(postcss@5.2.18)
+      '@unocss/postcss': 0.56.4(postcss@8.4.30)
       '@unocss/preset-attributify': 0.56.4
       '@unocss/preset-icons': 0.56.4
       '@unocss/preset-mini': 0.56.4

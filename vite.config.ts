@@ -13,6 +13,7 @@ import viteCompression from 'vite-plugin-compression'
 import { visualizer } from 'rollup-plugin-visualizer'
 import Inspect from 'vite-plugin-inspect'
 import VueDevTools from 'vite-plugin-vue-devtools'
+import { webUpdateNotice } from '@plugin-web-update-notification/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -103,6 +104,15 @@ export default defineConfig(({ command, mode }) => {
 
       // https://github.com/webfansplz/vite-plugin-vue-devtools
       isServe && VueDevTools(),
+
+      webUpdateNotice({
+        logVersion: true,
+        notificationProps: {
+          title: 'system update',
+          description: 'System update, please refresh the page',
+          buttonText: 'refresh',
+        },
+      }),
     ],
     // 默认启动的是 esbuild
     esbuild: {
