@@ -59,6 +59,9 @@ importers:
       axios:
         specifier: ^1.6.2
         version: 1.6.2
+      copy-to-clipboard:
+        specifier: ^3.3.3
+        version: 3.3.3
       cropperjs:
         specifier: ^1.6.1
         version: 1.6.1
@@ -191,7 +194,7 @@ importers:
         version: 1.5.0
       postcss-less:
         specifier: ^6.0.0
-        version: 6.0.0(postcss@8.4.30)
+        version: 6.0.0(postcss@5.2.18)
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
@@ -224,7 +227,7 @@ importers:
         version: 5.2.2
       unocss:
         specifier: ^0.56.4
-        version: 0.56.4(postcss@8.4.30)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
+        version: 0.56.4(postcss@5.2.18)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
       unplugin-auto-import:
         specifier: ^0.16.6
         version: 0.16.6(@vueuse/core@10.9.0(vue@3.3.4))(rollup@3.29.4)
@@ -6819,7 +6822,7 @@ snapshots:
       gzip-size: 6.0.0
       sirv: 2.0.3
 
-  '@unocss/postcss@0.56.4(postcss@8.4.30)':
+  '@unocss/postcss@0.56.4(postcss@5.2.18)':
     dependencies:
       '@unocss/config': 0.56.4
       '@unocss/core': 0.56.4
@@ -6827,7 +6830,7 @@ snapshots:
       css-tree: 2.3.1
       fast-glob: 3.3.1
       magic-string: 0.30.3
-      postcss: 8.4.30
+      postcss: 5.2.18
 
   '@unocss/preset-attributify@0.56.4':
     dependencies:
@@ -10024,9 +10027,9 @@ snapshots:
       postcss: 8.4.30
       postcss-safe-parser: 6.0.0(postcss@8.4.30)
 
-  postcss-less@6.0.0(postcss@8.4.30):
+  postcss-less@6.0.0(postcss@5.2.18):
     dependencies:
-      postcss: 8.4.30
+      postcss: 5.2.18
 
   postcss-prefix-selector@1.16.0(postcss@5.2.18):
     dependencies:
@@ -11025,13 +11028,13 @@ snapshots:
 
   universalify@2.0.0: {}
 
-  unocss@0.56.4(postcss@8.4.30)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0)):
+  unocss@0.56.4(postcss@5.2.18)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0)):
     dependencies:
       '@unocss/astro': 0.56.4(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
       '@unocss/cli': 0.56.4(rollup@3.29.4)
       '@unocss/core': 0.56.4
       '@unocss/extractor-arbitrary-variants': 0.56.4
-      '@unocss/postcss': 0.56.4(postcss@8.4.30)
+      '@unocss/postcss': 0.56.4(postcss@5.2.18)
       '@unocss/preset-attributify': 0.56.4
       '@unocss/preset-icons': 0.56.4
       '@unocss/preset-mini': 0.56.4

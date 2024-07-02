@@ -6,7 +6,7 @@ interface ElType extends HTMLElement {
 
 /**
  * v-copy
- * @description 制某个值至剪贴板
+ * @description 复制某个值至剪贴板
  */
 const copy: Directive = {
   mounted(el: ElType, binding: DirectiveBinding) {

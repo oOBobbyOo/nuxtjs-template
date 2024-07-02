@@ -21,8 +21,7 @@ function debounceFn() {
         v-throttle="{
           event: 'click',
           fn: throttleFn,
-        }"
-        type="primary"
+        }" type="primary"
       >
         节流按钮 (每隔0.5S秒后执行)
       </el-button>
@@ -37,14 +36,11 @@ function debounceFn() {
           延迟防抖：
         </el-tag>
         <el-input
-          v-model="state.debounce"
-          v-debounce="{
+          v-model="state.debounce" v-debounce="{
             event: 'input',
             fn: debounceFn,
             delay: 1000,
-          }"
-          class="my-2"
-          placeholder="请输入内容"
+          }" class="my-2" placeholder="请输入内容"
         />
       </div>
 
@@ -53,15 +49,12 @@ function debounceFn() {
           立即防抖：
         </el-tag>
         <el-input
-          v-model="state.debounce"
-          v-debounce="{
+          v-model="state.debounce" v-debounce="{
             event: 'input',
             fn: debounceFn,
             delay: 1000,
             immediate: true,
-          }"
-          class="my-2"
-          placeholder="请输入内容"
+          }" class="my-2" placeholder="请输入内容"
         />
       </div>
 
@@ -70,8 +63,7 @@ function debounceFn() {
           event: 'click',
           fn: debounceFn,
           delay: 1000,
-        }"
-        type="primary"
+        }" type="primary"
       >
         防抖按钮 (每隔1S秒后执行)
       </el-button>
@@ -84,6 +76,15 @@ function debounceFn() {
       <el-input v-model="state.copyData" placeholder="请输入需要复制的内容">
         <template #append>
           <el-button v-copy="state.copyData">
+            复制
+          </el-button>
+        </template>
+      </el-input>
+
+      <span class="my-2 block">v-copy-to-clipboard 指令：</span>
+      <el-input v-model="state.copyData" placeholder="请输入需要复制的内容">
+        <template #append>
+          <el-button v-copy-to-clipboard="state.copyData">
             复制
           </el-button>
         </template>
