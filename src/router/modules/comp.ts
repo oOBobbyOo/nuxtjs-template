@@ -14,6 +14,16 @@ const comp: MenuRecordRaw = {
   },
   children: [
     {
+      path: 'model-loading',
+      name: 'ModelLoading',
+      component: () => import('@/views/comp/loading/index.vue'),
+      meta: {
+        icon: 'carbon:progress-bar',
+        title: 'routes.comp.modelLoading',
+        isKeepAlive: true,
+      },
+    },
+    {
       path: 'screen-locker',
       name: 'ScreenLocker',
       component: () => import('@/views/comp/screen-locker/index.vue'),

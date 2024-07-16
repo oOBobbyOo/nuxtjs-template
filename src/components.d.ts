@@ -81,6 +81,7 @@ declare module 'vue' {
     Icon: typeof import('./components/Icon/index.vue')['default']
     Loading: typeof import('./components/Loading/index.vue')['default']
     Logo: typeof import('./components/Logo/index.vue')['default']
+    ModelLoading: typeof import('./components/Loading/ModelLoading.vue')['default']
     PageCard: typeof import('./components/PageWrap/PageCard.vue')['default']
     PageWrap: typeof import('./components/PageWrap/index.vue')['default']
     Pagination: typeof import('./components/Pagination/index.vue')['default']

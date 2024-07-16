@@ -33,11 +33,17 @@ export default defineConfig(({ command, mode }) => {
 
   return {
     base: viteEnv.VITE_BASE_URL,
+    assetsInclude: ['**/*.glb'],
     plugins: [
       // https://github.com/antfu/unocss
       UnoCSS(),
-
-      vue(),
+      vue({
+        template: {
+          compilerOptions: {
+            isCustomElement: tag => ['model-viewer'].includes(tag),
+          },
+        },
+      }),
       // vue 可以使用 jsx/tsx 语法
       vueJsx(),
 

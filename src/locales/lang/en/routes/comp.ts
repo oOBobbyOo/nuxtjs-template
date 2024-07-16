@@ -1,5 +1,6 @@
 export default {
   component: 'Component',
+  modelLoading: 'Model Loading',
   screenLocker: 'Screen Locker',
   typeit: 'TypeIt',
   music: 'Music',

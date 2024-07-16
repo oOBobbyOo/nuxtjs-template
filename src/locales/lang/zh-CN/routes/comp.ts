@@ -1,5 +1,6 @@
 export default {
   component: '组件',
+  modelLoading: '加载',
   screenLocker: '锁屏',
   typeit: '打字机',
   music: '音乐',
