@@ -124,6 +124,10 @@ watch(
   .model-viewer {
     position: relative;
     background: transparent !important;
+
+    &::part(default-progress-bar){
+      display: none;
+    }
   }
 
   .progress-bar {
