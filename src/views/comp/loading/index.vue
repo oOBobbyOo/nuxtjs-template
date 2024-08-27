@@ -38,5 +38,7 @@ const colResponsiveProps = {
         />
       </el-col>
     </el-row>
+
+    <MoveLoading />
   </div>
 </template>

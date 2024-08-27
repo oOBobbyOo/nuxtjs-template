@@ -4,21 +4,7 @@ import '@google/model-viewer'
 import yasuo from '@/assets/models/yasuo.glb'
 import yi from '@/assets/models/yi.glb'
 
-interface Model {
-  src: string
-  cameraOrbit: string
-  progressAnimation: string
-  finishAnimation: string
-  finishAnimationIn: string
-  cameraTarget: string
-  finishDelay: number
-}
-
-type ModelName = 'yasuo' | 'yi'
-
-type Models = {
-  [key in ModelName]: Model
-}
+defineOptions({ name: 'ModelLoading' })
 
 const props = defineProps({
   model: {
@@ -42,6 +28,22 @@ const props = defineProps({
     default: 150,
   },
 })
+
+interface Model {
+  src: string
+  cameraOrbit: string
+  progressAnimation: string
+  finishAnimation: string
+  finishAnimationIn: string
+  cameraTarget: string
+  finishDelay: number
+}
+
+type ModelName = 'yasuo' | 'yi'
+
+type Models = {
+  [key in ModelName]: Model
+}
 
 const models: Models = {
   yasuo: {

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useThemeStore } from '@/stores/modules/theme'
 
+defineOptions({ name: 'ColorCircleLoading' })
+
 const themeStore = useThemeStore()
 const themeColor = computed(() => themeStore.themeColor)
 </script>

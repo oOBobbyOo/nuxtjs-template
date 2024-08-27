@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineOptions({ name: 'AppLoading' })
+</script>
 
 <template>
   <div class="absolute-center flex-col">
