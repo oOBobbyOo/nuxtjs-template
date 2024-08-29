@@ -24,6 +24,8 @@ const colResponsiveProps = {
   <div flex-center flex-col space-y-10>
     <PinBallLoading />
 
+    <BattleLoading />
+
     <ColorCircleLoading />
 
     <el-row :gutter="100">

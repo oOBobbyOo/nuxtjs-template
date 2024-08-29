@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppLoading: typeof import('./components/Loading/AppLoading.vue')['default']
     BackTop: typeof import('./components/BackTop/index.vue')['default']
+    BattleLoading: typeof import('./components/Loading/BattleLoading.vue')['default']
     BetterScroll: typeof import('./components/BetterScroll/index.vue')['default']
     Card: typeof import('./components/Card/index.vue')['default']
     Carousel: typeof import('./components/Carousel/index.vue')['default']
