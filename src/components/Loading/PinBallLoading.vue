@@ -25,7 +25,7 @@ const bgColor = computed(() => {
 <style scoped lang="less">
 .pinball-loading {
   width: 200px;
-  height: 150px;
+  height: 100px;
   position: relative;
 
   span {
