@@ -85,6 +85,7 @@ declare module 'vue' {
     Logo: typeof import('./components/Logo/index.vue')['default']
     ModelLoading: typeof import('./components/Loading/ModelLoading.vue')['default']
     MoveLoading: typeof import('./components/Loading/MoveLoading.vue')['default']
+    MoveOutLoading: typeof import('./components/Loading/MoveOutLoading.vue')['default']
     PageCard: typeof import('./components/PageWrap/PageCard.vue')['default']
     PageWrap: typeof import('./components/PageWrap/index.vue')['default']
     Pagination: typeof import('./components/Pagination/index.vue')['default']

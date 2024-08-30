@@ -44,5 +44,7 @@ const colResponsiveProps = {
     </el-row>
 
     <MoveLoading />
+
+    <MoveOutLoading />
   </div>
 </template>
