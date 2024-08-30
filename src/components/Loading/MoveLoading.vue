@@ -31,7 +31,7 @@ const bgColor = computed(() => {
 .loading {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 72px;
   overflow: hidden;
 
   .loader,
@@ -41,7 +41,7 @@ const bgColor = computed(() => {
   }
 
   .loader {
-    top: 76%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
