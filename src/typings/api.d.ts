@@ -23,3 +23,14 @@ export interface UserList {
   status: boolean
   ctime: string
 }
+
+export interface RoleList {
+  id: number
+  name: string
+  code: string
+  status: boolean
+  desc: string
+  created_at: string
+  updated_at: string
+  closed_at: string
+}

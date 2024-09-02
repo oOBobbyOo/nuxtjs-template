@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ColumnProps } from '@/typings/table'
-import type { UserList } from '@/typings/api'
+import type { RoleList } from '@/typings/api'
 
 import { useTable } from '@/hooks/web/useTable'
 import { getRoleList } from '@/api/role'
@@ -10,7 +10,7 @@ const { loading, tableData, pagination, getTableData, handleSizeChange, handleCu
     pageSize: 15,
   })
 
-const columns = reactive<ColumnProps<UserList>[]>([
+const columns = reactive<ColumnProps<RoleList>[]>([
   {
     type: 'selection',
     label: '',
@@ -37,6 +37,9 @@ const columns = reactive<ColumnProps<UserList>[]>([
   {
     prop: 'status',
     label: '角色状态',
+    formatter: (row: RoleList) => {
+      return row.status ? '启用' : '禁用'
+    },
   },
 ])
 </script>

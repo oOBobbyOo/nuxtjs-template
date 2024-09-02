@@ -42,6 +42,9 @@ const columns = reactive<ColumnProps<UserList>[]>([
   {
     prop: 'status',
     label: '用户状态',
+    formatter: (row: UserList) => {
+      return row.status ? '启用' : '禁用'
+    },
   },
 ])
 </script>
