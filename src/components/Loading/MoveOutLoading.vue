@@ -31,7 +31,7 @@ defineOptions({ name: 'MoveOutLoading' })
     font-family: Helvetica, Arial, sans-serif;
     animation: move 2s linear infinite;
     transform: rotate(180deg);
-    color: #35C4F0;
+    color: #35c4f0;
 
     &:nth-child(2) {
       animation-delay: 0.2s;

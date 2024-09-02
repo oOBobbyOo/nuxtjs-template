@@ -31,13 +31,19 @@ const colResponsiveProps = {
     <el-row :gutter="100">
       <el-col v-bind="colResponsiveProps">
         <ModelLoading
-          :style="{ width: '200px' }" :stroke-color="themeColor" :percentage="percentage" :model-size="200"
+          :style="{ width: '200px' }"
+          :stroke-color="themeColor"
+          :percentage="percentage"
+          :model-size="200"
           model="yasuo"
         />
       </el-col>
       <el-col v-bind="colResponsiveProps">
         <ModelLoading
-          :style="{ width: '200px' }" :stroke-color="themeColor" :percentage="percentage" :model-size="200"
+          :style="{ width: '200px' }"
+          :stroke-color="themeColor"
+          :percentage="percentage"
+          :model-size="200"
           model="yi"
         />
       </el-col>

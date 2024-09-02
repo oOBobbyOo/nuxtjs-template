@@ -2,13 +2,14 @@ import type { MockMethod } from 'vite-plugin-mock'
 import Mock from 'mockjs'
 import { requestSuccess } from './_util'
 
-const basicTableData = Mock.mock({
+export const basicTableData = Mock.mock({
   'data|500': [
     {
       'id': '@id()',
       'username': '@cname()',
       'gender|1-2': 2,
       'age': '@natural(1, 100)',
+      'phone': /^1[3456789]\d{9}$/,
       'email': '@email()',
       'address': '@city(true)',
       'status|1-2': true,

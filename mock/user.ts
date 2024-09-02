@@ -1,7 +1,18 @@
 import type { MockMethod } from 'vite-plugin-mock'
 import { requestSuccess } from './_util'
+import { basicTableData } from './table'
 
 export default [
+  {
+    url: '/api/user/list',
+    method: 'get',
+    response: () => {
+      return requestSuccess({
+        list: basicTableData.data,
+        total: 250,
+      })
+    },
+  },
   {
     url: '/api/user/add',
     timeout: 200,

@@ -17,6 +17,7 @@ export interface UserList {
   name: string
   gender: number
   age: number
+  phone: string
   email: string
   address: string
   status: boolean

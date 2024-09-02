@@ -108,11 +108,21 @@ watch(
 <template>
   <div class="model-loading">
     <model-viewer
-      ref="modelViewer" :src="model.src" disable-zoom shadow-intensity="1" :camera-orbit="model.cameraOrbit"
-      class="model-viewer" :style="modelPosition" :animation-name="animationName" :camera-target="model.cameraTarget"
+      ref="modelViewer"
+      :src="model.src"
+      disable-zoom
+      shadow-intensity="1"
+      :camera-orbit="model.cameraOrbit"
+      class="model-viewer"
+      :style="modelPosition"
+      :animation-name="animationName"
+      :camera-target="model.cameraTarget"
       autoplay
     />
-    <div class="progress-bar" :style="{ height: `${strokeWidth}px`, borderRadius: `${strokeWidth / 2}px` }">
+    <div
+      class="progress-bar"
+      :style="{ height: `${strokeWidth}px`, borderRadius: `${strokeWidth / 2}px` }"
+    >
       <div class="progress-percent" :style="currentPercentStyle" />
     </div>
   </div>
@@ -127,7 +137,7 @@ watch(
     position: relative;
     background: transparent !important;
 
-    &::part(default-progress-bar){
+    &::part(default-progress-bar) {
       display: none;
     }
   }

@@ -235,7 +235,11 @@ function reset() {
           <p p-4>
             Options
           </p>
-          <div v-for="item in state.toggleOptions" :key="item" class="b-t-1 px-4 py-1 dark:b-dark-50">
+          <div
+            v-for="item in state.toggleOptions"
+            :key="item"
+            class="b-t-1 px-4 py-1 dark:b-dark-50"
+          >
             <el-checkbox v-model="state.options[item]" :label="item" />
           </div>
         </div>

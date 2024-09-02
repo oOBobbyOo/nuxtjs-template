@@ -44,20 +44,19 @@ const bgColor = computed(() => {
     position: absolute;
     border-radius: 50%;
     background-color: v-bind(themeColor);
-    ;
     left: 15%;
     transform-origin: 50%;
-    animation: circle .5s alternate infinite ease;
+    animation: circle 0.5s alternate infinite ease;
 
     &:nth-child(2) {
       left: 45%;
-      animation-delay: .2s;
+      animation-delay: 0.2s;
     }
 
     &:nth-child(3) {
       left: auto;
       right: 15%;
-      animation-delay: .3s;
+      animation-delay: 0.3s;
     }
   }
 
@@ -65,23 +64,23 @@ const bgColor = computed(() => {
     width: 20px;
     height: 4px;
     border-radius: 50%;
-    background-color: rgba(v-bind(bgColor), .5);
+    background-color: rgba(v-bind(bgColor), 0.5);
     position: absolute;
     top: 62px;
     transform-origin: 50%;
     left: 15%;
     filter: blur(1px);
-    animation: shadow .5s alternate infinite ease;
+    animation: shadow 0.5s alternate infinite ease;
 
     &:nth-child(4) {
       left: 45%;
-      animation-delay: .2s
+      animation-delay: 0.2s;
     }
 
     &:nth-child(5) {
       left: auto;
       right: 15%;
-      animation-delay: .3s;
+      animation-delay: 0.3s;
     }
   }
 }
@@ -112,12 +111,12 @@ const bgColor = computed(() => {
 
   40% {
     transform: scaleX(1);
-    opacity: .7;
-    opacity: .4;
+    opacity: 0.7;
+    opacity: 0.4;
   }
 
   100% {
-    transform: scaleX(.2);
+    transform: scaleX(0.2);
   }
 }
 </style>

@@ -13,13 +13,13 @@ const bgColor = computed(() => {
 <template>
   <div class="loading">
     <div class="loader">
-      <div> L </div>
-      <div> O </div>
-      <div> A </div>
-      <div> D </div>
-      <div> I </div>
-      <div> N </div>
-      <div> G </div>
+      <div>L</div>
+      <div>O</div>
+      <div>A</div>
+      <div>D</div>
+      <div>I</div>
+      <div>N</div>
+      <div>G</div>
       <div />
       <div />
       <div />

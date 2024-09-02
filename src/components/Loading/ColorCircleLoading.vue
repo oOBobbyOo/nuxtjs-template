@@ -26,7 +26,7 @@ const themeColor = computed(() => themeStore.themeColor)
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     width: inherit;
     height: inherit;
