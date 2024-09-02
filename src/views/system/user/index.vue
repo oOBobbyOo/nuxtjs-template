@@ -7,7 +7,7 @@ import { getUserList } from '@/api/user'
 
 const { loading, tableData, pagination, getTableData, handleSizeChange, handleCurrentChange }
   = useTable(getUserList, {
-    pageSize: 10,
+    pageSize: 15,
   })
 
 const columns = reactive<ColumnProps<UserList>[]>([
