@@ -3,8 +3,8 @@ import { requestSuccess } from './_util'
 
 const menus = [
   {
-    name: 'Dashboard',
     path: '/dashboard',
+    name: 'Dashboard',
     redirect: '/dashboard/analysis',
     meta: {
       orderNo: 0,

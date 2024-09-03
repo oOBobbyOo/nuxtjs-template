@@ -5,12 +5,17 @@ import type { MenuRecordRaw } from '@/typings/router'
 import Icon from '@/components/Icon/index.vue'
 import { useTable } from '@/hooks/web/useTable'
 import { getMenuList } from '@/api/menu'
+import { transformRouteToMenu } from '@/utils/route'
 
 const { t } = useI18n()
 
 const { loading, tableData, pagination, getTableData, handleSizeChange, handleCurrentChange }
   = useTable(getMenuList, {
     pageSize: 15,
+    formatResult: (res: MenuRecordRaw[]) => {
+      const menus = transformRouteToMenu(res)
+      return menus
+    },
   })
 
 const columns = reactive<ColumnProps<MenuRecordRaw>[]>([
@@ -30,6 +35,15 @@ const columns = reactive<ColumnProps<MenuRecordRaw>[]>([
     label: '菜单名称',
     formatter: (row: MenuRecordRaw) => {
       return t(row.meta.title)
+    },
+  },
+  {
+    prop: 'menuType',
+    label: '菜单类型',
+    render: (scope: Scope<MenuRecordRaw>) => {
+      const type = scope.row?.children ? 'info' : 'success'
+      const text = scope.row?.children ? '目录' : '菜单'
+      return <el-tag type={type}> {text} </el-tag>
     },
   },
   {
@@ -72,6 +86,7 @@ const columns = reactive<ColumnProps<MenuRecordRaw>[]>([
     :pagination="pagination"
     :size-change="handleSizeChange"
     :current-change="handleCurrentChange"
+    :tool-button="['refresh', 'setting', 'size']"
     @refresh="getTableData"
   />
 </template>
