@@ -1,9 +1,10 @@
-<script setup lang="ts">
-import type { ColumnProps } from '@/typings/table'
+<script setup lang="tsx">
+import type { ColumnProps, Scope } from '@/typings/table'
 import type { RoleList } from '@/typings/api'
 
 import { useTable } from '@/hooks/web/useTable'
-import { getRoleList } from '@/api/role'
+import { useTableOperation } from '@/hooks/web/useTableOperation'
+import { deleteRole, getRoleList } from '@/api/role'
 
 const { loading, tableData, pagination, getTableData, handleSizeChange, handleCurrentChange }
   = useTable(getRoleList, {
@@ -37,18 +38,53 @@ const columns = reactive<ColumnProps<RoleList>[]>([
   {
     prop: 'status',
     label: '角色状态',
-    formatter: (row: RoleList) => {
-      return row.status ? '启用' : '禁用'
+    render: (scope: Scope<RoleList>) => {
+      const type = scope.row.status ? 'success' : 'danger'
+      const text = scope.row.status ? '启用' : '禁用'
+      return <el-tag type={type}> {text} </el-tag>
     },
   },
+  {
+    prop: 'operation',
+    label: '操作',
+    fixed: 'right',
+    width: 140,
+    isSlot: true,
+  },
 ])
+
+async function handleEdit(row: RoleList) {
+  console.log('>>: row', row)
+  await getTableData()
+}
+
+async function handleDelete(row: RoleList) {
+  await useTableOperation(deleteRole, { id: row.id }, '删除信息')
+  await getTableData()
+}
 </script>
 
 <template>
   <Table
-    title="角色列表" :loading="loading" :data="tableData" :columns="columns" :pagination="pagination"
-    :size-change="handleSizeChange" :current-change="handleCurrentChange" @refresh="getTableData"
-  />
+    title="角色列表"
+    :loading="loading"
+    :data="tableData"
+    :columns="columns"
+    :pagination="pagination"
+    :size-change="handleSizeChange"
+    :current-change="handleCurrentChange"
+    @refresh="getTableData"
+  >
+    <!-- 表格操作 -->
+    <template #operation="{ row }">
+      <el-button type="primary" size="small" @click="handleEdit(row)">
+        编辑
+      </el-button>
+      <el-button type="danger" size="small" @click="handleDelete(row)">
+        删除
+      </el-button>
+    </template>
+  </Table>
 </template>
 
 <style scoped></style>
