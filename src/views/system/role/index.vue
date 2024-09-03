@@ -4,6 +4,8 @@ import type { RoleList } from '@/typings/api'
 
 import { useTable } from '@/hooks/web/useTable'
 import { useTableOperation } from '@/hooks/web/useTableOperation'
+import { type DownloadColumn, useDownload } from '@/hooks/web/useDownload'
+
 import { deleteRole, getRoleList } from '@/api/role'
 
 const { loading, tableData, pagination, getTableData, handleSizeChange, handleCurrentChange }
@@ -62,6 +64,10 @@ async function handleDelete(row: RoleList) {
   await useTableOperation(deleteRole, { id: row.id }, '删除信息')
   await getTableData()
 }
+
+async function handleDownload(columns: DownloadColumn[]) {
+  useDownload({ api: getRoleList, params: {}, columns })
+}
 </script>
 
 <template>
@@ -74,6 +80,7 @@ async function handleDelete(row: RoleList) {
     :size-change="handleSizeChange"
     :current-change="handleCurrentChange"
     @refresh="getTableData"
+    @download="handleDownload"
   >
     <!-- 表格操作 -->
     <template #operation="{ row }">

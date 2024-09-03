@@ -4,6 +4,8 @@ import type { UserList } from '@/typings/api'
 
 import { useTable } from '@/hooks/web/useTable'
 import { useTableOperation } from '@/hooks/web/useTableOperation'
+import { type DownloadColumn, useDownload } from '@/hooks/web/useDownload'
+
 import { deleteUser, getUserList } from '@/api/user'
 
 const { loading, tableData, pagination, getTableData, handleSizeChange, handleCurrentChange }
@@ -33,24 +35,29 @@ const columns = reactive<ColumnProps<UserList>[]>([
   {
     prop: 'username',
     label: '用户名',
+    excel: true,
   },
   {
     prop: 'gender',
     label: '性别',
     render: scope => (scope.row.gender === 1 ? '男' : '女'),
+    excel: true,
   },
   {
     prop: 'phone',
     label: '手机号',
+    excel: true,
   },
   {
     prop: 'email',
     label: '邮箱',
+    excel: true,
   },
   {
     prop: 'status',
     label: '用户状态',
     render: statusRender,
+    excel: true,
   },
   {
     prop: 'operation',
@@ -70,6 +77,10 @@ async function handleDelete(row: UserList) {
   await useTableOperation(deleteUser, { id: row.id }, '删除信息')
   await getTableData()
 }
+
+async function handleDownload(columns: DownloadColumn[]) {
+  useDownload({ api: getUserList, params: {}, columns })
+}
 </script>
 
 <template>
@@ -82,6 +93,7 @@ async function handleDelete(row: UserList) {
     :size-change="handleSizeChange"
     :current-change="handleCurrentChange"
     @refresh="getTableData"
+    @download="handleDownload"
   >
     <!-- 表格操作 -->
     <template #operation="{ row }">
