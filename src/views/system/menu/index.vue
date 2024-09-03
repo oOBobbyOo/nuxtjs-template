@@ -1,7 +1,8 @@
-<script setup lang="ts">
-import type { ColumnProps } from '@/typings/table'
+<script setup lang="tsx">
+import type { ColumnProps, Scope } from '@/typings/table'
 import type { MenuRecordRaw } from '@/typings/router'
 
+import Icon from '@/components/Icon/index.vue'
 import { useTable } from '@/hooks/web/useTable'
 import { getMenuList } from '@/api/menu'
 
@@ -34,6 +35,12 @@ const columns = reactive<ColumnProps<MenuRecordRaw>[]>([
   {
     prop: 'meta.icon',
     label: '图标',
+    render: (scope: Scope<MenuRecordRaw>) => {
+      const iconName = scope.row.meta?.icon
+      if (!iconName)
+        return <span></span>
+      return <Icon size="20" icon={iconName} />
+    },
   },
   {
     prop: 'name',
@@ -44,10 +51,12 @@ const columns = reactive<ColumnProps<MenuRecordRaw>[]>([
     label: '路由路径',
   },
   {
-    prop: 'meta.hideInMenu',
+    prop: 'meta.hide',
     label: '菜单状态',
-    formatter: (row: MenuRecordRaw) => {
-      return row.meta.hideInMenu ? '隐藏' : '显示'
+    render: (scope: Scope<MenuRecordRaw>) => {
+      const type = scope.row.meta?.hide ? 'warning' : 'success'
+      const text = scope.row.meta?.hide ? '隐藏' : '显示'
+      return <el-tag type={type}> {text} </el-tag>
     },
   },
 ])
@@ -55,8 +64,15 @@ const columns = reactive<ColumnProps<MenuRecordRaw>[]>([
 
 <template>
   <Table
-    title="菜单列表" row-key="path" :loading="loading" :data="tableData" :columns="columns" :pagination="pagination"
-    :size-change="handleSizeChange" :current-change="handleCurrentChange" @refresh="getTableData"
+    title="菜单列表"
+    row-key="path"
+    :loading="loading"
+    :data="tableData"
+    :columns="columns"
+    :pagination="pagination"
+    :size-change="handleSizeChange"
+    :current-change="handleCurrentChange"
+    @refresh="getTableData"
   />
 </template>
 

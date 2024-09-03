@@ -55,7 +55,7 @@ export function transformRouteToMenu(
     const path = parentPath ? `${parentPath}/${route.path}` : `${route.path}`
     if (isValidArray(route.children)) {
       if (route.children.length === 1 && route.meta?.hideInMenu) {
-        // 只有一个子路由且隐藏时，不显示父级菜单
+        // 只有一个子路由且隐藏时，不显示子菜单
         const child = transformRouteToMenu(route.children, path)[0]
         menus.push({
           ...child,
