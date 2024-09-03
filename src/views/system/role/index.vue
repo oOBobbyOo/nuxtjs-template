@@ -28,14 +28,17 @@ const columns = reactive<ColumnProps<RoleList>[]>([
   {
     prop: 'name',
     label: '角色名',
+    excel: true,
   },
   {
     prop: 'code',
     label: '编码',
+    excel: true,
   },
   {
     prop: 'desc',
     label: '描述',
+    excel: true,
   },
   {
     prop: 'status',
@@ -45,6 +48,7 @@ const columns = reactive<ColumnProps<RoleList>[]>([
       const text = scope.row.status ? '启用' : '禁用'
       return <el-tag type={type}> {text} </el-tag>
     },
+    excel: true,
   },
   {
     prop: 'operation',
