@@ -190,10 +190,19 @@ const menus = [
     children: [
       {
         path: 'index',
-        name: 'Directive',
+        name: 'Commonly',
         meta: {
           icon: 'mdi:stamper',
-          title: 'routes.directives.directive',
+          title: 'routes.directives.commonly',
+          isKeepAlive: true,
+        },
+      },
+      {
+        path: 'watermark',
+        name: 'Watermark',
+        meta: {
+          icon: 'mdi:stamper',
+          title: 'routes.directives.watermark',
           isKeepAlive: true,
         },
       },

@@ -14,7 +14,7 @@ function debounceFn() {
 </script>
 
 <template>
-  <Card title="自定义指令">
+  <Card title="常用指令">
     <div>
       <span class="my-2 block">v-throttle 指令：</span>
       <el-button

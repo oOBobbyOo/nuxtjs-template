@@ -1,4 +1,5 @@
 export default {
   directives: 'Directives',
-  directive: 'Directive',
+  commonly: 'Commonly',
+  watermark: 'Watermark',
 }
