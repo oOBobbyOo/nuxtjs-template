@@ -107,6 +107,15 @@ function debounceFn() {
         点击外部触发
       </el-button>
     </div>
+
+    <el-divider border-style="dashed" />
+
+    <div>
+      <span class="my-2 block">v-longpress 指令：</span>
+      <el-button v-longpress="() => ElMessage.success('长按事件触发成功')">
+        长按2秒触发
+      </el-button>
+    </div>
   </Card>
 </template>
 
