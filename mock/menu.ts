@@ -190,7 +190,7 @@ const menus = [
     children: [
       {
         path: 'index',
-        name: 'Commonly',
+        name: 'CommonlyDirective',
         meta: {
           icon: 'mdi:stamper',
           title: 'routes.directives.commonly',
@@ -198,8 +198,17 @@ const menus = [
         },
       },
       {
+        path: 'draggable',
+        name: 'DraggableDirective',
+        meta: {
+          icon: 'mdi:stamper',
+          title: 'routes.directives.draggable',
+          isKeepAlive: true,
+        },
+      },
+      {
         path: 'watermark',
-        name: 'Watermark',
+        name: 'WatermarkDirective',
         meta: {
           icon: 'mdi:stamper',
           title: 'routes.directives.watermark',

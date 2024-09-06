@@ -15,7 +15,7 @@ const directives: MenuRecordRaw = {
   children: [
     {
       path: 'index',
-      name: 'Commonly',
+      name: 'CommonlyDirective',
       component: () => import('@/views/directives/index.vue'),
       meta: {
         icon: 'mdi:stamper',
@@ -24,8 +24,18 @@ const directives: MenuRecordRaw = {
       },
     },
     {
+      path: 'draggable',
+      name: 'DraggableDirective',
+      component: () => import('@/views/directives/draggable.vue'),
+      meta: {
+        icon: 'mdi:stamper',
+        title: 'routes.directives.draggable',
+        isKeepAlive: true,
+      },
+    },
+    {
       path: 'watermark',
-      name: 'Watermark',
+      name: 'WatermarkDirective',
       component: () => import('@/views/directives/watermark.vue'),
       meta: {
         icon: 'mdi:stamper',
