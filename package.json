@@ -50,6 +50,7 @@
     "element-plus": "^2.4.4",
     "exceljs": "^4.4.0",
     "lodash-es": "^4.17.21",
+    "mavon-editor": "^3.0.1",
     "md-editor-v3": "^4.8.3",
     "nanoid": "^5.0.4",
     "nprogress": "^0.2.0",

@@ -1,4 +1,5 @@
 export * from './dayjs'
 export * from './loading'
+export * from './mavonEditor'
 export * from './piniaReset'
 export * from './viewer'
