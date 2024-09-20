@@ -6,6 +6,7 @@ import type { RequestConfig } from '@/typings/request'
 
 export interface Response<T> {
   code: number
+  success?: boolean
   message?: string
   desc?: string
   data: T
@@ -53,6 +54,9 @@ async function myRequest<D = any, T = any>(config: MyRequestConfig<D, T>): Promi
     const res = await request.request<Response<T>>(config)
     if (res.code === 0) {
       return Promise.resolve(res.data)
+    }
+    else if (res.success) {
+      return Promise.resolve(res)
     }
     else {
       await ElMessage.error(res?.message || res?.desc || '请求失败')

@@ -5,3 +5,9 @@ export function getAnalysisChart() {
     url: '/api/getAnalysisChart',
   })
 }
+
+export function getWeather() {
+  return request({
+    url: 'https://api.vvhan.com/api/weather',
+  })
+}
