@@ -4,4 +4,5 @@ export default {
   copy: 'Copy',
   guide: 'Guide',
   draggable: 'Draggable',
+  pinyin: 'Pinyin',
 }

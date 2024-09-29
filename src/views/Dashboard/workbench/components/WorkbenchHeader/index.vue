@@ -27,7 +27,12 @@ const weather = computed(() => {
   <Card>
     <div class="flex flex-col lg:flex-row">
       <div class="flex flex-wrap items-center">
-        <el-avatar v-if="getUserInfo?.avatar" :size="72" :src="getUserInfo?.avatar" class="mb-4 mr-4 sm:mb-0" />
+        <el-avatar
+          v-if="getUserInfo?.avatar"
+          :size="72"
+          :src="getUserInfo?.avatar"
+          class="mb-4 mr-4 sm:mb-0"
+        />
         <div class="flex flex-1 flex-col justify-center">
           <span class="m-0 text-truncate text-sm font-medium md:text-base">{{ title }}</span>
           <!-- <span class="mt-2 text-sm">今日晴，20℃ - 32℃</span> -->

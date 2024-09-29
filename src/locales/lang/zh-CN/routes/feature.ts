@@ -4,4 +4,5 @@ export default {
   copy: '剪贴板',
   guide: '引导',
   draggable: '拖拽',
+  pinyin: '拼音',
 }

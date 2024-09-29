@@ -264,6 +264,15 @@ const menus = [
           isKeepAlive: true,
         },
       },
+      {
+        path: 'pinyin',
+        name: 'Pinyin',
+        meta: {
+          icon: 'material-symbols:language-chinese-pinyin',
+          title: 'routes.feature.pinyin',
+          isKeepAlive: true,
+        },
+      },
     ],
   },
   {

@@ -110,6 +110,9 @@ importers:
       pinia:
         specifier: ^2.1.6
         version: 2.1.6(typescript@5.2.2)(vue@3.3.4)
+      pinyin-pro:
+        specifier: ^3.25.0
+        version: 3.25.0
       print-js:
         specifier: ^1.6.0
         version: 1.6.0
@@ -4161,6 +4164,9 @@ packages:
         optional: true
       typescript:
         optional: true
+
+  pinyin-pro@3.25.0:
+    resolution: {integrity: sha512-MpwQPa9Ry+1vVHrsRgfJTvbtoMn0Gk529OZEWqN+O/iiSOqnd2dbKrDMaX87n7YvVPhy2W1/sKakK9zheYNWeg==}
 
   pkg-types@1.0.3:
     resolution: {integrity: sha512-nN7pYi0AQqJnoLPC9eHFQ8AcyaixBUOwvqc5TDnIKCMEE6I0y8P7OKA7fPexsXGCGxQDl/cmrLAp26LhcwxZ4A==}
@@ -10099,6 +10105,8 @@ snapshots:
       vue-demi: 0.14.6(vue@3.3.4)
     optionalDependencies:
       typescript: 5.2.2
+
+  pinyin-pro@3.25.0: {}
 
   pkg-types@1.0.3:
     dependencies:

@@ -53,6 +53,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'pinyin',
+      name: 'Pinyin',
+      component: () => import('@/views/feature/pinyin/index.vue'),
+      meta: {
+        icon: 'material-symbols:language-chinese-pinyin',
+        title: 'routes.feature.pinyin',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 
