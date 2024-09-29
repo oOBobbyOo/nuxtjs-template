@@ -54,9 +54,10 @@ const poetryContentStr = ref(html(poetryContent.value))
 }
 
 .poetry-title {
+  padding: 0 175px;
+
   ::v-deep(.py-chinese-item) {
     font-size: 28px;
-    color: #333;
     font-weight: bold;
   }
 
@@ -67,6 +68,8 @@ const poetryContentStr = ref(html(poetryContent.value))
 }
 
 .poetry-author {
+  padding: 0 190px;
+
   ::v-deep(.py-chinese-item) {
     font-size: 14px;
     color: #999;
