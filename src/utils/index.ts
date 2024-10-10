@@ -1,4 +1,4 @@
-import { intersectionWith, isEqual, mergeWith, unionWith } from 'lodash-es'
+import { intersectionWith, isEqual, isInteger, mergeWith, sampleSize, unionWith } from 'lodash-es'
 import { isArray, isObject } from './is'
 import type { TargetContext } from '@/typings'
 
@@ -79,4 +79,19 @@ export function handleProp(prop: string): string {
   if (propArr.length === 1)
     return prop
   return propArr[propArr.length - 1]
+}
+
+export function getRandomImg(size = 1) {
+  if (!isInteger(size) || size < 1)
+    throw new Error('参数必须是一个正整数!')
+
+  // 匹配该目录下所有的图片
+  const images: string[] = []
+  for (let i = 1; i <= 20; i += 1) {
+    const img = new URL(`../assets/img/${i}.jpg`, import.meta.url).href
+    images.push(img)
+  }
+  // 获取图片集合
+  const result = sampleSize(images, size)
+  return result.length === 1 ? result[0] : result
 }

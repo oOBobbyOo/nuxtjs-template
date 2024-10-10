@@ -31,7 +31,7 @@ interface Props {
 ::v-deep(.el-card) {
   &__body {
     height: calc(100% - 61px);
-    min-height: 112px;
+    // min-height: 112px;
     overflow-y: auto;
   }
 }

@@ -63,6 +63,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'lazyload',
+      name: 'Lazyload',
+      component: () => import('@/views/feature/lazyload/index.vue'),
+      meta: {
+        icon: 'icon-park-outline:add-picture',
+        title: 'routes.feature.lazyload',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 

@@ -5,4 +5,5 @@ export default {
   guide: '引导',
   draggable: '拖拽',
   pinyin: '拼音',
+  lazyload: '懒加载',
 }

@@ -5,4 +5,5 @@ export default {
   guide: 'Guide',
   draggable: 'Draggable',
   pinyin: 'Pinyin',
+  lazyload: 'Lazyload',
 }
