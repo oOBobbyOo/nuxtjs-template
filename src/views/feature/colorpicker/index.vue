@@ -39,11 +39,13 @@ async function handleEyeDropper() {
         打开拾色器
       </el-button>
 
-      <div>{{ color }}</div>
+      <Ribbon :color="color">
+        {{ color }}
+      </Ribbon>
     </PageCard>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 
 </style>

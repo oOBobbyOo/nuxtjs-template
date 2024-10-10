@@ -90,6 +90,7 @@ declare module 'vue' {
     PageWrap: typeof import('./components/PageWrap/index.vue')['default']
     Pagination: typeof import('./components/Pagination/index.vue')['default']
     PinBallLoading: typeof import('./components/Loading/PinBallLoading.vue')['default']
+    Ribbon: typeof import('./components/Ribbon/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScreenLock: typeof import('./components/ScreenLock/index.vue')['default']

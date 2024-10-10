@@ -14,6 +14,7 @@ defineSlots()
 .page-card {
   @apply bg-white dark:bg-dark;
 
+  position: relative;
   padding: 24px;
   border-radius: 4px;
   box-shadow:
