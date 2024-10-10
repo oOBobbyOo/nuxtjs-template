@@ -7,4 +7,5 @@ export default {
   pinyin: '拼音',
   lazyload: '懒加载',
   colorthief: '图片取色盘',
+  colorpicker: '拾色器',
 }

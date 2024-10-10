@@ -83,6 +83,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'colorpicker',
+      name: 'Colorpicker',
+      component: () => import('@/views/feature/colorpicker/index.vue'),
+      meta: {
+        icon: 'tabler:color-picker',
+        title: 'routes.feature.colorpicker',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 

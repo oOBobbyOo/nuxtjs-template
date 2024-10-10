@@ -6,3 +6,11 @@ declare module '*.glb' {
 }
 
 declare module 'colorthief'
+
+declare const window: any
+
+declare global {
+  interface Window {
+    EyeDropper?: any
+  }
+}

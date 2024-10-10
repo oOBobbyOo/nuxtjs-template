@@ -7,4 +7,5 @@ export default {
   pinyin: 'Pinyin',
   lazyload: 'Lazyload',
   colorthief: 'Colorthief',
+  colorpicker: 'Colorpicker',
 }
