@@ -6,4 +6,5 @@ export default {
   draggable: 'Draggable',
   pinyin: 'Pinyin',
   lazyload: 'Lazyload',
+  colorthief: 'Colorthief',
 }

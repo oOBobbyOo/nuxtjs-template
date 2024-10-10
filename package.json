@@ -39,6 +39,7 @@
     "@wangeditor/editor": "^5.1.23",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^1.6.2",
+    "colorthief": "^2.6.0",
     "copy-to-clipboard": "^3.3.3",
     "cropperjs": "^1.6.1",
     "crypto-js": "^4.1.1",

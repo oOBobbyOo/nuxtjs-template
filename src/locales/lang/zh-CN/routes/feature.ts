@@ -6,4 +6,5 @@ export default {
   draggable: '拖拽',
   pinyin: '拼音',
   lazyload: '懒加载',
+  colorthief: '图片取色盘',
 }

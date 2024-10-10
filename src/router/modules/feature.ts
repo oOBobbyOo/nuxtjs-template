@@ -73,6 +73,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'colorthief',
+      name: 'Colorthief',
+      component: () => import('@/views/feature/colorthief/index.vue'),
+      meta: {
+        icon: 'ic:outline-color-lens',
+        title: 'routes.feature.colorthief',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 
