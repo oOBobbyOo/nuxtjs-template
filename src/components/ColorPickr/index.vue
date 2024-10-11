@@ -5,6 +5,8 @@ import '@simonwep/pickr/dist/themes/nano.min.css'
 
 import Pickr from '@simonwep/pickr'
 
+import { useI18n } from '@/hooks/web/useI18n'
+
 defineOptions({ name: 'ColorPickr' })
 
 const props = defineProps<{
@@ -16,19 +18,20 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void
 }>()
 
+const { t } = useI18n()
+
 const localColor = ref(props.modelValue)
 
 // 实例
-const pickr = ref<Pickr | null>()
+const pickr = ref<Pickr>()
 
 // 颜色选择器
 const colorPickrRef = ref<HTMLInputElement>()
 
 // Pickr
-function createPickr() {
-  // if (pickr.value) {
-  //   return
-  // }
+function initPickr() {
+  if (pickr.value)
+    return
 
   if (colorPickrRef.value) {
     pickr.value = Pickr.create({
@@ -68,17 +71,11 @@ function createPickr() {
         },
       },
       i18n: {
-        'btn:save': '保存',
-        'btn:clear': '清空',
+        'btn:save': t('common.save'),
+        'btn:clear': t('common.clear'),
       },
     })
-  }
-}
 
-onMounted(() => {
-  createPickr()
-
-  if (pickr.value) {
     pickr.value.on('save', (color: any) => {
       let hexa = '#000'
       if (color)
@@ -88,6 +85,10 @@ onMounted(() => {
       emit('update:modelValue', hexa)
     })
   }
+}
+
+onMounted(() => {
+  initPickr()
 })
 
 onUnmounted(() => {

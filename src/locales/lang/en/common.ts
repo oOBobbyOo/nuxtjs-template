@@ -20,4 +20,6 @@ export default {
       description: 'Displays the location of the current page and records the routing history.',
     },
   },
+  save: 'Save',
+  clear: 'Clear',
 }

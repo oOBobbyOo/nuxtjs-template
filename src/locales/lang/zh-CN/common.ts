@@ -20,4 +20,6 @@ export default {
       description: '显示当前页面的位置，记录路由历史记录。',
     },
   },
+  save: '保存',
+  clear: '清空',
 }
