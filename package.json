@@ -29,6 +29,7 @@
     "@google/model-viewer": "^3.5.0",
     "@iconify/iconify": "^3.1.1",
     "@kjgl77/datav-vue3": "^1.7.2",
+    "@simonwep/pickr": "^1.9.1",
     "@unocss/reset": "^0.56.4",
     "@vavt/v3-extension": "^1.1.0",
     "@vueuse/components": "^10.9.0",

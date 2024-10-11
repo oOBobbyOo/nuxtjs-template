@@ -14,6 +14,7 @@ declare module 'vue' {
     Card: typeof import('./components/Card/index.vue')['default']
     Carousel: typeof import('./components/Carousel/index.vue')['default']
     ColorCircleLoading: typeof import('./components/Loading/ColorCircleLoading.vue')['default']
+    ColorPickr: typeof import('./components/ColorPickr/index.vue')['default']
     ColSetting: typeof import('./components/Table/components/ColSetting.vue')['default']
     CountTo: typeof import('./components/CountTo/index.vue')['default']
     CropperAvatar: typeof import('./components/Cropper/CropperAvatar.vue')['default']

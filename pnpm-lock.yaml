@@ -32,6 +32,9 @@ importers:
       '@kjgl77/datav-vue3':
         specifier: ^1.7.2
         version: 1.7.2(vue@3.3.4)
+      '@simonwep/pickr':
+        specifier: ^1.9.1
+        version: 1.9.1
       '@unocss/reset':
         specifier: ^0.56.4
         version: 0.56.4
@@ -148,7 +151,7 @@ importers:
         version: 4.3.0(vue@3.3.4)
       xgplayer:
         specifier: ^3.0.9
-        version: 3.0.9(core-js@3.33.1)
+        version: 3.0.9(core-js@3.37.0)
     devDependencies:
       '@antfu/eslint-config':
         specifier: 1.0.0-beta.13
@@ -1195,6 +1198,9 @@ packages:
       rollup:
         optional: true
 
+  '@simonwep/pickr@1.9.1':
+    resolution: {integrity: sha512-fR3qmfAcPf/HSFS7GEnTmZLM3+xERv1+jyMBbzT63ilRRM8veYjI7ELvkHHKk0/du3lHp7uh/FqatjM3646X1g==}
+
   '@stylistic/eslint-plugin-js@0.0.5':
     resolution: {integrity: sha512-Ca3DAk4lHGELPHnHIOUc/SF3Pg58xd/AATqNMSTSoxjoadRk6MGDblriURXjEg7gif4ygiB3+EcIuphAceFYvQ==}
 
@@ -2191,6 +2197,9 @@ packages:
 
   core-js@3.33.1:
     resolution: {integrity: sha512-qVSq3s+d4+GsqN0teRCJtM6tdEEXyWxjzbhVrCHmBS5ZTM0FS2MOS0D13dUXAWDUN6a+lHI/N1hF9Ytz6iLl9Q==}
+
+  core-js@3.37.0:
+    resolution: {integrity: sha512-fu5vHevQ8ZG4og+LXug8ulUtVxjOcEYvifJr7L5Bfq9GOztVqsKd9/59hUk2ZSbCrS3BqUr3EpaYGIYzq7g3Ug==}
 
   core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -4074,6 +4083,9 @@ packages:
   nanomatch@1.2.13:
     resolution: {integrity: sha512-fpoe2T0RbHwBTBUOftAfBPaDEi06ufaUai0mE6Yn1kacc3SnTErfb/h+X94VXzI64rKFHYImXSvdwGGCmwOqCA==}
     engines: {node: '>=0.10.0'}
+
+  nanopop@2.4.2:
+    resolution: {integrity: sha512-NzOgmMQ+elxxHeIha+OG/Pv3Oc3p4RU2aBhwWwAqDpXrdTbtRylbRLQztLy8dMMwfl6pclznBdfUhccEn9ZIzw==}
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
@@ -6872,6 +6884,11 @@ snapshots:
     optionalDependencies:
       rollup: 3.29.4
 
+  '@simonwep/pickr@1.9.1':
+    dependencies:
+      core-js: 3.37.0
+      nanopop: 2.4.2
+
   '@stylistic/eslint-plugin-js@0.0.5':
     dependencies:
       acorn: 8.10.0
@@ -8167,7 +8184,10 @@ snapshots:
     dependencies:
       toggle-selection: 1.0.6
 
-  core-js@3.33.1: {}
+  core-js@3.33.1:
+    optional: true
+
+  core-js@3.37.0: {}
 
   core-util-is@1.0.3: {}
 
@@ -10177,6 +10197,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  nanopop@2.4.2: {}
+
   natural-compare@1.4.0: {}
 
   ndarray-ops@1.2.2:
@@ -11860,19 +11882,19 @@ snapshots:
       imurmurhash: 0.1.4
       signal-exit: 4.1.0
 
-  xgplayer-subtitles@3.0.9(core-js@3.33.1):
+  xgplayer-subtitles@3.0.9(core-js@3.37.0):
     dependencies:
-      core-js: 3.33.1
+      core-js: 3.37.0
       eventemitter3: 4.0.7
 
-  xgplayer@3.0.9(core-js@3.33.1):
+  xgplayer@3.0.9(core-js@3.37.0):
     dependencies:
-      core-js: 3.33.1
+      core-js: 3.37.0
       danmu.js: 1.1.13
       delegate: 3.2.0
       downloadjs: 1.4.7
       eventemitter3: 4.0.7
-      xgplayer-subtitles: 3.0.9(core-js@3.33.1)
+      xgplayer-subtitles: 3.0.9(core-js@3.37.0)
 
   xml-name-validator@4.0.0: {}
 
