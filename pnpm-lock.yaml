@@ -146,6 +146,9 @@ importers:
       vue-i18n:
         specifier: ^9.4.1
         version: 9.4.1(vue@3.3.4)
+      vue-print-next:
+        specifier: ^1.0.8
+        version: 1.0.8(vue@3.3.4)
       vue-router:
         specifier: ^4.3.0
         version: 4.3.0(vue@3.3.4)
@@ -5475,6 +5478,11 @@ packages:
     engines: {node: '>= 16'}
     peerDependencies:
       vue: ^3.0.0
+
+  vue-print-next@1.0.8:
+    resolution: {integrity: sha512-GJqp1y7eMoIJzb6FxCjKAdhs9slQcK6N8mpSEAXiQk78gmco87adXDGLqmv29e1doSwcgGFxbS8eossL6B76uw==}
+    peerDependencies:
+      vue: ^2.0.0 || >=3.0.0
 
   vue-router@4.3.0:
     resolution: {integrity: sha512-dqUcs8tUeG+ssgWhcPbjHvazML16Oga5w34uCUmsk7i0BcnskoLGwjpa15fqMr2Fa5JgVBrdL2MEgqz6XZ/6IQ==}
@@ -11793,6 +11801,10 @@ snapshots:
       '@intlify/core-base': 9.4.1
       '@intlify/shared': 9.4.1
       '@vue/devtools-api': 6.5.0
+      vue: 3.3.4
+
+  vue-print-next@1.0.8(vue@3.3.4):
+    dependencies:
       vue: 3.3.4
 
   vue-router@4.3.0(vue@3.3.4):

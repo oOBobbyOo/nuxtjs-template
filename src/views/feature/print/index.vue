@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { VuePrintNext, vPrint } from 'vue-print-next'
+
 import printJS from 'print-js'
 import testPdf from '@/assets/test.pdf'
 
@@ -34,7 +36,7 @@ function printPDF() {
 
 function printHTML() {
   printJS({
-    printable: 'printBox',
+    printable: 'printJSEle',
     type: 'html',
     header: 'Print HTML',
     targetStyles: ['*'], // 打印内容使用所有HTML样式
@@ -55,43 +57,81 @@ function printIMGS() {
     header: 'Multiple Images',
   })
 }
+
+function handlePrint() {
+  new VuePrintNext({ el: '#printNextEle' /** 其他参数 */ })
+}
 </script>
 
 <template>
-  <Card title="打印">
-    <div space-4>
-      <el-button type="primary" @click="printJSON">
-        打印 JSON
-      </el-button>
-      <el-button type="primary" @click="printPDF">
-        打印 PDF
-      </el-button>
-      <el-button type="primary" @click="printHTML">
-        打印 HTML
-      </el-button>
-      <el-button type="primary" @click="printIMG">
-        打印 图片
-      </el-button>
-      <el-button type="primary" @click="printIMGS">
-        打印 多张图片
-      </el-button>
-    </div>
+  <div class="space-y-4">
+    <Card title="print-js">
+      <div space-4>
+        <el-button type="primary" @click="printJSON">
+          打印 JSON
+        </el-button>
+        <el-button type="primary" @click="printPDF">
+          打印 PDF
+        </el-button>
+        <el-button type="primary" @click="printHTML">
+          打印 HTML
+        </el-button>
+        <el-button type="primary" @click="printIMG">
+          打印 图片
+        </el-button>
+        <el-button type="primary" @click="printIMGS">
+          打印 多张图片
+        </el-button>
+      </div>
 
-    <div id="printBox" pt-4>
-      <el-descriptions :column="1" border>
-        <el-descriptions-item label="github">
-          <el-link type="primary" href="https://github.com/crabbly/Print.js" target="_blank">
-            https://github.com/crabbly/Print.js
-          </el-link>
-        </el-descriptions-item>
-        <el-descriptions-item label="docs">
-          <el-link type="primary" href="https://printjs.crabbly.com/" target="_blank">
-            https://printjs.crabbly.com/
-          </el-link>
-        </el-descriptions-item>
-      </el-descriptions>
-    </div>
-  </Card>
+      <div id="printJSEle" pt-4>
+        <el-descriptions :column="1" border>
+          <el-descriptions-item label="github">
+            <el-link type="primary" href="https://github.com/crabbly/Print.js" target="_blank">
+              https://github.com/crabbly/Print.js
+            </el-link>
+          </el-descriptions-item>
+          <el-descriptions-item label="docs">
+            <el-link type="primary" href="https://printjs.crabbly.com/" target="_blank">
+              https://printjs.crabbly.com/
+            </el-link>
+          </el-descriptions-item>
+        </el-descriptions>
+      </div>
+    </Card>
+
+    <Card title="vue-print-next">
+      <div space-4>
+        <!-- 指令 -->
+        <el-button v-print type="primary">
+          打印整个页面
+        </el-button>
+        <!-- 指定打印元素id -->
+        <el-button v-print="'#printNextEle'" type="primary">
+          打印局部内容
+        </el-button>
+        <!-- 使用 VuePrintNext 类 -->
+        <el-button type="primary" @click="handlePrint">
+          VuePrintNext
+        </el-button>
+      </div>
+
+      <div id="printNextEle" pt-4>
+        <el-descriptions :column="1" border>
+          <el-descriptions-item label="github">
+            <el-link type="primary" href="https://github.com/Alessandro-Pang/vue-print-next" target="_blank">
+              https://github.com/Alessandro-Pang/vue-print-next
+            </el-link>
+          </el-descriptions-item>
+          <el-descriptions-item label="docs">
+            <el-link type="primary" href="https://alexpang.cn/vue-print-next/" target="_blank">
+              https://alexpang.cn/vue-print-next/
+            </el-link>
+          </el-descriptions-item>
+        </el-descriptions>
+      </div>
+    </Card>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="less"></style>

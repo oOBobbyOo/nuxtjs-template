@@ -14,6 +14,7 @@ export default antfu(
       'node/prefer-global/process': 'off',
       'prefer-spread': 'off',
       'no-console': 'off',
+      'no-new': 'off',
     },
   },
 )
