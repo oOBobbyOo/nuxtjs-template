@@ -1,0 +1,36 @@
+.swiper-custom {
+  ::v-deep(.swiper-button-prev),
+  ::v-deep(.swiper-button-next) {
+    width: 36px;
+    height: 36px;
+    background: rgb(31 45 61 / 11%);
+    border-radius: 50%;
+  }
+
+  ::v-deep(.swiper-button-prev:hover),
+  ::v-deep(.swiper-button-prev:focus),
+  ::v-deep(.swiper-button-next:hover),
+  ::v-deep(.swiper-button-next:focus) {
+    background: rgb(31 45 61 / 23%);
+  }
+
+  ::v-deep(.swiper-button-prev::after),
+  ::v-deep(.swiper-button-next::after) {
+    font-size: inherit;
+    color: #fff;
+  }
+
+  ::v-deep(.swiper-pagination) {
+    &-bullet {
+      width: 16px;
+      height: 3px;
+      background: rgb(0 0 0 / 48%);
+      border-radius: 0;
+
+      &-active {
+        width: 24px;
+        background: rgb(100 108 255 / 88%);
+      }
+    }
+  }
+}
