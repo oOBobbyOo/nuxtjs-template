@@ -7,7 +7,76 @@ import FlipSwiper from './modules/flip-swiper.vue'
 import CardsSwiper from './modules/cards-swiper.vue'
 import CoverflowSwiper from './modules/coverflow-swiper.vue'
 import ThumbsSwiper from './modules/thumbs-swiper.vue'
+import CreativeSwiper from './modules/creative-swiper.vue'
 import VisualSwiper from './modules/visual-swiper.vue'
+
+const creativeEffectOptions = ref([
+  {
+    prev: {
+      shadow: true,
+      translate: [0, 0, -400],
+    },
+    next: {
+      translate: ['100%', 0, 0],
+    },
+  },
+  {
+    prev: {
+      shadow: true,
+      translate: ['-120%', 0, -500],
+    },
+    next: {
+      shadow: true,
+      translate: ['120%', 0, -500],
+    },
+  },
+  {
+    prev: {
+      shadow: true,
+      translate: ['-20%', 0, -1],
+    },
+    next: {
+      translate: ['100%', 0, 0],
+    },
+  },
+  {
+    prev: {
+      shadow: true,
+      translate: [0, 0, -800],
+      rotate: [180, 0, 0],
+    },
+    next: {
+      shadow: true,
+      translate: [0, 0, -800],
+      rotate: [-180, 0, 0],
+    },
+  },
+  {
+    prev: {
+      shadow: true,
+      translate: ['-125%', 0, -800],
+      rotate: [0, 0, -90],
+    },
+    next: {
+      shadow: true,
+      translate: ['125%', 0, -800],
+      rotate: [0, 0, 90],
+    },
+  },
+  {
+    prev: {
+      shadow: true,
+      origin: 'left center',
+      translate: ['-5%', 0, -200],
+      rotate: [0, 100, 0],
+    },
+    next: {
+      origin: 'right center',
+      translate: ['5%', 0, -200],
+      rotate: [0, -100, 0],
+    },
+  },
+])
 </script>
 
 <template>
@@ -51,6 +120,13 @@ import VisualSwiper from './modules/visual-swiper.vue'
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-4">
         <Card title="Thumbs">
           <ThumbsSwiper />
+        </Card>
+      </el-col>
+      <el-col :span="24" class="mb-4">
+        <Card title="Creative">
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 md:grid-cols-2">
+            <CreativeSwiper v-for="(option, i) in creativeEffectOptions" :key="i" :creative-effect="option" />
+          </div>
         </Card>
       </el-col>
       <el-col :span="24" class="mb-4">
