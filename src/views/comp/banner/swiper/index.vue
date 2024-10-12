@@ -7,6 +7,7 @@ import FlipSwiper from './modules/flip-swiper.vue'
 import CardsSwiper from './modules/cards-swiper.vue'
 import CoverflowSwiper from './modules/coverflow-swiper.vue'
 import ThumbsSwiper from './modules/thumbs-swiper.vue'
+import VisualSwiper from './modules/visual-swiper.vue'
 </script>
 
 <template>
@@ -22,7 +23,7 @@ import ThumbsSwiper from './modules/thumbs-swiper.vue'
           <PerviewSwiper class="bg-gray-1 !h-80" />
         </Card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-4">
+      <el-col :span="24" class="mb-4">
         <Card title="Effect fade">
           <FadeSwiper class="!h-80" />
         </Card>
@@ -50,6 +51,11 @@ import ThumbsSwiper from './modules/thumbs-swiper.vue'
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-4">
         <Card title="Thumbs">
           <ThumbsSwiper />
+        </Card>
+      </el-col>
+      <el-col :span="24" class="mb-4">
+        <Card title="Visual">
+          <VisualSwiper />
         </Card>
       </el-col>
     </el-row>
