@@ -11,10 +11,10 @@ const imgs = computed(() => randomImgs.map((item, i) => ({ id: i, url: item })))
     class="swiper-custom swiper-coverflow"
     :list="imgs"
     effect="coverflow"
-    grab-cursor loop
+    grab-cursor
+    loop
     centered-slides
-    slides-per-view="auto"
-    :coverflow-effect="{
+    slides-per-view="auto" :coverflow-effect="{
       rotate: 50,
       stretch: 0,
       depth: 100,
@@ -33,4 +33,11 @@ const imgs = computed(() => randomImgs.map((item, i) => ({ id: i, url: item })))
 
 <style scoped lang="less">
 @import './custom.less';
+
+.swiper-coverflow {
+  ::v-deep(.swiper-slide) {
+    width: 320px;
+    height: 320px;
+  }
+}
 </style>

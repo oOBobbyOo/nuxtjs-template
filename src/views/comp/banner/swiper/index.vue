@@ -41,9 +41,9 @@ import CoverflowSwiper from './modules/coverflow-swiper.vue'
           <CardsSwiper class="!h-80 !w-60" />
         </Card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8" class="mb-4">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-4">
         <Card title="Effect coverflow">
-          <CoverflowSwiper class="!h-80 !w-80" />
+          <CoverflowSwiper />
         </Card>
       </el-col>
     </el-row>
