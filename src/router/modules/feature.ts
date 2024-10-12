@@ -93,6 +93,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'vue-office',
+      name: 'VueOffice',
+      component: () => import('@/views/feature/vueoffice/index.vue'),
+      meta: {
+        icon: 'uiw:file-excel',
+        title: 'routes.feature.vueoffice',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 

@@ -41,6 +41,15 @@ importers:
       '@vavt/v3-extension':
         specifier: ^1.1.0
         version: 1.1.0
+      '@vue-office/docx':
+        specifier: ^1.6.2
+        version: 1.6.2(vue-demi@0.14.7(vue@3.3.4))(vue@3.3.4)
+      '@vue-office/excel':
+        specifier: ^1.7.11
+        version: 1.7.11(vue-demi@0.14.7(vue@3.3.4))(vue@3.3.4)
+      '@vue-office/pdf':
+        specifier: ^2.0.2
+        version: 2.0.2(vue-demi@0.14.7(vue@3.3.4))(vue@3.3.4)
       '@vueuse/components':
         specifier: ^10.9.0
         version: 10.9.0(vue@3.3.4)
@@ -1536,6 +1545,36 @@ packages:
 
   '@volar/typescript@1.10.1':
     resolution: {integrity: sha512-+iiO9yUSRHIYjlteT+QcdRq8b44qH19/eiUZtjNtuh6D9ailYM7DVR0zO2sEgJlvCaunw/CF9Ov2KooQBpR4VQ==}
+
+  '@vue-office/docx@1.6.2':
+    resolution: {integrity: sha512-OHAoUHeY8nHjhWvwDhlPx+/rmRkxmqLpvPgtfCEOZ4H1c1LCdJ6eDbdV3152ww8dcdZ7fgGQu3fmSSaI7JwdpQ==}
+    peerDependencies:
+      '@vue/composition-api': ^1.7.1
+      vue: ^2.0.0 || >=3.0.0
+      vue-demi: ^0.14.6
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+
+  '@vue-office/excel@1.7.11':
+    resolution: {integrity: sha512-LF3R9IV573Sf4qTu6Ik5Ee8UMfkrsZQ6HEQE25/2m1c0CMcHX6KanIy6Cz0b0Q+FrLH3TjIsLTm6oPcqAbDGSA==}
+    peerDependencies:
+      '@vue/composition-api': ^1.7.1
+      vue: ^2.0.0 || >=3.0.0
+      vue-demi: ^0.14.6
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+
+  '@vue-office/pdf@2.0.2':
+    resolution: {integrity: sha512-bQFqGxSOnKbvCS7OoJniYoTz1VIm1XOrRD27Msorxny9NFJ8RsQK1A4uhlnISJRFMaUwp1qlcVE9jMAhsiIyjg==}
+    peerDependencies:
+      '@vue/composition-api': ^1.7.1
+      vue: ^2.0.0 || >=3.0.0
+      vue-demi: ^0.14.6
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
 
   '@vue/babel-helper-vue-transform-on@1.1.5':
     resolution: {integrity: sha512-SgUymFpMoAyWeYWLAY+MkCK3QEROsiUnfaw5zxOVD/M64KQs8D/4oK6Q5omVA2hnvEOE0SCkH2TZxs/jnnUj7w==}
@@ -7356,6 +7395,21 @@ snapshots:
   '@volar/typescript@1.10.1':
     dependencies:
       '@volar/language-core': 1.10.1
+
+  '@vue-office/docx@1.6.2(vue-demi@0.14.7(vue@3.3.4))(vue@3.3.4)':
+    dependencies:
+      vue: 3.3.4
+      vue-demi: 0.14.7(vue@3.3.4)
+
+  '@vue-office/excel@1.7.11(vue-demi@0.14.7(vue@3.3.4))(vue@3.3.4)':
+    dependencies:
+      vue: 3.3.4
+      vue-demi: 0.14.7(vue@3.3.4)
+
+  '@vue-office/pdf@2.0.2(vue-demi@0.14.7(vue@3.3.4))(vue@3.3.4)':
+    dependencies:
+      vue: 3.3.4
+      vue-demi: 0.14.7(vue@3.3.4)
 
   '@vue/babel-helper-vue-transform-on@1.1.5': {}
 

@@ -8,4 +8,5 @@ export default {
   lazyload: 'Lazyload',
   colorthief: 'Colorthief',
   colorpicker: 'Colorpicker',
+  vueoffice: 'VueOffice',
 }
