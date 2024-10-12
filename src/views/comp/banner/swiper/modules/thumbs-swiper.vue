@@ -35,9 +35,8 @@ function setThumbsSwiper(swiper: SwiperClass) {
     <!-- 缩略图 -->
     <Swiper
       class="swiper-thumbs h-1/5 !pt-2.5"
-      loop
-      free-mode
-      watch-slides-progress
+
+      loop free-mode watch-slides-progress
       :space-between="10"
       :slides-per-view="5"
       :modules="[FreeMode, Navigation, Thumbs]"

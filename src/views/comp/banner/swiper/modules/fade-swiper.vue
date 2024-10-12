@@ -1,60 +1,42 @@
 <script setup lang="ts">
-const list = ref([
+const imgs = ref([
   {
     id: '1',
-    content: 'Slide 1',
+    url: 'https://swiperjs.com/demos/images/nature-1.jpg',
   },
   {
     id: '2',
-    content: 'Slide 2',
+    url: 'https://swiperjs.com/demos/images/nature-2.jpg',
   },
   {
     id: '3',
-    content: 'Slide 3',
+    url: 'https://swiperjs.com/demos/images/nature-3.jpg',
   },
   {
     id: '4',
-    content: 'Slide 4',
+    url: 'https://swiperjs.com/demos/images/nature-4.jpg',
   },
   {
     id: '5',
-    content: 'Slide 5',
+    url: 'https://swiperjs.com/demos/images/nature-5.jpg',
   },
   {
     id: '6',
-    content: 'Slide 6',
-  },
-  {
-    id: '7',
-    content: 'Slide 7',
-  },
-  {
-    id: '8',
-    content: 'Slide 8',
-  },
-  {
-    id: '9',
-    content: 'Slide 9',
-  },
-  {
-    id: '10',
-    content: 'Slide 10',
+    url: 'https://swiperjs.com/demos/images/nature-6.jpg',
   },
 ])
 </script>
 
 <template>
   <Swiper
-    class="swiper-custom fade-swiper"
-    :list="list"
+    class="swiper-custom swiper-fade"
+    :list="imgs"
     effect="fade"
     grab-cursor
     loop
   >
-    <template #default="{ content }">
-      <p class="text-dark">
-        {{ content }}
-      </p>
+    <template #default="{ url }">
+      <img :src="url">
     </template>
   </Swiper>
 </template>
