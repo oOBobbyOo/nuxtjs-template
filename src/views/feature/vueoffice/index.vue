@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import VueOfficeDocx from './components/VueOfficeDocx.vue'
+// @see https://501351981.github.io/vue-office/examples/docs/guide
 
-// docx 预览
-import VueOfficeExcel from './components/VueOfficeExcel.vue'
+// PDF 预览
+import VueOfficePdf from './components/VueOfficePdf.vue'
 
 // Excel 预览
-import VueOfficePdf from './components/VueOfficePdf.vue' // PDF 预览
+import VueOfficeExcel from './components/VueOfficeExcel.vue'
+
+// Docs 预览
+import VueOfficeDocx from './components/VueOfficeDocx.vue'
 
 const activeName = ref('pdf')
 

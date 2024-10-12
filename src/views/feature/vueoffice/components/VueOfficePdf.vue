@@ -1,14 +1,28 @@
 <script setup lang="ts">
 import VueOfficePdf from '@vue-office/pdf'
 
-import excelFile from '@/assets/office/test.pdf?url'
+import type { UploadRawFile, UploadUserFile } from 'element-plus'
+import pdfFile from '@/assets/office/test.pdf?url'
 
 const loading = ref(true)
-const src = ref(excelFile)
+const src = ref<string | ArrayBuffer>(pdfFile)
 
 const options = reactive({
-  width: 900,
+  width: 800,
 })
+
+const fileList = ref<UploadUserFile[]>([])
+
+function beforeUpload(file: UploadRawFile) {
+  const reader = new FileReader()
+  reader.readAsArrayBuffer(file)
+  reader.onload = (loadEvent) => {
+    const arrayBuffer = loadEvent.target?.result
+    if (arrayBuffer)
+      src.value = arrayBuffer
+  }
+  return false
+}
 
 function renderedHandler() {
   loading.value = false
@@ -22,10 +36,15 @@ function errorHandler() {
 </script>
 
 <template>
-  <VueOfficePdf
-    v-loading="loading" class="h-full" :src="src" :options="options"
-    @rendered="renderedHandler" @error="errorHandler"
-  />
+  <div v-loading="loading" class="h-full space-y-4">
+    <el-upload :limit="1" :file-list="fileList" accept=".pdf" :before-upload="beforeUpload" action="">
+      <el-button plain>
+        上传本地文件
+      </el-button>
+    </el-upload>
+
+    <VueOfficePdf class="h-full" :src="src" :options="options" @rendered="renderedHandler" @error="errorHandler" />
+  </div>
 </template>
 
 <style scoped lang="less"></style>

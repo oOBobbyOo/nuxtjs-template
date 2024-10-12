@@ -2,10 +2,11 @@
 import VueOfficeExcel from '@vue-office/excel'
 import '@vue-office/excel/lib/index.css'
 
+import type { UploadRawFile, UploadUserFile } from 'element-plus'
 import excelFile from '@/assets/office/test.xlsx?url'
 
 const loading = ref(true)
-const src = ref(excelFile)
+const src = ref<string | ArrayBuffer>(excelFile)
 
 const options = reactive({
   xls: false, // 预览xlsx文件设为false；预览xls文件设为true
@@ -23,6 +24,19 @@ const options = reactive({
   },
 })
 
+const fileList = ref<UploadUserFile[]>([])
+
+function beforeUpload(file: UploadRawFile) {
+  const reader = new FileReader()
+  reader.readAsArrayBuffer(file)
+  reader.onload = (loadEvent) => {
+    const arrayBuffer = loadEvent.target?.result
+    if (arrayBuffer)
+      src.value = arrayBuffer
+  }
+  return false
+}
+
 function renderedHandler() {
   loading.value = false
   console.log('渲染完成')
@@ -35,10 +49,15 @@ function errorHandler() {
 </script>
 
 <template>
-  <VueOfficeExcel
-    v-loading="loading" class="h-full" :src="src" :options="options" @rendered="renderedHandler"
-    @error="errorHandler"
-  />
+  <div v-loading="loading" class="h-full">
+    <el-upload :limit="1" :file-list="fileList" accept=".xlsx" :before-upload="beforeUpload" action="">
+      <el-button plain>
+        上传本地文件
+      </el-button>
+    </el-upload>
+
+    <VueOfficeExcel :src="src" :options="options" @rendered="renderedHandler" @error="errorHandler" />
+  </div>
 </template>
 
 <style scoped lang="less"></style>
