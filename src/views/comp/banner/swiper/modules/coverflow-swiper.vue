@@ -14,7 +14,8 @@ const imgs = computed(() => randomImgs.map((item, i) => ({ id: i, url: item })))
     grab-cursor
     loop
     centered-slides
-    slides-per-view="auto" :coverflow-effect="{
+    slides-per-view="auto"
+    :coverflow-effect="{
       rotate: 50,
       stretch: 0,
       depth: 100,
