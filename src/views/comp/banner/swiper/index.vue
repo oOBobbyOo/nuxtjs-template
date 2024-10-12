@@ -6,6 +6,7 @@ import CubeSwiper from './modules/cube-swiper.vue'
 import FlipSwiper from './modules/flip-swiper.vue'
 import CardsSwiper from './modules/cards-swiper.vue'
 import CoverflowSwiper from './modules/coverflow-swiper.vue'
+import ThumbsSwiper from './modules/thumbs-swiper.vue'
 </script>
 
 <template>
@@ -21,7 +22,7 @@ import CoverflowSwiper from './modules/coverflow-swiper.vue'
           <PerviewSwiper class="bg-gray-1 !h-80" />
         </Card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8" class="mb-4">
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-4">
         <Card title="Effect fade">
           <FadeSwiper class="!h-80" />
         </Card>
@@ -44,6 +45,11 @@ import CoverflowSwiper from './modules/coverflow-swiper.vue'
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-4">
         <Card title="Effect coverflow">
           <CoverflowSwiper />
+        </Card>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="mb-4">
+        <Card title="Thumbs">
+          <ThumbsSwiper />
         </Card>
       </el-col>
     </el-row>
