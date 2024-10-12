@@ -44,7 +44,15 @@ const list = ref([
 </script>
 
 <template>
-  <Swiper class="swiper-custom" :list="list" :slides-per-view="3" :space-between="30">
+  <Swiper
+    class="swiper-custom"
+    :list="list"
+    :slides-per-view="3"
+    :space-between="30"
+    :pagination="{
+      clickable: true,
+    }"
+  >
     <template #default="{ content }">
       <p class="text-dark">
         {{ content }}

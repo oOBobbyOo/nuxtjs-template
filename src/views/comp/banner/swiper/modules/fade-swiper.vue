@@ -44,7 +44,13 @@ const list = ref([
 </script>
 
 <template>
-  <Swiper class="swiper-custom" :list="list" effect="fade">
+  <Swiper
+    class="swiper-custom fade-swiper"
+    :list="list"
+    effect="fade"
+    grab-cursor
+    loop
+  >
     <template #default="{ content }">
       <p class="text-dark">
         {{ content }}

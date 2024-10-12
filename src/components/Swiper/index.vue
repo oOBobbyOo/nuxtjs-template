@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import {
   Autoplay,
   EffectCards,
+  EffectCube,
   EffectFade,
   EffectFlip,
   Navigation,
@@ -14,6 +15,7 @@ import {
 import 'swiper/css'
 import 'swiper/css/effect-cards'
 import 'swiper/css/effect-fade'
+import 'swiper/css/effect-cube'
 import 'swiper/css/effect-flip'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -36,7 +38,7 @@ interface SwiperProps extends SwiperOptions {
   list: any[]
 }
 
-const modules = [Autoplay, EffectCards, EffectFade, EffectFlip, Navigation, Pagination]
+const modules = [Autoplay, EffectCards, EffectFade, EffectCube, EffectFlip, Navigation, Pagination]
 
 const attrs = useAttrs()
 </script>

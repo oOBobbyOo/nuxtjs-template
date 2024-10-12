@@ -44,7 +44,10 @@ const list = ref([
 </script>
 
 <template>
-  <Swiper class="swiper-custom swiper-cards" :list="list" effect="cards" :navigation="false" :pagination="false">
+  <Swiper
+    class="swiper-custom swiper-cards" :list="list" effect="cards" grab-cursor loop :navigation="false"
+    :pagination="false"
+  >
     <template #default="{ content }">
       {{ content }}
     </template>

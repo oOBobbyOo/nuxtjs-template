@@ -45,10 +45,13 @@ const list = ref([
 
 <template>
   <Swiper
-    class="swiper-custom" :list="list" :autoplay="{
+    class="swiper-custom"
+    :list="list"
+    :autoplay="{
       delay: 1000,
       disableOnInteraction: false,
-    }" :pagination="{
+    }"
+    :pagination="{
       clickable: true,
     }"
   >

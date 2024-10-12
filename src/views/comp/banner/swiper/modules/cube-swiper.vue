@@ -29,12 +29,17 @@ const imgs = ref([
 
 <template>
   <Swiper
-    class="swiper-custom swiper-flip"
+    class="swiper-custom swiper-cube"
     :list="imgs"
-    effect="flip"
+    effect="cube"
     grab-cursor
     loop
-    navigation
+    :cube-effect="{
+      shadow: true,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.94,
+    }"
     :pagination="{
       clickable: true,
     }"
