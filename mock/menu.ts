@@ -273,6 +273,42 @@ const menus = [
           isKeepAlive: true,
         },
       },
+      {
+        path: 'lazyload',
+        name: 'Lazyload',
+        meta: {
+          icon: 'icon-park-outline:add-picture',
+          title: 'routes.feature.lazyload',
+          isKeepAlive: true,
+        },
+      },
+      {
+        path: 'colorthief',
+        name: 'Colorthief',
+        meta: {
+          icon: 'ic:outline-color-lens',
+          title: 'routes.feature.colorthief',
+          isKeepAlive: true,
+        },
+      },
+      {
+        path: 'colorpicker',
+        name: 'Colorpicker',
+        meta: {
+          icon: 'tabler:color-picker',
+          title: 'routes.feature.colorpicker',
+          isKeepAlive: true,
+        },
+      },
+      {
+        path: 'vue-office',
+        name: 'VueOffice',
+        meta: {
+          icon: 'uiw:file-excel',
+          title: 'routes.feature.vueoffice',
+          isKeepAlive: true,
+        },
+      },
     ],
   },
   {
@@ -603,6 +639,15 @@ const menus = [
             },
           },
           {
+            path: 'vue-router',
+            name: 'IframeInlineVueRouter',
+            meta: {
+              icon: 'logos:vue',
+              title: 'routes.iframe.vue-router',
+              isKeepAlive: false,
+            },
+          },
+          {
             path: 'vite',
             name: 'IframeInlineVite',
             meta: {
@@ -617,6 +662,15 @@ const menus = [
             meta: {
               icon: 'logos:pinia',
               title: 'routes.iframe.pinia',
+              isKeepAlive: false,
+            },
+          },
+          {
+            path: 'unocss',
+            name: 'IframeInlineUnoCss',
+            meta: {
+              icon: 'logos:unocss',
+              title: 'routes.iframe.unocss',
               isKeepAlive: false,
             },
           },
