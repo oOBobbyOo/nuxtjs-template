@@ -42,11 +42,8 @@ function setTransition(swiper: SwiperClass, transition: number) {
 <template>
   <Swiper
     class="swiper-custom swiper-visual"
-    loop
-    autoplay
-    navigation
-    centered-slides
-    watch-slides-progress
+
+    loop centered-slides autoplay navigation watch-slides-progress
     slides-per-view="auto"
     :looped-slides="5"
     :modules="[Navigation, Autoplay, Pagination]"

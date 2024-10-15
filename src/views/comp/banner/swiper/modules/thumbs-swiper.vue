@@ -36,7 +36,7 @@ function setThumbsSwiper(swiper: SwiperClass) {
     <Swiper
       class="swiper-thumbs h-1/5 !pt-2.5"
 
-      loop free-mode watch-slides-progress
+      loop watch-slides-progress free-mode
       :space-between="10"
       :slides-per-view="5"
       :modules="[FreeMode, Navigation, Thumbs]"

@@ -34,6 +34,16 @@ const iframe: MenuRecordRaw = {
           },
         },
         {
+          path: 'vue-router',
+          name: 'IframeInlineVueRouter',
+          component: () => import('@/views/iframe/inline/vue-router.vue'),
+          meta: {
+            icon: 'logos:vue',
+            title: 'routes.iframe.vue-router',
+            isKeepAlive: false,
+          },
+        },
+        {
           path: 'vite',
           name: 'IframeInlineVite',
           component: () => import('@/views/iframe/inline/vite.vue'),
@@ -50,6 +60,16 @@ const iframe: MenuRecordRaw = {
           meta: {
             icon: 'logos:pinia',
             title: 'routes.iframe.pinia',
+            isKeepAlive: false,
+          },
+        },
+        {
+          path: 'unocss',
+          name: 'IframeInlineUnoCss',
+          component: () => import('@/views/iframe/inline/unocss.vue'),
+          meta: {
+            icon: 'logos:unocss',
+            title: 'routes.iframe.unocss',
             isKeepAlive: false,
           },
         },

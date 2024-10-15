@@ -18,9 +18,8 @@ const imgs = getRandomImg(8) as string[]
 <template>
   <Swiper
     effect="creative"
-    centered-slides
-    loop
-    grab-cursor
+
+    loop grab-cursor centered-slides
     :creative-effect="creativeEffect"
     :pagination="{
       clickable: true,
