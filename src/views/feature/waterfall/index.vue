@@ -57,8 +57,8 @@ const options = reactive({
     error: errorImg,
     ratioCalculator: () => {
       // 设置最小宽高比
-      const minRatio = random(3, 4, true)
-      const maxRatio = random(3, 4, true)
+      const minRatio = random(3, 4, false)
+      const maxRatio = random(3, 4, false)
       return minRatio / maxRatio
     },
   },
@@ -70,6 +70,8 @@ const options = reactive({
   align: 'center',
 })
 
+const backgroundColor = computed(() => isDark.value ? '#222' : '#fff')
+
 // 渲染完成
 function afterRender() {
   loading.value = false
@@ -77,14 +79,19 @@ function afterRender() {
 </script>
 
 <template>
-  <div v-loading="loading" class="h-screen">
-    <Waterfall :list="list" v-bind="options" @after-render="afterRender">
-      <template #default="{ item }">
-        <div class="waterfall-card">
-          <LazyImg :url="item.url" />
-        </div>
-      </template>
-    </Waterfall>
+  <div v-loading="loading" class="h-full overflow-hidden b-rd-1">
+    <div class="h-full overflow-y-auto">
+      <Waterfall :list="list" v-bind="options" :background-color="backgroundColor" @after-render="afterRender">
+        <template #default="{ item }">
+          <div class="waterfall-card">
+            <LazyImg
+              :url="item.url"
+              class="cursor-pointer b-rd-2 transition-all duration-300 ease-linear group-hover:scale-105"
+            />
+          </div>
+        </template>
+      </Waterfall>
+    </div>
   </div>
 </template>
 
