@@ -32,7 +32,7 @@ function useList() {
     moreLoading.value = true
     setTimeout(() => {
       page.value += 1
-      list.value.push(...getList(20))
+      list.value.push(...getList(24))
       moreLoading.value = false
     }, 1000)
   }

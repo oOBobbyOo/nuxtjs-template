@@ -87,7 +87,7 @@ export function getRandomImg(size = 1) {
 
   // 匹配该目录下所有的图片
   const images: string[] = []
-  for (let i = 1; i <= 20; i += 1) {
+  for (let i = 1; i <= 32; i += 1) {
     const img = new URL(`../assets/img/${i}.jpg`, import.meta.url).href
     images.push(img)
   }
