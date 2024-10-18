@@ -13,7 +13,7 @@ function onImgAdd(pos: number, file: File) {
 </script>
 
 <template>
-  <mavon-editor v-model="value" style="height: 450px" @change="onChange" @imgAdd="onImgAdd" />
+  <mavon-editor v-model="value" style="height: 450px" @change="onChange" @img-add="onImgAdd" />
 </template>
 
 <style scoped></style>
