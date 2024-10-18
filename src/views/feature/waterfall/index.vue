@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { ViewCard } from 'vue-waterfall-plugin-next/dist/types/types/waterfall'
 import { LazyImg, Waterfall } from 'vue-waterfall-plugin-next'
 import 'vue-waterfall-plugin-next/dist/style.css'
 
@@ -11,9 +12,39 @@ import { getRandomImg } from '@/utils'
 
 const getList = (pageSize = 10) => times(pageSize, () => ({ id: nanoid(), url: getRandomImg() }))
 
-const list = ref(getList(50))
-
 const loading = ref(true)
+const moreLoading = ref(false)
+
+function useList() {
+  const pages = ref(5) // 总页数
+  const page = ref(0) // 当前页数
+  const list = ref<ViewCard[]>([])
+
+  function handleChangePage(val: number) {
+    page.value = val
+    handleLoadMore()
+  }
+
+  // 加载更多
+  function handleLoadMore() {
+    if (page.value >= pages.value)
+      return
+    moreLoading.value = true
+    setTimeout(() => {
+      page.value += 1
+      list.value.push(...getList(20))
+      moreLoading.value = false
+    }, 1000)
+  }
+
+  return {
+    list,
+    page,
+    pages,
+    handleLoadMore,
+    handleChangePage,
+  }
+}
 
 const options = reactive({
   // 唯一key值
@@ -72,6 +103,17 @@ const options = reactive({
 
 const backgroundColor = computed(() => isDark.value ? '#222' : '#fff')
 
+const {
+  list,
+  page,
+  pages,
+  handleLoadMore,
+} = useList()
+
+onMounted(() => {
+  handleLoadMore()
+})
+
 // 渲染完成
 function afterRender() {
   loading.value = false
@@ -91,6 +133,19 @@ function afterRender() {
           </div>
         </template>
       </Waterfall>
+      <div v-show="!loading" class="flex justify-center py-6">
+        <button
+          v-if="page < pages"
+          class="flex cursor-pointer items-center gap-1 rounded-full bg-gray-700 px-5 py-2 text-sm text-white transition-all duration-300 hover:bg-gray-800"
+          @click="handleLoadMore"
+        >
+          <Icon v-show="moreLoading" icon="line-md:loading-twotone-loop" size="18" />
+          加载更多
+        </button>
+        <p v-else class="py-2 text-sm text-gray-500">
+          已经触底了O(∩_∩)O~
+        </p>
+      </div>
     </div>
   </div>
 </template>
