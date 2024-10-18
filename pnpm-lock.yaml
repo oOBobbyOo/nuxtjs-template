@@ -161,6 +161,9 @@ importers:
       vue-router:
         specifier: ^4.4.5
         version: 4.4.5(vue@3.5.12(typescript@5.2.2))
+      vue-waterfall-plugin-next:
+        specifier: ^2.6.0
+        version: 2.6.0
       xgplayer:
         specifier: ^3.0.9
         version: 3.0.9(core-js@3.37.0)
@@ -5599,6 +5602,9 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: '*'
+
+  vue-waterfall-plugin-next@2.6.0:
+    resolution: {integrity: sha512-GgovHXWkEP0flI/60GPeTC9vQAnYXLfhohAe8BudIljlcpBS+UCFXOS+S7FCsoujhvdcUY1heKxZglf13KGl9g==}
 
   vue@3.5.12:
     resolution: {integrity: sha512-CLVZtXtn2ItBIi/zHZ0Sg1Xkb7+PU32bJJ8Bmy7ts3jxXTcbfsEfBivFYYWz1Hur+lalqGAh65Coin0r+HRUfg==}
@@ -12004,6 +12010,8 @@ snapshots:
       '@vue/typescript': 1.8.15(typescript@5.2.2)
       semver: 7.5.4
       typescript: 5.2.2
+
+  vue-waterfall-plugin-next@2.6.0: {}
 
   vue@3.5.12(typescript@5.2.2):
     dependencies:

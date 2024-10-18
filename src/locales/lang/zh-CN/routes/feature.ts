@@ -9,4 +9,5 @@ export default {
   colorthief: '图片取色盘',
   colorpicker: '拾色器',
   vueoffice: '文件预览',
+  waterfall: '瀑布流',
 }

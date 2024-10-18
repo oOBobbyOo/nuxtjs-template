@@ -103,6 +103,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'waterfall',
+      name: 'Waterfall',
+      component: () => import('@/views/feature/waterfall/index.vue'),
+      meta: {
+        icon: 'icon-park-outline:waterfalls-h',
+        title: 'routes.feature.waterfall',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 
