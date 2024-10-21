@@ -104,6 +104,16 @@ const feature: MenuRecordRaw = {
       },
     },
     {
+      path: 'vue-flow',
+      name: 'VueFlow',
+      component: () => import('@/views/feature/vueflow/index.vue'),
+      meta: {
+        icon: 'ri:flow-chart',
+        title: 'routes.feature.vueflow',
+        isKeepAlive: true,
+      },
+    },
+    {
       path: 'waterfall',
       name: 'Waterfall',
       component: () => import('@/views/feature/waterfall/index.vue'),

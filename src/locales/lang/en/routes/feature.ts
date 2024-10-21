@@ -9,5 +9,6 @@ export default {
   colorthief: 'Colorthief',
   colorpicker: 'Colorpicker',
   vueoffice: 'VueOffice',
+  vueflow: 'VueFlow',
   waterfall: 'Waterfall',
 }
