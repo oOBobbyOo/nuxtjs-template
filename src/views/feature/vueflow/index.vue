@@ -1,11 +1,9 @@
 <script setup lang="ts">
-
+import RGBFlow from './flows/RGB.vue'
 </script>
 
 <template>
-  <div>
-    vue flow
-  </div>
+  <RGBFlow />
 </template>
 
 <style scoped>
