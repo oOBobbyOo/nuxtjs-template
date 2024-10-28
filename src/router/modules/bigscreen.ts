@@ -5,7 +5,7 @@ const bigscreen: MenuRecordRaw = {
   name: 'BigScreen',
   component: () => import('@/views/bigscreen/index.vue'),
   meta: {
-    orderNo: 12,
+    orderNo: 13,
     icon: 'ant-design:fund-projection-screen-outlined',
     title: 'routes.bigscreen.bigscreen',
     hide: true,

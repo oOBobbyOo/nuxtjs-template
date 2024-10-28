@@ -7,7 +7,7 @@ const exception: MenuRecordRaw = {
   component: Layout,
   redirect: '/exception/403',
   meta: {
-    orderNo: 9,
+    orderNo: 10,
     icon: 'ant-design:exception-outlined',
     title: 'routes.exception.exception',
     isKeepAlive: true,

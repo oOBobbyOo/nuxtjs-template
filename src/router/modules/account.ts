@@ -7,7 +7,7 @@ const account: MenuRecordRaw = {
   component: Layout,
   redirect: '/account/center',
   meta: {
-    orderNo: 8,
+    orderNo: 9,
     icon: 'material-symbols:account-circle',
     title: 'routes.account.account',
     isKeepAlive: true,

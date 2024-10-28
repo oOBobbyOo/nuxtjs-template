@@ -7,7 +7,7 @@ const about: MenuRecordRaw = {
   component: Layout,
   redirect: '/about/index',
   meta: {
-    orderNo: 11,
+    orderNo: 12,
     icon: 'fluent:book-information-24-regular',
     title: 'routes.about.about',
     hideInMenu: true,
