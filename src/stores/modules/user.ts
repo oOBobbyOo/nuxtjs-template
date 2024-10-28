@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { Nullable } from '@/typings'
 import type { UserInfo } from '@/typings/store'
-import { TOKEN_KEY, USER_INFO_KEY } from '@/enums/cacheEnum'
+import { ROLES_KEY, TOKEN_KEY, USER_INFO_KEY } from '@/enums/cacheEnum'
 import { getAuthCache, setAuthCache } from '@/utils/auth'
 
 interface UserState {
@@ -32,6 +32,7 @@ export const useUserStore = defineStore('user', {
       this.userInfo = info
       this.lastUpdateTime = new Date().getTime()
       setAuthCache(USER_INFO_KEY, info)
+      setAuthCache(ROLES_KEY, info?.roles || [])
     },
     setToken(token: string | undefined) {
       this.token = token || ''
@@ -40,6 +41,7 @@ export const useUserStore = defineStore('user', {
     async resetStore() {
       setAuthCache(USER_INFO_KEY, null)
       setAuthCache(TOKEN_KEY, undefined)
+      setAuthCache(ROLES_KEY, [])
       this.setUserInfo(null)
       this.setToken(undefined)
       this.$reset()
