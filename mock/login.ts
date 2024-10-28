@@ -6,17 +6,31 @@ import { getRequestToken, requestFailed, requestSuccess } from './_util'
 export function createUserList() {
   return [
     {
+      username: 'super',
+      password: '123456',
+      token:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjM0NTYifQ.mustupdsA1k0jPjFL97e-C48dT-eLFjolAxiD8lOBkk',
+      roles: ['super'],
+    },
+    {
       username: 'admin',
       password: '123456',
       token:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjM0NTYifQ.mustupdsA1k0jPjFL97e-C48dT-eLFjolAxiD8lOBkk',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjM0NTYifQ.mustupdsA1k0jPjFL97e-C48dT-eLFjolAxiD8lOBkk',
       roles: ['admin'],
+    },
+    {
+      username: 'user',
+      password: '123456',
+      token:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjM0NTYifQ.mustupdsA1k0jPjFL97e-C48dT-eLFjolAxiD8lOBkk',
+      roles: ['user'],
     },
     {
       phone: '12345678999',
       captcha: '1234',
       token:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjEyMzQ1Njc4OTk5IiwiY2FwdGNoYSI6IjEyMzQifQ.P9u4J9o1QF39Zj3ipmg0POtUJx5PTRI1euq4u3Ia6Ss',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjEyMzQ1Njc4OTk5IiwiY2FwdGNoYSI6IjEyMzQifQ.P9u4J9o1QF39Zj3ipmg0POtUJx5PTRI1euq4u3Ia6Ss',
       roles: ['admin'],
     },
   ]
