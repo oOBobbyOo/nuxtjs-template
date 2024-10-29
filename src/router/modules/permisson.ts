@@ -11,7 +11,7 @@ const permission: MenuRecordRaw = {
     icon: 'icon-park-outline:permissions',
     title: 'routes.permission.permissions',
     hideInMenu: true,
-    isKeepAlive: true,
+    isKeepAlive: false,
   },
   children: [
     {
@@ -21,7 +21,7 @@ const permission: MenuRecordRaw = {
       meta: {
         icon: 'icon-park-solid:permissions',
         title: 'routes.permission.permission',
-        isKeepAlive: true,
+        isKeepAlive: false,
       },
     },
     {
@@ -31,7 +31,7 @@ const permission: MenuRecordRaw = {
       meta: {
         icon: 'material-symbols:supervised-user-circle',
         title: 'routes.permission.superVisible',
-        isKeepAlive: true,
+        isKeepAlive: false,
       },
     },
   ],

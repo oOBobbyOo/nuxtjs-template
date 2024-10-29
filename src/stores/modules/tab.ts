@@ -134,7 +134,7 @@ export const useTabStore = defineStore('tab', {
         this.cacheTabs.splice(this.cacheTabs.indexOf(tab.name), 1)
       isKeepAlive && this.cacheTabs.unshift(tab.name)
     },
-    resetTabStore() {
+    async resetStore() {
       this.$reset()
     },
   },

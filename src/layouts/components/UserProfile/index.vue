@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from '@/hooks/web/useI18n'
 import { useUserStore } from '@/stores/modules/user'
-import { usePermissionStore } from '@/stores/modules/permission'
-import { logout } from '@/api/login'
+import { useLogin } from '@/hooks/web/useLogin'
 
 defineOptions({ name: 'UserProfile' })
 
-const { getUserInfo, resetStore: userResetStore } = useUserStore()
-const { resetStore: permissionResetStore } = usePermissionStore()
+const { getUserInfo } = useUserStore()
 
 const { t } = useI18n()
 
@@ -31,29 +29,15 @@ const userItems = [
 ]
 
 const { routerPush } = useRouterPush()
+const { logout } = useLogin()
 
 function handleLogout() {
   ElMessageBox.confirm('您是否确认退出登录?', '温馨提示 🧡', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
     type: 'warning',
-  }).then(async () => {
-    try {
-      await logout()
-
-      // 重置信息
-      await userResetStore()
-      await permissionResetStore()
-
-      // 重定向到登录页
-      routerPush('/login')
-    }
-    catch (error) {
-      ElMessage({
-        message: '退出登录失败！',
-        type: 'error',
-      })
-    }
+  }).then(() => {
+    logout()
   })
 }
 
