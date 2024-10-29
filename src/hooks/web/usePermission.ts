@@ -7,7 +7,7 @@ import { isArray } from '@/utils/is'
 export function usePermission() {
   const permissionStore = usePermissionStore()
 
-  function hasPermission(permission: RoleEnum | RoleEnum[] | string | string[]): boolean {
+  function hasPermission(permission?: RoleEnum | RoleEnum[] | string | string[]): boolean {
     if (!permission)
       return true
 

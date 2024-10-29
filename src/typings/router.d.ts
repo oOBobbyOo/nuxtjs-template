@@ -9,6 +9,7 @@ export interface MenuMeta extends RouteMeta {
   href?: string // 外链
   isKeepAlive?: boolean // 是否缓存
   transition?: string // 页面切换动画
+  roles?: RoleEnum | RoleEnum[] // 角色权限
 }
 
 export type MenuRecordRaw = RouteRecordRaw & {

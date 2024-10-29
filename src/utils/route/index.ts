@@ -5,8 +5,9 @@ import type {
 } from 'vue-router'
 import type { Tab } from '@/typings/store'
 import type { MenuMeta, MenuRecordRaw } from '@/typings/router'
-import { dynamicRoutes } from '@/router/routes/dynamic'
 import { isValidArray } from '@/utils/is'
+import { usePermission } from '@/hooks/web/usePermission'
+import { usePermissionStore } from '@/stores/modules/permission'
 
 export function hasFullPath(route: RouteRecordNormalized | RouteLocationNormalizedLoaded) {
   return Boolean((route as RouteLocationNormalizedLoaded).fullPath)
@@ -42,6 +43,23 @@ export function isInActiveTab(activeTab: string, fullPath: string) {
 
 export function filterTabRoutes(tabs: Tab[], fullPath: string) {
   return tabs.filter(tab => tab.fullPath !== fullPath)
+}
+
+export function generatePermissionRoutes(routes: MenuRecordRaw[]) {
+  const accessRoutes: MenuRecordRaw[] = []
+  const { hasPermission } = usePermission()
+  routes.forEach((route) => {
+    if (isValidArray(route.children)) {
+      accessRoutes.push({
+        ...route,
+        children: route.children.filter((item: MenuRecordRaw) => hasPermission(item.meta?.roles)),
+      })
+    }
+    else {
+      hasPermission(route.meta?.roles) && accessRoutes.push(route)
+    }
+  })
+  return accessRoutes
 }
 
 export function transformRouteToMenu(
@@ -90,7 +108,8 @@ export function sortMenus(menus: MenuRecordRaw[]) {
 }
 
 export function generateMenus() {
-  const menus = transformRouteToMenu(dynamicRoutes)
+  const permissionStore = usePermissionStore()
+  const menus = transformRouteToMenu(permissionStore.getAccessRoutes)
   return sortMenus(menus)
 }
 

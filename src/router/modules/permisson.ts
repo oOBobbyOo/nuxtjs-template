@@ -32,6 +32,7 @@ const permission: MenuRecordRaw = {
         icon: 'material-symbols:supervised-user-circle',
         title: 'routes.permission.superVisible',
         isKeepAlive: false,
+        roles: 'super',
       },
     },
   ],
