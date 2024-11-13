@@ -11,4 +11,5 @@ export default {
   vueoffice: '文件预览',
   vueflow: '流程图',
   waterfall: '瀑布流',
+  captcha: '验证码',
 }

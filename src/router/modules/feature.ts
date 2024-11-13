@@ -123,6 +123,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'captcha',
+      name: 'Captcha',
+      component: () => import('@/views/feature/captcha/index.vue'),
+      meta: {
+        icon: 'tabler:lock-code',
+        title: 'routes.feature.captcha',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 

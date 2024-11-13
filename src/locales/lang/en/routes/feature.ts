@@ -11,4 +11,5 @@ export default {
   vueoffice: 'VueOffice',
   vueflow: 'VueFlow',
   waterfall: 'Waterfall',
+  captcha: 'Captcha',
 }
