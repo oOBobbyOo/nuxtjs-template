@@ -1,4 +1,4 @@
-import { intersectionWith, isEqual, isInteger, mergeWith, sampleSize, unionWith } from 'lodash-es'
+import { intersectionWith, isEqual, isInteger, mergeWith, random, sampleSize, unionWith } from 'lodash-es'
 import { isArray, isObject } from './is'
 import type { TargetContext } from '@/typings'
 
@@ -95,3 +95,22 @@ export function getRandomImg(size = 1) {
   const result = sampleSize(images, size)
   return result.length === 1 ? result[0] : result
 }
+
+/**
+ * 生成随机颜色
+ * @param {number} min 最小值
+ * @param {number} max 最大值
+ * @returns {string} 返回随机颜色
+ */
+export function randomColor(min = 0, max = 255) {
+  // 生成三个介于 0 到 255 之间的随机数作为 RGB 的值
+  const r = random(min, max)
+  const g = random(min, max)
+  const b = random(min, max)
+  return `rgb(${r},${g},${b})`
+}
+
+/**
+ * 验证码字符
+ */
+export const codeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'

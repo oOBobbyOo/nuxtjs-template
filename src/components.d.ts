@@ -80,6 +80,7 @@ declare module 'vue' {
     Empty: typeof import('./components/Empty/index.vue')['default']
     ExceptionBase: typeof import('./components/ExceptionBase/index.vue')['default']
     G2Chart: typeof import('./components/Antv/G2Chart.vue')['default']
+    GeneraVerify: typeof import('./components/Captcha/GeneraVerify.vue')['default']
     Grid: typeof import('./components/Grid/index.vue')['default']
     GridItem: typeof import('./components/Grid/GridItem.vue')['default']
     Icon: typeof import('./components/Icon/index.vue')['default']
