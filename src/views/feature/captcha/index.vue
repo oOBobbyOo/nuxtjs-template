@@ -4,6 +4,9 @@ import GraphicCode from './modules/graphic-code.vue'
 
 // 运算验证码
 import OperationCode from './modules/operation-code.vue'
+
+// 滑块验证码
+import DragCode from './modules/drag-code.vue'
 </script>
 
 <template>
@@ -14,6 +17,9 @@ import OperationCode from './modules/operation-code.vue'
       </el-col>
       <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8" class="mb-4">
         <OperationCode />
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8" class="mb-4">
+        <DragCode />
       </el-col>
     </el-row>
   </div>

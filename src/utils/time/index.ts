@@ -52,3 +52,11 @@ export function getTimeState(): string {
 export function formatPadZero(n: number): string {
   return n.toString().padStart(2, '0')
 }
+
+/**
+ * @description 获取 Unix 时间戳 (毫秒)
+ * @param time 时间
+ */
+export function getDayjsValueOf(time?: string): number {
+  return dayjs(time).valueOf()
+}

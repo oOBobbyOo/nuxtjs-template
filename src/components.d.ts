@@ -21,6 +21,7 @@ declare module 'vue' {
     CropperImage: typeof import('./components/Cropper/CropperImage.vue')['default']
     CropperModal: typeof import('./components/Cropper/CropperModal.vue')['default']
     Dialog: typeof import('./components/Dialog/index.vue')['default']
+    DragVerify: typeof import('./components/Captcha/DragVerify.vue')['default']
     Drawer: typeof import('./components/Drawer/index.vue')['default']
     Echarts: typeof import('./components/Echarts/index.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
