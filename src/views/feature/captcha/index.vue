@@ -10,22 +10,28 @@ import DragCode from './modules/drag-code.vue'
 
 // 图片旋转验证码
 import RotateCode from './modules/rotate-code.vue'
+
+// 拼图验证码
+import PuzzleCode from './modules/puzzle-code.vue'
 </script>
 
 <template>
   <div class="space-y-4">
     <el-row :gutter="16">
-      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8" class="mb-4">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8" class="mb-4">
         <GraphicCode />
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8" class="mb-4">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8" class="mb-4">
         <OperationCode />
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8" class="mb-4">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8" class="mb-4">
         <DragCode />
       </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8" class="mb-4">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8" class="mb-4">
         <RotateCode />
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8" class="mb-4">
+        <PuzzleCode />
       </el-col>
     </el-row>
   </div>
