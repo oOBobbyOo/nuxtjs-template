@@ -309,6 +309,33 @@ const menus = [
           isKeepAlive: true,
         },
       },
+      {
+        path: 'vue-flow',
+        name: 'VueFlow',
+        meta: {
+          icon: 'ri:flow-chart',
+          title: 'routes.feature.vueflow',
+          isKeepAlive: true,
+        },
+      },
+      {
+        path: 'waterfall',
+        name: 'Waterfall',
+        meta: {
+          icon: 'icon-park-outline:waterfalls-h',
+          title: 'routes.feature.waterfall',
+          isKeepAlive: true,
+        },
+      },
+      {
+        path: 'captcha',
+        name: 'Captcha',
+        meta: {
+          icon: 'tabler:lock-code',
+          title: 'routes.feature.captcha',
+          isKeepAlive: true,
+        },
+      },
     ],
   },
   {
