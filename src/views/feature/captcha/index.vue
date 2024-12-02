@@ -13,6 +13,9 @@ import RotateCode from './modules/rotate-code.vue'
 
 // 拼图验证码
 import PuzzleCode from './modules/puzzle-code.vue'
+
+// 点选验证码
+import PointsCode from './modules/points-code.vue'
 </script>
 
 <template>
@@ -32,6 +35,9 @@ import PuzzleCode from './modules/puzzle-code.vue'
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8" class="mb-4">
         <PuzzleCode />
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8" class="mb-4">
+        <PointsCode />
       </el-col>
     </el-row>
   </div>

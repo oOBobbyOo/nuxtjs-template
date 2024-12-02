@@ -114,3 +114,21 @@ export function randomColor(min = 0, max = 255) {
  * 验证码字符
  */
 export const codeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
+/**
+ * 生成随机汉字
+ * @param {number} count 汉字个数
+ * @returns {string[]} 返回随机汉字
+ */
+export function randomHanzi(count = 1) {
+  const minCode = 0x4E00 // 汉字 Unicode 范围的最小值
+  const maxCode = 0x9FFF // 汉字 Unicode 范围的最大值
+
+  const hanziArray = []
+  for (let i = 0; i < count; i += 1) {
+    const randomCode = random(minCode, maxCode)
+    hanziArray.push(String.fromCodePoint(randomCode))
+  }
+
+  return hanziArray
+}
