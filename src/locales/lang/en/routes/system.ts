@@ -4,4 +4,5 @@ export default {
   role: 'Role',
   user: 'User',
   menu: 'Menu',
+  org: 'Org',
 }

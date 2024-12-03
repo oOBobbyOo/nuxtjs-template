@@ -185,6 +185,9 @@ importers:
       vue3-puzzle-vcode:
         specifier: ^1.1.7
         version: 1.1.7
+      vue3-tree-org:
+        specifier: ^4.2.2
+        version: 4.2.2(vue@3.5.12(typescript@5.2.2))
       xgplayer:
         specifier: ^3.0.9
         version: 3.0.9(core-js@3.37.0)
@@ -245,7 +248,7 @@ importers:
         version: 1.5.0
       postcss-less:
         specifier: ^6.0.0
-        version: 6.0.0(postcss@5.2.18)
+        version: 6.0.0(postcss@8.4.30)
       prettier:
         specifier: ^3.0.3
         version: 3.0.3
@@ -278,7 +281,7 @@ importers:
         version: 5.2.2
       unocss:
         specifier: ^0.56.4
-        version: 0.56.4(postcss@5.2.18)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
+        version: 0.56.4(postcss@8.4.30)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
       unplugin-auto-import:
         specifier: ^0.16.6
         version: 0.16.6(@vueuse/core@10.9.0(vue@3.5.12(typescript@5.2.2)))(rollup@3.29.4)
@@ -2408,9 +2411,6 @@ packages:
 
   copy-to-clipboard@3.3.3:
     resolution: {integrity: sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==}
-
-  core-js@3.33.1:
-    resolution: {integrity: sha512-qVSq3s+d4+GsqN0teRCJtM6tdEEXyWxjzbhVrCHmBS5ZTM0FS2MOS0D13dUXAWDUN6a+lHI/N1hF9Ytz6iLl9Q==}
 
   core-js@3.37.0:
     resolution: {integrity: sha512-fu5vHevQ8ZG4og+LXug8ulUtVxjOcEYvifJr7L5Bfq9GOztVqsKd9/59hUk2ZSbCrS3BqUr3EpaYGIYzq7g3Ug==}
@@ -5851,6 +5851,11 @@ packages:
   vue3-puzzle-vcode@1.1.7:
     resolution: {integrity: sha512-mW780dz7HKjrElnE60CeYSeHGidKBKHoMjTDYfqF21330rTkFOsfDK1FQKZ22MktgMtTEoS/imfpEDlM1cxY/g==}
 
+  vue3-tree-org@4.2.2:
+    resolution: {integrity: sha512-AG2SykyD6dw0jIyqBm8iuF9j9GWli6KrwudxR1RjULCCBTDFsoNm7MmP/weKT7wowN/sPk+e2RsnvEJMw2OJMw==}
+    peerDependencies:
+      vue: ^3.0.0
+
   vue@3.5.12:
     resolution: {integrity: sha512-CLVZtXtn2ItBIi/zHZ0Sg1Xkb7+PU32bJJ8Bmy7ts3jxXTcbfsEfBivFYYWz1Hur+lalqGAh65Coin0r+HRUfg==}
     peerDependencies:
@@ -7594,7 +7599,7 @@ snapshots:
       gzip-size: 6.0.0
       sirv: 2.0.3
 
-  '@unocss/postcss@0.56.4(postcss@5.2.18)':
+  '@unocss/postcss@0.56.4(postcss@8.4.30)':
     dependencies:
       '@unocss/config': 0.56.4
       '@unocss/core': 0.56.4
@@ -7602,7 +7607,7 @@ snapshots:
       css-tree: 2.3.1
       fast-glob: 3.3.1
       magic-string: 0.30.3
-      postcss: 5.2.18
+      postcss: 8.4.30
 
   '@unocss/preset-attributify@0.56.4':
     dependencies:
@@ -8568,7 +8573,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.23.2
       '@types/raf': 3.4.3
-      core-js: 3.33.1
+      core-js: 3.37.0
       raf: 3.4.1
       regenerator-runtime: 0.13.11
       rgbcolor: 1.0.1
@@ -8783,9 +8788,6 @@ snapshots:
   copy-to-clipboard@3.3.3:
     dependencies:
       toggle-selection: 1.0.6
-
-  core-js@3.33.1:
-    optional: true
 
   core-js@3.37.0: {}
 
@@ -10420,7 +10422,7 @@ snapshots:
       fflate: 0.4.8
     optionalDependencies:
       canvg: 3.0.10
-      core-js: 3.33.1
+      core-js: 3.37.0
       dompurify: 2.4.7
       html2canvas: 1.4.1
 
@@ -11144,9 +11146,9 @@ snapshots:
       postcss: 8.4.30
       postcss-safe-parser: 6.0.0(postcss@8.4.30)
 
-  postcss-less@6.0.0(postcss@5.2.18):
+  postcss-less@6.0.0(postcss@8.4.30):
     dependencies:
-      postcss: 5.2.18
+      postcss: 8.4.30
 
   postcss-prefix-selector@1.16.0(postcss@5.2.18):
     dependencies:
@@ -12243,13 +12245,13 @@ snapshots:
 
   universalify@2.0.0: {}
 
-  unocss@0.56.4(postcss@5.2.18)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0)):
+  unocss@0.56.4(postcss@8.4.30)(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0)):
     dependencies:
       '@unocss/astro': 0.56.4(rollup@3.29.4)(vite@4.4.9(@types/node@20.7.1)(less@4.2.0)(terser@5.26.0))
       '@unocss/cli': 0.56.4(rollup@3.29.4)
       '@unocss/core': 0.56.4
       '@unocss/extractor-arbitrary-variants': 0.56.4
-      '@unocss/postcss': 0.56.4(postcss@5.2.18)
+      '@unocss/postcss': 0.56.4(postcss@8.4.30)
       '@unocss/preset-attributify': 0.56.4
       '@unocss/preset-icons': 0.56.4
       '@unocss/preset-mini': 0.56.4
@@ -12564,6 +12566,11 @@ snapshots:
   vue-waterfall-plugin-next@2.6.0: {}
 
   vue3-puzzle-vcode@1.1.7: {}
+
+  vue3-tree-org@4.2.2(vue@3.5.12(typescript@5.2.2)):
+    dependencies:
+      core-js: 3.37.0
+      vue: 3.5.12(typescript@5.2.2)
 
   vue@3.5.12(typescript@5.2.2):
     dependencies:

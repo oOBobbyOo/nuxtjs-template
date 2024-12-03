@@ -562,6 +562,15 @@ const menus = [
           isKeepAlive: true,
         },
       },
+      {
+        path: 'org',
+        name: 'OrgManagement',
+        meta: {
+          icon: 'eos-icons:organization',
+          title: 'routes.system.org',
+          isKeepAlive: true,
+        },
+      },
     ],
   },
   {

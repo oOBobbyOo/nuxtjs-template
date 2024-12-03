@@ -53,6 +53,16 @@ const system: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'org',
+      name: 'OrgManagement',
+      component: () => import('@/views/system/org/index.vue'),
+      meta: {
+        icon: 'eos-icons:organization',
+        title: 'routes.system.org',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 
