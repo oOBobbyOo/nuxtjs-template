@@ -45,26 +45,39 @@ const style = ref({
 })
 
 // 节点拖拽结束前钩子
-function beforeDragEnd() { }
+function beforeDragEnd(node: any, targetNode: any) {
+  console.log('[ node, targetNode ] >>:', node, targetNode)
+}
 
 // 节点拖拽结束
-function nodeDragMove() { }
+function nodeDragMove(data: any) {
+  console.log('[ data ] >>:', data)
+}
 
 // 节点拖拽结束事件
-function nodeDragEnd() { }
+function nodeDragEnd(node: any, isSelf: any) {
+  console.log('[ node, isSelf ] >>:', node, isSelf)
+}
 
 // 右键菜单点击事件
-function onMenus() {
+function onMenus({ node, command }: { node: any; command: string }) {
+  console.log('[ node, command ] >>:', node, command)
 }
 
 // 节点展开事件
-function onExpand() { }
+function onExpand(e: MouseEvent, data: any) {
+  console.log('[ e, data ] >>:', e, data)
+}
 
 // 节点双击事件
-function onNodeDblclick() { }
+function onNodeDblclick(e: MouseEvent, data: any) {
+  console.log('[ e, data ] >>:', e, data)
+}
 
 // 节点点击事件
-function onNodeClick() { }
+function onNodeClick(e: MouseEvent, data: any) {
+  console.log('[ e, data ] >>:', e, data)
+}
 </script>
 
 <template>
