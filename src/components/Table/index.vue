@@ -198,7 +198,7 @@ defineExpose({
 
     <!-- 表格主体 -->
     <div class="table-content">
-      <div class="table-header items-center; flex justify-between">
+      <div class="table-header flex items-center justify-between">
         <div class="flex items-center space-x-2">
           <div v-if="title" class="table-title">
             {{ title }}

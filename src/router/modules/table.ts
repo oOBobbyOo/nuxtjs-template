@@ -43,6 +43,16 @@ const table: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'vxeTable',
+      name: 'VxeTable',
+      component: () => import('@/views/table/vxeTable/index.vue'),
+      meta: {
+        icon: 'ic:round-table-view',
+        title: 'routes.table.vxeTable',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 

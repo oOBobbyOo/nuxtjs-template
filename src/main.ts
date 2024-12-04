@@ -5,7 +5,7 @@ import 'virtual:uno.css'
 import '@/styles/global.less'
 
 import App from './App.vue'
-import { setupDayjs, setupLoading, setupMavonEditor, setupViewer } from '@/plugins'
+import { setupDayjs, setupLoading, setupMavonEditor, setupViewer, setupVxeTable } from '@/plugins'
 import { setupStore } from '@/stores'
 import { setupI18n } from '@/locales'
 import { setupRouter } from '@/router'
@@ -24,6 +24,9 @@ async function bootstrap() {
 
   // 配置 viewer
   setupViewer(app)
+
+  // 配置 vxeTable
+  setupVxeTable(app)
 
   // 配置 store
   setupStore(app)
