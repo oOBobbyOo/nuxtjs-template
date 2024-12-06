@@ -57,6 +57,10 @@ const options = reactive({
   width: 320,
   // 自定义行显示个数，主要用于对移动端的适配
   breakpoints: {
+    1680: {
+      // 当屏幕宽度小于等于1680
+      rowPerView: 5,
+    },
     1200: {
       // 当屏幕宽度小于等于1200
       rowPerView: 4,
