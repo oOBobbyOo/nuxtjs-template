@@ -43,7 +43,7 @@ function setTransition(swiper: SwiperClass, transition: number) {
   <Swiper
     class="swiper-custom swiper-visual"
 
-    loop autoplay navigation centered-slides watch-slides-progress
+    loop navigation watch-slides-progress autoplay centered-slides
     slides-per-view="auto"
     :looped-slides="5"
     :modules="[Navigation, Autoplay, Pagination]"

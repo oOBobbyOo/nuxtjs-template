@@ -74,6 +74,16 @@ const feature: MenuRecordRaw = {
       },
     },
     {
+      path: 'img-rotate',
+      name: 'ImgRotate',
+      component: () => import('@/views/feature/imgrotate/index.vue'),
+      meta: {
+        icon: 'material-symbols:crop-rotate',
+        title: 'routes.feature.imgrotate',
+        isKeepAlive: true,
+      },
+    },
+    {
       path: 'colorthief',
       name: 'Colorthief',
       component: () => import('@/views/feature/colorthief/index.vue'),

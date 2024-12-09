@@ -6,6 +6,7 @@ export default {
   draggable: '拖拽',
   pinyin: '拼音',
   lazyload: '懒加载',
+  imgrotate: '图片旋转',
   colorthief: '图片取色盘',
   colorpicker: '拾色器',
   vueoffice: '文件预览',

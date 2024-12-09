@@ -6,6 +6,7 @@ export default {
   draggable: 'Draggable',
   pinyin: 'Pinyin',
   lazyload: 'Lazyload',
+  imgrotate: 'ImgRotate',
   colorthief: 'Colorthief',
   colorpicker: 'Colorpicker',
   vueoffice: 'VueOffice',
