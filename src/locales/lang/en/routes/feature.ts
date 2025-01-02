@@ -13,4 +13,5 @@ export default {
   vueflow: 'VueFlow',
   waterfall: 'Waterfall',
   captcha: 'Captcha',
+  esign: 'Esign',
 }

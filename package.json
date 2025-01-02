@@ -79,6 +79,7 @@
     "vue-print-next": "^1.0.8",
     "vue-router": "^4.4.5",
     "vue-waterfall-plugin-next": "^2.6.0",
+    "vue3-esign": "^1.0.6",
     "vue3-puzzle-vcode": "^1.1.7",
     "vue3-tree-org": "^4.2.2",
     "vxe-pc-ui": "^4.3.16",

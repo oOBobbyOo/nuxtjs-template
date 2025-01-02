@@ -336,6 +336,15 @@ const menus = [
           isKeepAlive: true,
         },
       },
+      {
+        path: 'esign',
+        name: 'Esign',
+        meta: {
+          icon: 'fluent:signature-16-regular',
+          title: 'routes.feature.esign',
+          isKeepAlive: true,
+        },
+      },
     ],
   },
   {

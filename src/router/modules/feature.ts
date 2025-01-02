@@ -143,6 +143,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'esign',
+      name: 'Esign',
+      component: () => import('@/views/feature/esign/index.vue'),
+      meta: {
+        icon: 'fluent:signature-16-regular',
+        title: 'routes.feature.esign',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 
