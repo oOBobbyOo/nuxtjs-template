@@ -14,4 +14,5 @@ export default {
   waterfall: 'Waterfall',
   captcha: 'Captcha',
   esign: 'Esign',
+  flipclock: 'Flipclock',
 }

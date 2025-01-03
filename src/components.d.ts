@@ -81,6 +81,8 @@ declare module 'vue' {
     ElUpload: typeof import('element-plus/es')['ElUpload']
     Empty: typeof import('./components/Empty/index.vue')['default']
     ExceptionBase: typeof import('./components/ExceptionBase/index.vue')['default']
+    FlipClock: typeof import('./components/FlipClock/index.vue')['default']
+    Flipper: typeof import('./components/FlipClock/Flipper.vue')['default']
     G2Chart: typeof import('./components/Antv/G2Chart.vue')['default']
     GeneraVerify: typeof import('./components/Captcha/GeneraVerify.vue')['default']
     Grid: typeof import('./components/Grid/index.vue')['default']

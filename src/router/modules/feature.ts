@@ -153,6 +153,16 @@ const feature: MenuRecordRaw = {
         isKeepAlive: true,
       },
     },
+    {
+      path: 'flipclock',
+      name: 'FlipClock',
+      component: () => import('@/views/feature/flipclock/index.vue'),
+      meta: {
+        icon: 'material-symbols:alarm',
+        title: 'routes.feature.flipclock',
+        isKeepAlive: true,
+      },
+    },
   ],
 }
 

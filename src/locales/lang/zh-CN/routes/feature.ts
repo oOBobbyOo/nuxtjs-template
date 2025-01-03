@@ -14,4 +14,5 @@ export default {
   waterfall: '瀑布流',
   captcha: '验证码',
   esign: '电子签名',
+  flipclock: '翻牌倒计时',
 }
