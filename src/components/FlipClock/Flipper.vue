@@ -3,26 +3,29 @@ defineOptions({ name: 'Flipper' })
 
 const props = withDefaults(defineProps<FlipperProps>(), {
   frontText: 0,
-  backText: 1,
+  backText: 0,
   duration: 600,
+  flipType: 'down',
 })
+
 const isFlipping = ref(false)
-const flipType = ref('down')
-const frontTextFromData = ref(0)
-const backTextFromData = ref(1)
+const flipType = ref(props.flipType)
+const frontTextFromData = ref<number | string>(0)
+const backTextFromData = ref<number | string>(1)
 
 interface FlipperProps {
-  frontText?: number // 前牌文字
-  backText?: number // 后牌文字
+  frontText?: number | string // 前牌文字
+  backText?: number | string // 后牌文字
   duration?: number // 翻牌动画时间
+  flipType?: string // 翻牌类型
 }
 
-function _textClass(num: number) {
+function _textClass(num: number | string) {
   return `number${num}`
 }
 
 // 翻牌方法
-function _flip(type: string, front: number, back: number) {
+function _flip(type: string, front: number | string, back: number | string) {
   if (isFlipping.value)
     return false
   frontTextFromData.value = front
@@ -46,18 +49,28 @@ function flipUp(front: number, back: number) {
 }
 
 // 设置前牌文字方法
-function setFront(text: number) {
+function setFront(text: number | string) {
   frontTextFromData.value = text
 }
 
 // 设置后牌文字方法
-function setBack(text: number) {
+function setBack(text: number | string) {
   backTextFromData.value = text
 }
 
 onMounted(() => {
   frontTextFromData.value = props.frontText
   backTextFromData.value = props.backText
+})
+
+watch(() => props.frontText, (newVal) => {
+  if (Number(newVal) >= 0)
+    setFront(newVal)
+})
+
+watch(() => props.backText, (newVal) => {
+  if (Number(newVal) >= 0)
+    _flip(props.flipType, props.frontText, newVal)
 })
 
 defineExpose({
@@ -97,6 +110,7 @@ defineExpose({
     position: absolute;
     left: 0;
     right: 0;
+    background: #000;
     overflow: hidden;
     box-sizing: border-box;
   }
