@@ -26,6 +26,16 @@ export function formatToDateTime(
 }
 
 /**
+ * @description 剩余多少时间
+ * @param {dayjs.OpUnitType} type
+ */
+export function remainTime(type: dayjs.OpUnitType = 'day'): number {
+  const now = dayjs()
+  const end = dayjs().endOf(type)
+  return end.diff(now)
+}
+
+/**
  * @description 获取当前时间对应的提示语
  */
 export function getTimeState(): string {
@@ -62,6 +72,11 @@ export function getDayjsValueOf(time?: string): number {
   return dayjs(time).valueOf()
 }
 
+/**
+ * @description 时间补0
+ * @param {number} num
+ * @param {number} targetLength
+ */
 export function padZero(num: number, targetLength = 2): string {
   let str = `${num}`
   while (str.length < targetLength)
@@ -70,6 +85,11 @@ export function padZero(num: number, targetLength = 2): string {
   return str
 }
 
+/**
+ * 时间格式化
+ * @param {string} format
+ * @param {CurrentTime} currentTime
+ */
 export function parseFormat(format: string, currentTime: CurrentTime): string {
   const { days } = currentTime
   let { hours, minutes, seconds, milliseconds } = currentTime
