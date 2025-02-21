@@ -1,6 +1,7 @@
 # vue-vite-admin
 
 ## 使用步骤
+
 ```bash
 ## Install（安装）
 pnpm install
@@ -23,3 +24,7 @@ pnpm lint:style
 ## IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+## Preview
+
+![Preview](./snapshots/view.gif)
