@@ -27,4 +27,8 @@ pnpm lint:style
 
 ## Preview
 
-![Preview](./snapshots/view.gif)
+| ![login](./snapshots/0.jpg) | ![index](./snapshots/1.jpg) |
+| :------------------------:  | :-------------------------: |
+| ![dark](./snapshots/2.jpg) | ![map](./snapshots/3.jpg) |
+| ![bar](./snapshots/4.jpg) | ![lazyload](./snapshots/5.jpg) |
+| ![swiper](./snapshots/6.jpg) | ![table](./snapshots/7.jpg) |
