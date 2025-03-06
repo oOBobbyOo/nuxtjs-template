@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'transitions';
-@import 'theme';
+@use 'variables';
+@use 'transitions';
+@use 'theme';
 
 ::-webkit-scrollbar {
   width: 6px;

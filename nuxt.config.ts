@@ -11,6 +11,7 @@ const twitterUser = '@bobby'
 export default defineNuxtConfig({
   extends: '@nuxt-themes/docus',
   devtools: { enabled: true },
+
   app: {
     head: {
       charset: 'utf-8',
@@ -46,12 +47,14 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
+
   runtimeConfig: {
     public: {
       baseAPI: process.env.NUXT_PUBLIC_BASE_API,
       mdc: {},
     },
   },
+
   modules: [
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
@@ -64,18 +67,23 @@ export default defineNuxtConfig({
     'nuxt-swiper',
     '@nuxt/image',
   ],
+
   experimental: {
     reactivityTransform: true,
     inlineSSRStyles: false,
   },
+
   css: ['@unocss/reset/tailwind.css', '@/assets/styles/global.scss'],
+
   colorMode: {
     classSuffix: '',
   },
+
   // @see https://nuxt.com/docs/guide/concepts/auto-imports
   imports: {
     dirs: ['./stores', '~/stores'],
   },
+
   pinia: {
     autoImports: [
       'defineStore',
@@ -83,8 +91,10 @@ export default defineNuxtConfig({
       ['defineStore', 'definePiniaStore'],
     ],
   },
+
   // @see https://image.nuxt.com/get-started/installation
   image: {},
+
   // @see https://content.nuxt.com/get-started/installation
   content: {
     markdown: {
@@ -115,6 +125,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   // @see https://i18n.nuxtjs.org/docs/getting-started
   i18n: {
     langDir: 'i18n',
@@ -140,4 +151,6 @@ export default defineNuxtConfig({
       },
     ],
   },
+
+  compatibilityDate: '2025-03-06',
 })
