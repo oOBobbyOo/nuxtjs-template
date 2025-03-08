@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { data } = await useFetch('/api/examples')
+
 const examples = computed(() => data.value?.examples || [])
 </script>
 

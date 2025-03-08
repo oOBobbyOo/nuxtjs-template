@@ -4,6 +4,6 @@ export default defineAppConfig({
     links: {
       github: 'https://github.com/oOBobbyOo/nuxtjs-template',
     },
-    year: new Date().getFullYear(),
+    year: `2023 ~ ${new Date().getFullYear()}`,
   },
 })

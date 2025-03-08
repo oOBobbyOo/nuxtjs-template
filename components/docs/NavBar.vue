@@ -1,10 +1,11 @@
 <script setup lang="ts">
-const docsQuery = queryContent('docs')
+// const docsQuery = queryContent('docs')
 </script>
 
 <template>
   <div class="sticky top-0 z-20 hidden border-t border-transparent bg-white/75 px-6 shadow shadow-gray-200 backdrop-blur-md lg:block dark:bg-black/75 dark:shadow-gray-900">
-    <nav relative grid grid-cols-2 h-16 items-center justify-between gap3 sm:grid-cols-6>
+    11
+    <!-- <nav relative grid grid-cols-2 h-16 items-center justify-between gap3 sm:grid-cols-6>
       <ContentNavigation v-slot="{ navigation }" :query="docsQuery">
         <div flex items-center justify-start>
           <Icon name="logos:nuxt-icon" mr-3 h-6 w-auto cursor-pointer transition-all />
@@ -23,7 +24,7 @@ const docsQuery = queryContent('docs')
         </ul>
         <div flex justify-end gap-3 />
       </ContentNavigation>
-    </nav>
+    </nav> -->
   </div>
 </template>
 

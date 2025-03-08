@@ -1,12 +1,13 @@
 <script setup lang="ts">
-const showSideBar = ref(true)
-const docsQuery = queryContent('docs')
-const { isRouteActive } = useRouteActive()
+// const showSideBar = ref(true)
+// const docsQuery = queryContent('docs')
+// const { isRouteActive } = useRouteActive()
 </script>
 
 <template>
   <aside col-span-2 hidden overflow-x-hidden overflow-y-auto pb-8 lg:sticky lg:top-16 lg:block lg:self-start lg:pt-8 lg:-mt-8 sm:-mb-24>
-    <ContentNavigation v-slot="{ navigation }" :query="docsQuery">
+    222
+    <!-- <ContentNavigation v-slot="{ navigation }" :query="docsQuery">
       <ul v-if="showSideBar" px-1>
         <template v-for="nav in navigation" :key="nav._path">
           <li v-for="link in nav?.children" :key="link._path">
@@ -31,7 +32,7 @@ const { isRouteActive } = useRouteActive()
           </li>
         </template>
       </ul>
-    </ContentNavigation>
+    </ContentNavigation> -->
   </aside>
 </template>
 

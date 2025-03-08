@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
-  code: string
-  isHovered: boolean
+  code?: string
+  isHovered?: boolean
 }>(), {
   code: '',
   isHovered: false,
@@ -30,8 +30,7 @@ function copyCode() {
 
 <style scoped lang="scss">
 button {
-  --at-apply: b-rd-[3px] m-1 p-1 scale-75 opacity-0 transition-all-200 hover:
-    bg-gray-200 hover: dark: bg-gray-800;
+  --at-apply: b-rd-[3px] m-1 p-1 scale-75 opacity-0 transition-all-200 hover: bg-gray-200 hover: dark: bg-gray-800;
 
   &:focus {
     --color-blue-500: #1aadff;
