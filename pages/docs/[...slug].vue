@@ -1,70 +1,48 @@
 <script setup lang="ts">
-const route = useRoute()
+import type { ContentNavigationItem } from '@nuxt/content'
 
-const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection('content').path(route.path).first()
+const route = useRoute()
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
+
+definePageMeta({
+  layout: 'docs',
 })
+
+const { data } = await useAsyncData(route.path, () => Promise.all([
+  queryCollection('docs').path(route.path).first(),
+  queryCollectionItemSurroundings('docs', route.path, {
+    fields: ['title', 'description'],
+  }),
+]), {
+  transform: ([page, surround]) => ({ page, surround }),
+})
+if (!data.value || !data.value.page) {
+  throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+}
+
+const page = computed(() => data.value?.page)
+const surround = computed(() => data.value?.surround)
+const title = computed(() => (page.value?.navigation as { title: string })?.title || page.value?.title)
+
+const headline = computed(() => findPageHeadline(navigation!.value))
 </script>
 
 <template>
-  <div relative flex-1>
-    <section relative px-6 pb-16 pt-8 sm:pb-32>
-      <div>
-        sidebar
-      </div>
+  <UPage :ui="{
+    right: 'sticky top-[--header-height] bg-background/75 backdrop-blur group -mx-4 sm:-mx-6 px-4 sm:px-6 lg:px-4 lg:-mx-4 overflow-y-auto max-h-[calc(100vh-var(--header-height))] z-10'
+  }">
+    <UPageHeader v-bind="page">
+      <template #headline>
+        <!-- <UBreadcrumb :links="breadcrumb" /> -->
+      </template>
+    </UPageHeader>
 
-      <div relative grid grid-cols-12 gap-8>
-        <div relative col-span-10 lg:col-span-8>
-          <section relative flex flex-col>
-            <template v-if="page">
-              <ContentRenderer :value="page" />
-            </template>
-            <template v-else>
-              <div class="grid min-h-[400px] place-items-center">
-                <div class="p-10 text-center">
-                  <h3 class="mb-2 text-2xl font-bold">
-                    404
-                  </h3>
-                  <p class="mb-6 text-sm text-gray-600">
-                    Document or page not found
-                  </p>
-                  <NuxtLink href="/">
-                    Back to home
-                  </NuxtLink>
-                </div>
-              </div>
-            </template>
-          </section>
-        </div>
-      </div>
-    </section>
+    <UPageBody prose class="dark:text-gray-300 dark:prose-pre:!bg-gray-800/60">
+      <ContentRenderer v-if="page && page.body" :value="page" />
 
-    <!-- <DocsNavBar />
-    <section relative px-6 pb-16 pt-8 sm:pb-32>
-      <div relative grid grid-cols-12 gap-8>
-        <DocsSideBar />
-        <div relative col-span-10 lg:col-span-8>
-          <section relative flex flex-col>
-            <ContentDoc>
-              <template #not-found>
-                <div class="grid min-h-[400px] place-items-center">
-                  <div class="p-10 text-center">
-                    <h3 class="mb-2 text-2xl font-bold">
-                      404
-                    </h3>
-                    <p class="mb-6 text-sm text-gray-600">
-                      Document or page not found
-                    </p>
-                    <NuxtLink href="/">
-                      Back to home
-                    </NuxtLink>
-                  </div>
-                </div>
-              </template>
-            </ContentDoc>
-          </section>
-        </div>
-      </div>
-    </section> -->
-  </div>
+      <USeparator v-if="surround?.length" />
+
+      <UContentSurround :surround="surround" />
+    </UPageBody>
+  </UPage>
 </template>

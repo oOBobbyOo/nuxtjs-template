@@ -10,6 +10,7 @@ const twitterUser = '@bobby'
 
 export default defineNuxtConfig({
   // extends: '@nuxt-themes/docus',
+  extends: ['@nuxt/ui-pro'],
   devtools: { enabled: true },
 
   app: {
@@ -65,6 +66,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-swiper',
     '@nuxt/image',
+    '@nuxt/ui',
   ],
 
   // @see https://nuxt.com/docs/api/nuxt-config#css
@@ -76,7 +78,7 @@ export default defineNuxtConfig({
   },
 
   content: {
-    
+   
   },
 
   // @see https://nuxt.com/modules/icon

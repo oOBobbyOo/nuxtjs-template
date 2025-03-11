@@ -2,11 +2,19 @@
 // const showSideBar = ref(true)
 // const docsQuery = queryContent('docs')
 // const { isRouteActive } = useRouteActive()
+
+
+const { data: navigation } = await useAsyncData('navigation', () => {
+  return queryCollectionNavigation('content')
+})
+
+const links = computed(() => (navigation?.value || []).find(link => link.stem === '/docs')?.children ?? [])
+console.log('[ links ] >>:', links)
 </script>
 
 <template>
   <aside col-span-2 hidden overflow-x-hidden overflow-y-auto pb-8 lg:sticky lg:top-16 lg:block lg:self-start lg:pt-8 lg:-mt-8 sm:-mb-24>
-    222
+    111
     <!-- <ContentNavigation v-slot="{ navigation }" :query="docsQuery">
       <ul v-if="showSideBar" px-1>
         <template v-for="nav in navigation" :key="nav._path">

@@ -7,7 +7,7 @@ const online = useOnline()
 </script>
 
 <template>
-  <div flex-center flex-1 flex-col>
+  <div flex-center flex-col h-full>
     <h1 text-center>
       <span class="text from-cyan-500 to-blue-500">
         <!-- {{ $t('welcome') }} -->

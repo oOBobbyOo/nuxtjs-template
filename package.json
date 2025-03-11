@@ -16,6 +16,7 @@
     "@nuxt-themes/docus": "^1.15.1",
     "@nuxt/content": "^3.3.0",
     "@nuxt/image": "^1.9.0",
+    "@nuxt/ui-pro": "^1.7.1",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/i18n": "^9.2.1",
     "@pinia/nuxt": "^0.10.1",
@@ -64,5 +65,6 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
-  }
+  },
+  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
 }
