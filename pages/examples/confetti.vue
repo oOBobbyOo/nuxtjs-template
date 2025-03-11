@@ -9,7 +9,7 @@ function onButtonClick() {
 </script>
 
 <template>
-  <div flex-center flex-col>
+  <div flex-center flex-col py-100>
     <button class="center z-1 btn" @click="onButtonClick">
       Click me
     </button>

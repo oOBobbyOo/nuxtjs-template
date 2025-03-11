@@ -3,7 +3,7 @@ useHead({ title: 'About' })
 </script>
 
 <template>
-  <div flex-center flex-1>
+  <div flex-center py-100>
     <h1 text-2xl>
       About Page
     </h1>

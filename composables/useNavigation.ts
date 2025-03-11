@@ -9,20 +9,18 @@ const _useNavigation = () => {
     return [{
       label: 'Docs',
       icon: 'i-ph-book-bookmark',
-      to: '/docs',
+      to: '/docs/getting-started/installation',
       search: false,
       children: [{
         label: 'Installation',
         description: 'Get started with Nuxt quickly with our online starters or start locally with your terminal.',
         icon: 'i-ph-rocket-launch',
         to: '/docs/getting-started/installation',
-        active: route.path.startsWith('/docs/getting-started/installation')
       }, {
         label: 'Configuration',
         description: 'Nuxt is configured with sensible defaults to make you productive.',
         icon: 'i-ph-book-open',
         to: '/docs/getting-started/configuration',
-        active: route.path.startsWith('/docs/getting-started/configuration')
       }]
     }, {
       label: 'Examples',

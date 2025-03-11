@@ -70,7 +70,7 @@ export default defineNuxtConfig({
   ],
 
   // @see https://nuxt.com/docs/api/nuxt-config#css
-  css: ['@unocss/reset/tailwind.css', '@/assets/styles/global.scss'],
+  css: ['@unocss/reset/tailwind.css', '@/styles/global.scss'],
 
   // @see https://nuxt.com/modules/color-mode
   colorMode: {

@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type { ContentNavigationItem } from '@nuxt/content'
+import type { NavItem }  from '@nuxt/content'
 
-const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
+const navigation = inject<Ref<NavItem[]>>('navigation')
 </script>
 
 <template>
   <UContainer>
     <UPage>
       <template #left>
-        <UPageAside>
-          <UContentNavigation :navigation="navigation" highlight />
-        </UPageAside>
+        <UAside>
+          <UNavigationTree :links="mapContentNavigation(navigation)" default-open />
+        </UAside>
       </template>
 
       <slot />

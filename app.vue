@@ -1,6 +1,13 @@
 <script setup lang="ts">
 const { headerLinks } = useNavigation()
 
+const { data: navigation } = await useLazyAsyncData('navigation', () => queryCollectionNavigation('docs'), {
+  transform: data => data.find(item => item.path === '/docs')?.children || []
+})
+
+// Provide
+provide('navigation', navigation)
+
 useSeoMeta({
   ogSiteName: 'Nuxt',
   ogType: 'website',
@@ -19,7 +26,6 @@ useSeoMeta({
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
-
     </UMain>
 
     <AppFooter />
